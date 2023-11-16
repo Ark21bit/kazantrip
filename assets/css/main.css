@@ -1,0 +1,63 @@
+@import '@unocss/reset/tailwind.css';
+
+body{
+    --at-apply: "font-Onest";
+}
+
+#__nuxt {
+    --at-apply: "flex min-h-screen flex-col justify-start";
+}
+
+.scrollbar-measure{
+    --at-apply: "w-20 h-20 overflow-scroll absolute -top-[9999px] bg-transparent"
+}
+
+body.modal-open {
+    --at-apply: "overflow-hidden mr-4.25";
+}
+body.modal-open-mobile {
+    --at-apply: "overflow-hidden mr-0";
+}
+
+.card-catalog-shadow, .partners-shadow{
+    box-shadow: 0px 4px 19px 0px rgba(0, 0, 0, 0.04), 0px 12px 35px 0px rgba(0, 0, 0, 0.04);
+}
+
+.transition-button {
+    transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, box-shadow;
+}
+
+@layer default{
+	body {
+		--at-apply: "flex flex-col relative font-Inter whitespace-pre-line bg-white [--width-content:1320px] [--width-content-margin:15px] sm:[--width-content-margin:20px] 1200px:[--width-content-margin:60px]";
+	}
+
+	.grid-container {
+        --at-apply: "grid";
+		grid-template-columns:
+			[full-start] minmax(var(--width-content-margin), 1fr)
+			[main-start] minmax(0, var(--width-content))
+			[main-end] minmax(var(--width-content-margin), 1fr) [full-end];		
+	}
+
+	.grid-container > * {
+		--at-apply: "col-[main]";
+	}
+
+	.wrapper {
+		--at-apply: "mx-auto w-[calc(100%-var(--width-content-margin)*2)] max-w-[var(--width-content)]";
+	}
+
+	.container {
+		--at-apply:"max-w-[var(--width-content)]";
+	}
+    
+    .scroll-h-0::-webkit-scrollbar {
+        height: 0;
+        max-height: 0;
+    }
+
+    .contain-paint{
+        contain: paint;
+    }
+}

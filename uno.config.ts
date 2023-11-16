@@ -5,7 +5,8 @@ export default defineConfig({
         presetUno(),
         presetWebFonts({
             fonts: {
-                Onest: { name: "Onest", weights: [400, 500, 600, 700, 800, 900] }
+                Onest: { name: "Onest", weights: [400, 500, 600, 700, 800, 900] },
+                Montserrat: { name: "Montserrat", weights: [400, 500, 600, 700, 800, 900] }
             },
         }),
         /* formKitUnocssPlugin() */
