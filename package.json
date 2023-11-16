@@ -12,12 +12,14 @@
   "devDependencies": {
     "@nuxt/devtools": "latest",
     "@unocss/nuxt": "^0.57.4",
-    "nuxt": "^3.8.1",
-    "vue": "^3.3.8",
-    "vue-router": "^4.2.5"
+    "nuxt": "^3.8.1"
   },
   "dependencies": {
+    "@nuxtjs/i18n": "^8.0.0-rc.5",
     "nuxt-icon": "^0.6.6",
     "swiper": "^11.0.4"
+  },
+  "overrides": {
+    "vue": "latest"
   }
 }

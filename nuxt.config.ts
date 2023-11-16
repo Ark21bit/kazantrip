@@ -1,7 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
     devtools: { enabled: true },
-    modules: ["@unocss/nuxt", "nuxt-icon"],
+    modules: ["@unocss/nuxt", "nuxt-icon", "@nuxtjs/i18n"],
     components: [
         { path: "~/components/atoms", pathPrefix: false },
         "~/components/reviews",
@@ -14,5 +14,10 @@ export default defineNuxtConfig({
             isCustomElement: (tag: string) =>
                 ["swiper-container", "swiper-slide"].includes(tag),
         },
+    },
+    i18n: {
+        locales: ['en', 'ru'],
+        defaultLocale: 'ru',
+        detectBrowserLanguage: false,
     },
 })
