@@ -1,5 +1,5 @@
 import { defineConfig, presetUno, presetWebFonts, transformerDirectives, transformerVariantGroup } from 'unocss'
-/* import formKitUnocssPlugin from "@formkit/themes/unocss" */
+import formKitUnocssPlugin from "@formkit/themes/unocss"
 export default defineConfig({
     presets: [
         presetUno(),
@@ -9,13 +9,13 @@ export default defineConfig({
                 Montserrat: { name: "Montserrat", weights: [400, 500, 600, 700, 800, 900] }
             },
         }),
-        /* formKitUnocssPlugin() */
+        formKitUnocssPlugin()
     ],
     content: {
         pipeline: {
             include: [
                 /\.(vue)($|\?)/,
-                /* './FormkitTheme.js' */
+                './FormkitTheme.js'
             ]
         }
     },    

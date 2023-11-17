@@ -21,6 +21,7 @@
     "swiper": "^11.0.4"
   },
   "overrides": {
-    "vue": "latest"
+    "vue": "latest",
+    "@unocss/nuxt": "^0.57.4"
   }
 }
