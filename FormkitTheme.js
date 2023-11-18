@@ -33,20 +33,20 @@ export default {
         suffixIcon: '$reset block w-4 ml-2 stretch',
     },
     'family:text': {
-        inner: 'flex items-center ring ring-#E8E8E8 ring-inset focus-within:ring-primary [&>label:first-child]:focus-within:text-blue-500 rounded-lg',
-        input: 'w-full px-4 py-3.75 text-base text-#28303F placeholder-#868686',
+        inner: 'flex items-center border border-#E8E8E8 focus-within:border-primary [&>label:first-child]:focus-within:text-blue-500 rounded-lg',
+        input: 'w-full px-3.75 py-3.5 text-base text-#28303F placeholder-#868686',
     },
     'family:date': {
-        inner: 'flex items-center ring ring-#E8E8E8 ring-inset focus-within:ring-primary [&>label:first-child]:focus-within:text-blue-500 rounded-lg',
-        input: 'w-full px-4 py-3.75 text-base text-#28303F placeholder-#868686',
+        inner: 'flex items-center border border-#E8E8E8 focus-within:border-primary [&>label:first-child]:focus-within:text-blue-500 rounded-lg',
+        input: 'w-full px-3.75 py-3.5 text-base text-#28303F placeholder-#868686',
     },
     radio: {
         decorator: 'rounded-full',
         decoratorIcon: 'w-5 p-1.25'
     },
     textarea: {
-        inner: 'flex ring ring-#E8E8E8 ring-inset focus-within:ring-primary [&>label:first-child]:focus-within:text-blue-500 rounded-lg',
-        input: 'block resize-none w-full px-4 py-3.75 text-base text-#28303F placeholder-#868686',
+        inner: 'flex border border-#E8E8E8 focus-within:border-primary [&>label:first-child]:focus-within:text-blue-500 rounded-lg',
+        input: 'block resize-none w-full px-3.75 py-3.5 text-base text-#28303F placeholder-#868686',
     },/* 
     counter: {
         input: 'w-7.5 p-0.5 text-center $remove:bg-transparent bg-#F2F8F8 rounded-1.25 font-medium text-base text-#28303F placeholder-#868686 leading-1.2 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none',
@@ -55,7 +55,7 @@ export default {
         increment: 'aspect-square hover:text-fblue transition-colors duration-500 easy-linear text-#28303F disabled:text-inactive'
     },
     selectC: {
-        inner: '$remove:overflow-hidden flex relative items-center ring ring-#E8E8E8 ring-inset focus-within:ring-primary [&>label:first-child]:focus-within:text-blue-500 rounded',
+        inner: '$remove:overflow-hidden flex relative items-center border border-#E8E8E8 focus-within:border-primary [&>label:first-child]:focus-within:text-blue-500 rounded',
         input: 'items-center py-3.5 px-3 text-#28303F appearance-none bg-transparent flex grow justify-between w-full',
         'dropdownWrapper': 'absolute mt-1.25 shadow-[0_4px_23px_0_rgba(0,0,0,0.07)] z-1 top-full overflow-auto min-w-full max-h-100',
         listbox: 'bg-white overflow-hidden rounded-lg',
@@ -65,7 +65,7 @@ export default {
         selectText:'min-h-1.4em text-base leading-1.2'
     },
     datepickerC:{
-        inner: '$remove:overflow-hidden flex items-center text-#28303F ring ring-#E8E8E8 ring-inset focus-within:ring-primary [&>label:first-child]:focus-within:text-blue-500 rounded leading-1.2',        
+        inner: '$remove:overflow-hidden flex items-center text-#28303F border border-#E8E8E8 focus-within:border-primary [&>label:first-child]:focus-within:text-blue-500 rounded leading-1.2',        
         inputIcon:'text-xl text-#112433 formkit-invalid:text-error',
         calendarIcon:'text-xl',
     },
