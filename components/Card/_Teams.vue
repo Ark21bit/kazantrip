@@ -1,5 +1,5 @@
 <template>
-    <component :is="tag" class="rounded-5 overflow-hidden card-catalog-shadow">
+    <component :is="tag" class="rounded-5 overflow-hidden shadow-base">
         <div class="h-62.25 lg:h-70.25 [&>img]:(w-full h-full object-cover object-center)">
             <img src="/imgs/team.png" alt="">
         </div>

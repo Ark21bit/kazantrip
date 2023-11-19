@@ -18,7 +18,7 @@ export default defineConfig({
                 './FormkitTheme.js'
             ]
         }
-    },    
+    },
     blocklist: [
         'container'
     ],
@@ -38,6 +38,9 @@ export default defineConfig({
             "offBlack": "#303030",
             "stellarExplorer": "#031F27",
         },
+        boxShadow: {
+            base: 'var(--un-shadow-inset) 0 4px 19px 0 var(--un-shadow-color, rgb(0 0 0 / 0.04)),var(--un-shadow-inset) 0px 12px 35px 0px var(--un-shadow-color, rgb(0 0 0 / 0.04))'
+        }
     },
     rules: [
         [/^leading-([\.\d]+)$/, ([_, num]) => ({ "line-height": `${num}` })]
