@@ -47,15 +47,15 @@ const ui = {
         }
     },
     size: {
-        md: 'text-3.75',
-        sm: 'text-sm'
+        md: 'text-sm lg:text-3.75 leading-1.25 lg:leading-1.25',
+        sm: 'text-sm leading-1.25'
     },
     gap: {
         md: 'gap-2',
         sm: 'gap-2'
     },
     padding: {
-        md: 'px-10 py-3.75',
+        md: 'px-10 py-3.25 lg:py-3.75',
         sm: 'px-5.25 py-3.25'
     },
     base: 'flex flex-shrink-0 items-center transition-button duration-500 ease-linear',
