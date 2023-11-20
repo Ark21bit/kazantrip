@@ -1,5 +1,5 @@
 <template>
-    <component :is="tag" class="flex flex-col gap-5 rounded-2xl overflow-hidden shadow-base border border-#F6F6F6 p-6 lg:min-h-83.25 bg-[url(/imgs/reviewBg.svg)] bg-no-repeat bg-[position:bottom_0_right_30%]">
+    <component :is="tag" class="flex flex-col gap-4 lg:gap-5 rounded-2xl overflow-hidden shadow-base ring-( 1 inset #F6F6F6) p-5 lg:p-6 min-h-100 lg:min-h-83.25 bg-[url(/imgs/reviewBg.svg)] bg-no-repeat bg-[position:bottom_0_right_30%]">
         <div class="flex flex-col lg:flex-row gap-4 lg:justify-between">
             <div class="flex items-center gap-3 lg:gap-4">
                 <Avatar size="sm" class="max-lg:w-13 max-lg:h-13"></Avatar>
