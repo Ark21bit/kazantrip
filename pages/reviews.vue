@@ -3,7 +3,7 @@
         <h1 class="font-Montserrat text-6.5 lg:text-9.5 leading-1.2 font-bold text-diamondBlack">Все отзывы</h1>
         <Button>Оставить отзыв</Button>
     </div>
-    <SwiperReviews class="mt-7.5 lg:mt-10"></SwiperReviews>
+    <SplideReviews class="mt-7.5 lg:mt-10"></SplideReviews>
     <div class="mt-20 lg:mt-37.5">
         <h2 class="text-5.5 lg:text-7 leading-1.2 font-Montserrat text-diamondBlack font-bold">Яндекс отзывы</h2>
         <div class="mt-7.5 lg:mt-10 rounded-2xl border border-#F6F6F6 bg-#EFE9E9 w-full h-187.5 lg:h-196.5">

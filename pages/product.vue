@@ -1,5 +1,5 @@
 <template>
-    <SwiperOne class="col-span-full h-100 lg:h-150"></SwiperOne>
+    <SplideOne class="col-span-full h-100 lg:h-150"></SplideOne>
     <Breadcrumbs class="max-lg:hidden mt-7.5"></Breadcrumbs>
     <div class="mt-7.5 flex gap-1.5 flex-wrap">
         <div class="flex gap-2.5 items-center rounded-full text-sm leading-1.2 px-4 py-1.125 text-white bg-primary">
@@ -22,7 +22,8 @@
     <div class="col-span-full mt-7.5 lg:mt-10 pb-7.5 border-b border-#EBEBEB">
         <div class="wrapper flex flex-col gap-5 lg:gap-7.5 items-start">
             <h1 class="text-6.5 lg:text-9.5 leading-1.2 font-bold font-Montserrat text-diamondBlack max-w-262">ТЁПЛАЯ обзорная по Казани с посещением Казанского Кремля</h1>
-            <p class="text-second text-base leading-1.4 mt-2.5 lg:mt-0">«Тёплая обзорная» – это обзорная автобусная экскурсия по городу Экскурсионного центра г.Казани, на которой вы не замерзнете. Мы продумали маршрут так, чтобы в холодную погоду вы меньше были на улице и больше времени проводили внутри объектов. В
+            <p class="text-second text-base leading-1.4 mt-2.5 lg:mt-0">«Тёплая обзорная» – это обзорная автобусная экскурсия по городу Экскурсионного центра г.Казани, на которой вы не замерзнете. Мы продумали маршрут так, чтобы в холодную погоду вы меньше были на улице и больше времени проводили внутри
+                объектов. В
                 середине маршрута мы обязательно попьем
                 горячий
                 чай. В автобусе будет тепло и комфортно, а чтобы не было ни малейшего шанса замерзнуть на улице мы подготовили для вас карманные грелки. Эта автобусно-пешеходная экскурсия длится 3,5 часа и подходит тем, кто приехал в Казань впервые.Во время экскурсии вы увидите центральные улицы города
@@ -122,7 +123,7 @@
     <div class="mt-10 lg:mt-25 bg-[url(/imgs/trailMBg.svg)] lg:bg-[url(/imgs/trailBg.svg)] col-span-full bg-no-repeat pt-23.5 lg:pt-26 pb-20 lg:pb-33.75 bg-[length:100%_100%]">
         <div class="wrapper">
             <h2 class="max-lg:hidden text-diamondBlack text-5.5 lg:text-7 font-bold leading-1.2 lg:leading-1.2 font-Montserrat">Маршрут</h2>
-            <SwiperTrail class="mt-5 lg:mt-16" />
+            <SplideTrail class="mt-5 lg:mt-16" />
         </div>
     </div>
     <div class="mt-10 lg:mt-17.5">
@@ -147,7 +148,7 @@
             <li class="flex gap-2.5 items-start before:(aspect-square shrink-0 bg-primary mt-0.6em -translate-y-1/2 content-empty w-2.5 rounded-full)">Входной билет в музей «Дом Лекаря»</li>
         </ul>
     </div>
-    <SwiperPurple class="mt-15 lg:mt-25"></SwiperPurple>
+    <SplidePurple class="mt-15 lg:mt-25"></SplidePurple>
     <div class="mt-15 lg:mt-25 col-span-full pb-7.5 border-b border-#EBEBEB">
         <SeoBlock class="wrapper"></SeoBlock>
     </div>
@@ -156,11 +157,11 @@
             <h2 class="text-diamondBlack text-5.5 lg:text-7 font-bold leading-1.2 lg:leading-1.2 font-Montserrat">Отзывы</h2>
             <Button>Оставить отзыв</Button>
         </div>
-        <SwiperReviews class="mt-7.5 lg:mt-10" />
+        <SplideReviews class="mt-7.5 lg:mt-10" />
     </div>
     <div class="mt-15 lg:mt-25">
         <h2 class="text-diamondBlack text-5.5 lg:text-7 font-bold leading-1.2 lg:leading-1.2 font-Montserrat">Похожие экскурсии</h2>
-        <SwiperRecomendations class="mt-5 lg:mt-10" />
+        <SplideRecomendations class="mt-5 lg:mt-10" />
     </div>
 </template>
 

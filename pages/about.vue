@@ -21,11 +21,11 @@
     </div>
     <div class="mt-20 lg:mt-37.5 col-span-full grid-container overflow-hidden">
         <h2 class="text-diamondBlack text-5.5 lg:text-7 font-bold leading-1.2 lg:leading-1.2 font-Montserrat [&>span]:text-primary">Наша команда <span>менеджеров</span></h2>
-        <SwiperTeams class="mt-7.5 lg:mt-10"></SwiperTeams>
+        <SplideTeams class="mt-7.5 lg:mt-10"></SplideTeams>
     </div>
     <div class="mt-20 col-span-full grid-container overflow-hidden">
         <h2 class="text-diamondBlack text-5.5 lg:text-7 font-bold leading-1.2 lg:leading-1.2 font-Montserrat [&>span]:text-primary">Наша команда <span>экскурсоводов</span></h2>
-        <SwiperTeams class="mt-7.5 lg:mt-10"></SwiperTeams>
+        <SplideTeams class="mt-7.5 lg:mt-10"></SplideTeams>
     </div>
 </template>
 

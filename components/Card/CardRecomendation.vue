@@ -17,6 +17,6 @@
 
 <script setup lang="ts">
 defineProps({
-    tag: { type: String, default: 'div' }
+    tag: { type: [String, Object], default: 'div' }
 })
 </script>

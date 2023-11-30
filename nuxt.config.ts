@@ -7,13 +7,7 @@ export default defineNuxtConfig({
         "~/components",
         { path: "~/components/global", global: true },
     ],
-    css: ["~/assets/css/main.css"],
-    vue: {
-        compilerOptions: {
-            isCustomElement: (tag: string) =>
-                ["swiper-container", "swiper-slide"].includes(tag),
-        },
-    },
+    css: ['@splidejs/vue-splide/css/core', "~/assets/css/main.css"],
     i18n: {
         locales: ['en', 'ru'],
         defaultLocale: 'ru',
