@@ -10,6 +10,7 @@ export function useBaseFetch<T>(url: MaybeRefOrGetter, options: UseFetchOptions<
         headers: {
             Locale: $i18n.locale
         },
+        watch: false
     };
 
     const params = defu(options, defaults);

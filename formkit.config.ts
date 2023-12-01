@@ -1,21 +1,22 @@
 import { generateClasses } from '@formkit/themes'
 import theme from './FormkitTheme'
 import { ru, en } from '@formkit/i18n'
-
+import { createInput } from '@formkit/vue'
+import select from './components/FormKit/Select.vue'
 export default {
     locales: { ru, en },
     locale: 'en',
     config: {
         classes: generateClasses(theme),
     },
-    /* inputs: {
-        counter: createInput(counter, {
+    inputs: {
+        /* counter: createInput(counter, {
             component: counter
-        }),
+        }), */
         selectC: createInput(select, {
             props: ['options']
         }),
-        datepickerC: createInput(datepicker, {
+        /* datepickerC: createInput(datepicker, {
             props: [
                 'autoApply',
                 'minDate',
@@ -30,11 +31,11 @@ export default {
         }),
         ratingC: createInput(rating, {
             props: ['max']
-        }),
-    }, */
+        }), */
+    },
 }
 
-/* declare module '@formkit/inputs' {
+declare module '@formkit/inputs' {
     interface FormKitInputProps<Props extends FormKitInputs<Props>> {
         'selectC': {
             type: 'selectC',
@@ -50,4 +51,4 @@ export default {
             type: 'ratingC',
         }
     }
-} */
+}

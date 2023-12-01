@@ -4,7 +4,7 @@
             <SplideSlide class="w-full h-full shrink-0 relative flex items-center" v-for="n in 10">
                 <div class="absolute inset-0">
                     <img src="/imgs/swiper.png" class="w-full h-full object-cover object-center" alt="">
-                </div>
+                </div>      
                 <div class="flex flex-col items-center gap-4 lg:gap-5 text-white z-1 wrapper">
                     <h2 class="font-Montserrat text-6.5 lg:text-10.5 leading-1.2 lg:leading-1.2 font-bold text-center w-[calc(100%-6.25rem)] max-w-266">Беззаботные субботы в Верхнем Услоне</h2>
                     <p class="text-lg leading-1.4 text-center max-w-211.5">“Волжская тропа” представляет однодневные туры на природную локацию Верхнеуслонского района! Приходите к нам на “Беззаботные субботы”. Вдохните воздух свободы от города!</p>

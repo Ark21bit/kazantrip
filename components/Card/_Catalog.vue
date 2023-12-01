@@ -31,15 +31,17 @@
                     <p class="text-sm font-medium leading-1.4">Пешеходная</p>
                 </div>
             </div>
-            <Button class="!px-4 !py-3 max-lg:text-sm max-lg:leading-1.25">
-                Заказать
-                <template #suffix>
-                    <span class="text-lg lg:text-xl font-semibold leading-1.25 lg:leading-1.25">
-                        1999₽
-                        <span class="ml-1.5 text-sm text-#88BDC2 line-through decoration-white">2500₽</span>
-                    </span>
-                </template>
-            </Button>
+            <OrderIndividual #="{ openModal }">
+                <Button @click="openModal" class="!px-4 !py-3 max-lg:text-sm max-lg:leading-1.25">
+                    Заказать
+                    <template #suffix>
+                        <span class="text-lg lg:text-xl font-semibold leading-1.25 lg:leading-1.25">
+                            1999₽
+                            <span class="ml-1.5 text-sm text-#88BDC2 line-through decoration-white">2500₽</span>
+                        </span>
+                    </template>
+                </Button>
+            </OrderIndividual>
         </div>
     </div>
 </template>

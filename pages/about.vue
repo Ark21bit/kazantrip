@@ -30,5 +30,14 @@
 </template>
 
 <script setup lang="ts">
+const { data: pageInfo } = await useBaseFetch<any>(`search/page`, {
+    key: 'about',
+    query: { key: 'about' }
+})
 
+useSeoMeta({
+    title: () => pageInfo.value?.seo?.title ?? '',
+    description: () => pageInfo.value?.seo?.description ?? '',
+    keywords: () => pageInfo.value?.seo?.keywords ?? '',
+})
 </script>

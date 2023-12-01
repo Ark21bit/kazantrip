@@ -65,7 +65,9 @@
             <p class="text-2xl font-semibold leading-1.2 text-primary">1999₽<span class="ml-1.5 leading-1.2 text-#A4A4A4 text-sm line-through decoration-diamondBlack">1350₽</span></p>
         </div>
         <div class="p-5 py-6 lg:p-6 flex flex-col justify-center gap-1.5">
-            <Button class="w-full">Заказать экскурсию</Button>
+            <OrderIndividual #="{ openModal }">
+                <Button @click="openModal" class="w-full">Заказать экскурсию</Button>
+            </OrderIndividual>
         </div>
     </div>
     <div class="mt-15 lg:mt-22">
