@@ -12,7 +12,7 @@
                 </div>
             </SplideSlide>
         </SplideTrack>
-        <div class="absolute bottom-16 lg:top-1/2 lg:-translate-y-1/2 w-full z-1">
+        <div class="absolute max-lg:bottom-16 lg:top-1/2 lg:-translate-y-1/2 w-full z-1">
             <SplideController class="wrapper max-lg:hidden" />
             <SplidePagination></SplidePagination>
         </div>

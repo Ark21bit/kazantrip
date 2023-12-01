@@ -27,6 +27,12 @@ export default defineConfig({
         transformerVariantGroup()
     ],
     theme: {
+        transitionTimingFunction: {
+            DEFAULT: 'linear'
+        },
+        transitionDuration: {
+            DEFAULT: "500ms"
+        },
         colors: {
             "primary": "#39919A",
             "mercury": "#ebebeb",

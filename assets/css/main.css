@@ -23,9 +23,13 @@ body.modal-open-mobile {
     transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, box-shadow;
 }
 
+.bg1{
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.50) 0%, rgba(0, 0, 0, 0.50) 100%), url(/imgs/img2.png)
+}
+
 @layer default{
 	body {
-		--at-apply: "flex flex-col relative font-Inter whitespace-pre-line bg-white [--width-content:1320px] [--width-content-margin:15px] sm:[--width-content-margin:20px] 1200px:[--width-content-margin:60px]";
+		--at-apply: "flex flex-col relative font-Inter whitespace-pre-line bg-white [--width-content:1280px] [--width-content-margin:15px] sm:[--width-content-margin:20px] 1200px:[--width-content-margin:60px]";
 	}
 
 	.grid-container {

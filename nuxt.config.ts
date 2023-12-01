@@ -13,4 +13,11 @@ export default defineNuxtConfig({
         defaultLocale: 'ru',
         detectBrowserLanguage: false,
     },
+    app: {
+        head: {
+            bodyAttrs: {
+                class: 'group/body'
+            }
+        },
+    }
 })

@@ -155,7 +155,9 @@
     <div class="mt-15 lg:mt-25">
         <div class="flex flex-col lg:flex-row justify-between gap-4 lg:items-center">
             <h2 class="text-diamondBlack text-5.5 lg:text-7 font-bold leading-1.2 lg:leading-1.2 font-Montserrat">Отзывы</h2>
-            <Button>Оставить отзыв</Button>
+            <ModalCreateReview #="{ openModal }">
+                <Button @click="openModal">Оставить отзыв</Button>
+            </ModalCreateReview>
         </div>
         <SplideReviews class="mt-7.5 lg:mt-10" />
     </div>

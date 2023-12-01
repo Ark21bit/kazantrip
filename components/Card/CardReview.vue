@@ -10,14 +10,18 @@
             </div>
             <Rating></Rating>
         </div>
-        <p class="text-diamondBlack text-sm lg:text-base leading-1.4 lg:leading-1.4">Давно хотела посетить Казань! И вот мы наконец выбрались с семьей) очень благодарны за экскурсию, все прошло великолепно) менеджеры все понятно объяснили, гид очень интересно рассказывал, побывали во всех местах исторического центра) и особенно
-            понравился Казанский Кремль)Приедем еще раз, но уже летом)</p>
+        <p class="text-diamondBlack text-sm lg:text-base leading-1.4 lg:leading-1.4 line-clamp-4">Давно хотела посетить Казань! И вот мы наконец выбрались с семьей) очень благодарны за экскурсию, все прошло великолепно) менеджеры все понятно объяснили, гид очень интересно рассказывал, побывали во всех
+            местах
+            исторического центра) и особенно
+            понравился Казанский Кремль)Приедем еще раз, но уже летом) <Button @click="emit('open-full-review')" variant="link" padded class="!inline">Читать полностью</Button></p>
         <p class="mt-auto text-sm leading-1.4 text-#7B7B7B">21.12.2022</p>
     </component>
 </template>
 
 <script setup lang="ts">
 defineProps({
-    tag: { type: String, default: 'div' }
+    tag: { type: [String, Object], default: 'div' }
 })
+const emit = defineEmits(['open-full-review'])
 </script>
+
