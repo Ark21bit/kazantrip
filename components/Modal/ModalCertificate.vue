@@ -4,19 +4,19 @@
         <FormKit type="form" form-class="flex flex-col gap-6" :actions="false">
             <h2 class="text-5.5 lg:text-6.5 text-diamondBlack leading-1.2 font-bold [&>span]:text-primary max-w-[calc(100%-27px)]">Подарочный сертификат на экскурсию<span>(на 2 лица!)</span></h2>
             <div class="grid grid-cols-2 gap-4 lg:gap-4.5">
-                <FormKit type="selectC" :options="['asdasd', 'asdasdar', 'jspg']" placeholder="Название экскурсии" outer-class="col-span-full"></FormKit>
-                <FormKit type="text" placeholder="ФИО" outer-class="col-span-full"></FormKit>
-                <FormKit type="email" placeholder="Email"></FormKit>
-                <FormKit type="tel" placeholder="Телефон"></FormKit>
+                <FormKit validation="required" type="selectC" :options="['asdasd', 'asdasdar', 'jspg']" placeholder="Название экскурсии" outer-class="col-span-full" />
+                <FormKit type="text" placeholder="ФИО" outer-class="col-span-full" />
+                <FormKit type="email" placeholder="Email" />
+                <FormKit type="tel" placeholder="Телефон" />
             </div>
             <div class="flex justify-between gap-3 text-xl lg:text-6.5 leading-1.2 font-semibold text-diamondBlack max-lg:-my-1">
                 <p>Итого</p>
                 <p class="text-primary">1999₽</p>
             </div>
-            <FormKit type="text" placeholder="Способ оплаты"></FormKit>
+            <FormKit validation="required" type="selectC" :options="['способ 1']" placeholder="Способ оплаты" />
             <div class="flex flex-col gap-4">
-                <FormKit type="checkbox"><template #label>Подтверждаю согласие с условиями обработки персональных данных</template></FormKit>
-                <FormKit type="checkbox"><template #label>Подтверждаю согласие с условиями предоставления экскурсионных услуг</template></FormKit>
+                <FormKit validation="accepted" type="checkbox" label="Подтверждаю согласие с условиями обработки персональных данных" />
+                <FormKit validation="accepted" type="checkbox" label="Подтверждаю согласие с условиями предоставления экскурсионных услуг" />
             </div>
             <div class="flex flex-col lg:flex-row gap-3 lg:justify-between">
                 <Button class="w-full lg:w-49">Купить</Button>

@@ -14,11 +14,13 @@
     "@nuxt/devtools": "latest",
     "@pinia/nuxt": "^0.5.1",
     "@unocss/nuxt": "^0.57.7",
+    "dayjs-nuxt": "^2.1.9",
     "nuxt": "^3.8.2"
   },
   "dependencies": {
     "@nuxtjs/i18n": "^8.0.0-rc.6",
     "@splidejs/vue-splide": "^0.6.12",
+    "@vuepic/vue-datepicker": "^7.3.0",
     "@vueuse/components": "^10.6.1",
     "nuxt-icon": "^0.6.6"
   },

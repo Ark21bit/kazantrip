@@ -1,6 +1,5 @@
 <template>
-    <VueDatePicker :locale="locale" :timezone="timezone" :model-value="context.value" :clearable="clearable" :format="format" :monthNameFormat="monthNameFormat" @update:model-value="handleInput" :enableTimePicker="enableTimePicker" :allowedDates="allowedDates"
-        :autoApply="autoApply" :min-date="minDate" :ignore-time-validation="ignoreTimeValidation">
+    <VueDatePicker :model-value="context.value" @update:model-value="handleInput" v-bind="options">
         <template #calendar-header="{ day }">
             <span class="text-sm font-medium">{{ day[0] }}</span>
         </template>
@@ -33,21 +32,19 @@ function handleInput(value) {
 }
 const { locale: localeI18n } = useI18n()
 
-const autoApply = props.context.autoApply ?? true
-const minDate = props.context.minDate ?? null
-const locale = props.context.locale ?? localeI18n.value
-const ignoreTimeValidation = props.context.ignoreTimeValidation ?? true
-const allowedDates = props.context.allowedDates ?? null
-const enableTimePicker = props.context.enableTimePicker ?? false
-const clearable = props.context.clearable ?? false
-const monthNameFormat = props.context.monthNameFormat ?? "long"
-const timezone = props.context.timezone ?? "Europe/Moscow"
-
-const format =(value)=>{
-    return useDayjs()(value).locale(locale).format(props.context.format ?? "L")
+const options = {
+    autoApply: props.context.autoApply ?? true,
+    minDate: props.context.minDate ?? null,
+    locale: props.context.locale ?? localeI18n.value,
+    ignoreTimeValidation: props.context.ignoreTimeValidation ?? true,
+    allowedDates: props.context.allowedDates ?? null,
+    enableTimePicker: props.context.enableTimePicker ?? false,
+    clearable: props.context.clearable ?? false,
+    monthNameFormat: props.context.monthNameFormat ?? "long",
+    timezone: props.context.timezone ?? "Europe/Moscow",
+    placeholder: props.context.placeholder ?? null,
+    format: (value) => useDayjs()(value).locale(localeI18n.value).format(props.context.format ?? "L")
 }
-
-
 </script>
 
 <style>
@@ -55,11 +52,11 @@ const format =(value)=>{
 
 .dp__theme_light {
     --dp-background-color: white;
-    --dp-text-color: #333333;
-    --dp-hover-color: #19B6D6;
+    --dp-text-color: #28303F;
+    --dp-hover-color: #39919A;
     --dp-hover-text-color: white;
-    --dp-hover-icon-color: #19B6D6;
-    --dp-primary-color: #19B6D6;
+    --dp-hover-icon-color: #39919A;
+    --dp-primary-color: #39919A;
     --dp-primary-text-color: white;
     --dp-secondary-color: #CFCFCF;
     --dp-border-color: transparent;
@@ -70,17 +67,24 @@ const format =(value)=>{
     --dp-scroll-bar-color: #959595;
     --dp-success-color: #76d275;
     --dp-success-color-disabled: #a3d9b1;
-    --dp-icon-color: #333333;
+    --dp-icon-color: #28303F;
     --dp-danger-color: #ff6f60;
     --dp-highlight-color: rgba(25, 118, 210, 0.1);
 }
 
 .dp__input {
-    padding: 13px 12px;
+    padding: 13px 12px 13px 47px;
     border: 0;
     border-radius: 0;
-    color:currentColor;
+    color: currentColor;
     background: transparent;
+}
+
+.dp__input::placeholder {
+    color: #868686;
+    font-size: 1rem;
+    line-height: 1.2;
+    opacity: 1;
 }
 
 .dp__arrow_top {
@@ -89,8 +93,7 @@ const format =(value)=>{
 
 .dp__input_icon {
     display: flex;
-    left: calc(100% - 30px);
-    right: 0;
+    left: 16px;
 }
 
 .dp__inner_nav:hover {
@@ -101,8 +104,13 @@ const format =(value)=>{
     background: transparent;
 }
 
+.dp__btn{
+    font-weight: 500;
+    line-height: 1.4;
+} 
+
 .dp--year-select {
-    color: #19B6D6;
+    color: #39919A;
 }
 
 .dp__menu {
@@ -111,7 +119,7 @@ const format =(value)=>{
 
 .dp__month_year_select:hover {
     background: transparent;
-    color: #19B6D6;
+    color: #39919A;
 }
 
 .dp__month_year_wrap {
@@ -152,7 +160,7 @@ const format =(value)=>{
 
 :root {
     /*General*/
-    --dp-font-family: Inter;
+    --dp-font-family: Onest;
     --dp-border-radius: 15px;
     /*Configurable border-radius*/
     --dp-cell-border-radius: 4px;

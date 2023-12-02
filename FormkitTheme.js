@@ -6,25 +6,25 @@ export default {
     global: {
         fieldset: 'border border-gray-400 rounded px-2 pb-1',
         help: 'text-xs leading-1.2 text-#868686',/* true */
-        inner: 'relative formkit-invalid:ring-error formkit-disabled:bg-gray-200 bg-#F2F8F8 overflow-hidden formkit-disabled:cursor-not-allowed formkit-disabled:pointer-events-none',
-        input: 'formkit-invalid:text-error leading-1.2 appearance-none focus:outline-none bg-transparent focus:ring-0 focus:shadow-none',
+        inner: 'relative formkit-invalid:border-#FA2E2E formkit-disabled:bg-gray-200 bg-#F2F8F8 overflow-hidden formkit-disabled:cursor-not-allowed formkit-disabled:pointer-events-none',
+        input: 'leading-1.2 appearance-none focus:outline-none bg-transparent focus:ring-0 focus:shadow-none',
         label: 'block mb-1 text-xs leading-1.2 text-#868686',/* true */
         legend: 'font-bold text-sm',
         loaderIcon: 'inline-flex items-center w-4 text-gray-600 animate-spin',
-        message: 'text-error text-xs leading-1.2',
-        messages: 'list-none p-0 mt-1 mb-0 space-y-1',
+        message: 'text-#FA2E2E text-xs leading-1.25 font-light',
+        messages: 'list-none p-0 mt-1.25 mb-0 space-y-1',
         outer: 'formkit-disabled:opacity-50 relative',
         prefixIcon: 'w-10 flex self-stretch grow-0 shrink-0 rounded-tl rounded-bl border-r border-gray-400 bg-white bg-gradient-to-b from-transparent to-gray-200 [&>svg]:w-full [&>svg]:max-w-1em [&>svg]:max-h-1em [&>svg]:m-auto',
         suffixIcon: 'w-7 pr-3 p-3 flex self-stretch grow-0 shrink-0 [&>svg]:w-full [&>svg]:h-full [&>svg]:max-w-1em [&>svg]:max-h-1em [&>svg]:m-auto'
     },
     // Family styles apply to all inputs that share a common family
     'family:box': {
-        decorator: 'block relative h-5 w-5 mr-3.5 rounded-.75 bg-transparent ring-inset ring ring-fline peer-checked:ring-fblue peer-checked:bg-fblue text-transparent peer-checked:text-white',
+        decorator: 'block relative h-5 w-5 mr-3.5 rounded-.75 bg-transparent ring-inset ring ring-primary peer-checked:bg-primary text-transparent peer-checked:text-white',
         decoratorIcon: 'flex w-full h-full absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2',
         help: 'mb-2 mt-1.5',
         input: 'absolute w-0 h-0 overflow-hidden opacity-0 pointer-events-none peer',
         inner: '$remove:formkit-disabled:bg-gray-200 shrink-0 $remove:bg-#F2F8F8',
-        label: '$reset text-sm leading-1.2 text-fmain select-none',
+        label: '$reset text-base leading-1.2 text-#28303F select-none',
         wrapper: 'flex items-start',
     },
     'family:button': {
@@ -56,17 +56,18 @@ export default {
     },
     selectC: {
         inner: '$remove:overflow-hidden flex relative items-center border border-#E8E8E8 focus-within:border-primary rounded-lg',
-        input: 'items-center px-3.75 py-3.5 text-#28303F appearance-none bg-transparent flex grow justify-between w-full',
+        input: 'items-center px-3.75 py-3.5 appearance-none bg-transparent flex grow justify-between w-full',
         dropdownWrapper: 'absolute mt-1.25 shadow-base ring ring-inset ring-#F6F6F6 z-1 top-full overflow-auto min-w-full max-h-100',
         listbox: 'bg-white overflow-hidden rounded-lg p-2.5',
         listitem: 'cursor-pointer hover:bg-primary px-3 py-2.5 rounded-lg hover:text-white transition-colors duration-500',
         listitemSelect: 'bg-primary text-white',
         selectIcon: 'text-lg transition-transform duration-500 ease-linear leading-none',
-        selectText:'min-h-1.2em text-base leading-1.2'
+        selectText:'min-h-1.2em text-base leading-1.2 text-#28303F',
+        placeholder:'min-h-1.2em text-base leading-1.2 text-#868686',
     },
     datepickerC:{
-        inner: '$remove:overflow-hidden flex items-center text-#28303F border border-#E8E8E8 focus-within:border-primary [&>label:first-child]:focus-within:text-blue-500 rounded leading-1.2',        
-        inputIcon:'text-xl text-#112433 formkit-invalid:text-error',
+        inner: '$remove:overflow-hidden flex items-center text-#28303F border border-#E8E8E8 focus-within:border-primary [&>label:first-child]:focus-within:text-blue-500 rounded-lg leading-1.2',        
+        inputIcon:'text-5.75 text-#28303F formkit-invalid:text-error',
         calendarIcon:'text-xl',
     },
     ratingC:{

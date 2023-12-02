@@ -1,7 +1,6 @@
 <template>
     <button v-on-click-outside="close" @click="isShow = !isShow" :data-expented="isShow" class="formkit-selector [&>img]:w-full" type="button" :class="context.classes.input">
-        <span v-if="selectOptions" class="formkit-select-text" :class="context.classes.selectText">{{ selectOptions }}</span>
-        <span v-else class="formkit-select-placeholder" :class="context.classes.placeholder">{{ context.placeholder }}</span>
+        <span class="formkit-select-text" :class="selectOptions ? context.classes.selectText : context.classes.placeholder">{{ selectOptions ? selectOptions : context.placeholder}}</span>
         <span class="formkit-select-icon formkit-icon" :class="[{ 'rotate-180': isShow }, context.classes.selectIcon]">
             <slot name="select-icon">
                 <Icon name="ChevronDown"></Icon>
