@@ -6,7 +6,7 @@
                     {{ title }}
                 </slot>
                 <slot name="dropdown-header-icon" :toggle="toggle" :isDropdownItemShow="isDropdownItemShow">
-                    <Icon @click="toggle" name="ChevronDown" class="text-3.25 transition-transform group-hover/dropdownh:text-#39919A transition-colors hover:rotate-180" :class="{ 'rotate-180': isDropdownItemShow }"></Icon>
+                    <Icon @click="toggle" name="ChevronDown" class="text-5.25 transition-transform group-hover/dropdownh:text-#39919A transition-colors hover:rotate-180" :class="{ 'rotate-180': isDropdownItemShow }"></Icon>
                 </slot>
             </button>
         </div>

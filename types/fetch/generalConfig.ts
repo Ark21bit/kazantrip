@@ -60,10 +60,25 @@ export interface Contact {
     telephones: string[];
     emails: string[];
     addresses: Addresses;
+    office_info: OfficeInfo;
     number_rto: NumberRto;
-    socials: string;
+    socials: Socials;
+    departure_points: string[];
     company_details: string;
 }
+
+export interface OfficeInfo {
+    office_1: Office;
+    office_2: Office;
+}
+
+export interface Office {
+    address:   string;
+    telephone: string;
+}
+
+
+export type Socials = 'telegram' | 'vk' | 'whatsApp'
 
 export interface Addresses {
     main: string;
@@ -91,8 +106,13 @@ export interface Column {
 
 export interface GlobalWords {
     time_text: TimeText;
+    up: string;
+    departure_excursions: string;
     calendar_excursions: string;
     address: string;
+    addresses: string;
+    single_line: string;
+    no_breaks_off: string;
     main_office: string;
     mail_index_address: string;
     telephone: string;
@@ -116,9 +136,9 @@ export interface GlobalWords {
     request_call: string;
     tic: string;
     thank_you: string;
-    pay: string;
     subscribe_telegram_text: string;
     subscribe: string;
+    pay: string;
     success_send_request: string;
     success_send_request_no_status_pay: string;
     fail_send_request: string;
@@ -153,12 +173,14 @@ export interface GlobalWords {
     count_people: string;
     select_hotel: string;
     select_datetime: string;
+    select_date_static: string;
     product_program: string;
     price_list: string;
     price_tour_list: string;
     additional_service: string;
     show_more: string;
     add_review: string;
+    hide: string;
     person_data_contract: string;
     order_confirm_procedure_provision_excursion_services: string;
     order_fz_confirm_text: string;
@@ -201,11 +223,12 @@ export interface GlobalWords {
     regular_excursions: string;
     individual_excursions: string;
     schedule: string;
-    "enter code": string;
-    "enter text": string;
+    enter_code: string;
+    enter_text: string;
     select_hotel_q: string;
     people_price_s: string;
 }
+
 
 export interface TimeText {
     short_h: string;
@@ -219,15 +242,15 @@ export interface Menu {
 
 export interface Footer {
     excursions: Excursions;
-    about: PaymentRules;
-    panorams: PaymentRules;
-    reviews?: PaymentRules;
+    about: Excursions;
+    panorams: Excursions;
+    reviews?: Excursions;
 }
 
 export interface Excursions {
     title: string;
     slug: string;
-    children: PaymentRules[];
+    children?: PaymentRules[];
 }
 
 export interface OtherLinks {
