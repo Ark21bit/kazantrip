@@ -15,5 +15,13 @@
 </template>
 
 <script lang="ts" setup>
+const { data } = await useBaseFetch<any>('search/page', {
+    query: { key: 'certificate' }
+})
 
+useSeoMeta({
+    title: () => data.value?.seo?.title ?? " ",
+    description: () => data.value?.seo?.description ?? " ",
+    keywords: () => data.value?.seo?.keywords ?? ' ',
+})
 </script>

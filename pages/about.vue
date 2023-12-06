@@ -1,5 +1,5 @@
 <template>
-    <h1 class="font-Montserrat text-6.5 lg:text-9.5 leading-1.2 font-bold text-diamondBlack mt-10 lg:mt-20">О нас</h1>
+    <h1 class="font-Montserrat text-6.5 lg:text-9.5 leading-1.2 font-bold text-diamondBlack mt-10 lg:mt-20">{{ pageInfo?.content?.title }}</h1>
     <p class="mt-5 lg:mt-7.5 font-semibold leading-1.4 text-base lg:text-xl max-w-211.75 text-diamondBlack [&>span]:text-primary">
         Экскурсионный центр города Казани открылся в <span>2010</span> году и был <span>первым</span>, кто стал проводить сборные ежедневные экскурсии по <span>Казани</span> и <span>Татарстану</span>.
     </p>
