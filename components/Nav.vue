@@ -9,7 +9,7 @@
                     <CustomLink v-for="item in link?.children" class="w-46" :class="classes" :to="item?.slug">{{ item?.title }}</CustomLink>
                 </template>
             </DropdownHover>
-            <CustomLink v-else :to="link?.slug" class="text-white text-3.75 font-medium leading-1.25 hover:text-#39919A transition-colors ease-linear">{{ link?.title }}</CustomLink>
+            <CustomLink v-else :to="link?.slug" class="text-3.75 font-medium leading-1.25 hover:text-#39919A transition-colors ease-linear">{{ link?.title }}</CustomLink>
         </template>
     </nav>
 </template>

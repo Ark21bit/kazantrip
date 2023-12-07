@@ -1,10 +1,10 @@
 <template>
     <Splide :has-track="false" class="w-full flex flex-col relative" :options="options">
-        <ModalTeams #="{ openModal }">
+        <TeamsModal #="{ openTeamFull }">
             <SplideTrack class="overflow-visible max-w-full">
-                <CardTeams @open-team-full="openModal" v-for="item in 10" :tag="SplideSlide" class="w-full flex-shrink-0 lg:w-[calc(25%-15px)] last:mr-0 mr-5"></CardTeams>
+                <TeamsCard @open-team-full="openTeamFull(team)" v-for="team in teams" v-bind="team" :tag="SplideSlide" class="w-full flex-shrink-0 lg:w-[calc(25%-15px)] last:mr-0 mr-5"></TeamsCard>
             </SplideTrack>
-        </ModalTeams>
+        </TeamsModal>
         <SplideController color="azul" class="mt-7.5 w-fit" />
         <SplidePagination class="mt-5" />
     </Splide>
@@ -12,6 +12,11 @@
 
 <script lang="ts" setup>
 import { Splide, SplideSlide, SplideTrack, type Options } from '@splidejs/vue-splide';
+import type { TeamsDatum } from '~/types/fetch/about';
+
+defineProps({
+    teams: Array as PropType<TeamsDatum[]>
+})
 const options: Options = {
     breakpoints: {
         640: { fixedWidth: 305 },

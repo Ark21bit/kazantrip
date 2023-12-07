@@ -3,19 +3,19 @@
     <Breadcrumbs class="max-lg:hidden mt-7.5"></Breadcrumbs>
     <div class="mt-7.5 flex gap-1.5 flex-wrap">
         <div class="flex gap-2.5 items-center rounded-full text-sm leading-1.2 px-4 py-1.125 text-white bg-primary">
-            <img src="/imgs/icons.svg" alt="" class="w-6 h-6">
+            <img src="/icons.svg" alt="" class="w-6 h-6">
             <span>Горячий чай</span>
         </div>
         <div class="flex gap-2.5 items-center rounded-full text-sm leading-1.2 px-4 py-1.125 text-white bg-primary">
-            <img src="/imgs/icons.svg" alt="" class="w-6 h-6">
+            <img src="/icons.svg" alt="" class="w-6 h-6">
             <span>Вода</span>
         </div>
         <div class="flex gap-2.5 items-center rounded-full text-sm leading-1.2 px-4 py-1.125 text-white bg-primary">
-            <img src="/imgs/icons.svg" alt="" class="w-6 h-6">
+            <img src="/icons.svg" alt="" class="w-6 h-6">
             <span>Дождевик</span>
         </div>
         <div class="flex gap-2.5 items-center rounded-full text-sm leading-1.2 px-4 py-1.125 text-white bg-primary">
-            <img src="/imgs/icons.svg" alt="" class="w-6 h-6">
+            <img src="/icons.svg" alt="" class="w-6 h-6">
             <span>Грелка</span>
         </div>
     </div>

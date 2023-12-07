@@ -1,5 +1,9 @@
 <template>
-    <img :src="src" :class="avatarClass">
+    <slot :classes="avatarClass">
+        <div :class="avatarClass">
+            <img :src="src">
+        </div>
+    </slot>
 </template>
 
 <script lang="ts" setup>
@@ -14,7 +18,7 @@ const ui = {
         md: 'h-17.5 w-17.5',
         sm: 'h-15.5 w-15.5'
     },
-    base: 'object-cover object-center',
+    base: '[&>img]:(w-full h-full object-cover object-center) overflow-hidden',
     rounded: 'rounded-full',
 }
 

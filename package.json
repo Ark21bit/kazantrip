@@ -22,7 +22,8 @@
     "@splidejs/vue-splide": "^0.6.12",
     "@vuepic/vue-datepicker": "^7.3.0",
     "@vueuse/components": "^10.7.0",
-    "nuxt-icon": "^0.6.6"
+    "nuxt-icon": "^0.6.6",
+    "typescript": "^5.3.2"
   },
   "overrides": {
     "unocss": "0.57.7",
