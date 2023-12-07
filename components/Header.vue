@@ -1,5 +1,5 @@
 <template>
-    <header class="grid-container py-3.75 z-20 max-lg:bg-white" :class="[absolute ? 'absolute w-full z-10' : 'relative', dark ? 'text-diamondBlack lg:text-white' : 'text-diamondBlack']">
+    <header class="grid-container py-1.5 lg:py-3.75 z-20 max-lg:bg-white" :class="[absolute ? 'absolute w-full z-10' : 'relative border-b border-#EBEBEB', dark ? 'text-diamondBlack lg:text-white' : 'text-diamondBlack']">
         <div class="flex gap-2.5 lg:gap-10 justify-between items-center">
             <CustomLink to="/" class="shrink-0">
                 <Icon name="Logo" class="w-17 lg:w-18 h-13 lg:h-14" />
