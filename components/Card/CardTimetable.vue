@@ -11,7 +11,7 @@
                 <p class="text-primary text-xl">{{ item?.visible_prices?.new }}₽<span class="ml-1.5 py-1.5 text-sm text-#A4A4A4 line-through decoration-diamondBlack">{{ item?.visible_prices?.old }}₽</span></p>
             </div>
         </div>
-        <div v-if="Number(info?.length) > 2" class="mt-auto flex py-5 border-t border-#EBEBEB">
+        <div v-if="Number(info?.length) > 3" class="mt-auto flex py-5 border-t border-#EBEBEB">
             <Button @click="toggle" variant="link" size="lg" padded class="mx-auto">{{ isShort ? generalConfig?.static_info?.global_words?.more_excursions : generalConfig?.static_info?.global_words?.hide_more_details }}</Button>
         </div>
     </div>
@@ -28,7 +28,7 @@ const { generalConfig } = storeToRefs(useGeneralConfigStore())
 
 const { locale } = useI18n()
 
-const infoShorts = computed(() => props.info?.slice(0, 2))
+const infoShorts = computed(() => props.info?.slice(0, 3))
 
 const isShort = ref(true)
 
