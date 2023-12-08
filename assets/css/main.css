@@ -27,6 +27,13 @@ body.modal-open-mobile {
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.50) 0%, rgba(0, 0, 0, 0.50) 100%), url(/imgs/img2.png)
 }
 
+.index__slider-img{
+    mask-image:url(/sliderBg.svg);
+    mask-repeat: no-repeat;
+    mask-position: bottom;
+    mask-size: cover;
+}
+
 @layer default{
 	body {
 		--at-apply: "flex flex-col relative font-Inter whitespace-pre-line bg-white [--width-content:1280px] [--width-content-margin:15px] sm:[--width-content-margin:20px] 1200px:[--width-content-margin:60px]";
@@ -55,9 +62,5 @@ body.modal-open-mobile {
     .scroll-h-0::-webkit-scrollbar {
         height: 0;
         max-height: 0;
-    }
-
-    .contain-paint{
-        contain: paint;
     }
 }

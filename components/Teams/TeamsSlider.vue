@@ -1,5 +1,5 @@
 <template>
-    <Splide :has-track="false" class="w-full flex flex-col relative" :options="options">
+    <Splide :has-track="false" class="w-full flex flex-col relative contain-layout visible" :options="options">
         <TeamsModal #="{ openTeamFull }">
             <SplideTrack class="overflow-visible max-w-full">
                 <TeamsCard @open-team-full="openTeamFull(team)" v-for="team in teams" v-bind="team" :tag="SplideSlide" class="w-full flex-shrink-0 lg:w-[calc(25%-15px)] last:mr-0 mr-5"></TeamsCard>

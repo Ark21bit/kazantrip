@@ -1,5 +1,5 @@
 <template>
-    <Splide :has-track="false" class="w-full flex flex-col lg:flex-row relative" :options="options">
+    <Splide :has-track="false" class="w-full flex flex-col lg:flex-row relative contain-layout visible" :options="options">
         <SplideTrack class="overflow-visible max-w-full lg:[&>ul]:!flex lg:[&>ul]:!gap-5">
             <SplideSlide v-for="item in 2" class="w-full flex-shrink-0 lg:w-[calc(50%-10px)]">
                 <h3 class="max-lg:hidden text-7 font-bold leading-1.2 font-Montserrat text-diamondBlack [&>span]:text-primary"><span>Индивидуальная</span> экскурсия</h3>

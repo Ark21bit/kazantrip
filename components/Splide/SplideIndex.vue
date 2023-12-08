@@ -1,9 +1,12 @@
 <template>
-    <Splide :has-track="false" class="w-full h-125 lg:h-205.5 flex" :options="options">
+    <Splide :has-track="false" class="w-full h-136 lg:h-205.5 flex visible" :options="options">
         <SplideTrack>
             <SplideSlide class="w-full h-full shrink-0 relative flex items-center" v-for="n in 10">
                 <div class="absolute inset-0">
-                    <img src="/imgs/swiper.png" class="w-full h-full object-cover object-center" alt="">
+                    <img src="/sliderBg2.svg" class="w-full h-full object-cover object-bottom" alt="">
+                </div>      
+                <div class="absolute inset-0">
+                    <img src="/imgs/swiper.png" class="w-full h-full object-cover object-center index__slider-img" alt="">
                 </div>      
                 <div class="flex flex-col items-center gap-4 lg:gap-5 text-white z-1 wrapper">
                     <h2 class="font-Montserrat text-6.5 lg:text-10.5 leading-1.2 lg:leading-1.2 font-bold text-center lg:w-[calc(100%-6.25rem)] lg:max-w-266">Беззаботные субботы в Верхнем Услоне</h2>
@@ -16,7 +19,7 @@
             <SplideController class="wrapper max-lg:hidden" />
             <SplidePagination></SplidePagination>
         </div>
-        <div class="flex absolute top-25 z-1 w-full max-lg:hidden">
+        <div class="flex absolute top-26.5 z-1 w-full max-lg:hidden">
             <p class="py-2 px-5 bg-white rounded-full font-medium text-base text-diamondBlack leading-1.25 [&>span]:text-primary w-fit mx-auto block wrapper mx-auto">
                 Добро пожаловать в экскурсионный центр города <span>Казани</span>
                 <span>👋</span>

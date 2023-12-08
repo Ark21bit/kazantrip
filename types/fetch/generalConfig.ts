@@ -73,7 +73,7 @@ export interface OfficeInfo {
 }
 
 export interface Office {
-    address:   string;
+    address: string;
     telephone: string;
 }
 
@@ -103,7 +103,6 @@ export interface Column {
     title: string;
     data: PaymentRules[];
 }
-
 export interface GlobalWords {
     time_text: TimeText;
     up: string;
@@ -144,6 +143,10 @@ export interface GlobalWords {
     fail_send_request: string;
     on_main_page: string;
     send_review: string;
+    yandex_review: string;
+    tell_about_impressions_trip: string;
+    about_impressions_trip: string;
+    title_excursion: string;
     you_mark: string;
     fio: string;
     excursion: string;
@@ -228,8 +231,6 @@ export interface GlobalWords {
     select_hotel_q: string;
     people_price_s: string;
 }
-
-
 export interface TimeText {
     short_h: string;
     short_i: string;

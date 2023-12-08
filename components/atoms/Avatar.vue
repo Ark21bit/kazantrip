@@ -1,12 +1,15 @@
 <template>
     <slot :classes="avatarClass">
-        <div :class="avatarClass">
+        <div v-bind="$attrs" :class="avatarClass">
             <img :src="src">
         </div>
     </slot>
 </template>
 
 <script lang="ts" setup>
+defineOptions({
+    inheritAttrs: false,
+})
 type avatarSize = 'md' | 'sm'
 const props = defineProps({
     size: { type: String as PropType<avatarSize>, default: 'md' },

@@ -18,3 +18,8 @@ export interface SEO {
     keywords?: string;
     text?: string;
 }
+
+export interface ProductsShortList {
+    id: number;
+    title: string;
+}

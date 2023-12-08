@@ -57,6 +57,9 @@
             <Button class="lg:w-49" variant="outline" color="green">Отменить</Button>        
         </div>
     </div>
+    <div class="col-span-full max-lg:hidden -mb-65 -z-1">
+        <img src="/eventImg.png" alt="">
+    </div>
 </template>
 
 <script setup lang="ts">

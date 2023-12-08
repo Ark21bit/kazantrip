@@ -7,11 +7,11 @@
         <div class="flex flex-col lg:flex-row gap-5 max-lg:border border-#F6F6F6 p-5 lg:p-10 rounded-5 bg-white">
             <div class="flex flex-col gap-4 flex-1">
                 <h2 class="text-5.5 lg:text-8 leading-1.2 lg:leading-1.2 font-bold text-diamondBlack font-Montserrat  max-lg:text-center [&>span]:text-primary" v-html="title"></h2>
-                <p class="text-second text-sm leading-1.4 max-lg:text-center lg:max-w-85.75">{{ subTitle }}</p>
-                <img :src="img" class="max-lg:hidden -translate-x-10 translate-y-10 mt-auto max-h-95 object-contain object-left" alt="">
+                <p class="text-second text-sm leading-1.4 max-lg:text-center lg:max-w-85.75 mb-auto">{{ subTitle }}</p>
+                <img :src="img" class="max-lg:hidden -translate-x-10 translate-y-10 -mt-13 max-h-95 object-contain object-left" alt="">
             </div>
             <div class="flex-[1.165_1_0%]">
-                <slot></slot>
+               <slot></slot>
             </div>
         </div>
     </div>

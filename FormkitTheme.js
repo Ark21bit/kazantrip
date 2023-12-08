@@ -8,7 +8,7 @@ export default {
         help: 'text-xs leading-1.2 text-#868686',/* true */
         inner: 'relative formkit-invalid:border-#FA2E2E formkit-disabled:bg-gray-200 bg-#F2F8F8 overflow-hidden formkit-disabled:cursor-not-allowed formkit-disabled:pointer-events-none',
         input: 'leading-1.2 appearance-none focus:outline-none bg-transparent focus:ring-0 focus:shadow-none',
-        label: 'block mb-1 text-xs leading-1.2 text-#868686',/* true */
+        label: 'block mb-1 text-base leading-1.2 text-diamondBlack',/* true */
         legend: 'font-bold text-sm',
         loaderIcon: 'inline-flex items-center w-4 text-gray-600 animate-spin',
         message: 'text-#FA2E2E text-xs leading-1.25 font-light',

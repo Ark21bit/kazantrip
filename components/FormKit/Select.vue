@@ -10,8 +10,8 @@
     <Transition enter-from-class="opacity-0" leave-to-class="opacity-0" enter-active-class="transition-opacity duration-500 easy-linear" leave-active-class="transition-opacity duration-500 easy-linear">
         <div v-show="isShow" class="formkit-dropdown-wrapper" :class="context.classes.dropdownWrapper">
             <ul class="formkit-listbox" role="listbox" :class="context.classes.listbox">
-                <li v-for="{ label, value }  in  options" @click="handleInput(value)" class="formkit-listitem" :class="[context.classes.listitem, value == context.value ? context.classes.listitemSelect : null]">
-                    {{ label }}
+                <li v-for="option in  options" @click="handleInput(option[optionValue])" class="formkit-listitem" :class="[context.classes.listitem, option[optionValue] == context.value ? context.classes.listitemSelect : null]">
+                    {{ option[optionLabel] }}
                 </li>
             </ul>
         </div>
@@ -24,6 +24,9 @@ const props = defineProps({
     context: Object,
 })
 
+const optionLabel = props.context?.optionLabel ?? 'label'
+const optionValue = props.context?.optionValue ?? 'value'
+
 const isShow = ref(false)
 
 const close = () => {
@@ -34,7 +37,7 @@ const options = computed(() => {
     if (Array.isArray(props.context.options)) {
         if (props.context.options.some(a => typeof a === 'string')) {
             return props.context.options.map((option) => {
-                return { label: option, value: option }
+                return { [optionLabel]: option, [optionValue]: option }
             })
         }
         return props.context.options
@@ -42,11 +45,11 @@ const options = computed(() => {
 })
 
 watch(options, (newValue) => {
-    if (newValue.find(a => a.label === selectOptions.value && a.value === props.context.value) || (props.context.value === null && props.context.value === undefined)) return
+    if (newValue.find(a => a[optionLabel] === selectOptions.value && a[optionValue] === props.context.value) || (props.context.value === null && props.context.value === undefined)) return
     props.context.node.input(null)
 })
 
-const selectOptions = computed(() => options.value?.find(a => a.value == props.context.value)?.label)
+const selectOptions = computed(() => options.value?.find(a => a[optionValue] == props.context.value)?.[optionLabel])
 
 function handleInput(value) {
     if (value == props.context.value) return props.context.node.input(null)

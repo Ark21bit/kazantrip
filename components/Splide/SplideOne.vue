@@ -5,7 +5,7 @@
                 <img src="/imgs/img3.png" alt="">
             </SplideSlide>
         </SplideTrack>
-        <div class="absolute bottom-7.5 lg:top-1/2 lg:-translate-y-1/2 w-full z-1">
+        <div class="absolute bottom-7.5 lg:top-1/2 lg:-translate-y-1/2 w-full h-fit z-1">
             <SplideController class="wrapper" />
             <SplidePagination></SplidePagination>
         </div>

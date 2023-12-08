@@ -13,9 +13,27 @@
         <NuxtLink target="_blank" to="/test" class="py-3 px-4.125 bg-primary transition-colors duration-500 ease-linear rounded-lg text-base font-medium">
             Все экскурсии
         </NuxtLink>
-    </div>
+    </div>    
+    <Toasts></Toasts>
 </template>
 <script setup lang="ts">
+import type { FormKitConfig } from '@formkit/core'
+const { generalConfig } = storeToRefs(useGeneralConfigStore())
+
+const config = inject<FormKitConfig>(Symbol.for('FormKitConfig'))
+
+const { locale } = useI18n()
+watch(locale, (newValue) => {
+    if (config?.locale === undefined) return
+    config.locale = newValue
+}, { immediate: true })
+
 useScrollWidth()
+
+useHead({
+    htmlAttrs: {
+        lang: () => locale.value,
+    },
+})
 </script>
 

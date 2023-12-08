@@ -1,7 +1,7 @@
 <template>
     <div class="flex">
         <Icon v-for="star in max" :key="star" name="material-symbols:star-rounded" @mouseleave="hoverStarIndex = 0" @mouseover="hoverStarIndex = star" @click="handleInput(star)" class="cursor-pointer transition ease-linear duration-500"
-            :class="star <= context.value || star <= hoverStarIndex ? 'text-fblue' : 'text-inactive'" :size="size"></Icon>
+            :class="star <= context.value || star <= hoverStarIndex ? 'text-primary' : 'text-inactive'" :size="size"></Icon>
     </div>
 </template>
 

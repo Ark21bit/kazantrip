@@ -1,5 +1,5 @@
 <template>
-    <Splide :hasTrack="false" class="w-full flex relative" :options="options">
+    <Splide :hasTrack="false" class="w-full flex relative contain-layout visible" :options="options">
         <SplideTrack class="overflow-visible max-w-full">
             <SplideSlide class="w-full h-full shrink-0 [&>img]:(w-full h-full object-cover object-center) lg:w-[calc(25%-10px)] mr-5 last:mr-0 group/swiperTrail" v-for="n in 10">
                 <div class="relative translate-x-3.25">

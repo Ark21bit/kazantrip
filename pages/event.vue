@@ -7,6 +7,9 @@
             <Button class="w-full lg:w-41.25 mt-2 lg:mt-1">Заказать</Button>
         </div>
     </div>
+    <div class="col-span-full max-lg:hidden -mb-65 -z-1">
+        <img src="/eventImg.png" alt="">
+    </div>
 </template>
 
 <script setup lang="ts">

@@ -4,6 +4,7 @@ import { ru, en } from '@formkit/i18n'
 import { createInput } from '@formkit/vue'
 import select from './components/FormKit/Select.vue'
 import datepicker from './components/FormKit/Datepicker.vue'
+import rating from './components/FormKit/Rating.vue'
 export default {
     locales: { ru, en },
     locale: 'ru',
@@ -18,7 +19,7 @@ export default {
             component: counter
         }), */
         selectC: createInput(select, {
-            props: ['options', 'placeholder']
+            props: ['options', 'placeholder', 'optionLabel', 'optionValue']
         }),
         datepickerC: createInput(datepicker, {
             props: [
@@ -34,9 +35,9 @@ export default {
                 'placeholder'
             ]
         }),
-        /* ratingC: createInput(rating, {
+        ratingC: createInput(rating, {
             props: ['max']
-        }), */
+        }),
     },
 }
 
@@ -45,7 +46,9 @@ declare module '@formkit/inputs' {
         'selectC': {
             type: 'selectC',
             options: any,
-            placeholder: string
+            placeholder?: string,
+            optionLabel?: string,
+            optionValue?: string,
         }
         'datepickerC': {
             type: 'datepickerC',

@@ -5,8 +5,13 @@
                 <Icon name="Logo" class="w-17 lg:w-18 h-13 lg:h-14" />
             </CustomLink>
             <Nav :dark="dark" class="grow max-lg:hidden" />
-            <DropdownHover :dark="dark" class="max-lg:hidden" :title="locale" #default="{ classes }">
-                <NuxtLink v-for="(item, key) in generalConfig?.locales" :to="switchLocalePath(key)" :class="classes">{{ item?.slice(0, 2) }}</NuxtLink>
+            <DropdownHover :dark="dark" class="max-lg:hidden">
+                <template #title>
+                    <span class="text-primary uppercase">{{ generalConfig?.locales?.[locale as 'ru' | 'en'].slice(0, 2) }}</span>
+                </template>
+                <template #default="{ classes }">
+                    <NuxtLink v-for="(item, key) in generalConfig?.locales" :to="switchLocalePath(key)" :class="classes">{{ item?.slice(0, 2) }}</NuxtLink>
+                </template>
             </DropdownHover>
             <NuxtLink :to="phoneLinkReplace(generalConfig?.static_info?.contact?.telephones?.find(() => true))" class="text-lg font-medium lining-nums">{{ generalConfig?.static_info?.contact?.telephones?.find(() => true) }}</NuxtLink>
             <Button class="lg:w-41 max-lg:p-2.25" size="sm">

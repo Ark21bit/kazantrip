@@ -6,18 +6,22 @@
     </button>
 </template>
 <script lang="ts" setup>
-export type SplideButtonColors = 'white' | 'azul' | 'transparent' 
+export type SplideButtonColors = 'white' | 'azul' | 'transparent'
 const props = defineProps({
     color: { type: String as PropType<SplideButtonColors>, default: 'white' },
+    padding: { type: String, default: 'p-3.25' },
+    size: { type: String, default: 'text-2xl' },
 })
 const colorClasses = {
     white: 'bg-white text-diamondBlack hover:(bg-primary text-white) disabled:(bg-inactive text-diamondBlack)',
     azul: 'bg-#E2F1F2 text-primary hover:(bg-primary text-white) disabled:(bg-inactive text-diamondBlack)',
-    transparent: 'text-diamondBlack hover:text-primary disabled:text-inactive'
+    transparent: 'text-diamondBlack hover:text-primary disabled:text-inactive',
 }
 
 const buttonClasses = computed(() => [
-    'splide__arrow flex text-2xl rounded-full p-3.25 transition-colors duration-500 ease-linear pointer-events-auto',
+    'splide__arrow flex rounded-full transition-colors duration-500 ease-linear pointer-events-auto',
+    props.padding,
+    props.size,
     colorClasses?.[props.color]
 ])
 </script>
