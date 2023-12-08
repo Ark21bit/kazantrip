@@ -11,7 +11,7 @@
                 <div class="flex justify-between gap-2 items-center py-4 lg:py-6">
                     <Icon name="Logo" class="w-16.75 h-13 lg:(w-19 h-15) text-white"></Icon>
                     <FooterNav class="max-lg:hidden" />
-                    <button class="text-white flex items-center gap-2.5 text-sm leading-1.25 max-lg:hidden">
+                    <button @click="scrollToUp" class="text-white flex items-center gap-2.5 text-sm leading-1.25 max-lg:hidden">
                         {{ generalConfig?.static_info?.global_words?.up }}
                         <Icon name="ArrowUp" class="text-11 p-2.5 bg-#39919A rounded-full"></Icon>
                     </button>
@@ -69,4 +69,8 @@
 
 <script setup lang="ts">
 const { generalConfig } = storeToRefs(useGeneralConfigStore())
+
+const scrollToUp = () => {
+    window.scrollTo(0, 0)
+}
 </script>
