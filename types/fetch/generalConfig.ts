@@ -230,6 +230,9 @@ export interface GlobalWords {
     enter_text: string;
     select_hotel_q: string;
     people_price_s: string;
+    hide_more_details: string;
+    more_excursions: string;
+    timetable_on: string;
 }
 export interface TimeText {
     short_h: string;

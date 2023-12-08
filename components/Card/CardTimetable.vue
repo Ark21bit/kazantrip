@@ -1,23 +1,38 @@
 <template>
     <div class="flex flex-col rounded-5 overflow-hidden border border-#EBEBEB lg:border-transparent shadow-base">
         <div class="bg-#E2F1F2 p-5 text-base lg:text-lg font-semibold leading-1.2 lg:leading-1.2 text-diamondBlack border-b border-#EBEBEB">
-            <p>Расписание на</p>
-            <p class="text-primary">{{ day }}</p>
+            <p>{{ generalConfig?.static_info?.global_words?.timetable_on }}</p>
+            <p class="text-primary">{{ $dayjs(day).tz('Europe/Moscow').locale(locale).format('dddd DD MMMM') }}</p>
         </div>
-        <div v-for="item in info" class="flex flex-col gap-2 py-4.5 p-5 border-t border-#EBEBEB text-sm lg:text-base font-semibold leading-1.2 lg:leading-1.2">
-            <p class="leading-1.4 text-#7B7B7B">{{ item?.time }}</p>
-            <p class="text-diamondBlack">{{ item?.product_name }}</p>
-            <p class="text-primary text-xl">1999₽<span class="ml-1.5 py-1.5 text-sm text-#A4A4A4 line-through decoration-diamondBlack">1350₽</span></p>
+        <div>
+            <div v-for="item in isShort ? infoShorts : info" class="flex flex-col gap-2 py-4.5 p-5 first:border-none border-t border-#EBEBEB text-sm lg:text-base font-semibold leading-1.2 lg:leading-1.2">
+                <p class="leading-1.4 text-#7B7B7B">{{ item?.time }}</p>
+                <p class="text-diamondBlack">{{ item?.product_name }}</p>
+                <p class="text-primary text-xl">{{ item?.visible_prices?.new }}₽<span class="ml-1.5 py-1.5 text-sm text-#A4A4A4 line-through decoration-diamondBlack">{{ item?.visible_prices?.old }}₽</span></p>
+            </div>
         </div>
-        <div class="mt-auto flex py-5 border-t border-#EBEBEB">
-            <CustomLink to="/test" class="text-#39919A underline leading-1.2 text-base hover:text-#21747C mx-auto">Еще экскурсии</CustomLink>
+        <div v-if="Number(info?.length) > 2" class="mt-auto flex py-5 border-t border-#EBEBEB">
+            <Button @click="toggle" variant="link" size="lg" padded class="mx-auto">{{ isShort ? generalConfig?.static_info?.global_words?.more_excursions : generalConfig?.static_info?.global_words?.hide_more_details }}</Button>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
-defineProps({
+import type { TimetableInfo } from '~/types/fetch/timetable';
+const props = defineProps({
     day: String,
-    info: Array as PropType<any>
+    info: Array as PropType<TimetableInfo[]>,
 })
+
+const { generalConfig } = storeToRefs(useGeneralConfigStore())
+
+const { locale } = useI18n()
+
+const infoShorts = computed(() => props.info?.slice(0, 2))
+
+const isShort = ref(true)
+
+const toggle = () => {
+    isShort.value = !isShort.value
+}
 </script>
