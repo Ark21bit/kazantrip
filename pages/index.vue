@@ -1,9 +1,9 @@
 <template>
     <div class="col-span-full">
-        <SplideIndex class=""></SplideIndex>
+        <SplideIndex :slides="pageInfo?.slider?.data" class=""></SplideIndex>
     </div>
     <div class="flex flex-col lg:flex-row gap-5 mt-7.5 lg:mt-12.5 justify-between">
-        <Button class="max-lg:w-full">Посмотреть актуальное расписание</Button>
+        <Button :tag="CustomLink" :to="pageInfo?.content?.timetable?.slug" class="max-lg:w-full">{{ pageInfo?.content?.timetable?.title }}</Button>
         <div class="flex flex-col lg:flex-row gap-2.5 lg:gap-5 max-lg:border-t border-#E2E2E2 max-lg:pt-5">
             <FormKit type="datepickerC" outer-class="w-full lg:w-39.5"></FormKit>
             <Button class="max-lg:w-full">Подобрать экскусрию</Button>
@@ -48,8 +48,22 @@
     </div>
 </template>
 
-<script setup>
+<script lang="ts" setup>
+import { CustomLink } from '#components';
+import type { IndexPage } from '~/types/fetch';
+
 definePageMeta({
     layout: 'main'
+})
+
+const { data: pageInfo } = await useBaseFetch<IndexPage>('search/page', {
+    query: { key: 'main' },
+    key: 'index-page'
+})
+
+useSeoMeta({
+    title: () => pageInfo.value?.seo?.title ?? " ",
+    description: () => pageInfo.value?.seo?.description ?? " ",
+    keywords: () => pageInfo.value?.seo?.keywords ?? ' ',
 })
 </script>

@@ -1,17 +1,15 @@
 <template>
     <Splide :has-track="false" class="w-full h-136 lg:h-205.5 flex visible" :options="options">
-        <SplideTrack>
-            <SplideSlide class="w-full h-full shrink-0 relative flex items-center" v-for="n in 10">
+        <SplideTrack class="w-full">
+            <SplideSlide class="w-full h-full shrink-0 relative flex items-center" v-for="slide in slides">
                 <div class="absolute inset-0">
                     <img src="/sliderBg2.svg" class="w-full h-full object-cover object-bottom" alt="">
-                </div>      
-                <div class="absolute inset-0">
-                    <img src="/imgs/swiper.png" class="w-full h-full object-cover object-center index__slider-img" alt="">
-                </div>      
+                </div>
+                <div class="absolute inset-0 index__slider-img [&>img]:(w-full h-full object-cover object-bottom)" v-html="slide?.media_preview"></div>
                 <div class="flex flex-col items-center gap-4 lg:gap-5 text-white z-1 wrapper">
-                    <h2 class="font-Montserrat text-6.5 lg:text-10.5 leading-1.2 lg:leading-1.2 font-bold text-center lg:w-[calc(100%-6.25rem)] lg:max-w-266">Беззаботные субботы в Верхнем Услоне</h2>
-                    <p class="text-sm lg:text-lg leading-1.4 lg:leading-1.4 text-center max-w-211.5">“Волжская тропа” представляет однодневные туры на природную локацию Верхнеуслонского района! Приходите к нам на “Беззаботные субботы”. Вдохните воздух свободы от города!</p>
-                    <Button class="mt-2 lg:mt-1 max-lg:w-full">Узнать подробнее</Button>
+                    <h2 class="font-Montserrat text-6.5 lg:text-10.5 leading-1.2 lg:leading-1.2 font-bold text-center lg:w-[calc(100%-6.25rem)] lg:max-w-266">{{ slide?.lang_info?.title }}</h2>
+                    <p class="text-sm lg:text-lg leading-1.4 lg:leading-1.4 text-center max-w-211.5">{{ slide?.lang_info?.description }}</p>
+                    <Button :tag="CustomLink" :to="slide?.target_url" class="mt-2 lg:mt-1 max-lg:w-full">узнать подробнее</Button>
                 </div>
             </SplideSlide>
         </SplideTrack>
@@ -29,15 +27,12 @@
 </template>
 
 <script setup lang="ts">
+import { CustomLink } from '#components';
 import { Splide, SplideSlide, SplideTrack, type Options } from '@splidejs/vue-splide';
+import type { SliderIndexDatum } from '~/types/fetch';
 
 defineProps({
-    slides: Object as PropType<{
-        title: string,
-        description: string,
-        slug: string,
-        img: string,
-    }>
+    slides: Array as PropType<SliderIndexDatum[]>
 })
 
 const options: Options = {

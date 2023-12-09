@@ -27,7 +27,7 @@ body.modal-open-mobile {
     background: linear-gradient(0deg, rgba(0, 0, 0, 0.50) 0%, rgba(0, 0, 0, 0.50) 100%), url(/imgs/img2.png)
 }
 
-.index__slider-img{
+.index__slider-img>img{
     mask-image:url(/sliderBg.svg);
     mask-repeat: no-repeat;
     mask-position: bottom;
