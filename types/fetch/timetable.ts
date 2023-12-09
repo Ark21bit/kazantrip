@@ -31,6 +31,7 @@ export interface TimetableInfo {
     product_name: null;
     visible_prices: VisiblePrices;
     product_prices: ProductPrice[];
+    url: string;
 }
 
 export interface ProductPrice {

@@ -7,7 +7,7 @@
         <div>
             <div v-for="item in isShort ? infoShorts : info" class="flex flex-col gap-2 py-4.5 p-5 first:border-none border-t border-#EBEBEB text-sm lg:text-base font-semibold leading-1.2 lg:leading-1.2">
                 <p class="leading-1.4 text-#7B7B7B">{{ item?.time }}</p>
-                <p class="text-diamondBlack">{{ item?.product_name }}</p>
+                <CustomLink :to="item?.url" class="text-diamondBlack">{{ item?.product_name }}</CustomLink>
                 <p class="text-primary text-xl">{{ item?.visible_prices?.new }}₽<span class="ml-1.5 py-1.5 text-sm text-#A4A4A4 line-through decoration-diamondBlack">{{ item?.visible_prices?.old }}₽</span></p>
             </div>
         </div>
