@@ -10,8 +10,10 @@
             </div>
             <Rating :rating="rating"></Rating>
         </div>
-        <p ref="pMessage" class="text-diamondBlack text-sm lg:text-base leading-1.4 lg:leading-1.4 line-clamp-7">{{ message }}</p>
-        <Button v-if="clampButtonVisible" @click="emit('open-full-review')" variant="link" padded class="self-start">{{ generalConfig?.static_info?.global_words?.show_more }}</Button>
+        <div>
+            <p ref="pMessage" class="text-diamondBlack text-sm lg:text-base leading-1.4 lg:leading-1.4 line-clamp-7">{{ message }}</p>
+            <Button v-if="clampButtonVisible" @click="emit('open-full-review')" variant="link" padded class="self-start">{{ generalConfig?.static_info?.global_words?.show_more }}</Button>
+        </div>
         <p class="mt-auto text-sm leading-1.4 text-#7B7B7B">{{ $dayjs(created_at).tz('Europe/Moscow').locale(locale).format('L') }}</p>
     </component>
 </template>

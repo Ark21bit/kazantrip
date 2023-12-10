@@ -73,7 +73,7 @@ const ui = {
         base: "flex-shrink-0",
         size: {
             lg: '',
-            md: "text-2xl",
+            md: "text-base",
             sm: "text-xl"
         }
     },

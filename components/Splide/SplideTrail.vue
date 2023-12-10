@@ -1,10 +1,10 @@
 <template>
     <Splide :hasTrack="false" class="w-full flex relative contain-layout visible" :options="options">
         <SplideTrack class="overflow-visible max-w-full">
-            <SplideSlide class="w-full h-full shrink-0 [&>img]:(w-full h-full object-cover object-center) lg:w-[calc(25%-10px)] mr-5 last:mr-0 group/swiperTrail" v-for="n in 10">
+            <SplideSlide class="w-full min-w-62.5 lg:min-w-76.25 h-full shrink-0 [&>img]:(w-full h-full object-cover object-center) lg:w-[calc(25%-10px)] mr-5 last:mr-0 group/swiperTrail" v-for="(trail, index) in trails">
                 <div class="relative translate-x-3.25">
                     <div class="ring-(1 inset #F6F6F6) relative z-1 w-fit bg-white rounded-full p-1.25 after-swiper-trail">
-                        <span class="w-8 aspect-square rounded-full bg-primary flex items-center justify-center text-white text-lg leading-1.2 font-semibold">{{ n }}</span>
+                        <span class="w-8 aspect-square rounded-full bg-primary flex items-center justify-center text-white text-lg leading-1.2 font-semibold">{{ index + 1 }}</span>
                     </div>
                     <div class="group-last/swiperTrail:hidden absolute top-1/2 -translate-y-1/2 border-t border-dashed border-primary w-[calc(100%+20px)]"></div>
                 </div>
@@ -12,11 +12,9 @@
                     <svg class="-z-1 absolute left-4.5 translate-x-1/2 translate-y-1 bottom-full" xmlns="http://www.w3.org/2000/svg" width="16" height="14" viewBox="0 0 16 14" fill="none">
                         <path d="M7.13397 0.5C7.51887 -0.166666 8.48112 -0.166667 8.86602 0.5L15.7942 12.5C16.1791 13.1667 15.698 14 14.9282 14H1.0718C0.301996 14 -0.179129 13.1667 0.205771 12.5L7.13397 0.5Z" fill="#fff" stroke="#F6F6F6" />
                     </svg>
-                    <h3 class="text-lg leading-1.2 font-semibold">ул. Пушкина, 4</h3>
-                    <p class="text-sm leading-1.4 min-h-30">Лучший способ узнать о главных достопримечательностях Казани - прогулка с местным жителем.</p>
-                    <div class="w-full h-30 lg:h-37.5 [&>img]:(w-full h-full object-center object-cover rounded-2.5)">
-                        <img src="/imgs/img2.png" alt="">
-                    </div>
+                    <h3 class="text-lg leading-1.2 font-semibold">{{ trail?.lang_info?.title }}</h3>
+                    <p class="text-sm leading-1.4 min-h-30">{{ trail?.lang_info?.description }}</p>
+                    <div class="w-full h-30 lg:h-37.5 [&>img]:(w-full h-full object-center object-cover rounded-2.5)" v-html="trail?.media_preview"></div>
                 </div>
             </SplideSlide>
         </SplideTrack>
@@ -25,8 +23,10 @@
 
 <script setup lang="ts">
 import { Splide, SplideSlide, SplideTrack, type Options } from '@splidejs/vue-splide';
+import type { InfoRouteBlocksData } from '~/types/fetch/pathMatch/regularE';
 defineProps({
-    imgs: Array as PropType<String[]>
+    imgs: Array as PropType<String[]>,
+    trails: Array as PropType<InfoRouteBlocksData[]>
 })
 
 const options: Options = {

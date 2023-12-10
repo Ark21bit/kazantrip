@@ -80,7 +80,7 @@ const modalSizeClasses = {
 
 const modalClass = computed(() => {
     return [
-        'flex flex-col relative bg-white rounded-lg w-[calc(100%-var(--width-content-margin)*2)] pointer-events-auto shadow-base ring ring-inset ring-#F6F6F6',
+        'flex flex-col relative bg-white rounded-5 w-[calc(100%-var(--width-content-margin)*2)] pointer-events-auto shadow-base ring ring-inset ring-#F6F6F6',
         props.size && modalSizeClasses.size[props.size],
         props.padding
     ]

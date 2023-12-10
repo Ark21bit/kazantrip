@@ -150,6 +150,8 @@ export interface GlobalWords {
     you_mark: string;
     fio: string;
     excursion: string;
+    total: string;
+    order_certificate: string;
     email_text: string;
     recommendations: string;
     date: string;

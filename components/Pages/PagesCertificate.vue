@@ -5,7 +5,7 @@
         <h1 class="font-Montserrat text-6.5 lg:text-9.5 leading-1.2 font-bold text-diamondBlack">{{ pageInfo?.lang_info?.title }}</h1>
         <p class="text-base leading-1.4 text-second">{{ pageInfo?.lang_info?.description }}</p>
         <OrderCertificate :product="pageInfo" #="{ openModal }">
-            <Button @click="openModal" class="w-full lg:w-76.25">Заказать сертификат</Button>
+            <Button @click="openModal" class="w-full lg:w-76.25">{{ generalConfig?.static_info?.global_words?.order_certificate }}</Button>
         </OrderCertificate>
     </div>
 </template>
@@ -16,5 +16,5 @@ import type { CertificateData } from '~/types/fetch/pathMatch/certificate';
 const props = defineProps({
     pageInfo: Object as PropType<CertificateData>
 })
-
+const { generalConfig } = storeToRefs(useGeneralConfigStore())
 </script>

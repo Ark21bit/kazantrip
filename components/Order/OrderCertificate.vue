@@ -10,7 +10,7 @@
                 <FormKit name="client_telephone" validation="required:trim" type="tel" :validation-label="generalConfig?.static_info?.global_words?.telephone" :placeholder="generalConfig?.static_info?.global_words?.telephone" v-maska data-maska="+7(###)###-##-##" />
             </div>
             <div class="flex justify-between gap-3 text-xl lg:text-6.5 leading-1.2 font-semibold text-diamondBlack max-lg:-my-1">
-                <p>Итого</p>
+                <p>{{ generalConfig?.static_info?.global_words?.total }}</p>
                 <p class="text-primary">{{ selectPrice ?? '-' }}₽</p>
             </div>
             <FormKit :disabled="paymentTypes?.length == 0" name="payment_type_id" validation="required" type="selectC" :options="paymentTypes" :validation-label="generalConfig?.static_info?.global_words?.type_payment" :placeholder="generalConfig?.static_info?.global_words?.type_payment" />

@@ -11,11 +11,7 @@
                         <p class="text-sm lg:text-base text-second leading-1.35 lg:leading-1.35"> {{ generalConfig?.static_info?.global_words?.confirm_description_text }}</p>
                     </div>
                 </template>
-                <template #footer="{ totalPrice }">
-                    <!-- <div class="flex flex-col justify-between gap-3 py-3 lg:py-5 px-5 lg:px-7.5 last:border-none border-b border-#E8E8E8 text-sm leading-1.4 text-diamondBlack">
-                        <p>{{ generalConfig?.static_info?.global_words?.note }}</p>
-                        <p class="font-medium">{{ orderInfo?.comment_client }}</p>
-                    </div> -->
+                <template #footer="{ totalPrice }">                    
                     <div class="flex bg-primary lg:flex-row justify-between gap-3 py-3 px-5 lg:px-7.5 last:border-none border-b border-#E8E8E8 text-lg leading-1.2 text-white font-semibold">
                         <p>{{ generalConfig?.static_info?.global_words?.total_order_payment }}</p>
                         <p>{{ totalPrice }}₽</p>
@@ -68,7 +64,7 @@ onMounted(() => {
 const confirmationComponent = computed(() => {
     /* if (orderInfo.value?.type_id == 31) return resolveComponent('ConfirmationAdditional') */
     if (orderInfo.value?.type_id == 12) return resolveComponent('ConfirmationIndividualExcursions')
-    if (orderInfo.value?.type_id == 11) return resolveComponent('ConfirmationRegularExcursions')
+    if (orderInfo.value?.type_id == 11) return resolveComponent('ConfirmationRegular')
     if (orderInfo.value?.type_id == 41) return resolveComponent('ConfirmationCertificate')
     return null
 })

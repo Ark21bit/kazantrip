@@ -1,16 +1,14 @@
 <template>
     <div class="flex flex-col gap-5 lg:gap-7.5">
-        <h3 class="text-5.5 lg:text-2xl font-semibold font-Montserrat leading-1.2 lg:leading-1.2 text-diamondBlack">Экскурсии по Казани с экскурсоводом: цены и бронирование билетов</h3>
-        <p class="text-sm lg:text-base leading-1.4 lg:leading-1.4 text-diamondBlack">Лучший способ узнать о главных достопримечательностях Казани - прогулка с местным жителем. А если он еще и является аккредитованным экскурсоводом, который сдал строгий экзамен на знание достопримечательностей и истории Казани и Республики
-            Татарстан, такие прогулки превратятся в увлекательные
-            экскурсии по Казани или даже многодневные туры.
-
-            Заказывая групповую или индивидуальную обзорную экскурсию по Казани, вы гарантированно получаете не только продукт по лучшей цене, но и порцию исключительно положительных эмоций. Наши увлеченные экскурсоводы одинаково интересно покажут вам дневную и вечернюю Казань, проведут экскурсию по
-            Казанскому Кремлю, откроют вам тайны Острова-града Свияжска и поведают любопытные факты об исторических достопримечательностях, которыми изобилует столица Татарстана, славный город Казань.</p>
+        <h3 class="text-5.5 lg:text-2xl font-semibold font-Montserrat leading-1.2 lg:leading-1.2 text-diamondBlack">{{ title }}</h3>
+        <p class="text-sm lg:text-base leading-1.4 lg:leading-1.4 text-diamondBlack">{{ description }}</p>
         <CustomLink to="/test" class="w-fit text-#39919A underline leading-1.2 text-base hover:text-#21747C">Показать больше</CustomLink>
     </div>
 </template>
 
 <script setup lang="ts">
-
+defineProps({
+    title: String,
+    description: String
+})
 </script>

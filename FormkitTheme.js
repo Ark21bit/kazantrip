@@ -49,10 +49,10 @@ export default {
         input: 'block resize-none w-full px-3.75 py-3.5 text-base text-#28303F placeholder-#868686',
     },
     counter: {
-        input: 'w-7.5 p-0.5 text-center $remove:bg-transparent bg-#F2F8F8 rounded-1.25 font-medium text-base text-#28303F placeholder-#868686 leading-1.2 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none',
+        input: 'w-8.5 p-0.5 text-center $remove:bg-transparent bg-#F6F6F6 rounded-1.25 font-medium text-sm text-fblack placeholder-#868686 leading-1.2 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none',
         inner: 'flex items-center gap-1.5 w-fit $remove:bg-#F2F8F8',
-        decrement: 'aspect-square hover:text-fblue transition-colors duration-500 easy-linear text-#28303F disabled:text-inactive',
-        increment: 'aspect-square hover:text-fblue transition-colors duration-500 easy-linear text-#28303F disabled:text-inactive'
+        decrement: 'aspect-square hover:text-primary transition-colors duration-500 easy-linear text-fblack disabled:text-inactive',
+        increment: 'aspect-square hover:text-primary transition-colors duration-500 easy-linear text-fblack disabled:text-inactive'
     },
     selectC: {
         inner: '$remove:overflow-hidden flex relative items-center border border-#E8E8E8 focus-within:border-primary rounded-lg',

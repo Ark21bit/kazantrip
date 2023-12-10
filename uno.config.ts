@@ -37,6 +37,7 @@ export default defineConfig({
             "primary": "#39919A",
             "mercury": "#ebebeb",
             "diamondBlack": "#28303F",
+            "fblack": "#28303F",
             "namaraGrey": "#7B7B7B",
             "second": "#4D4D4D",
             "lunarBase": "#868686",
