@@ -6,9 +6,9 @@
     </button>
 </template>
 <script lang="ts" setup>
-export type SplideButtonColors = 'white' | 'azul' | 'transparent'
+export type SliderButtonColors = 'white' | 'azul' | 'transparent'
 const props = defineProps({
-    color: { type: String as PropType<SplideButtonColors>, default: 'white' },
+    color: { type: String as PropType<SliderButtonColors>, default: 'white' },
     padding: { type: String, default: 'p-3.25' },
     size: { type: String, default: 'text-2xl' },
 })
@@ -19,7 +19,7 @@ const colorClasses = {
 }
 
 const buttonClasses = computed(() => [
-    'splide__arrow flex rounded-full transition-colors duration-500 ease-linear pointer-events-auto',
+    'flex rounded-full transition-colors duration-500 ease-linear pointer-events-auto',
     props.padding,
     props.size,
     colorClasses?.[props.color]

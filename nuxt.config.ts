@@ -7,7 +7,7 @@ export default defineNuxtConfig({
         "~/components",
         { path: "~/components/global", global: true },
     ],
-    css: ['@splidejs/vue-splide/css/core', "~/assets/css/main.css"],
+    css: ['swiper/css', "~/assets/css/main.css"],
     runtimeConfig: {
         public: {
             APIbaseURL: process.env.APP_URL_BACKEND

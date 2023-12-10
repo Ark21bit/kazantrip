@@ -1,39 +1,54 @@
 <template>
-    <Splide :has-track="false" class="w-full flex flex-col relative contain-layout visible" :options="options">
-        <TeamsModal #="{ openTeamFull }">
-            <SplideTrack class="overflow-visible max-w-full">
-                <TeamsCard @open-team-full="openTeamFull(team)" v-for="team in teams" v-bind="team" :tag="SplideSlide" class="w-full flex-shrink-0 lg:w-[calc(25%-15px)] last:mr-0 mr-5"></TeamsCard>
-            </SplideTrack>
-        </TeamsModal>
-        <SplideController color="azul" class="mt-7.5 w-fit" />
-        <SplidePagination class="mt-5" />
-    </Splide>
+    <TeamsModal #="{ openTeamFull }">
+        <Swiper class="w-full flex flex-col relative contain-layout overflow-visible" v-bind="options, $attrs">
+            <SwiperSlide class="w-67.5 sm:w-76.25 min-[868px]:w-92.5 lg:w-[calc(25%-15px)] last:mr-0 mr-5" v-for="team in teams">
+                <TeamsCard @open-team-full="openTeamFull(team)" v-bind="team" class="w-full" />
+            </SwiperSlide>
+            <SliderController color="azul" class="mt-7.5 w-fit max-lg:hidden" />
+            <SliderPagination class="mt-5 lg:hidden" />
+        </Swiper>
+    </TeamsModal>
 </template>
 
 <script lang="ts" setup>
-import { Splide, SplideSlide, SplideTrack, type Options } from '@splidejs/vue-splide';
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import { Navigation, Pagination, Mousewheel } from 'swiper/modules';
+import type { SwiperOptions } from 'swiper/types';
 import type { TeamsDatum } from '~/types/fetch/about';
-
+defineOptions({
+    inheritAttrs: false
+})
 defineProps({
     teams: Array as PropType<TeamsDatum[]>
 })
-const options: Options = {
+const options: SwiperOptions = {
+    modules: [Navigation, Pagination, Mousewheel],
     breakpoints: {
-        640: { fixedWidth: 305 },
-        868: { fixedWidth: 370 },
         1024: {
-            perPage: 4,
-            arrows: true,
-            pagination: false,
-            fixedWidth: undefined
+            slidesPerView: 4,
+            navigation: {
+                enabled: true,
+            },
+            pagination: {
+                enabled: false,
+            },
         }
     },
-    pagination: true,
-    gap: 20,
-    fixedWidth: 270,
-    arrows: false,
-    mediaQuery: 'min',
-    perMove: 1
+    navigation: {
+        enabled: false,
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+    pagination: {
+        el: '.swiper-pagination',
+        enabled: true,
+        clickable: true
+    },
+    mousewheel: {
+        forceToAxis: true
+    },
+    spaceBetween: 20,
+    slidesPerView: 'auto',
 }
 </script>
 

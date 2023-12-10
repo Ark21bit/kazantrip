@@ -63,4 +63,15 @@ body.modal-open-mobile {
         height: 0;
         max-height: 0;
     }
+
+    .swiper-pagination{
+        --at-apply:"flex gap-2 justify-center items-center flex-wrap"
+    }
+
+    .swiper-pagination .swiper-pagination-bullet{
+        --at-apply:"w-2.5 h-2.5 bg-#E9E9E9 rounded-full transition-colors hover:bg-primary cursor-pointer"
+    }
+    .swiper-pagination .swiper-pagination-bullet-active{
+        --at-apply:"bg-primary"
+    }
 }

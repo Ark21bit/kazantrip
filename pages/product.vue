@@ -1,5 +1,5 @@
 <template>
-    <SplideOne class="col-span-full h-100 lg:h-150"></SplideOne>
+    <SliderOne class="col-span-full h-100 lg:h-150"></SliderOne>
     <Breadcrumbs class="max-lg:hidden mt-7.5"></Breadcrumbs>
     <div class="mt-7.5 flex gap-1.5 flex-wrap">
         <div class="flex gap-2.5 items-center rounded-full text-sm leading-1.2 px-4 py-1.125 text-white bg-primary">
@@ -125,7 +125,7 @@
     <div class="mt-10 lg:mt-25 bg-[url(/imgs/trailMBg.svg)] lg:bg-[url(/imgs/trailBg.svg)] col-span-full bg-no-repeat pt-23.5 lg:pt-26 pb-20 lg:pb-33.75 bg-[length:100%_100%]">
         <div class="wrapper">
             <h2 class="max-lg:hidden text-fblack text-5.5 lg:text-7 font-bold leading-1.2 lg:leading-1.2 font-Montserrat">Маршрут</h2>
-            <SplideTrail class="mt-5 lg:mt-16" />
+            <SliderTrail class="mt-5 lg:mt-16" />
         </div>
     </div>
     <div class="mt-10 lg:mt-17.5">
@@ -150,7 +150,7 @@
             <li class="flex gap-2.5 items-start before:(aspect-square shrink-0 bg-primary mt-0.6em -translate-y-1/2 content-empty w-2.5 rounded-full)">Входной билет в музей «Дом Лекаря»</li>
         </ul>
     </div>
-    <SplidePurple class="mt-15 lg:mt-25"></SplidePurple>
+    <SliderPurple class="mt-15 lg:mt-25"></SliderPurple>
     <div class="mt-15 lg:mt-25 col-span-full pb-7.5 border-b border-#EBEBEB">
         <SeoBlock class="wrapper"></SeoBlock>
     </div>
@@ -165,7 +165,7 @@
     </div>
     <div class="mt-15 lg:mt-25">
         <h2 class="text-fblack text-5.5 lg:text-7 font-bold leading-1.2 lg:leading-1.2 font-Montserrat">Похожие экскурсии</h2>
-        <SplideRecomendations class="mt-5 lg:mt-10" />
+        <SliderRecomendations class="mt-5 lg:mt-10" />
     </div>
 </template>
 

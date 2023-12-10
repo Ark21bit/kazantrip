@@ -20,11 +20,11 @@
   },
   "dependencies": {
     "@nuxtjs/i18n": "^8.0.0-rc.7",
-    "@splidejs/vue-splide": "^0.6.12",
     "@vuepic/vue-datepicker": "^7.3.0",
     "@vueuse/components": "^10.7.0",
     "maska": "^2.1.10",
     "nuxt-icon": "^0.6.6",
+    "swiper": "^11.0.5",
     "typescript": "^5.3.2"
   },
   "overrides": {

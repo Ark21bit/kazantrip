@@ -1,6 +1,6 @@
 <template>
     <div class="col-span-full">
-        <SplideIndex :slides="pageInfo?.slider?.data" class=""></SplideIndex>
+        <SliderIndex :slides="pageInfo?.slider?.data" class=""></SliderIndex>
     </div>
     <div class="flex flex-col lg:flex-row gap-5 mt-7.5 lg:mt-12.5 justify-between">
         <Button :tag="CustomLink" :to="pageInfo?.content?.timetable?.slug" class="max-lg:w-full">{{ pageInfo?.content?.timetable?.title }}</Button>
@@ -9,7 +9,7 @@
             <Button class="max-lg:w-full">Подобрать экскусрию</Button>
         </div>
     </div>
-    <SplideExcursions class="py-5 mt-5 lg:mt-10"></SplideExcursions>
+    <SliderExcursions class="py-5 mt-5 lg:mt-10"></SliderExcursions>
     <div class="flex flex-col gap-7.5 lg:gap-10 mt-15 lg:mt-20">
         <h2 class="font-Montserrat text-5.5 lg:text-8 leading-1.2 lg:leading-1.2 font-bold text-fblack">Доступные экскурсии</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 lg:gap-y-7.5">
@@ -44,7 +44,7 @@
     </div>
     <div class="mt-20 lg:mt-37.5">
         <h2 class="text-5.5 lg:text-8 leading-1.2 lg:leading-1.2 font-bold font-Montserrat text-fblack wrapper">Наши партнеры</h2>
-        <SplidePartners class="mt-7.5 lg:mt-10" />
+        <SliderPartners class="mt-7.5 lg:mt-10" />
     </div>
 </template>
 

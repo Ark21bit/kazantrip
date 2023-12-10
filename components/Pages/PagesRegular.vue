@@ -1,5 +1,5 @@
 <template>
-    <SplideOne :imgs="pageInfo?.media_gallery?.data" class="col-span-full h-100 lg:h-150"></SplideOne>
+    <SliderOne :imgs="pageInfo?.media_gallery?.data" class="col-span-full h-100 lg:h-150"></SliderOne>
     <Breadcrumbs :links="pageInfo?.info_breadcrumbs?.data" class="max-lg:hidden mt-7.5"></Breadcrumbs>
     <!-- <div class="mt-7.5 flex gap-1.5 flex-wrap">
         <div class="flex gap-2.5 items-center rounded-full text-sm leading-1.2 px-4 py-1.125 text-white bg-primary">
@@ -107,7 +107,7 @@
     <div class="mt-10 lg:mt-25 bg-[url(/imgs/trailMBg.svg)] lg:bg-[url(/imgs/trailBg.svg)] col-span-full bg-no-repeat pt-23.5 lg:pt-26 pb-20 lg:pb-33.75 bg-[length:100%_100%]">
         <div class="wrapper">
             <h2 class="max-lg:hidden text-fblack text-5.5 lg:text-7 font-bold leading-1.2 lg:leading-1.2 font-Montserrat">Маршрут</h2>
-            <SplideTrail :trails="pageInfo?.info_route_blocks?.data" class="mt-5 lg:mt-16" />
+            <SliderTrail :trails="pageInfo?.info_route_blocks?.data" class="mt-5 lg:mt-16" />
         </div>
     </div>
     <div class="mt-10 lg:mt-17.5">
@@ -129,14 +129,14 @@
             <li v-for="item in pageInfo?.lang_info?.half_text" class="flex gap-2.5 items-start before:(aspect-square shrink-0 bg-primary mt-0.6em -translate-y-1/2 content-empty w-2.5 rounded-full)">{{ item }}</li>
         </ul>
     </div>
-    <SplidePurple class="mt-15 lg:mt-25"></SplidePurple>
+    <SliderPurple class="mt-15 lg:mt-25"></SliderPurple>
     <div class="mt-15 lg:mt-25 col-span-full pb-7.5 border-b border-#EBEBEB">
         <SeoBlock v-for="item in pageInfo?.info_seo_blocks?.data" :title="item?.lang_info?.title" :text="item?.lang_info?.text" class="wrapper"></SeoBlock>
     </div>
     <Reviews :reviews="pageInfo?.info_reviews?.data" :product-id="pageInfo?.id" :title="pageInfo?.lang_info?.title" class="mt-15 lg:mt-25"></Reviews>
     <div v-if="pageInfo?.info_recommendations?.data?.length ?? 0 > 0" class="mt-15 lg:mt-25">
         <h2 class="text-fblack text-5.5 lg:text-7 font-bold leading-1.2 lg:leading-1.2 font-Montserrat">Похожие экскурсии</h2>
-        <SplideRecomendations :data="pageInfo?.info_recommendations?.data" class="mt-5 lg:mt-10" />
+        <SliderRecomendations :data="pageInfo?.info_recommendations?.data" class="mt-5 lg:mt-10" />
     </div>
 </template>
 
