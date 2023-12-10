@@ -5,13 +5,13 @@
             <div class="flex items-center gap-3 lg:gap-4">
                 <Avatar size="sm" class="max-lg:w-13 max-lg:h-13"></Avatar>
                 <div class="text-sm lg:text-base font-medium text-primary flex flex-col gap-3 lg:gap-2">
-                    <p class="text-diamondBlack font-semibold text-base lg:text-lg leading-1.2 lg:leading-1.2">{{ review?.name }}</p>
+                    <p class="text-fblack font-semibold text-base lg:text-lg leading-1.2 lg:leading-1.2">{{ review?.name }}</p>
                     <p>{{ review?.title }}</p>
                 </div>
             </div>
             <Rating :rating="review?.rating"></Rating>
         </div>
-        <p class="text-diamondBlack text-sm lg:text-base leading-1.4 lg:leading-1.4">{{ review?.message }}</p>
+        <p class="text-fblack text-sm lg:text-base leading-1.4 lg:leading-1.4">{{ review?.message }}</p>
         <p class="mt-auto text-sm leading-1.4 text-#7B7B7B">{{ $dayjs(review?.created_at).tz('Europe/Moscow').locale(locale).format('L') }}</p>
     </Modal>
 </template>

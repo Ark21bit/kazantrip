@@ -1,7 +1,8 @@
 <template>
     <div class="relative">
         <div class="dropdown-header group/dropdownh">
-            <button type="button" @click.self="toggle" class="transition flex gap-1.75 items-center text-left justify-between w-full" :class="['text-3.75 font-medium leading-1.25 group-hover/dropdownh:text-#39919A transition-colors', isDropdownItemShow ? 'text-primary' : dark ? 'text-white' : 'text-diamondBlack']">
+            <button type="button" @click.self="toggle" class="transition flex gap-1.75 items-center text-left justify-between w-full"
+                :class="['text-3.75 font-medium leading-1.25 group-hover/dropdownh:text-#39919A transition-colors', isDropdownItemShow ? 'text-primary' : dark ? 'text-white' : 'text-fblack']">
                 <slot name="dropdown-header-content" :isShow="isShow">
                     {{ title }}
                 </slot>

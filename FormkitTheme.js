@@ -8,7 +8,7 @@ export default {
         help: 'text-xs leading-1.2 text-#868686',/* true */
         inner: 'relative formkit-invalid:border-#FA2E2E formkit-disabled:bg-gray-200 bg-#F2F8F8 overflow-hidden formkit-disabled:cursor-not-allowed formkit-disabled:pointer-events-none',
         input: 'leading-1.2 appearance-none focus:outline-none bg-transparent focus:ring-0 focus:shadow-none',
-        label: 'block mb-1 text-base leading-1.2 text-diamondBlack',/* true */
+        label: 'block mb-1 text-base leading-1.2 text-fblack',/* true */
         legend: 'font-bold text-sm',
         loaderIcon: 'inline-flex items-center w-4 text-gray-600 animate-spin',
         message: 'text-#FA2E2E text-xs leading-1.25 font-light',
@@ -24,7 +24,7 @@ export default {
         help: 'mb-2 mt-1.5',
         input: 'absolute w-0 h-0 overflow-hidden opacity-0 pointer-events-none peer',
         inner: '$remove:formkit-disabled:bg-gray-200 shrink-0 $remove:bg-#F2F8F8',
-        label: '$reset text-base leading-1.2 text-#28303F select-none',
+        label: '$reset text-base leading-1.2 text-fblack select-none',
         wrapper: 'flex items-start',
     },
     'family:button': {
@@ -34,11 +34,11 @@ export default {
     },
     'family:text': {
         inner: 'flex items-center border border-#E8E8E8 focus-within:border-primary [&>label:first-child]:focus-within:text-blue-500 rounded-lg',
-        input: 'w-full px-3.75 py-3.5 text-base text-#28303F placeholder-#868686',
+        input: 'w-full px-3.75 py-3.5 text-base text-fblack placeholder-#868686',
     },
     'family:date': {
         inner: 'flex items-center border border-#E8E8E8 focus-within:border-primary [&>label:first-child]:focus-within:text-blue-500 rounded-lg',
-        input: 'w-full px-3.75 py-3.5 text-base text-#28303F placeholder-#868686',
+        input: 'w-full px-3.75 py-3.5 text-base text-fblack placeholder-#868686',
     },
     radio: {
         decorator: 'rounded-full',
@@ -46,7 +46,7 @@ export default {
     },
     textarea: {
         inner: 'flex border border-#E8E8E8 focus-within:border-primary [&>label:first-child]:focus-within:text-blue-500 rounded-lg',
-        input: 'block resize-none w-full px-3.75 py-3.5 text-base text-#28303F placeholder-#868686',
+        input: 'block resize-none w-full px-3.75 py-3.5 text-base text-fblack placeholder-#868686',
     },
     counter: {
         input: 'w-8.5 p-0.5 text-center $remove:bg-transparent bg-#F6F6F6 rounded-1.25 font-medium text-sm text-fblack placeholder-#868686 leading-1.2 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none',
@@ -62,15 +62,15 @@ export default {
         listitem: 'cursor-pointer hover:bg-primary px-3 py-2.5 rounded-lg hover:text-white transition-colors duration-500',
         listitemSelect: 'bg-primary text-white',
         selectIcon: 'text-lg transition-transform duration-500 ease-linear leading-none',
-        selectText:'min-h-1.2em text-base leading-1.2 text-#28303F',
-        placeholder:'min-h-1.2em text-base leading-1.2 text-#868686',
+        selectText: 'min-h-1.2em text-base leading-1.2 text-fblack',
+        placeholder: 'min-h-1.2em text-base leading-1.2 text-#868686',
     },
-    datepickerC:{
-        inner: '$remove:overflow-hidden flex items-center text-#28303F border border-#E8E8E8 focus-within:border-primary [&>label:first-child]:focus-within:text-blue-500 rounded-lg leading-1.2',        
-        inputIcon:'text-5.75 text-#28303F formkit-invalid:text-error',
-        calendarIcon:'text-xl',
+    datepickerC: {
+        inner: '$remove:overflow-hidden flex items-center text-fblack border border-#E8E8E8 focus-within:border-primary [&>label:first-child]:focus-within:text-blue-500 rounded-lg leading-1.2',
+        inputIcon: 'text-5.75 text-fblack formkit-invalid:text-error',
+        calendarIcon: 'text-xl',
     },
-    ratingC:{
+    ratingC: {
         inner: '$remove:bg-#F2F8F8 bg-transparent'
     }
 }

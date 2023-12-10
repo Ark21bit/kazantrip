@@ -7,7 +7,7 @@
                     <img src="/imgs/about.png" alt="">
                 </div>
                 <div class="flex flex-col gap-4 lg:gap-5 lg:max-w-130.5 flex-[1.25] mt-1 lg:mt-0">
-                    <h2 class="text-diamondBlack text-xl lg:text-2xl font-Montserrat font-bold leading-1.2 lg:leading-1.2">Маршрут года-2016</h2>
+                    <h2 class="text-fblack text-xl lg:text-2xl font-Montserrat font-bold leading-1.2 lg:leading-1.2">Маршрут года-2016</h2>
                     <p class="text-second text-sm lg:text-base leading-1.4 lg:leading-1.4">На нашем счету несколько высших наград Всероссийской туристской премии «Маршрут года» и Республиканского конкурса «Лидер туризма». Среди них – Гран-при в конкурсе «Маршруте года-2016» за интерактивную экскурсию
                         «Казань пятью органами
                         чувств» и 1 место в конкурсе «Маршруте года-2017» за гастрономическую экскурсию «Казан вкусов».</p>

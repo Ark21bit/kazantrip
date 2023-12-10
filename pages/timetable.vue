@@ -1,5 +1,5 @@
 <template>
-    <h1 class="font-Montserrat text-6.5 lg:text-9.5 leading-1.2 font-bold text-diamondBlack mt-10 lg:mt-20">{{ pageInfo?.content?.title }}</h1>
+    <h1 class="font-Montserrat text-6.5 lg:text-9.5 leading-1.2 font-bold text-fblack mt-10 lg:mt-20">{{ pageInfo?.content?.title }}</h1>
     <div class="flex flex-col md:flex-row gap-3 lg:gap-1.75 mt-5 lg:mt-7.5">
         <Bage v-for="file in pageInfo?.files" href="#" :download="file?.url" tag="a" link class="max-lg:py-1.5 max-lg:px-3">{{ file?.title }}</Bage>
     </div>

@@ -1,5 +1,5 @@
 <template>
-    <header class="grid-container py-1.5 lg:py-3.75 z-20 max-lg:bg-white" :class="[absolute ? 'absolute w-full z-10' : 'relative border-b border-#EBEBEB', dark ? 'text-diamondBlack lg:text-white' : 'text-diamondBlack']">
+    <header class="grid-container py-1.5 lg:py-3.75 z-20 max-lg:bg-white" :class="[absolute ? 'absolute w-full z-10' : 'relative border-b border-#EBEBEB', dark ? 'text-fblack lg:text-white' : 'text-fblack']">
         <div class="flex gap-2.5 lg:gap-10 justify-between items-center">
             <CustomLink to="/" class="shrink-0">
                 <Icon name="Logo" class="w-17 lg:w-18 h-13 lg:h-14" />
@@ -20,9 +20,9 @@
             </Button>
             <Socials class="hidden lg:flex gap-2 text-2xl" />
             <button @click="menuToggle" class="lg:hidden h-3.5 flex flex-col justify-between items-end w-6.5">
-                <span :class="{ '-rotate-45 -translate-y-0.75': isMobileMenuShow }" class="w-full h-0.5 bg-diamondBlack rounded-.25 origin-right transition-transform ease-linear duration-300" />
-                <span :class="isMobileMenuShow ? 'opacity-0 w-0' : 'w-full'" class="h-0.5 bg-diamondBlack rounded-.25 transition-width,opacity ease-linear duration-300" />
-                <span :class="{ 'rotate-45 translate-y-0.75': isMobileMenuShow }" class="w-full h-0.5 bg-diamondBlack rounded-.25 origin-right transition-transform ease-linear duration-300" />
+                <span :class="{ '-rotate-45 -translate-y-0.75': isMobileMenuShow }" class="w-full h-0.5 bg-fblack rounded-.25 origin-right transition-transform ease-linear duration-300" />
+                <span :class="isMobileMenuShow ? 'opacity-0 w-0' : 'w-full'" class="h-0.5 bg-fblack rounded-.25 transition-width,opacity ease-linear duration-300" />
+                <span :class="{ 'rotate-45 translate-y-0.75': isMobileMenuShow }" class="w-full h-0.5 bg-fblack rounded-.25 origin-right transition-transform ease-linear duration-300" />
             </button>
         </div>
         <MobileMenu class="lg:hidden" v-if="isMobileMenuShow" />

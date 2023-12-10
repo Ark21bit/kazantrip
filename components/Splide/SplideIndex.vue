@@ -18,7 +18,7 @@
             <SplidePagination></SplidePagination>
         </div>
         <div class="flex absolute top-26.5 z-1 w-full max-lg:hidden">
-            <p class="py-2 px-5 bg-white rounded-full font-medium text-base text-diamondBlack leading-1.25 [&>span]:text-primary w-fit mx-auto block wrapper mx-auto">
+            <p class="py-2 px-5 bg-white rounded-full font-medium text-base text-fblack leading-1.25 [&>span]:text-primary w-fit mx-auto block wrapper mx-auto">
                 Добро пожаловать в экскурсионный центр города <span>Казани</span>
                 <span>👋</span>
             </p>

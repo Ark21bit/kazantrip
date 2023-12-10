@@ -7,7 +7,7 @@
         <Transition enter-from-class="opacity-0" leave-to-class="opacity-0" enter-active-class="transition-opacity duration-500 easy-linear" leave-active-class="transition-opacity duration-500 easy-linear">
             <div v-show="isShow" class="absolute top-full pt-2.25 w-max max-w-50 z-10">
                 <div class="flex flex-col overflow-hidden shadow-base rounded-lg ring ring-inset ring-#F6F6F6 bg-white p-2.5 max-h-50">
-                    <slot classes="text-sm leading-1.2 text-diamondBlack p-3 rounded-lg hover:bg-primary hover:text-white transition-colors"></slot>
+                    <slot classes="text-sm leading-1.2 text-fblack p-3 rounded-lg hover:bg-primary hover:text-white transition-colors"></slot>
                 </div>
             </div>
         </Transition>
@@ -20,7 +20,7 @@ const props = defineProps({
     dark: { type: Boolean, default: false }
 })
 
-const titleClasses = computed(() => ['text-3.75 font-medium leading-1.25 transition-colors duration-500 ease-linear hover:text-#39919A', props.dark ? 'text-white' : 'text-diamondBlack'])
+const titleClasses = computed(() => ['text-3.75 font-medium leading-1.25 transition-colors duration-500 ease-linear hover:text-#39919A', props.dark ? 'text-white' : 'text-fblack'])
 
 const isShow = ref(false)
 </script>

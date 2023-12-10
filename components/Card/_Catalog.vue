@@ -6,14 +6,14 @@
         </div>
         <div class="grow rounded-t-5 -mt-5 lg:-mt-9 p-5 flex flex-col gap-5 bg-white relative ring ring-inset ring-#F6F6F6">
             <div class="flex flex-col gap-4 grow">
-                <div class="flex justify-between gap-3 text-sm lg:text-base leading-1.4 lg:leading-1.4 text-diamondBlack">
+                <div class="flex justify-between gap-3 text-sm lg:text-base leading-1.4 lg:leading-1.4 text-fblack">
                     <div class="flex gap-1.5 items-end">
                         <Icon name="Star" class="text-#F7C03F text-xl lg:text-2xl"></Icon>
                         <span class="font-medium">{{ rating }}</span>
                     </div>
                     <p>{{ reviewsCount }} отзывов</p>
                 </div>
-                <p class="text-base lg:text-lg text-diamondBlack font-semibold leading-1.2 lg:leading-1.2 grow line-clamp-3">{{ title }}</p>
+                <p class="text-base lg:text-lg text-fblack font-semibold leading-1.2 lg:leading-1.2 grow line-clamp-3">{{ title }}</p>
                 <p class="max-lg:hidden text-sm text-second leading-1.4 h-5.6em line-clamp-4">{{ description }}</p>
                 <CustomLink :to="slug" class="text-#39919A underline leading-1.2 text-sm hover:text-#21747C">{{ generalConfig?.static_info?.global_words?.more }}</CustomLink>
             </div>

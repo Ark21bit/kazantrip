@@ -4,14 +4,14 @@
             <div class="flex items-center gap-3 lg:gap-4">
                 <Avatar size="sm" class="max-lg:w-13 max-lg:h-13"></Avatar>
                 <div class="text-sm lg:text-base font-medium text-primary flex flex-col gap-3 lg:gap-2">
-                    <p class="text-diamondBlack font-semibold text-base lg:text-lg leading-1.2 lg:leading-1.2">{{ name }}</p>
+                    <p class="text-fblack font-semibold text-base lg:text-lg leading-1.2 lg:leading-1.2">{{ name }}</p>
                     <p>{{ title }}</p>
                 </div>
             </div>
             <Rating :rating="rating"></Rating>
         </div>
         <div>
-            <p ref="pMessage" class="text-diamondBlack text-sm lg:text-base leading-1.4 lg:leading-1.4 line-clamp-7">{{ message }}</p>
+            <p ref="pMessage" class="text-fblack text-sm lg:text-base leading-1.4 lg:leading-1.4 line-clamp-7">{{ message }}</p>
             <Button v-if="clampButtonVisible" @click="emit('open-full-review')" variant="link" padded class="self-start">{{ generalConfig?.static_info?.global_words?.show_more }}</Button>
         </div>
         <p class="mt-auto text-sm leading-1.4 text-#7B7B7B">{{ $dayjs(created_at).tz('Europe/Moscow').locale(locale).format('L') }}</p>

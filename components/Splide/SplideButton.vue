@@ -13,9 +13,9 @@ const props = defineProps({
     size: { type: String, default: 'text-2xl' },
 })
 const colorClasses = {
-    white: 'bg-white text-diamondBlack hover:(bg-primary text-white) disabled:(bg-inactive text-diamondBlack)',
-    azul: 'bg-#E2F1F2 text-primary hover:(bg-primary text-white) disabled:(bg-inactive text-diamondBlack)',
-    transparent: 'text-diamondBlack hover:text-primary disabled:text-inactive',
+    white: 'bg-white text-fblack hover:(bg-primary text-white) disabled:(bg-inactive text-fblack)',
+    azul: 'bg-#E2F1F2 text-primary hover:(bg-primary text-white) disabled:(bg-inactive text-fblack)',
+    transparent: 'text-fblack hover:text-primary disabled:text-inactive',
 }
 
 const buttonClasses = computed(() => [

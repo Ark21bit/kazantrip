@@ -20,7 +20,7 @@ const ui = {
     color: {
         green: {
             solid: {
-                base: 'bg-#E2F1F2 text-#28303F',
+                base: 'bg-#E2F1F2 text-fblack',
                 link: 'hover:(bg-primary text-white)'
             },
         }

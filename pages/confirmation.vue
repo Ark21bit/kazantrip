@@ -3,21 +3,21 @@
         <div class="max-w-211.5 mx-auto mt-10 lg:mt-20 w-full">
             <component :is="confirmationComponent">
                 <template #title>
-                    <h1 class="text-6.5 lg:text-9.5 font-bold font-Montserrat text-diamondBlack text-center leading-1.2 lg:leading-1.2">{{generalConfig?.static_info?.global_words?.confirm_booking}}</h1>
+                    <h1 class="text-6.5 lg:text-9.5 font-bold font-Montserrat text-fblack text-center leading-1.2 lg:leading-1.2">{{ generalConfig?.static_info?.global_words?.confirm_booking }}</h1>
                 </template>
                 <template #head>
                     <div class="flex flex-col gap-4 items-center text-center px-5 pt-5 lg:pt-7.5 pb-7.5 border-b border-#E8E8E8">
-                        <h2 class="text-5.5 lg:text-6.5 text-diamondBlack leading-1.2 font-bold [&>span]:text-primary" v-html="fioText"></h2>
+                        <h2 class="text-5.5 lg:text-6.5 text-fblack leading-1.2 font-bold [&>span]:text-primary" v-html="fioText"></h2>
                         <p class="text-sm lg:text-base text-second leading-1.35 lg:leading-1.35"> {{ generalConfig?.static_info?.global_words?.confirm_description_text }}</p>
                     </div>
                 </template>
-                <template #footer="{ totalPrice }">                    
+                <template #footer="{ totalPrice }">
                     <div class="flex bg-primary lg:flex-row justify-between gap-3 py-3 px-5 lg:px-7.5 last:border-none border-b border-#E8E8E8 text-lg leading-1.2 text-white font-semibold">
                         <p>{{ generalConfig?.static_info?.global_words?.total_order_payment }}</p>
                         <p>{{ totalPrice }}₽</p>
                     </div>
-                    <div class="flex flex-col lg:flex-row justify-between gap-3 pt-3 pb-5 px-5 lg:px-7.5 last:border-none border-b border-#E8E8E8 text-sm leading-1.4 text-diamondBlack">
-                        <p>{{ generalConfig?.static_info?.global_words?.type_payment  }}</p>
+                    <div class="flex flex-col lg:flex-row justify-between gap-3 pt-3 pb-5 px-5 lg:px-7.5 last:border-none border-b border-#E8E8E8 text-sm leading-1.4 text-fblack">
+                        <p>{{ generalConfig?.static_info?.global_words?.type_payment }}</p>
                         <p class="font-medium">{{ getTitlePaymentTypes(orderInfo?.payment_type_id) }}</p>
                     </div>
                 </template>

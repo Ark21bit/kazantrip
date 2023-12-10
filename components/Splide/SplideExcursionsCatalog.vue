@@ -2,7 +2,7 @@
     <Splide class="w-full flex flex-col gap-5 lg:flex-row relative visible" :options="options" :has-track="false">
         <SplideTrack>
             <SplideSlide v-for="item in 25" class="w-fit last:mr-0 mr-2">
-                <NuxtLink to="/test" class="flex text-sm leading-1.2 font-medium shrink-0 px-4 py-2.25 bg-#E2F1F2 text-#28303F rounded-lg transition-colors duration-500 ease-linear">Экскурсия в храм всех религий</NuxtLink>
+                <NuxtLink to="/test" class="flex text-sm leading-1.2 font-medium shrink-0 px-4 py-2.25 bg-#E2F1F2 text-black rounded-lg transition-colors duration-500 ease-linear">Экскурсия в храм всех религий</NuxtLink>
             </SplideSlide>
         </SplideTrack>
         <div class="flex gap-3 justify-between splide__arrows lg:absolute left-1/2 pointer-events-none lg:top-1/2 lg:-translate-1/2 w-full">

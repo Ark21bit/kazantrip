@@ -3,7 +3,7 @@
     <Modal v-model="form" v-bind="$attrs" @close="closeModal" size="2xl" class="flex flex-col gap-6" :is-show="isModalShow">
         <FormKit type="form" form-class="flex flex-col gap-1 lg:gap-6" :actions="false">
             <div class="flex flex-col gap-3">
-                <h2 class="text-5.5 lg:text-6.5 text-diamondBlack leading-1.2 font-bold [&>span]:text-primary max-w-[calc(100%-27px)]">Оставить отзыв</h2>
+                <h2 class="text-5.5 lg:text-6.5 text-fblack leading-1.2 font-bold [&>span]:text-primary max-w-[calc(100%-27px)]">Оставить отзыв</h2>
                 <p class="text-sm text-second leading-1.4">Расскажите о ваших впечатлениях от поездки</p>
             </div>
             <div class="grid grid-cols-2 gap-4 lg:gap-4.5">

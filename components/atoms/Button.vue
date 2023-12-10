@@ -44,7 +44,7 @@ const ui = {
     color: {
         green: {
             solid: 'bg-primary text-white hover:bg-#21747C disabled:bg-inactive',
-            outline: 'bg-transparent ring-1 ring-inactive ring-inset text-diamondBlack hover:(text-primary ring-primary) disabled:(text-inactive ring-bg-inactive)',
+            outline: 'bg-transparent ring-1 ring-inactive ring-inset text-fblack hover:(text-primary ring-primary) disabled:(text-inactive ring-bg-inactive)',
             link: 'text-#39919A underline hover:text-#21747C'
         },
         yellow: {
