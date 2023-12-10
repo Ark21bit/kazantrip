@@ -23,3 +23,17 @@ export interface ProductsShortList {
     id: number;
     title: string;
 }
+
+export type InfoBreadcrumbs = StatusAndData<InfoBreadcrumbsDatum[]>
+export interface InfoBreadcrumbsDatum {
+    id: number;
+    sort: number;
+    slug: string;
+    lang_info: BreadcrumbsLangInfo;
+}
+export interface BreadcrumbsLangInfo {
+    lang: Lang;
+    title: string;
+    title_short: string;
+}
+
