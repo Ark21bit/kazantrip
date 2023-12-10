@@ -5,9 +5,6 @@
 <script lang="ts" setup>
 import type { BasePage } from '~/types/fetch/shared';
 
-definePageMeta({
-    layout: false,
-})
 const route = useRoute()
 
 /* получение информации о запршиваемой странице из api */
@@ -20,6 +17,7 @@ const page = computed(() => {
     if (pageInfo.value?.type === 'product') {
         if (pageInfo.value?.data?.type_id == 11) return resolveComponent('PagesRegular')
         if (pageInfo.value?.data?.type_id == 12) return resolveComponent('PagesIndividual')
+        if (pageInfo.value?.data?.type_id == 41) return resolveComponent('PagesCertificate')
     }
     if (pageInfo.value?.type === 'page' || pageInfo.value?.type === 'timetable') return resolveComponent('PagesCatalog')
     if (pageInfo.value?.type === 'blog') return resolveComponent('PagesBlog')
