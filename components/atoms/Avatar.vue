@@ -21,7 +21,7 @@ const ui = {
         md: 'h-17.5 w-17.5',
         sm: 'h-15.5 w-15.5'
     },
-    base: '[&>img]:(w-full h-full object-cover object-center) overflow-hidden',
+    base: '[&>img]:(w-full h-full object-cover object-center) overflow-hidden shrink-0',
     rounded: 'rounded-full',
 }
 
