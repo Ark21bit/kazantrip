@@ -1,5 +1,5 @@
 <template>
-    <Table class="lg:grid-cols-[1fr_repeat(2,minmax(auto,140px))]">
+    <Table class="lg:grid-cols-[1fr_repeat(2,auto)]">
         <template #head>
             <TableTr>
                 <TableTh>
@@ -13,7 +13,7 @@
                 </TableTh>
             </TableTr>
         </template>
-        <TableTr class="max-lg:grid max-lg:grid-cols-2 max-lg:grid-rows-2 max-lg:gap-2" v-for="ticket in tickets">
+        <TableTr class="max-lg:grid max-lg:grid-cols-2 max-lg:grid-rows-[auto_auto] max-lg:gap-2" v-for="ticket in tickets">
             <FormKit type="group">
                 <TableTd :data-label="generalConfig?.static_info?.global_words?.type_ticket">
                     {{ getTitleTypeTicket(ticket?.type_ticket_id) }}
