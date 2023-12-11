@@ -36,7 +36,7 @@
         </div>
         <div class="flex flex-col lg:flex-row justify-between gap-3 py-3 px-5 lg:px-7.5 last:border-none border-b border-#E8E8E8 text-sm leading-1.4 text-fblack">
             <p>{{ generalConfig?.static_info?.global_words?.sale_coupon }}</p>
-            <p class="font-medium">{{ orderInfo?.coupon?.id ? `${generalConfig?.static_info?.global_words?.sale} ${orderInfo?.coupon?.sale_present}%` : '-' }}</p>
+            <p class="font-medium">{{ orderInfo?.coupon?.id ? `${generalConfig?.static_info?.global_words?.sale} ${orderInfo?.coupon?.sale_percent}%` : '-' }}</p>
         </div>
         <div class="flex flex-col justify-between gap-3 py-3 lg:py-5 px-5 lg:px-7.5 last:border-none border-b border-#E8E8E8 text-sm leading-1.4 text-fblack">
             <p>{{ generalConfig?.static_info?.global_words?.note }}</p>
@@ -55,10 +55,16 @@ const { locale } = useI18n()
 const filterTickets = computed(() => orderInfo.value?.tickets?.filter(a => a.count > 0))
 const filterAdditionals = computed(() => orderInfo.value?.additional?.filter(a => a.count > 0))
 
-const totalPrice = computed(() =>
-    (filterAdditionals.value?.reduce((a, b) => a + b.count * b.price, 0) ?? 0)
-    + (filterTickets.value?.reduce((a, b) => a + b.count * b.price, 0) * (1 - (orderInfo?.coupon?.sale_present ?? 0)) ?? 0)
-)
+const totalPrice = computed(() => {
+    const additionalSumm = filterAdditionals.value?.reduce((a, b) => a + b.count * b.price, 0) ?? 0
+    let regularSumm = 0
+    let sale_percent = (100 - orderInfo.value?.coupon?.sale_percent ?? 0) / 100
+    filterTickets.value?.forEach((a) => {
+        if (a.id == 10) return regularSumm = regularSumm + a.count * a.price * sale_percent
+        regularSumm = regularSumm + a.count * a.price
+    })
+    return Math.round((additionalSumm + regularSumm) * 10) / 10
+})
 
 const storeOrderInfo = computed(() => {
     const object = {

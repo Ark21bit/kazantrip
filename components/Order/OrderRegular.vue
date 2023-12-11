@@ -20,13 +20,13 @@
             </div>
             <div class="h-px w-[calc(100%+40px)] lg:w-[calc(100%+60px)] -translate-x-20px lg:-translate-x-30px bg-#EBEBEB"></div>
             <div class="flex flex-col lg:flex-row gap-x-4.5 gap-y-5">
-                <div class="flex flex-col gap-4 lg:gap-5 grow">
+                <div class="flex flex-col gap-4 lg:gap-5 flex-1">
                     <h4 class="text-base font-semibold text-fblack leading-1.2 font-Montserrat">Выберите тип билета</h4>
                     <FormKit name="tickets" type="list">
                         <TicketsTable :tickets="product?.info_prices?.data"></TicketsTable>
                     </FormKit>
                 </div>
-                <div class="flex flex-col gap-4 lg:gap-5" v-if="product?.info_additional_products?.data?.length ?? 0 > 0">
+                <div class="flex flex-col gap-4 lg:gap-5 flex-1" v-if="product?.info_additional_products?.data?.length ?? 0 > 0">
                     <h4 class="text-base font-semibold text-fblack leading-1.2 font-Montserrat">{{ generalConfig?.static_info?.global_words?.additional_service }}</h4>
                     <FormKit name="additional" type="list">
                         <AdditionalsTable :tickets="product?.info_additional_products?.data"></AdditionalsTable>
@@ -38,16 +38,14 @@
                 <div class="flex flex-col lg:flex-row gap-x-5.5 gap-y-4 lg:items-end">
                     <FormKit type="group" name="coupon">
                         <FormKit type="text" name="text" :placeholder="generalConfig?.static_info?.global_words?.sale_coupon" outer-class="grow"></FormKit>
-                        <FormKit type="meta" name="id" :value="couponData?.data?.id"></FormKit>
-                        <FormKit type="meta" name="sale_percent" :value="couponData?.data?.sale_percent"></FormKit>
                     </FormKit>
                     <Button :loading="couponStatus == 'pending'" :disabled="couponStatus == 'pending' || !Boolean(forms?.coupon?.text)" @click="couponExecute" type="button" class="lg:w-49" variant="outline">{{ generalConfig?.static_info?.global_words?.check }}</Button>
                 </div>
-                <p class="text-sm text-fblack leading-1.1" v-if="couponData">{{ couponText }}</p>
+                <p class="text-sm text-fblack leading-1.1" v-if="couponData">{{ couponText }}{{ couponData.status ? '%' : ''}}</p>
             </div>
             <div class="flex bg-#3BA1A5 w-[calc(100%+40px)] lg:w-[calc(100%+60px)] -translate-x-20px lg:-translate-x-30px px-20px lg:px-30px py-3 text-lg font-semibold leading-1.2 text-white mt-2.5 lg:mt-4">
-                <span class="w-60">Итого</span>
-                {{ totalPriceTickets }}₽
+                <span class="w-60">{{ generalConfig?.static_info?.global_words?.total }}</span>
+                {{ totalPrice }}₽
             </div>
             <div class="flex flex-col gap-4 lg:gap-6 max-lg:mt-2.5">
                 <h4 class="text-base font-semibold text-fblack leading-1.2 font-Montserrat">{{ generalConfig?.static_info?.global_words?.person_data_contract }}</h4>
@@ -84,7 +82,12 @@ const { generalConfig } = storeToRefs(useGeneralConfigStore())
 const { locale } = useI18n()
 const { setOrder } = useOrderStore()
 
-const forms = ref()
+const forms = ref({
+    coupon: {
+        id: null,
+        sale_percent: null,
+    }
+})
 
 const { data: couponData, error: couponError, execute: couponExecute, status: couponStatus } = useBaseFetch('orders/check-coupon', {
     immediate: false,
@@ -101,7 +104,12 @@ watchEffect(() => {
         severity: 'error'
     })
 })
-const couponText = computedEager(() => couponData.value?.status ? `${generalConfig.value?.static_info?.global_words?.sale} ${couponData.value?.message}` : couponData.value?.message)
+const couponText = computedEager(() => couponData.value?.status ? `${generalConfig.value?.static_info?.global_words?.sale} ${couponData.value?.data?.sale_percent}` : couponData.value?.message)
+
+watchEffect(() => {
+    forms.value.coupon.id = couponData.value?.data?.id
+    forms.value.coupon.sale_percent = couponData.value?.data?.sale_percent
+})
 
 const dayjs = useDayjs()
 
@@ -113,7 +121,17 @@ const timeatableTimes = computedWithControl(() => forms.value?.date, () =>
 )
 watch(timeatableTimes, () => forms.value.time = timeatableTimes.value?.find(() => true)?.value)
 
-const totalPriceTickets = computed(() => forms.value?.tickets?.reduce((a, b) => a + Number(b?.count) * Number(b?.price), 0))
+const totalPrice = computed(() => {
+    const additionalSumm = forms.value?.additional?.reduce((a, b) => a + b.count * b.price, 0) ?? 0
+    let regularSumm = 0
+    let sale_percent = (100 - (forms.value?.coupon?.sale_percent ?? 0)) / 100
+    console.log(sale_percent);
+    forms.value?.tickets?.forEach((a) => {
+        if (a.id == 10) return regularSumm = regularSumm + a.count * a.price * sale_percent
+        regularSumm = regularSumm + a.count * a.price
+    })
+    return Math.round((additionalSumm + regularSumm) * 10) / 10
+})
 
 let availableSelectDate = computed(() => {
     const uniqueDate = new Set()
