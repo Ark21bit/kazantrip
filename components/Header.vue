@@ -14,10 +14,12 @@
                 </template>
             </DropdownHover>
             <NuxtLink :to="phoneLinkReplace(generalConfig?.static_info?.contact?.telephones?.find(() => true))" class="text-lg font-medium lining-nums">{{ generalConfig?.static_info?.contact?.telephones?.find(() => true) }}</NuxtLink>
-            <Button class="lg:w-41 max-lg:p-2.25" size="sm">
-                <Icon class="lg:!hidden text-xl" name="Phone"></Icon>
-                <span class="max-lg:hidden">{{ generalConfig?.static_info?.global_words?.request_call }}</span>
-            </Button>
+            <ModalCallback #="{ openModal }">
+                <Button @click="openModal" class="lg:w-41 max-lg:p-2.25" size="sm">
+                    <Icon class="lg:!hidden text-xl" name="Phone"></Icon>
+                    <span class="max-lg:hidden">{{ generalConfig?.static_info?.global_words?.request_call }}</span>
+                </Button>
+            </ModalCallback>
             <Socials class="hidden lg:flex gap-2 text-2xl" />
             <button @click="menuToggle" class="lg:hidden h-3.5 flex flex-col justify-between items-end w-6.5">
                 <span :class="{ '-rotate-45 -translate-y-0.75': isMobileMenuShow }" class="w-full h-0.5 bg-fblack rounded-.25 origin-right transition-transform ease-linear duration-300" />
