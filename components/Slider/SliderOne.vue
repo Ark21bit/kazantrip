@@ -2,7 +2,7 @@
     <Swiper class="w-full flex overflow-hidden relative" v-bind="options">
         <SwiperSlide class="w-full h-full shrink-0 [&>img]:(w-full h-full object-cover object-center)" v-for="img in imgs" v-html="img?.html" />
         <div class="absolute bottom-7.5 lg:top-1/2 lg:-translate-y-1/2 w-full h-fit z-1">
-            <SlideControllerr class="wrapper max-lg:hidden" />
+            <SliderController class="wrapper max-lg:hidden" />
             <SliderPagination class="lg:hidden" />
         </div>
     </Swiper>
