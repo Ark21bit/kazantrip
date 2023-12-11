@@ -11,7 +11,7 @@ export interface Content {
     text_2: string;
 }
 
-export type Review = Pick<ReviewsDatum, 'name' | 'rating' | 'message' | 'created_at'> & { title: string }
+export type Review = Pick<ReviewsDatum, 'name' | 'rating' | 'message' | 'created_at'> & { title?: string }
 
 export interface Reviews {
     status: boolean;
