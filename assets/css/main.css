@@ -74,4 +74,7 @@ body.modal-open-mobile {
     .swiper-pagination .swiper-pagination-bullet-active{
         --at-apply:"bg-primary"
     }
+    .swiper-pagination-lock, .swiper-pagination-disabled {
+        --at-apply:"hidden"
+    }
 }

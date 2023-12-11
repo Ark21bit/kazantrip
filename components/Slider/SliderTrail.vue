@@ -1,5 +1,5 @@
 <template>
-    <Swiper class="w-full flex relative contain-layout visible" v-bind="options">
+    <Swiper class="w-full flex relative contain-layout overflow-visible" v-bind="options">
         <SwiperSlide class="w-full min-w-62.5 lg:min-w-76.25 h-full shrink-0 [&>img]:(w-full h-full object-cover object-center) lg:w-[calc(25%-10px)] mr-5 last:mr-0 group/swiperTrail" v-for="(trail, index) in trails">
             <div class="relative translate-x-3.25">
                 <div class="ring-(1 inset #F6F6F6) relative z-1 w-fit bg-white rounded-full p-1.25 after-swiper-trail">
