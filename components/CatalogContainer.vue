@@ -1,7 +1,7 @@
 <template>
     <div v-bind="$attrs" class="flex flex-col lg:flex-row gap-y-7.5 gap-x-5">
         <div class="flex flex-col gap-5 lg:w-75.75 shrink-0 max-lg:order-1">
-            <CardTimetable class="max-lg:hidden" v-if="timetable"></CardTimetable>
+            <CardTimetable :info="generalConfig?.timetable?.today" class="max-lg:hidden" v-if="timetable"></CardTimetable>
             <div class="flex flex-col gap-5 p-5 rounded-5 border border-#F6F6F6">
                 <p class="text-lg lg:text-xl leading-1.2 lg:leading-1.2 font-Montserrat font-bold text-fblack">Отправьте запрос на <span class="text-primary">индивидуальную</span> экскурсию</p>
                 <ModalRequestIndividual #="{ openModal }">
@@ -23,6 +23,8 @@
 defineOptions({
     inheritAttrs: false
 })
+
+const { generalConfig } = storeToRefs(useGeneralConfigStore())
 
 defineProps({
     timetable: { type: Boolean, defaults: false }
