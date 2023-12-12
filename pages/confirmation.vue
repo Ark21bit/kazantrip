@@ -62,9 +62,8 @@ onMounted(() => {
 })
 
 const confirmationComponent = computed(() => {
-    /* if (orderInfo.value?.type_id == 31) return resolveComponent('ConfirmationAdditional') */
-    if (orderInfo.value?.type_id == 12) return resolveComponent('ConfirmationIndividualExcursions')
     if (orderInfo.value?.type_id == 11) return resolveComponent('ConfirmationRegular')
+    if (orderInfo.value?.type_id == 12) return resolveComponent('ConfirmationIndividual')
     if (orderInfo.value?.type_id == 41) return resolveComponent('ConfirmationCertificate')
     return null
 })
