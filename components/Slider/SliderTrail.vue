@@ -12,7 +12,7 @@
                     <path d="M7.13397 0.5C7.51887 -0.166666 8.48112 -0.166667 8.86602 0.5L15.7942 12.5C16.1791 13.1667 15.698 14 14.9282 14H1.0718C0.301996 14 -0.179129 13.1667 0.205771 12.5L7.13397 0.5Z" fill="#fff" stroke="#F6F6F6" />
                 </svg>
                 <h3 class="text-lg leading-1.2 font-semibold">{{ trail?.lang_info?.title }}</h3>
-                <p class="text-sm leading-1.4 min-h-30">{{ trail?.lang_info?.description }}</p>
+                <p class="text-sm leading-1.4 min-h-30">{{ trail?.lang_info?.text }}</p>
                 <div class="w-full h-30 lg:h-37.5 [&>img]:(w-full h-full object-center object-cover rounded-2.5)" v-html="trail?.media_preview"></div>
             </div>
         </SwiperSlide>
