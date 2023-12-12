@@ -8,10 +8,10 @@
                     <Button @click="openModal" size="sm" class="w-41">Подобрать</Button>
                 </ModalRequestIndividual>
             </div>
-            <div class="hidden lg:flex flex-col gap-2 p-5 rounded-5 border border-#F6F6F6">
+            <CustomLink to="https://yandex.ru/profile/1020776306" target="_blank" class="hidden lg:flex flex-col gap-2 p-5 rounded-5 border border-#F6F6F6">
                 <p class="text-lg lg:text-xl leading-1.2 lg:leading-1.2 font-Montserrat font-bold text-fblack"><span class="text-#FF3D15">Яндекс</span>отзывы</p>
                 <p class="text-sm text-second leading-1.4">Оставьте свой отзыв на сайте</p>
-            </div>
+            </CustomLink>
             <div class="mt-2.5 rounded-5 bg-#EFEFEF h-106">
 
             </div>
