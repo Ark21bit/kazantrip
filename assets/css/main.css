@@ -64,6 +64,13 @@ body.modal-open-mobile {
         max-height: 0;
     }
 
+    .swiper-button{
+        --at-apply:"flex rounded-full transition-colors duration-500 ease-linear pointer-events-auto"
+    }
+    .swiper-button.swiper-button-lock{
+        --at-apply:"hidden"
+    }
+
     .swiper-pagination{
         --at-apply:"flex gap-2 justify-center items-center flex-wrap"
     }

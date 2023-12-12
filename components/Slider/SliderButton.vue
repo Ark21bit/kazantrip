@@ -19,7 +19,7 @@ const colorClasses = {
 }
 
 const buttonClasses = computed(() => [
-    'flex rounded-full transition-colors duration-500 ease-linear pointer-events-auto',
+    'swiper-button',
     props.padding,
     props.size,
     colorClasses?.[props.color]
