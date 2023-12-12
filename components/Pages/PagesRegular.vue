@@ -52,9 +52,7 @@
             <p class="text-2xl font-semibold leading-1.2 text-primary">{{ pageInfo?.price_see }}₽<span class="ml-1.5 leading-1.2 text-#A4A4A4 text-sm line-through decoration-fblack">{{ pageInfo?.price_see_old }}₽</span></p>
         </div>
         <div class="p-5 py-6 lg:p-6 flex flex-col justify-center gap-1.5">
-            <OrderRegular :product="pageInfo" #="{ openModal }">
-                <Button @click="openModal" class="w-full">{{ generalConfig?.static_info?.global_words?.order }}</Button>
-            </OrderRegular>
+            <Button @click="openModal" class="w-full">{{ generalConfig?.static_info?.global_words?.order }}</Button>
         </div>
     </div>
     <div class="mt-15 lg:mt-22">
@@ -134,6 +132,9 @@
         <h2 class="text-fblack text-5.5 lg:text-7 font-bold leading-1.2 lg:leading-1.2 font-Montserrat"> {{ generalConfig?.static_info?.global_words?.similar_excursions }}</h2>
         <SliderRecomendations :data="pageInfo?.info_recommendations?.data" class="mt-5 lg:mt-10" />
     </div>
+    <Modal @close="closeModal" :is-show="isModalShow">
+        <OrderRegular @close="closeModal" :product="pageInfo" />
+    </Modal>
 </template>
 
 <script setup lang="ts">
@@ -150,4 +151,6 @@ const nearestDate = computed(() => {
     if (props.pageInfo?.info_timetables?.data?.length ?? 0 > 0) return dayjs(props.pageInfo?.info_timetables?.data?.[0]?.start_event_at ?? null).tz('Europe/Moscow').locale(locale.value).format('D MMMM')
     return '-'
 })
+
+const { closeModal, isModalShow, openModal } = useModal()
 </script>
