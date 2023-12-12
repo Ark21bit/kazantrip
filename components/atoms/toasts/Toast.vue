@@ -21,7 +21,7 @@
 <script lang="ts" setup>
 import type { Toasts } from '~/types/toast';
 
-const props = withDefaults(defineProps<Toasts & { duration: number }>(), {
+const props = withDefaults(defineProps<Toasts & { duration?: number }>(), {
     duration: 10000,
     severity: 'info'
 })

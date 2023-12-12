@@ -40,7 +40,7 @@
         </div>
         <div class="flex flex-col justify-between gap-3 py-3 lg:py-5 px-5 lg:px-7.5 last:border-none border-b border-#E8E8E8 text-sm leading-1.4 text-fblack">
             <p>{{ generalConfig?.static_info?.global_words?.note }}</p>
-            <p class="font-medium">{{ orderInfo?.comment_client }}</p>
+            <p class="font-medium">{{ orderInfo?.comment_client ?? '-' }}</p>
         </div>
         <slot name="footer" :totalPrice="totalPrice"></slot>
     </div>

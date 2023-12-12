@@ -9,7 +9,7 @@
             </div>
         </CatalogContainer>
     </div>
-    <div class="mt-20 lg:mt-25 pb-7.5 border-b border-#EBEBEB col-span-full">
+    <div v-if="pageInfo?.info_seo_blocks?.data?.length ?? 0 > 0" class="mt-20 lg:mt-25 pb-7.5 border-b border-#EBEBEB col-span-full">
         <SeoBlock v-for="item in pageInfo?.info_seo_blocks?.data" :title="item?.lang_info?.title" :text="item?.lang_info?.text" class="wrapper"></SeoBlock>
     </div>
 </template>

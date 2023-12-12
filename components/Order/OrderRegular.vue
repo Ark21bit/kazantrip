@@ -41,7 +41,7 @@
                     </FormKit>
                     <Button :loading="couponStatus == 'pending'" :disabled="couponStatus == 'pending' || !Boolean(forms?.coupon?.text)" @click="couponExecute" type="button" class="lg:w-49" variant="outline">{{ generalConfig?.static_info?.global_words?.check }}</Button>
                 </div>
-                <p class="text-sm text-fblack leading-1.1" v-if="couponData">{{ couponText }}{{ couponData.status ? '%' : ''}}</p>
+                <p class="text-sm text-fblack leading-1.1" v-if="couponData">{{ couponText }}{{ couponData.status ? '%' : '' }}</p>
             </div>
             <div class="flex bg-#3BA1A5 w-[calc(100%+40px)] lg:w-[calc(100%+60px)] -translate-x-20px lg:-translate-x-30px px-20px lg:px-30px py-3 text-lg font-semibold leading-1.2 text-white mt-2.5 lg:mt-4">
                 <span class="w-60">{{ generalConfig?.static_info?.global_words?.total }}</span>
@@ -95,7 +95,8 @@ const { data: couponData, error: couponError, execute: couponExecute, status: co
         options.query = { coupon: forms.value?.coupon?.text?.trim() }
     },
     key: 'coupon',
-    ignoreResponseError: true
+    ignoreResponseError: true,
+    watch: false,
 })
 watchEffect(() => {
     if (couponError.value) return useToast().add({

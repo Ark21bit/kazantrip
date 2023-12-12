@@ -8,7 +8,7 @@
             <div v-for="item in isShort ? infoShorts : info" class="flex flex-col gap-2 py-4.5 p-5 first:border-none border-t border-#EBEBEB text-sm lg:text-base font-semibold leading-1.2 lg:leading-1.2">
                 <p class="leading-1.4 text-#7B7B7B">{{ item?.time }}</p>
                 <CustomLink :to="item?.url" class="text-fblack">{{ item?.product_name }}</CustomLink>
-                <p class="text-primary text-xl">{{ item?.visible_prices?.new }}₽<span class="ml-1.5 py-1.5 text-sm text-#A4A4A4 line-through decoration-fblack">{{ item?.visible_prices?.old }}₽</span></p>
+                <p class="text-primary text-xl">{{ item?.visible_prices?.new }}₽<span class="ml-1.5 py-1.5 text-sm text-#A4A4A4 line-through decoration-fblack" v-if="item?.visible_prices?.old">{{ item?.visible_prices?.old }}₽</span></p>
             </div>
         </div>
         <div v-if="Number(info?.length) > 3" class="mt-auto flex py-5 border-t border-#EBEBEB">

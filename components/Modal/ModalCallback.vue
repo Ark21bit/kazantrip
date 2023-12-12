@@ -1,7 +1,7 @@
 <template>
     <Modal :is-show="isModalShow" @close="closeModal" :size="status === 'success' ? 'sm' : 'lg'">
         <template v-if="status === 'success'">
-            <ModalThanksContent @ok="closeModal" :subTitle="generalConfig?.static_info?.global_words?.success_send_request" :title="generalConfig?.static_info?.global_words?.thank_you"></ModalThanksContent>
+            <ModalThanksContent @ok="closeModal" :subTitle="generalConfig?.static_info?.global_words?.waiting_call_manager" :title="generalConfig?.static_info?.global_words?.congratulations" />
         </template>
         <template v-else>
             <h2 class="text-5.5 lg:text-6.5 text-fblack leading-1.2 font-Montserrat font-bold [&>span]:text-primary max-w-[calc(100%-27px)]">{{ generalConfig?.static_info?.global_words?.request_call }}</h2>
@@ -22,7 +22,7 @@
 const { generalConfig } = storeToRefs(useGeneralConfigStore())
 const { closeModal, isModalShow, openModal: openModalInit } = useModal()
 const openModal = () => {
-    if (status.value == 'success') clearNuxtData('statements/store')
+    if (status.value == 'success') clearNuxtData('statements/store-request-call')
     openModalInit()
 }
 
