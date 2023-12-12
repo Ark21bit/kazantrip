@@ -150,8 +150,6 @@ export interface GlobalWords {
     you_mark: string;
     fio: string;
     excursion: string;
-    total: string;
-    order_certificate: string;
     email_text: string;
     recommendations: string;
     date: string;
@@ -235,6 +233,18 @@ export interface GlobalWords {
     hide_more_details: string;
     more_excursions: string;
     timetable_on: string;
+    total: string;
+    order_certificate: string;
+    circular_photo_panorama: string;
+    video_reviews_ou_tourists: string;
+    brief_audio_tour: string;
+    radio_guide: string;
+    yes_free: string;
+    partner: string;
+    route: string;
+    similar_excursions: string;
+    congratulations: string;
+    waiting_call_manager: string;
 }
 export interface TimeText {
     short_h: string;
