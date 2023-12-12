@@ -2,14 +2,13 @@
     <SliderOne :imgs="pageInfo?.media_gallery?.data" class="col-span-full h-100 lg:h-150"></SliderOne>
     <Breadcrumbs :links="pageInfo?.info_breadcrumbs?.data" class="max-lg:hidden mt-7.5"></Breadcrumbs>
     <div class="col-span-full mt-7.5 lg:mt-10 pb-7.5 border-b border-#EBEBEB">
-        <div class="wrapper flex flex-col gap-5 lg:gap-7.5 items-start">
-            <h1 class="text-6.5 lg:text-9.5 leading-1.2 font-bold font-Montserrat text-fblack max-w-262">{{ pageInfo?.lang_info?.title }}</h1>
-            <p class="text-second text-base leading-1.4 mt-2.5 lg:mt-0">{{ pageInfo?.lang_info?.text }}</p>
-            <!-- <Button to="/test" variant="link" size="lg" padded :tag="CustomLink">Показать больше</Button> -->
-            <OrderIndividual :product="pageInfo" #="{ openModal }">
-                <Button @click="openModal" class="max-lg:w-full">{{ generalConfig?.static_info?.global_words?.order }}</Button>
-            </OrderIndividual>
-        </div>
+        <PageTextBlock class="wrapper" :title="pageInfo?.lang_info?.title" :text="pageInfo?.lang_info?.text">
+            <template #end>
+                <OrderIndividual :product="pageInfo" #="{ openModal }">
+                    <Button @click="openModal" class="max-lg:w-full">{{ generalConfig?.static_info?.global_words?.order }}</Button>
+                </OrderIndividual>
+            </template>
+        </PageTextBlock>
     </div>
     <Table class="lg:grid-cols-2 mt-8">
         <template #head>

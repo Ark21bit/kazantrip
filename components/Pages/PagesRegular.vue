@@ -20,11 +20,7 @@
         </div>
     </div> -->
     <div class="col-span-full mt-7.5 lg:mt-10 pb-7.5 border-b border-#EBEBEB">
-        <div class="wrapper flex flex-col gap-5 lg:gap-7.5 items-start">
-            <h1 class="text-6.5 lg:text-9.5 leading-1.2 font-bold font-Montserrat text-fblack max-w-262">{{ pageInfo?.lang_info?.title }}</h1>
-            <p class="text-second text-base leading-1.4 mt-2.5 lg:mt-0">{{ pageInfo?.lang_info?.text }}</p>
-            <Button to="/test" variant="link" size="lg" padded :tag="CustomLink">Показать больше</Button>
-        </div>
+        <PageTextBlock class="wrapper" :title="pageInfo?.lang_info?.title" :text="pageInfo?.lang_info?.text" />
     </div>
     <div class="mt-7.5 lg:mt-15 flex gap-5 flex-wrap">
         <Button v-if="pageInfo?.url_panorama" target="_blank" :tag="CustomLink" :to="pageInfo?.url_panorama" class="!px-8 max-lg:(px-6 justify-center w-full)" variant="outline">
