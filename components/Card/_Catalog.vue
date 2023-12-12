@@ -18,7 +18,7 @@
                 <CustomLink :to="slug" class="text-#39919A underline leading-1.2 text-sm hover:text-#21747C">{{ generalConfig?.static_info?.global_words?.more }}</CustomLink>
             </div>
             <div class="hidden lg:flex flex-col gap-3 text-#333333">
-                <div v-if="durationShow" class="flex gap-1.75 items-center">
+                <div class="flex gap-1.75 items-center">
                     <Icon name="Time" class="text-2xl"></Icon>
                     <p class="text-sm font-medium leading-1.4">{{ duration }}</p>
                 </div>
@@ -60,10 +60,6 @@ const props = defineProps({
     category_id: Number,
 })
 const emit = defineEmits(['order'])
-
-const durationShow = computed(() => {
-    return props?.type_id == 11 || props?.type_id == 12
-})
 
 const { generalConfig } = storeToRefs(useGeneralConfigStore())
 </script>

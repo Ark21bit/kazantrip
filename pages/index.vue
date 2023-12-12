@@ -5,8 +5,8 @@
     <div class="flex flex-col lg:flex-row gap-5 mt-7.5 lg:mt-12.5 justify-between">
         <Button :tag="CustomLink" :to="pageInfo?.content?.timetable?.slug" class="max-lg:w-full">{{ pageInfo?.content?.timetable?.title }}</Button>
         <div class="flex flex-col lg:flex-row gap-2.5 lg:gap-5 max-lg:border-t border-#E2E2E2 max-lg:pt-5">
-            <FormKit type="datepickerC" outer-class="w-full lg:w-39.5"></FormKit>
-            <Button class="max-lg:w-full">Подобрать экскусрию</Button>
+            <FormKit v-model="date" type="datepickerC" outer-class="w-full lg:w-39.5"></FormKit>
+            <Button @click="changeTimetamble" class="max-lg:w-full">Подобрать экскусрию</Button>
         </div>
     </div>
     <SliderExcursions class="py-5 mt-5 lg:mt-10"></SliderExcursions>
@@ -58,4 +58,9 @@ useSeoMeta({
     description: () => pageInfo.value?.seo?.description ?? " ",
     keywords: () => pageInfo.value?.seo?.keywords ?? ' ',
 })
+
+const dayjs = useDayjs()
+const localePath = useLocalePath()
+const date = ref(dayjs().toDate())
+const changeTimetamble = async () => await navigateTo(localePath(`/excursion/timetable/${dayjs(date.value).format('YYYY/MM/DD')}`))
 </script>

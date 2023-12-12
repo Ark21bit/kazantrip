@@ -14,8 +14,8 @@ interface Fetch {
 }
 
 const { data } = await useBaseFetch<Fetch>('search/page', {
-    query: { key: 'procedure-provision-excursion-services' },
-    key: 'procedure-provision-excursion-services'
+    query: { key: 'privacy-policy' },
+    key: 'privacy-policy'
 })
 
 useSeoMeta({

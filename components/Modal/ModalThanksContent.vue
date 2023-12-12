@@ -6,7 +6,6 @@
 </template>
 
 <script lang="ts" setup>
-import CustomLink from '../atoms/CustomLink.vue';
 defineProps({
     title: String,
     subTitle: String,

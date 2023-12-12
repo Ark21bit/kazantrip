@@ -8,13 +8,14 @@
                 <Icon name="Mail" class="text-lg"></Icon>{{ email }}
             </NuxtLink> -->
             <!-- <p class="text-fblack text-sm leading-1.4 mt-4">{{ description }}</p> -->
-            <Button class="mt-5" padded size="lg" variant="link" @click="emit('openTeamFull')">Подробнее</Button>
+            <Button class="mt-5" padded size="lg" variant="link" @click="emit('openTeamFull')">{{ generalConfig?.static_info?.global_words?.more }}</Button>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
 import type { TeamsDatum } from '~/types/fetch/about';
+const { generalConfig } = storeToRefs(useGeneralConfigStore())
 
 defineProps<TeamsDatum>()
 

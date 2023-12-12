@@ -1,5 +1,5 @@
 <template>
-    <component :is="page" :pageInfo="pageInfo?.data"></component>
+    <component :is="page" :pageInfo="pageInfo?.data" v-bind="componetAttrs"></component>
 </template>
 
 <script lang="ts" setup>
@@ -13,6 +13,9 @@ const { data: pageInfo, error } = await useBaseFetch<BasePage<any>>(`search/slug
 })
 if (error.value) throw createError({ statusCode: error.value.statusCode, statusMessage: error.value.statusMessage, fatal: true })
 
+const componetAttrs = computed(() => {
+    if (pageInfo.value?.type === 'timetable') return { isSearched: true }
+})
 const page = computed(() => {
     if (pageInfo.value?.type === 'product') {
         if (pageInfo.value?.data?.type_id == 11) return resolveComponent('PagesRegular')

@@ -9,7 +9,7 @@
                 </ModalRequestIndividual>
             </div>
             <CustomLink to="https://yandex.ru/profile/1020776306" target="_blank" class="hidden lg:flex flex-col gap-2 p-5 rounded-5 border border-#F6F6F6">
-                <p class="text-lg lg:text-xl leading-1.2 lg:leading-1.2 font-Montserrat font-bold text-fblack"><span class="text-#FF3D15">Яндекс</span>отзывы</p>
+                <p class="text-lg lg:text-xl leading-1.2 lg:leading-1.2 font-Montserrat font-bold text-fblack [&>span]:text-#FF3D15">{{ generalConfig?.static_info?.global_words?.yandex_review }}</p>
                 <p class="text-sm text-second leading-1.4">Оставьте свой отзыв на сайте</p>
             </CustomLink>
             <div class="mt-2.5 rounded-5 bg-#EFEFEF h-106">
