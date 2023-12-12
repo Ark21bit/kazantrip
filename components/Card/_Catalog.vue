@@ -24,7 +24,7 @@
                 </div>
                 <div class="flex gap-1.75 items-center">
                     <Icon name="Radiogid" class="text-2xl"></Icon>
-                    <p class="text-sm font-medium leading-1.4">{{ isRadioGid ? 'Радиогид - бесплатно' : 'нет' }}</p>
+                    <p class="text-sm font-medium leading-1.4">{{ isRadioGid ? generalConfig?.static_info?.global_words?.yes_free : 'нет' }}</p>
                 </div>
                 <div class="flex gap-1.75 items-center">
                     <Icon name="Trail" class="text-2xl"></Icon>
