@@ -31,9 +31,6 @@
 <script setup lang="ts">
 import type { CertificateData } from '~/types/fetch/pathMatch/certificate';
 const emit = defineEmits(['close'])
-defineOptions({
-    inheritAttrs: false,
-})
 const props = defineProps({
     product: Object as PropType<CertificateData>,
 })

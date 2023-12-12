@@ -31,17 +31,15 @@
                     <p class="text-sm font-medium leading-1.4">{{ getTitleCategoriesProduct(category_id) }}</p>
                 </div>
             </div>
-            <OrderIndividual #="{ openModal }">
-                <Button @click="openModal" class="!px-4 !py-3 max-lg:text-sm max-lg:leading-1.25">
-                    Заказать
-                    <template #suffix>
-                        <span class="text-lg lg:text-xl font-semibold leading-1.25 lg:leading-1.25">
-                            {{ price }}₽
-                            <span v-if="priceOld" class="ml-1.5 text-sm text-#88BDC2 line-through decoration-white">{{ priceOld }}₽</span>
-                        </span>
-                    </template>
-                </Button>
-            </OrderIndividual>
+            <Button @click="emit('order')" class="!px-4 !py-3 max-lg:text-sm max-lg:leading-1.25">
+                Заказать
+                <template #suffix>
+                    <span class="text-lg lg:text-xl font-semibold leading-1.25 lg:leading-1.25">
+                        {{ price }}₽
+                        <span v-if="priceOld" class="ml-1.5 text-sm text-#88BDC2 line-through decoration-white">{{ priceOld }}₽</span>
+                    </span>
+                </template>
+            </Button>
         </div>
     </div>
 </template>
@@ -61,6 +59,7 @@ const props = defineProps({
     isRadioGid: Boolean,
     category_id: Number,
 })
+const emit = defineEmits(['order'])
 
 const durationShow = computed(() => {
     return props?.type_id == 11 || props?.type_id == 12
