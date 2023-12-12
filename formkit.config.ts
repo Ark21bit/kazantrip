@@ -26,6 +26,7 @@ export default {
             props: [
                 'autoApply',
                 'minDate',
+                'maxDate',
                 'locale',
                 'ignoreTimeValidation',
                 'allowedDates',

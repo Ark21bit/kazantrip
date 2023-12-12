@@ -35,6 +35,7 @@ const { locale: localeI18n } = useI18n()
 const options = {
     autoApply: props.context.autoApply ?? true,
     minDate: props.context.minDate ?? null,
+    maxDate: props.context.maxDate ?? null,
     locale: props.context.locale ?? localeI18n.value,
     ignoreTimeValidation: props.context.ignoreTimeValidation ?? true,
     allowedDates: props.context.allowedDates ?? null,
