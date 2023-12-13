@@ -2,7 +2,7 @@
     <div class="flex flex-col rounded-5 overflow-hidden shadow-base">
         <div class="relative h-50 lg:h-62.5">
             <div class="h-full [&>img]:(w-full h-full object-cover object-center)" v-html="img"></div>
-            <div v-if="isSale" class="bg-#DC3333 px-3 lg:px-4 py-1.5 lg:py-2.25 rounded-full font-medium leading-1.2 lg:leading-1.2 text-sm lg:text-base text-white absolute top-5 lg:top-4 left-5 lg:left-4">Акция</div>
+            <div v-if="isSale" class="bg-#DC3333 px-3 lg:px-4 py-1.5 lg:py-2.25 rounded-full font-medium leading-1.2 lg:leading-1.2 text-sm lg:text-base text-white absolute top-5 lg:top-4 left-5 lg:left-4">{{ generalConfig?.static_info?.global_words?.sale_text }}</div>
         </div>
         <div class="grow rounded-t-5 -mt-5 lg:-mt-9 p-5 flex flex-col gap-5 bg-white relative ring ring-inset ring-#F6F6F6">
             <div class="flex flex-col gap-4 grow">
@@ -11,7 +11,7 @@
                         <Icon name="Star" class="text-#F7C03F text-xl lg:text-2xl"></Icon>
                         <span class="font-medium">{{ rating }}</span>
                     </div>
-                    <p>{{ reviewsCount }} отзывов</p>
+                    <p> {{ generalConfig?.static_info?.global_words?.count_reviews?.replace('%s', String(reviewsCount)) }}</p>
                 </div>
                 <p class="text-base lg:text-lg text-fblack font-semibold leading-1.2 lg:leading-1.2 grow line-clamp-3">{{ title }}</p>
                 <p class="max-lg:hidden text-sm text-second leading-1.4 h-5.6em line-clamp-4">{{ description }}</p>
@@ -24,7 +24,7 @@
                 </div>
                 <div class="flex gap-1.75 items-center">
                     <Icon name="Radiogid" class="text-2xl"></Icon>
-                    <p class="text-sm font-medium leading-1.4">{{ isRadioGid ? generalConfig?.static_info?.global_words?.yes_free : 'нет' }}</p>
+                    <p class="text-sm font-medium leading-1.4">{{ isRadioGid ? generalConfig?.static_info?.global_words?.yes_free : generalConfig?.static_info?.global_words?.guide_loudspeaker }}</p>
                 </div>
                 <div class="flex gap-1.75 items-center">
                     <Icon name="Trail" class="text-2xl"></Icon>
@@ -32,7 +32,7 @@
                 </div>
             </div>
             <Button @click="emit('order')" class="!px-4 !py-3 max-lg:text-sm max-lg:leading-1.25">
-                Заказать
+                {{ generalConfig?.static_info?.global_words?.order }}
                 <template #suffix>
                     <span class="text-lg lg:text-xl font-semibold leading-1.25 lg:leading-1.25">
                         {{ price }}₽

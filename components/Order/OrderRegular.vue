@@ -1,7 +1,7 @@
 <template>
     <FormKit @submit="setOrder" v-model="forms" type="form" form-class="flex flex-col gap-5 lg:gap-6 lg:mt-1" :actions="false">
         <div class="flex flex-col gap-3 mt-1 lg:mt-0">
-            <h2 class="text-5.5 lg:text-6.5 font-Montserrat font-bold leading-1.2 lg:leading-1.2 text-fblack">Бронирование места</h2>
+            <h2 class="text-5.5 lg:text-6.5 font-Montserrat font-bold leading-1.2 lg:leading-1.2 text-fblack">{{ generalConfig?.static_info?.global_words?.reservation_a_place }}</h2>
             <p class="text-sm lg:text-base font-medium leading-1.4 lg:leading-1.4 text-primary">{{ product?.lang_info?.title }}</p>
         </div>
         <div class="flex flex-col gap-4.5 lg:gap-5">
@@ -121,7 +121,6 @@ const totalPrice = computed(() => {
     const additionalSumm = forms.value?.additional?.reduce((a, b) => a + b.count * b.price, 0) ?? 0
     let regularSumm = 0
     let sale_percent = (100 - (forms.value?.coupon?.sale_percent ?? 0)) / 100
-    console.log(sale_percent);
     forms.value?.tickets?.forEach((a) => {
         if (a.id == 10) return regularSumm = regularSumm + a.count * a.price * sale_percent
         regularSumm = regularSumm + a.count * a.price

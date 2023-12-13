@@ -1,14 +1,14 @@
 <template>
     <slot :openModal="openModal"></slot>
-    <Modal v-bind="$attrs" @close="closeModal" :size="status === 'success' ? 'sm' : '2xl'" :is-show="isModalShow">
+    <Modal v-bind="$attrs" @close="closeModal" :size="status === 'success' ? 'md' : '2xl'" :is-show="isModalShow">
         <template v-if="status === 'success'">
             <ModalThanksContent @ok="closeModal" :subTitle="generalConfig?.static_info?.global_words?.waiting_call_manager" :title="generalConfig?.static_info?.global_words?.congratulations" />
         </template>
         <template v-else>
             <FormKit @submit="statementsStore" v-model="forms" type="form" form-class="flex flex-col gap-6" :actions="false">
                 <div class="flex flex-col gap-3 mt-1 lg:mt-0">
-                    <h2 class="text-5.5 lg:text-6.5 text-fblack leading-1.2 font-Montserrat font-bold [&>span]:text-primary max-w-[calc(100%-27px)]">{{ 'Не нашли подходящую экскурсию ?' }}</h2>
-                    <p class="text-sm leading-1.4 text-second">Отправьте заявку на индивидуальную экскурсию, и мы свяжемся с вами!</p>
+                    <h2 class="text-5.5 lg:text-6.5 text-fblack leading-1.2 font-Montserrat font-bold [&>span]:text-primary max-w-[calc(100%-27px)]">{{ generalConfig?.static_info?.global_words?.find_suitable_excursion }}</h2>
+                    <p class="text-sm leading-1.4 text-second">{{ generalConfig?.static_info?.global_words?.submit_request_private }}</p>
                 </div>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-4.5">
                     <FormKit name="name_service" validation="required:trim" type="text" :validation-label="generalConfig?.static_info?.global_words?.title_excursion" :placeholder="generalConfig?.static_info?.global_words?.title_excursion" outer-class="col-span-full" />
@@ -16,7 +16,7 @@
                     <FormKit name="count_people" validation="required:trim|min:1|max:255" type="number" v-maska data-maska="###" :validation-label="generalConfig?.static_info?.global_words?.count_people" :placeholder="generalConfig?.static_info?.global_words?.count_people" outer-class="col-span-full" />
                     <FormKit name="start_at" validation="required" type="datepickerC" :minDate="$dayjs().toDate()" :validation-label="generalConfig?.static_info?.global_words?.product_date" :placeholder="generalConfig?.static_info?.global_words?.product_date" />
                     <FormKit name="start_address" validation="required:trim" type="text" :validation-label="generalConfig?.static_info?.global_words?.starting_point" :placeholder="generalConfig?.static_info?.global_words?.starting_point" />
-                    <FormKit name="email" validation="email|required|length:0,32" type="email" :validation-label="generalConfig?.static_info?.global_words?.email" :placeholder="generalConfig?.static_info?.global_words?.email" />
+                    <FormKit name="email" validation="email|required|length:0,32" type="email" :validation-label="generalConfig?.static_info?.global_words?.email_en" :placeholder="generalConfig?.static_info?.global_words?.email_en" />
                     <FormKit name="phone" validation="required" v-maska data-maska="+7(###)###-##-##" type="tel" :validation-label="generalConfig?.static_info?.global_words?.telephone" :placeholder="generalConfig?.static_info?.global_words?.telephone" />
                     <FormKit name="comment" validation="required:trim|length:5,2000" type="textarea" :validation-label="generalConfig?.static_info?.global_words?.wishes" :placeholder="generalConfig?.static_info?.global_words?.wishes" outer-class="col-span-full" input-class="h-32" />
                 </div>

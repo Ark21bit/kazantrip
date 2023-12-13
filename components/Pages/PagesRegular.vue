@@ -82,7 +82,7 @@
             <div class="ring-(inset 1 #F6F6F6) rounded-5 py-4 px-3 lg:p-5 bg-white shadow-base">
                 <Icon name="Radiogid" class="text-8 lg:text-10 bg-#E2F1F2 text-primary p-2 lg:p-2.5 rounded-lg"></Icon>
                 <p class="mt-3 lg:mt-6 text-second text-xs lg:text-sm leading-1.4 lg:leading-1.4"> {{ generalConfig?.static_info?.global_words?.radio_guide }}</p>
-                <p class="mt-1.5 lg:mt-.75 font-semibold text-fblack leading-1.2 lg:leading-1.2 text-base lg:text-2xl"> {{ pageInfo?.is_radio_gid ? generalConfig?.static_info?.global_words?.yes_free : 'Нет' }}</p>
+                <p class="mt-1.5 lg:mt-.75 font-semibold text-fblack leading-1.2 lg:leading-1.2 text-base lg:text-2xl"> {{ pageInfo?.is_radio_gid ? generalConfig?.static_info?.global_words?.yes_free : generalConfig?.static_info?.global_words?.guide_loudspeaker }}</p>
             </div>
             <div class="ring-(inset 1 #F6F6F6) rounded-5 bg-white shadow-base col-span-full lg:col-span-3">
                 <div class="p-4 pb-3 lg:p-5 flex gap-2.5 lg:gap-3.75 items-center">
@@ -127,7 +127,7 @@
     <div v-if="pageInfo?.info_seo_blocks?.data?.length ?? 0 > 0" class="mt-15 lg:mt-25 col-span-full pb-7.5 border-b border-#EBEBEB">
         <SeoBlock v-for="item in pageInfo?.info_seo_blocks?.data" :title="item?.lang_info?.title" :text="item?.lang_info?.text" class="wrapper"></SeoBlock>
     </div>
-    <Reviews :reviews="pageInfo?.info_reviews?.data" :product-id="pageInfo?.id" :title="pageInfo?.lang_info?.title" class="mt-15 lg:mt-25"></Reviews>
+    <Reviews :reviews="pageInfo?.info_reviews?.data" :product-id="pageInfo?.id" class="mt-15 lg:mt-25"></Reviews>
     <div v-if="pageInfo?.info_recommendations?.data?.length ?? 0 > 0" class="mt-15 lg:mt-25">
         <h2 class="text-fblack text-5.5 lg:text-7 font-bold leading-1.2 lg:leading-1.2 font-Montserrat"> {{ generalConfig?.static_info?.global_words?.similar_excursions }}</h2>
         <SliderRecomendations :data="pageInfo?.info_recommendations?.data" class="mt-5 lg:mt-10" />

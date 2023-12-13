@@ -14,12 +14,13 @@
             <Icon name="Mail" class="text-lg"></Icon> {{ team.email }}
         </NuxtLink> -->
         <!-- <p class="text-fblack text-base leading-1.2 mt-5">{{ team?.description }}</p> -->
-        <Button @click="closeModal" class="mx-auto w-48 mt-7.5" variant="outline">Закрыть</Button>
+        <Button @click="closeModal" class="mx-auto w-48 mt-7.5" variant="outline">{{generalConfig?.static_info?.global_words?.close }}</Button>
     </Modal>
 </template>
 
 <script setup lang="ts">
 import type { TeamsDatum } from '~/types/fetch/about';
+const { generalConfig } = storeToRefs(useGeneralConfigStore())
 
 const emit = defineEmits(['close'])
 const { closeModal, isModalShow, openModal } = useModal()

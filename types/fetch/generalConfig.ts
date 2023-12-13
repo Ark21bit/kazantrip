@@ -245,6 +245,22 @@ export interface GlobalWords {
     similar_excursions: string;
     congratulations: string;
     waiting_call_manager: string;
+    more_excursion: string;
+    choose_an_excursion: string;
+    send_request_to_indiv_excursion: string;
+    leave_your_review: string;
+    close: string;
+    welcome_excursion_center_the_city: string;
+    sale_text: string;
+    count_reviews: string;
+    find_suitable_excursion: string;
+    submit_request_private: string;
+    message: string;
+    email_en: string;
+    find_out_more: string;
+    read_reviews_our_clients: string;
+    reservation_a_place: string;
+    guide_loudspeaker: string;
 }
 export interface TimeText {
     short_h: string;

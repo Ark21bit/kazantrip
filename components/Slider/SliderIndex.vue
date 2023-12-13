@@ -8,7 +8,7 @@
             <div class="flex flex-col items-center gap-4 lg:gap-5 text-white z-1 wrapper">
                 <h2 class="font-Montserrat text-6.5 lg:text-10.5 leading-1.2 lg:leading-1.2 font-bold text-center lg:w-[calc(100%-6.25rem)] lg:max-w-266">{{ slide?.lang_info?.title }}</h2>
                 <p class="text-sm lg:text-lg leading-1.4 lg:leading-1.4 text-center max-w-211.5">{{ slide?.lang_info?.description }}</p>
-                <Button :tag="CustomLink" :to="slide?.target_url" class="mt-2 lg:mt-1 max-lg:w-full">узнать подробнее</Button>
+                <Button :tag="CustomLink" :to="slide?.target_url" class="mt-2 lg:mt-1 max-lg:w-full">{{ generalConfig?.static_info?.global_words?.find_out_more }}</Button>
             </div>
         </SwiperSlide>
         <div class="absolute max-lg:bottom-16 lg:top-1/2 lg:-translate-y-1/2 w-full z-1">
@@ -16,10 +16,7 @@
             <SliderPagination></SliderPagination>
         </div>
         <div class="flex absolute top-26.5 z-1 w-full max-lg:hidden">
-            <p class="py-2 px-5 bg-white rounded-full font-medium text-base text-fblack leading-1.25 [&>span]:text-primary w-fit mx-auto block wrapper mx-auto">
-                Добро пожаловать в экскурсионный центр города <span>Казани</span>
-                <span>👋</span>
-            </p>
+            <p class="py-2 px-5 bg-white rounded-full font-medium text-base text-fblack leading-1.25 [&>span]:text-primary w-fit mx-auto block wrapper mx-auto" v-html="generalConfig?.static_info?.global_words?.welcome_excursion_center_the_city"></p>
         </div>
     </Swiper>
 </template>
@@ -29,7 +26,7 @@ import { CustomLink } from '#components';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Navigation, Pagination, Mousewheel } from 'swiper/modules';
 import type { SliderIndexDatum } from '~/types/fetch';
-
+const { generalConfig } = storeToRefs(useGeneralConfigStore())
 defineProps({
     slides: Array as PropType<SliderIndexDatum[]>
 })

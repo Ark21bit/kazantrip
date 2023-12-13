@@ -10,7 +10,7 @@
         </CatalogContainer>
     </div>
     <div v-if="pageInfo?.info_seo_blocks?.data?.length ?? 0 > 0" class="mt-20 lg:mt-25 pb-7.5 border-b border-#EBEBEB col-span-full">
-        <SeoBlock v-for="item in pageInfo?.info_seo_blocks?.data" :title="item?.lang_info?.title" :text="item?.lang_info?.text" class="wrapper" />
+        <SeoBlock v-for="item in pageInfo?.info_seo_blocks?.data" :title="item?.lang_info?.title" :description="item?.lang_info?.text" class="wrapper" />
     </div>
     <Modal @close="closeModal" :is-show="isModalShow" :class="{ 'min-h-225': pending }">
         <div v-if="pending" class="m-auto flex justify-center items-center">
@@ -26,8 +26,6 @@ const props = defineProps({
     isSearched: Boolean,
 })
 
-const { generalConfig } = storeToRefs(useGeneralConfigStore())
-
 const localePath = useLocalePath()
 const route = useRoute()
 
@@ -42,7 +40,7 @@ const { data: product, pending, execute } = useBaseFetch('search/slugs', {
 const order = computedWithControl(() => product.value?.type_id, () => {
     if (product.value?.type_id == 11) return resolveComponent('OrderRegular')
     if (product.value?.type_id == 12) return resolveComponent('OrderIndividual')
-    if (product.value?.type_id == 31) return resolveComponent('OrderCertificate')
+    if (product.value?.type_id == 41) return resolveComponent('OrderCertificate')
     return null
 })
 

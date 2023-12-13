@@ -3,14 +3,14 @@
         <div class="flex flex-col gap-5 lg:w-75.75 shrink-0 max-lg:order-1">
             <CardTimetable :info="generalConfig?.timetable?.today" class="max-lg:hidden" v-if="timetable"></CardTimetable>
             <div class="flex flex-col gap-5 p-5 rounded-5 border border-#F6F6F6">
-                <p class="text-lg lg:text-xl leading-1.2 lg:leading-1.2 font-Montserrat font-bold text-fblack">Отправьте запрос на <span class="text-primary">индивидуальную</span> экскурсию</p>
+                <p class="text-lg lg:text-xl leading-1.2 lg:leading-1.2 font-Montserrat font-bold text-fblack [&>span]:text-primary" v-html="generalConfig?.static_info?.global_words?.send_request_to_indiv_excursion"></p>
                 <ModalRequestIndividual #="{ openModal }">
                     <Button @click="openModal" size="sm" class="w-41">Подобрать</Button>
                 </ModalRequestIndividual>
             </div>
             <CustomLink to="https://yandex.ru/profile/1020776306" target="_blank" class="hidden lg:flex flex-col gap-2 p-5 rounded-5 border border-#F6F6F6">
-                <p class="text-lg lg:text-xl leading-1.2 lg:leading-1.2 font-Montserrat font-bold text-fblack [&>span]:text-#FF3D15">{{ generalConfig?.static_info?.global_words?.yandex_review }}</p>
-                <p class="text-sm text-second leading-1.4">Оставьте свой отзыв на сайте</p>
+                <p class="text-lg lg:text-xl leading-1.2 lg:leading-1.2 font-Montserrat font-bold text-fblack [&>span]:text-#FF3D15" v-html="generalConfig?.static_info?.global_words?.yandex_review"></p>
+                <p class="text-sm text-second leading-1.4">{{ generalConfig?.static_info?.global_words?.leave_your_review }}</p>
             </CustomLink>
             <div class="mt-2.5 rounded-5 bg-#EFEFEF h-106">
 

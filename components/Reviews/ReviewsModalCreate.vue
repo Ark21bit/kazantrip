@@ -1,8 +1,8 @@
 <template>
     <slot :openModal="openModal"></slot>
-    <Modal v-bind="$attrs" @close="closeModal" :size="status === 'success' ? 'sm' : '2xl'" class="flex flex-col gap-6" :is-show="isModalShow">
+    <Modal v-bind="$attrs" @close="closeModal" :size="status === 'success' ? 'md' : '2xl'" :is-show="isModalShow">
         <template v-if="status === 'success'">
-            <ModalThanksContent @ok="closeModal" :subTitle="generalConfig?.static_info?.global_words?.waiting_call_manager" :title="generalConfig?.static_info?.global_words?.congratulations" />
+            <ModalThanksContent @ok="closeModal" :subTitle="generalConfig?.static_info?.global_words?.review_added_successfully" :title="generalConfig?.static_info?.global_words?.thank_you" />
         </template>
         <template v-else>
             <FormKit id="create-review" v-model="forms" @submit="reviewStore" type="form" form-class="flex flex-col gap-1 lg:gap-6" :actions="false">
@@ -11,12 +11,13 @@
                     <p class="text-sm text-second leading-1.4">{{ generalConfig?.static_info?.global_words?.tell_about_impressions_trip }}</p>
                 </div>
                 <div class="grid grid-cols-2 gap-4 lg:gap-4.5">
-                    <FormKit name="rating" validation="required" :label="generalConfig?.static_info?.global_words?.you_mark" type="ratingC" input-class="max-lg:text-sm" />
-                    <FormKit name="product_id" :value="productTitle" disabled number type="text" validation="required" input-class="max-lg:text-sm" outer-class="col-span-full" />
-                    <FormKit name="name" validation="required:trim" :validation-label="generalConfig?.static_info?.global_words?.fio" :placeholder="generalConfig?.static_info?.global_words?.fio" type="text" outer-class="col-span-full" input-class="max-lg:text-sm" />
-                    <FormKit name="email" validation="required|email" :validation-label="generalConfig?.static_info?.global_words?.email_text" :placeholder="generalConfig?.static_info?.global_words?.email_text" type="email" input-class="max-lg:text-sm" />
+                    <FormKit name="rating" validation="required" :label="generalConfig?.static_info?.global_words?.you_mark" type="ratingC" input-class="max-lg:text-sm" outer-class="col-span-full" />
+                    <FormKit name="product_id" validation="required" :value="productId" :validation-label="generalConfig?.static_info?.global_words?.title_excursion" :placeholder="generalConfig?.static_info?.global_words?.title_excursion" optionLabel="title" optionValue="id" :options="products" type="selectC"
+                        input-class="max-lg:text-sm" outer-class="col-span-full"/>
+                        <FormKit name="email" validation="required|email" :validation-label="generalConfig?.static_info?.global_words?.email_en" :placeholder="generalConfig?.static_info?.global_words?.email_en" type="email" outer-class="col-span-full" input-class="max-lg:text-sm" />
+                        <FormKit name="name" validation="required:trim" :validation-label="generalConfig?.static_info?.global_words?.fio" :placeholder="generalConfig?.static_info?.global_words?.fio" type="text" input-class="max-lg:text-sm" />
                     <FormKit name="date" validation="required" :maxDate="$dayjs().toDate()" :validation-label="generalConfig?.static_info?.global_words?.product_date" :placeholder="generalConfig?.static_info?.global_words?.product_date" type="datepickerC" input-class="max-lg:text-sm" />
-                    <FormKit name="message" validation="required:trim" :validation-label="generalConfig?.static_info?.global_words?.about_impressions_trip" :placeholder="generalConfig?.static_info?.global_words?.about_impressions_trip" type="textarea" input-class="max-lg:text-sm h-30 lg:h-46.25"
+                    <FormKit name="message" validation="required:trim" :validation-label="generalConfig?.static_info?.global_words?.message" :placeholder="generalConfig?.static_info?.global_words?.message" type="textarea" input-class="max-lg:text-sm h-30 lg:h-46.25"
                         outer-class="col-span-full" />
                 </div>
                 <div class="flex flex-col lg:flex-row gap-3 lg:justify-between mt-1 lg:mt-0">
@@ -30,12 +31,12 @@
 
 <script setup lang="ts">
 import { reset } from '@formkit/core'
+import type { ProductsShortList } from '~/types/fetch/shared';
 defineOptions({
     inheritAttrs: false,
 })
 const props = defineProps({
     productId: Number,
-    productTitle: String,
 })
 const { generalConfig } = storeToRefs(useGeneralConfigStore())
 const { closeModal, isModalShow, openModal: openModalInit } = useModal()
@@ -71,6 +72,9 @@ const reviewStore = async () => {
         severity: 'error'
     })
     reset('create-review')
-    openModal()
 }
+
+const { data: products } = await useBaseFetch<ProductsShortList[]>('products/short-list', {
+    key: 'products-short-list'
+})
 </script>

@@ -6,12 +6,12 @@
             <FormKit name="count_people" validation="required:trim|min:1|max:255" type="number" v-maska data-maska="###" :validation-label="generalConfig?.static_info?.global_words?.count_people" :placeholder="generalConfig?.static_info?.global_words?.count_people" outer-class="col-span-full" />
             <FormKit name="start_at" validation="required" type="datepickerC" :minDate="$dayjs().toDate()" :validation-label="generalConfig?.static_info?.global_words?.product_date" :placeholder="generalConfig?.static_info?.global_words?.product_date" />
             <FormKit name="start_address" validation="required:trim" type="text" :validation-label="generalConfig?.static_info?.global_words?.starting_point" :placeholder="generalConfig?.static_info?.global_words?.starting_point" />
-            <FormKit name="email" validation="email|required|length:0,32" type="email" :validation-label="generalConfig?.static_info?.global_words?.email" :placeholder="generalConfig?.static_info?.global_words?.email" />
-            <FormKit name="phone" validation="required" v-maska data-maska="+7(###)###-##-##" type="tel" :validation-label="generalConfig?.static_info?.global_words?.telephone" :placeholder="generalConfig?.static_info?.global_words?.telephone" />
+            <FormKit name="email" validation="email|required|length:0,32" type="email" :validation-label="generalConfig?.static_info?.global_words?.email_en" :placeholder="generalConfig?.static_info?.global_words?.email_en" />
+            <FormKit name="phone" validation="required" v-maska data-maska="+7(###)###-##-##" type="tel" :validation-label="generalConfig?.static_info?.global_words?.number_telephone" :placeholder="generalConfig?.static_info?.global_words?.number_telephone" />
             <FormKit name="comment" validation="required:trim|length:5,2000" type="textarea" :validation-label="generalConfig?.static_info?.global_words?.wishes" :placeholder="generalConfig?.static_info?.global_words?.wishes" outer-class="col-span-full" input-class="h-32" />
             <Button :disabled="status === 'pending'" :loading="status === 'pending'" class="w-full lg:w-49 mt-1 lg:mt-1.5 max-lg:text-sm">{{ generalConfig?.static_info?.global_words?.send }}</Button>
         </FormKit>
-        <Modal @close="closeModal" size="sm" :is-show="isModalShow">
+        <Modal @close="closeModal" size="md" :is-show="isModalShow">
             <ModalThanksContent @ok="closeModal" :subTitle="generalConfig?.static_info?.global_words?.waiting_call_manager" :title="generalConfig?.static_info?.global_words?.congratulations" />
         </Modal>
     </FeedbackFormContainer>
