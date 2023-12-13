@@ -34,6 +34,25 @@ body.modal-open-mobile {
     mask-size: cover;
 }
 
+.more-text-block{
+    --at-apply:'flex flex-col gap-7.5 lg:gap-10 text-sm lg:text-base leading-1.4 lg:leading-1.4 text-second'
+}
+.more-text-block b{
+    --at-apply:'text-fblack font-semibold'
+}
+.more-text-block h2{
+    --at-apply:'font-bold font-Montserrat text-fblack text-lg lg:text-xl leading-1.2 lg:leading-1.2'
+}
+.more-text-block>div{
+    --at-apply:'flex flex-col gap-4 lg:gap-5'
+}
+.more-text-block ul>li{
+    --at-apply:'flex before:(content-empty w-1 h-1 bg-current mx-2.5 rounded-full mt-0.5em shrink-0)'
+}
+.more-text-block ul>li>*{
+    --at-apply:'contents'
+}
+
 @layer default{
 	body {
 		--at-apply: "flex flex-col relative font-Inter whitespace-pre-line bg-white [--width-content:1280px] [--width-content-margin:15px] sm:[--width-content-margin:20px] 1200px:[--width-content-margin:60px]";
