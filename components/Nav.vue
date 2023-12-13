@@ -1,5 +1,5 @@
 <template>
-    <nav class="flex gap-4 justify-between items-center flex-wrap">
+    <nav class="flex gap-4 justify-evenly items-center flex-wrap">
         <template v-for="link in generalConfig?.static_info?.menu?.header">
             <DropdownHover v-if="link?.children?.length ?? 0 > 0" :dark="dark">
                 <template #title>

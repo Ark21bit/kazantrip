@@ -108,7 +108,7 @@
         <div class="grid relative grid-cols-[repeat(auto-fit,minmax(122px,1fr))] mt-5 lg:mt-7.5 p-3.75 py-5 lg:px-5 lg:py-6 gap-y-5 gap-4 lg:gap-5 bg-#E2F1F2 rounded-5">
             <div @click="openModal" v-for="ticket in pageInfo?.info_prices?.data" class="flex flex-col gap-1.5 lg:gap-2 p-4 lg:p-5 rounded-5 ring-(1 inset #F6F6F6) font-semibold bg-white cursor-pointer">
                 <p class="text-fblack text-sm lg:text-base leading-1.4 lg:leading-1.4">{{ getTitleTypeTicket(ticket?.type_ticket_id) }}</p>
-                <p class="text-primary text-2xl lg:text-8 leading-1.25 lg:leading-1.25 flex flex-col items-end lg:flex-row gap-x-1.5">{{ ticket?.price }}₽<!-- <span class="line-through lg:mb-2.5 text-#A4A4A4 leading-1.2 decoration-fblack text-sm">1350₽</span> --></p>
+                <p class="text-primary text-2xl lg:text-8 leading-1.25 lg:leading-1.25 flex flex-col lg:flex-row gap-x-1.5">{{ ticket?.price }}₽</p>
             </div>
             <div class="absolute max-lg:-translate-1/2 top-0 lg:-top-4 lg:-translate-y-full left-16% rounded-full w-2 aspect-square bg-#F7C03F"></div>
             <div class="absolute top-12.75 lg:top-0 left-0 lg:left-full -translate-1/2 rounded-full aspect-square w-3.75 lg:w-9.75 bg-primary"></div>
