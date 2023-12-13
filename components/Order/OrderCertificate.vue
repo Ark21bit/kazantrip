@@ -29,8 +29,8 @@
             </FormKit>
         </div>
         <div class="flex flex-col lg:flex-row gap-3 lg:justify-between">
-            <Button class="w-full lg:w-49">{{ generalConfig?.static_info?.global_words?.reservation }}</Button>
             <Button @click="emit('close')" class="w-full lg:w-49" type="button" variant="outline">{{ generalConfig?.static_info?.global_words?.cancel }}</Button>
+            <Button class="w-full lg:w-49">{{ generalConfig?.static_info?.global_words?.reservation }}</Button>
         </div>
         <FormKit type="meta" name="product_id" :value="product?.id"></FormKit>
         <FormKit type="meta" name="title" :value="product?.lang_info?.title"></FormKit>
