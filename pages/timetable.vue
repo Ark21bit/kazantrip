@@ -4,8 +4,8 @@
         <Bage v-for="file in pageInfo?.files" href="#" :download="file?.url" tag="a" link class="max-lg:py-1.5 max-lg:px-3">{{ file?.title }}</Bage>
     </div>
     <div class="col-span-full pt-7.5 border-t border-#EBEBEB mt-7.5 lg:mb-12.5">
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-7.5 wrapper">
-            <CardTimetable v-for="item in pageInfo?.timetable" :info="item?.info" :day="item?.day" />
+        <div class="flex flex-wrap gap-7.5 justify-center wrapper">
+            <CardTimetable class="w-full sm:w-[calc(50%-15px)] lg:w-[calc(100%/3-20px)] xl:w-[calc(25%-22.5px)]" v-for="item in pageInfo?.timetable" :info="item?.info" :day="item?.day" />
         </div>
     </div>
 </template>
