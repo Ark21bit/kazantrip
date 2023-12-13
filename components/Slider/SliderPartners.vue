@@ -1,8 +1,9 @@
 <template>
     <Swiper slides-per-view="auto" class="w-full flex relative contain-layout overflow-visible" v-bind="options">
-        <SwiperSlide v-for="item in 25" class="w-33.75 h-33.75 lg:h-49.25 lg:w-49.25 last:mr-0 mr-5 rounded-5 border-#F6F6F6 shadow-base">
-            <div class="w-full h-23.75 lg:h-34.5 [&>img]" v-html="`<img src='/imgs/partner.png' class='h-full w-full object-contain' alt=''>`"></div>
-            <p class="py-3 lg:py-5 text-#7B7B7B text-sm leading-1.25 text-center">Кума</p>
+        <SwiperSlide v-for="slide in slides" class="w-33.75 h-33.75 lg:h-49.25 lg:w-49.25 last:mr-0 mr-5 rounded-5 border-#F6F6F6 shadow-base">
+            <div class="w-full h-23.75 lg:h-34.5 [&>img]:(h-full w-full object-contain object-center)" v-html="slide?.media_preview"></div>
+            <p class="py-3 lg:py-5 text-#7B7B7B text-sm leading-1.25 text-center">{{ slide?.lang_info?.title }}</p>
+            <CustomLink :to="slide?.lang_info?.url" class="absolute top-0 left-0 h-full w-full"></CustomLink>
         </SwiperSlide>
     </Swiper>
 </template>
@@ -17,5 +18,8 @@ const options = {
         forceToAxis: true,
     },
 }
+defineProps({
+    slides: Array
+})
 </script>
 
