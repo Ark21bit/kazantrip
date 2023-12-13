@@ -1,6 +1,6 @@
 <template>
     <slot name="title"></slot>
-    <div class="mt-7.5 lg:mt-10 shadow-base rounded-5 ring ring-#F6F6F6 ring-inset lg:py-2.5">
+    <div v-bind="$attrs">
         <slot name="head"></slot>
         <div class="flex flex-col lg:flex-row justify-between gap-3 py-3 px-5 lg:px-7.5 last:border-none border-b border-#E8E8E8 text-sm leading-1.4 text-fblack">
             <p>{{ 'название сертификата' }}</p>
@@ -24,9 +24,11 @@
 </template>
 
 <script setup>
+defineOptions({
+    inheritAttrs:false
+})
 const { orderInfo } = storeToRefs(useOrderStore())
 const { generalConfig } = storeToRefs(useGeneralConfigStore())
-
 const storeOrderInfo = computed(() => ({
     client_email: orderInfo.value?.client_email?.trim(),
     client_fio: orderInfo.value?.client_fio?.trim(),

@@ -1,6 +1,6 @@
 <template>
     <slot name="title"></slot>
-    <div class="mt-7.5 lg:mt-10 shadow-base rounded-5 ring ring-#F6F6F6 ring-inset lg:py-2.5">
+    <div v-bind="$attrs">
         <slot name="head"></slot>
         <div class="flex flex-col lg:flex-row justify-between gap-3 py-3 px-5 lg:px-7.5 last:border-none border-b border-#E8E8E8 text-sm leading-1.4 text-fblack">
             <p>{{ generalConfig?.static_info?.global_words?.product_name }}</p>
@@ -48,10 +48,12 @@
 </template>
 
 <script setup>
+defineOptions({
+    inheritAttrs:false
+})
 const { orderInfo } = storeToRefs(useOrderStore())
 const { generalConfig } = storeToRefs(useGeneralConfigStore())
 const { locale } = useI18n()
-
 const filterTickets = computed(() => orderInfo.value?.tickets?.filter(a => a.count > 0))
 const filterAdditionals = computed(() => orderInfo.value?.additional?.filter(a => a.count > 0))
 

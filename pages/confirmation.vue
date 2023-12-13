@@ -8,7 +8,7 @@
                 <template #head>
                     <div class="flex flex-col gap-4 items-center text-center px-5 pt-5 lg:pt-7.5 pb-7.5 border-b border-#E8E8E8">
                         <h2 class="text-5.5 lg:text-6.5 text-fblack leading-1.2 font-bold [&>span]:text-primary" v-html="fioText"></h2>
-                        <p class="text-sm lg:text-base text-second leading-1.35 lg:leading-1.35"> {{ generalConfig?.static_info?.global_words?.confirm_description_text }}</p>
+                        <p class="text-sm lg:text-base text-second leading-1.35 lg:leading-1.35"> {{ title[locale] }}</p>
                     </div>
                 </template>
                 <template #footer="{ totalPrice }">
@@ -27,8 +27,8 @@
                             <p class="text-base lg:text-lg font-bold">{{ 'заказ принят' }}</p>
                         </template>
                         <template v-else>
-                            <Button class="!px-6.5" @click="storeOrder(storeOrderInfo)" :disabled="storeStatus === 'pending'" :loading="storeStatus === 'pending'">{{ generalConfig?.static_info?.global_words?.confirmation_order }}</Button>
                             <Button class="lg:w-49" @click="cancel" :disabled="storeStatus === 'pending'" :loading="storeStatus === 'pending'" variant="outline" color="green">{{ generalConfig?.static_info?.global_words?.cancel }}</Button>
+                            <Button class="!px-6.5" @click="storeOrder(storeOrderInfo)" :disabled="storeStatus === 'pending'" :loading="storeStatus === 'pending'">{{ generalConfig?.static_info?.global_words?.confirmation_order }}</Button>
                         </template>
                         <ModalConfirmationSuccess :orderResponse="storeData" :isShow="isModalShow" @close="closeModal" />
                     </div>
@@ -45,7 +45,7 @@
 useSeoMeta({
     title: "Подтверждение заказа",
 })
-
+const { locale } = useI18n()
 const localePath = useLocalePath()
 
 const { orderInfo, orderCompleted } = storeToRefs(useOrderStore())
@@ -94,4 +94,9 @@ const cancel = () => {
 }
 
 const { closeModal, isModalShow, openModal } = useModal()
+
+const title = {
+    en: 'Thank you for booking at the Excursion Center of Kazan KazanTrip',
+    ru: 'Благодарим за бронирование экскурсии в Экскурсионном центре г. Казани KazanTrip!'
+}
 </script>
