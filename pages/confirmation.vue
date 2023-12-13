@@ -1,7 +1,7 @@
 <template>
     <ClientOnly>
         <div class="max-w-211.5 mx-auto mt-10 lg:mt-20 w-full">
-            <component :is="confirmationComponent">
+            <component class="mt-7.5 lg:mt-10 shadow-base rounded-5 ring ring-#F6F6F6 ring-inset lg:py-2.5" :is="confirmationComponent">
                 <template #title>
                     <h1 class="text-6.5 lg:text-9.5 font-bold font-Montserrat text-fblack text-center leading-1.2 lg:leading-1.2">{{ generalConfig?.static_info?.global_words?.confirm_booking }}</h1>
                 </template>

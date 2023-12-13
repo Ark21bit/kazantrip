@@ -5,13 +5,13 @@
     <div class="flex flex-col lg:flex-row gap-5 mt-7.5 lg:mt-12.5 justify-between">
         <Button :tag="CustomLink" :to="pageInfo?.content?.timetable?.slug" class="max-lg:w-full">{{ pageInfo?.content?.timetable?.title }}</Button>
         <div class="flex flex-col lg:flex-row gap-2.5 lg:gap-5 max-lg:border-t border-#E2E2E2 max-lg:pt-5">
-            <FormKit v-model="date" type="datepickerC" outer-class="w-full lg:w-39.5"></FormKit>
+            <FormKit v-model="date" type="datepickerC" :minDate="$dayjs().toDate()" outer-class="w-full lg:w-39.5"></FormKit>
             <Button @click="changeTimetamble" class="max-lg:w-full">{{ generalConfig?.static_info?.global_words?.choose_an_excursion }}</Button>
         </div>
     </div>
     <SliderExcursions class="py-5 mt-5 lg:mt-10"></SliderExcursions>
-    <IndexProducts class="mt-15 lg:mt-20" :title="pageInfo?.content?.main_products?.title" :products="pageInfo?.main_products?.data"/>
-    
+    <IndexProducts class="mt-15 lg:mt-20" :title="pageInfo?.content?.main_products?.title" :products="pageInfo?.main_products?.data" />
+
     <Feedback :subTitle="pageInfo?.content?.form_search?.description" :title="pageInfo?.content?.form_search?.title" />
     <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 mt-15 lg:mt-37.5">
         <div class="flex flex-col gap-3 min-h-45.25 lg:min-h-48.75 p-5 lg:p-6 pr-20 border-(#F6F6F6 1) bg-[position:top_0_right_15px] lg:bg-[position:top_0_right_30px] bg-[length:48px] lg:bg-[length:51px] bg-[url(/imgs/pattern.svg)] bg-repeat-y rounded-5">
