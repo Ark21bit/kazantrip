@@ -261,6 +261,8 @@ export interface GlobalWords {
     read_reviews_our_clients: string;
     reservation_a_place: string;
     guide_loudspeaker: string;
+    confirm_excursion_info: string
+    confirm_personal_data: string
 }
 export interface TimeText {
     short_h: string;
