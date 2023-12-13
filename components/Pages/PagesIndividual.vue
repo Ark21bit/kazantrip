@@ -20,6 +20,7 @@
             <TableTd before :data-label="generalConfig?.static_info?.global_words?.cost_per_group">{{ infoPrice?.price }} ₽</TableTd>
         </TableTr>
     </Table>
+    <p class="text-second text-base leading-1.4 mt-5">{{ pageInfo?.lang_info?.mini_description }}</p>
     <div v-if="pageInfo?.info_seo_blocks?.data?.length ?? 0 > 0" class="mt-15 lg:mt-25 col-span-full pb-7.5 border-b border-#EBEBEB">
         <SeoBlock v-for="item in pageInfo?.info_seo_blocks?.data" :title="item?.lang_info?.title" :text="item?.lang_info?.text" class="wrapper"></SeoBlock>
     </div>
