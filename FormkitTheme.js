@@ -62,8 +62,8 @@ export default {
         listitem: 'cursor-pointer hover:bg-primary px-3 py-2.5 rounded-lg hover:text-white transition-colors duration-500',
         listitemSelect: 'bg-primary text-white',
         selectIcon: 'text-lg transition-transform duration-500 ease-linear leading-none',
-        selectText: 'min-h-1.2em text-base leading-1.2 text-fblack',
-        placeholder: 'min-h-1.2em text-base leading-1.2 text-#868686',
+        selectText: 'min-h-1.2em text-base leading-1.2 text-fblack line-clamp-1 text-start',
+        placeholder: 'min-h-1.2em text-base leading-1.2 text-#868686 line-clamp-1 text-start',
     },
     datepickerC: {
         inner: '$remove:overflow-hidden flex items-center text-fblack border border-#E8E8E8 focus-within:border-primary [&>label:first-child]:focus-within:text-blue-500 rounded-lg leading-1.2',
@@ -71,6 +71,6 @@ export default {
         calendarIcon: 'text-xl',
     },
     ratingC: {
-        inner: '$remove:bg-#F2F8F8 bg-transparent'
+        inner: '$remove:bg-#F2F8F8 !bg-transparent',
     }
 }
