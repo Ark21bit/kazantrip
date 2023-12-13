@@ -5,7 +5,7 @@
                 <ReviewsCard class="h-full" :slug="review?.product_info?.slug" :name="review?.name" :rating="review?.rating" :created_at="review?.created_at" :message="review?.message" :title="review?.product_info?.lang_info?.title" @open-full-review="openFullReview(review)" />
             </SwiperSlide>
             <SliderController color="azul" class="mt-7.5 w-fit max-lg:hidden" />
-            <SliderPagination class="mt-5" />
+            <SliderPagination color="gray" class="mt-5" />
         </Swiper>
     </ReviewsModalFull>
 </template>

@@ -95,7 +95,7 @@ body.modal-open-mobile {
     }
 
     .swiper-pagination .swiper-pagination-bullet{
-        --at-apply:"w-2.5 h-2.5 bg-#E9E9E9 rounded-full transition-colors hover:bg-primary cursor-pointer"
+        --at-apply:"w-2.5 h-2.5 bg-[--pagination-bullet-color,#fff] rounded-full transition-colors hover:bg-primary cursor-pointer"
     }
     .swiper-pagination .swiper-pagination-bullet-active{
         --at-apply:"bg-primary"

@@ -1,5 +1,5 @@
 <template>
-    <Swiper class="w-full flex relative contain-layout overflow-visible" v-bind="options">
+    <Swiper class="w-full flex flex-col relative contain-layout overflow-visible" v-bind="options">
         <SwiperSlide class="w-full min-w-62.5 lg:min-w-76.25 h-full shrink-0 [&>img]:(w-full h-full object-cover object-center) lg:w-[calc(25%-10px)] mr-5 last:mr-0 group/swiperTrail" v-for="(trail, index) in trails">
             <div class="relative translate-x-3.25">
                 <div class="ring-(1 inset #F6F6F6) relative z-1 w-fit bg-white rounded-full p-1.25 after-swiper-trail">
@@ -16,12 +16,14 @@
                 <div class="w-full h-30 lg:h-37.5 [&>img]:(w-full h-full object-center object-cover rounded-2.5)" v-html="trail?.media_preview"></div>
             </div>
         </SwiperSlide>
+        <SliderController class="mt-7.5 max-lg:hidden w-fit" />
+        <SliderPagination class="mt-5 lg:hidden" />
     </Swiper>
 </template>
 
 <script setup lang="ts">
 import { Swiper, SwiperSlide } from 'swiper/vue';
-import { Mousewheel } from 'swiper/modules';
+import { Mousewheel, Navigation, Pagination } from 'swiper/modules';
 import type { InfoRouteBlocksData } from '~/types/fetch/pathMatch/regularE';
 defineProps({
     imgs: Array as PropType<String[]>,
@@ -29,17 +31,45 @@ defineProps({
 })
 
 const options = {
-    modules: [Mousewheel],
+    modules: [Mousewheel, Navigation, Pagination],
     mousewheel: {
         forceToAxis: true,
     },
     spaceBetween: 20,
     breakpoints: {
-        640: { slidesPerView: 2 },
-        768: { slidesPerView: 3 },
-        1024: { slidesPerView: 4 }
+        640: {
+            slidesPerView: 2,
+            pagination: {
+                enabled: true,
+            },
+        },
+        768: {
+            slidesPerView: 3,
+            pagination: {
+                enabled: true,
+            },
+        },
+        1024: {
+            slidesPerView: 4,
+            navigation: {
+                enabled: true,
+            },
+            pagination: {
+                enabled: false,
+            },
+        }
     },
     slidesPerView: 1.15,
+    navigation: {
+        enabled: false,
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+    pagination: {
+        el: '.swiper-pagination',
+        enabled: true,
+        clickable: true
+    },
 }
 </script>
 
