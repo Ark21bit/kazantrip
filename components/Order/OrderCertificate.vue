@@ -13,8 +13,20 @@
         </div>
         <FormKit :disabled="paymentTypes?.length == 0" name="payment_type_id" validation="required" type="selectC" :options="paymentTypes" :validation-label="generalConfig?.static_info?.global_words?.type_payment" :placeholder="generalConfig?.static_info?.global_words?.type_payment" />
         <div class="flex flex-col gap-4">
-            <FormKit validation="accepted" type="checkbox" :label="generalConfig?.static_info?.global_words?.order_confirm_procedure_provision_excursion_services" />
-            <FormKit validation="accepted" type="checkbox" :label="generalConfig?.static_info?.global_words?.order_fz_confirm_text" />
+            <FormKit :validation-messages="{accepted:String(generalConfig?.static_info?.global_words?.confirm_excursion_info)}" validation="accepted" type="checkbox">
+                <template #label>
+                    <CustomLink target="_blank" to="/procedure-provision-excursion-services">
+                        {{ generalConfig?.static_info?.global_words?.order_confirm_procedure_provision_excursion_services }}
+                    </CustomLink>
+                </template>
+            </FormKit>
+            <FormKit :validation-messages="{accepted:String(generalConfig?.static_info?.global_words?.confirm_personal_data)}" validation="accepted" type="checkbox">
+                <template #label>
+                    <CustomLink target="_blank" to="/personal-data">
+                        {{ generalConfig?.static_info?.global_words?.order_fz_confirm_text }}
+                    </CustomLink>
+                </template>
+            </FormKit>
         </div>
         <div class="flex flex-col lg:flex-row gap-3 lg:justify-between">
             <Button class="w-full lg:w-49">{{ generalConfig?.static_info?.global_words?.reservation }}</Button>
