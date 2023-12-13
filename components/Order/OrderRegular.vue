@@ -137,7 +137,7 @@ const totalPrice = computed(() => {
         if (a.id == 10) return regularSumm = regularSumm + a.count * a.price * sale_percent
         regularSumm = regularSumm + a.count * a.price
     })
-    return Math.round((additionalSumm + regularSumm) * 10) / 10
+    return Math.round(additionalSumm + regularSumm)
 })
 
 let availableSelectDate = computed(() => {

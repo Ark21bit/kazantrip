@@ -60,12 +60,12 @@ const filterAdditionals = computed(() => orderInfo.value?.additional?.filter(a =
 const totalPrice = computed(() => {
     const additionalSumm = filterAdditionals.value?.reduce((a, b) => a + b.count * b.price, 0) ?? 0
     let regularSumm = 0
-    let sale_percent = (100 - orderInfo.value?.coupon?.sale_percent ?? 0) / 100
+    let sale_percent = (100 - (orderInfo.value?.coupon?.sale_percent ?? 0)) / 100
     filterTickets.value?.forEach((a) => {
         if (a.id == 10) return regularSumm = regularSumm + a.count * a.price * sale_percent
         regularSumm = regularSumm + a.count * a.price
     })
-    return Math.round((additionalSumm + regularSumm) * 10) / 10
+    return Math.round(additionalSumm + regularSumm)
 })
 
 const storeOrderInfo = computed(() => {
