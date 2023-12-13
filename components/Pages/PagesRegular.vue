@@ -90,8 +90,7 @@
                     <p class="text-second text-xs lg:text-sm leading-1.4 lg:leading-1.4">{{ generalConfig?.static_info?.global_words?.departure }}</p>
                 </div>
                 <div class="flex flex-col lg:flex-row lg:border-t border-#EBEBEB">
-                    <div v-for="item in pageInfo?.start_place_types" class="flex-1 py-3 lg:py-5 p-5 border-t lg:border-r lg:last:border-r-none border-#EBEBEB">
-                        <!-- <p class=" text-second text-xs lg:text-sm leading-1.4 lg:leading-1.4">Отель Татарстан</p> -->
+                    <div v-for="item in pageInfo?.start_place_types" class="flex-1 py-3 lg:py-5 p-5 border-t lg:border-r lg:last:border-r-none border-#EBEBEB">                        
                         <p class="mt-1.5 lg:mt-.75 font-semibold text-fblack leading-1.2 lg:leading-1.2 text-base lg:text-2xl">{{ getTitlePlacesStart(item) }}</p>
                     </div>
                 </div>
@@ -107,7 +106,7 @@
     <div class="mt-10 lg:mt-17.5">
         <h2 class="text-fblack text-5.5 lg:text-7 font-bold leading-1.2 lg:leading-1.2 font-Montserrat">{{ generalConfig?.static_info?.global_words?.all_price }}</h2>
         <div class="grid relative grid-cols-[repeat(auto-fit,minmax(122px,1fr))] mt-5 lg:mt-7.5 p-3.75 py-5 lg:px-5 lg:py-6 gap-y-5 gap-4 lg:gap-5 bg-#E2F1F2 rounded-5">
-            <div v-for="ticket in pageInfo?.info_prices?.data" class="flex flex-col gap-1.5 lg:gap-2 p-4 lg:p-5 rounded-5 ring-(1 inset #F6F6F6) font-semibold bg-white">
+            <div @click="openModal" v-for="ticket in pageInfo?.info_prices?.data" class="flex flex-col gap-1.5 lg:gap-2 p-4 lg:p-5 rounded-5 ring-(1 inset #F6F6F6) font-semibold bg-white cursor-pointer">
                 <p class="text-fblack text-sm lg:text-base leading-1.4 lg:leading-1.4">{{ getTitleTypeTicket(ticket?.type_ticket_id) }}</p>
                 <p class="text-primary text-2xl lg:text-8 leading-1.25 lg:leading-1.25 flex flex-col items-end lg:flex-row gap-x-1.5">{{ ticket?.price }}₽<!-- <span class="line-through lg:mb-2.5 text-#A4A4A4 leading-1.2 decoration-fblack text-sm">1350₽</span> --></p>
             </div>
