@@ -1,5 +1,5 @@
 <template>
-    <div class="flex flex-col gap-5 lg:flex-row relative">
+    <div class="flex flex-col gap-5 lg:flex-row relative contain-layout">
         <Swiper slides-per-view="auto" class="w-full" v-bind="options">
             <SwiperSlide v-for="item in generalConfig?.structure" class="w-fit last:mr-0 mr-2">
                 <Bage :tag="CustomLink" :to="item?.slug" link>{{ item?.title }}</Bage>
@@ -26,7 +26,8 @@ const options = {
     },
     mousewheel: {
         forceToAxis: true
-    }
+    },
+    loop: true
 }
 
 const { generalConfig } = storeToRefs(useGeneralConfigStore())
