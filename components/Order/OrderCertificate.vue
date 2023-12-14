@@ -13,14 +13,14 @@
         </div>
         <FormKit :disabled="paymentTypes?.length == 0" name="payment_type_id" validation="required" type="selectC" :options="paymentTypes" :validation-label="generalConfig?.static_info?.global_words?.type_payment" :placeholder="generalConfig?.static_info?.global_words?.type_payment" />
         <div class="flex flex-col gap-4">
-            <FormKit :validation-messages="{accepted:String(generalConfig?.static_info?.global_words?.confirm_excursion_info)}" validation="accepted" type="checkbox">
+            <FormKit :validation-messages="{ accepted: String(generalConfig?.static_info?.global_words?.confirm_excursion_info) }" validation="accepted" type="checkbox">
                 <template #label>
                     <CustomLink target="_blank" to="/procedure-provision-excursion-services">
                         {{ generalConfig?.static_info?.global_words?.order_confirm_procedure_provision_excursion_services }}
                     </CustomLink>
                 </template>
             </FormKit>
-            <FormKit :validation-messages="{accepted:String(generalConfig?.static_info?.global_words?.confirm_personal_data)}" validation="accepted" type="checkbox">
+            <FormKit :validation-messages="{ accepted: String(generalConfig?.static_info?.global_words?.confirm_personal_data) }" validation="accepted" type="checkbox">
                 <template #label>
                     <CustomLink target="_blank" to="/personal-data">
                         {{ generalConfig?.static_info?.global_words?.order_fz_confirm_text }}
@@ -52,16 +52,16 @@ const { setOrder } = useOrderStore()
 const forms = ref()
 
 const products = ref<{ value: any, label: string }[]>([])
-const prices = ref<Record<string, number>>()
+const prices = ref<Record<string, number>>({})
 
 watchEffect(() => {
     props?.product?.info_recommendations?.data?.forEach(a => {
-        products.value.push({ value: a.data?.id, label: a?.data?.lang_info?.title ?? '' }),
-            prices.value = { [String(a.data?.id)]: Number(a.data?.price_see) }
+        products.value.push({ value: a.data?.id, label: a?.data?.lang_info?.title ?? '' })
+        prices.value[String(a.data?.id)] = Number(a.data?.price_see) 
     })
 })
 
-const selectPrice = computed(() => prices.value?.[String(forms.value.product_in_certificate_id)])
+const selectPrice = computed(() => prices.value?.[String(forms.value?.product_in_certificate_id)])
 
 const paymentTypes = computed(() =>
     props.product?.info_recommendations?.data?.find(a => a.data?.id == forms.value?.product_in_certificate_id)?.data?.payment_types?.map(paymentType => { return { label: getTitlePaymentTypes(paymentType), value: paymentType } }) ?? []
