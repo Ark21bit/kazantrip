@@ -1,7 +1,7 @@
 <template>
     <div v-bind="$attrs" class="flex flex-col lg:flex-row gap-y-7.5 gap-x-5">
         <div class="flex flex-col gap-5 lg:w-75.75 shrink-0 max-lg:order-1">
-            <CardTimetable :info="type === 'timetable' ? timetableData : generalConfig?.timetable?.today" :day="day" class="max-lg:hidden">
+            <CardTimetable v-if="timitableVisible" :info="type === 'timetable' ? timetableData : generalConfig?.timetable?.today" :day="day" class="max-lg:hidden">
                 <template #calendar>
                     <CalendarForm v-model="date" />
                 </template>
@@ -31,6 +31,7 @@ defineOptions({
     inheritAttrs: false
 })
 
+
 const { generalConfig } = storeToRefs(useGeneralConfigStore())
 
 const props = defineProps({
@@ -51,6 +52,11 @@ const day = computed(() => {
 
 const { data: timetableData, execute } = await useBaseFetch<TimetableInfo[]>(() => `products/timetable-date-info?date=${day.value}`, {
     immediate: false,
+})
+
+const timitableVisible = computed(() => {
+    if (props.type === 'timetable' || route.path === '/ekskursii/regulyarnyye' || route.path === '/ekskursii') return true
+    return false
 })
 
 watchEffect(() => {
