@@ -20,7 +20,6 @@ const page = computed(() => {
         if (pageInfo.value?.data?.type_id == 41) return resolveComponent('PagesCertificate')
     }
     if (pageInfo.value?.type === 'page' || pageInfo.value?.type === 'timetable') return resolveComponent('PagesCatalog')
-    if (pageInfo.value?.type === 'blog') return resolveComponent('PagesBlog')
     return null
 })
 

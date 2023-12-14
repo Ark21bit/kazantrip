@@ -8,7 +8,7 @@ export interface BasePage<Type> {
     data: Type;
     is_redirect: boolean;
 }
-export type PageType = "product" | "blog" | "page" | "timetable"
+export type PageType = "product" | "page" | "timetable"
 
 export type Lang = 'en' | 'ru'
 
