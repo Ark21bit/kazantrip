@@ -3,7 +3,7 @@
     <p class="mt-5 lg:mt-7.5 font-semibold leading-1.4 text-base lg:text-xl max-w-211.75 text-fblack [&>span]:text-primary">
         Экскурсионный центр города Казани открылся в <span>2010</span> году и был <span>первым</span>, кто стал проводить сборные ежедневные экскурсии по <span>Казани</span> и <span>Татарстану</span>.
     </p>
-    <AboutHistory />
+    <AboutHistory :data="pageInfo?.history_year"/>
     <div class="mt-20 lg:mt-37.5 col-span-full grid-container overflow-hidden">
         <h2 class="text-fblack text-5.5 lg:text-7 font-bold leading-1.2 lg:leading-1.2 font-Montserrat [&>span]:text-primary">Наша команда <span>менеджеров</span></h2>
         <TeamsSlider :teams="pageInfo?.teams.data" class="mt-7.5 lg:mt-10"></TeamsSlider>

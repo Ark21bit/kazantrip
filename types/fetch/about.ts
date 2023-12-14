@@ -4,6 +4,7 @@ export interface About {
     teams: Teams;
     guides: Teams;
     seo: SEO;
+    history_year: HistoryYear
 }
 
 export interface AboutContent {
@@ -20,6 +21,17 @@ export interface TeamsDatum {
     first_name: string;
     last_name: string;
     middle_name: null | string;
+    email?: string | null;
     post: null | string;
     media_avatar: null | string;
+    about: null | string;
+}
+
+export type HistoryYear = Record<string, HistoryYearData> 
+
+export interface HistoryYearData {
+    year: number;
+    image: string;
+    title: string;
+    text: string;
 }
