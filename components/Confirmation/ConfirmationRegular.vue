@@ -2,42 +2,42 @@
     <slot name="title"></slot>
     <div v-bind="$attrs">
         <slot name="head"></slot>
-        <div class="flex flex-col lg:flex-row justify-between gap-3 py-3 px-5 lg:px-7.5 last:border-none border-b border-#E8E8E8 text-sm leading-1.4 text-fblack">
-            <p>{{ generalConfig?.static_info?.global_words?.product_name }}</p>
-            <p class="font-medium"> {{ orderInfo?.title }}</p>
-        </div>
-        <div class="flex flex-col lg:flex-row justify-between gap-3 py-3 px-5 lg:px-7.5 last:border-none border-b border-#E8E8E8 text-sm leading-1.4 text-fblack">
-            <p>{{ generalConfig?.static_info?.global_words?.product_date }}</p>
-            <p class="font-medium">{{ $dayjs(orderInfo?.date).tz('Europe/Moscow').locale(locale).format('L') }}</p>
-        </div>
-        <div class="flex flex-col lg:flex-row justify-between gap-3 py-3 px-5 lg:px-7.5 last:border-none border-b border-#E8E8E8 text-sm leading-1.4 text-fblack">
-            <p>{{ generalConfig?.static_info?.global_words?.product_time }}</p>
-            <p class="font-medium">{{ orderInfo?.time?.label }}</p>
-        </div>
-        <div class="flex flex-col lg:flex-row justify-between gap-3 py-3 px-5 lg:px-7.5 last:border-none border-b border-#E8E8E8 text-sm leading-1.4 text-fblack">
-            <p>{{ generalConfig?.static_info?.global_words?.starting_point }}</p>
-            <p class="font-medium">{{ getTitlePlacesStart(orderInfo?.place_start_id) }}</p>
-        </div>
-        <div class="flex flex-col lg:flex-row justify-between gap-3 py-3 px-5 lg:px-7.5 last:border-none border-b border-#E8E8E8 text-sm leading-1.4 text-fblack">
-            <p>{{ generalConfig?.static_info?.global_words?.tourist_telephone }}</p>
-            <p class="font-medium">{{ orderInfo?.client_telephone }}</p>
-        </div>
-        <div class="flex flex-col lg:flex-row justify-between gap-3 py-3 px-5 lg:px-7.5 last:border-none border-b border-#E8E8E8 text-sm leading-1.4 text-fblack">
-            <p>{{ generalConfig?.static_info?.global_words?.email }}</p>
-            <p class="font-medium">{{ orderInfo?.client_email }}</p>
-        </div>
-        <div v-for="item in filterTickets" class="flex flex-col lg:flex-row justify-between gap-3 py-3 px-5 lg:px-7.5 last:border-none border-b border-#E8E8E8 text-sm leading-1.4 text-fblack">
-            <p>{{ getTitleTypeTicket(item?.id) }}</p>
-            <p class="font-medium">({{ item?.count }}) {{ item?.price * item?.count }} руб.</p>
-        </div>
-        <div v-for="item in filterAdditionals" class="flex flex-col lg:flex-row justify-between gap-3 py-3 px-5 lg:px-7.5 last:border-none border-b border-#E8E8E8 text-sm leading-1.4 text-fblack">
-            <p>{{ item?.title }}</p>
-            <p class="font-medium">({{ item?.count }}) {{ item?.price * item?.count }} руб.</p>
-        </div>
-        <div class="flex flex-col lg:flex-row justify-between gap-3 py-3 px-5 lg:px-7.5 last:border-none border-b border-#E8E8E8 text-sm leading-1.4 text-fblack">
-            <p>{{ generalConfig?.static_info?.global_words?.sale_coupon }}</p>
-            <p class="font-medium">{{ orderInfo?.coupon?.id ? `${generalConfig?.static_info?.global_words?.sale} ${orderInfo?.coupon?.sale_percent}%` : '-' }}</p>
-        </div>
+        <ConfirmationBaseBlock>
+            <template #title>{{ generalConfig?.static_info?.global_words?.product_name }}</template>
+            <template #description>{{ orderInfo?.title }}</template>
+        </ConfirmationBaseBlock>
+        <ConfirmationBaseBlock>
+            <template #title>{{ generalConfig?.static_info?.global_words?.product_date }}</template>
+            <template #description>{{ $dayjs(orderInfo?.date).tz('Europe/Moscow').locale(locale).format('L') }}</template>
+        </ConfirmationBaseBlock>
+        <ConfirmationBaseBlock>
+            <template #title>{{ generalConfig?.static_info?.global_words?.product_time }}</template>
+            <template #description>{{ orderInfo?.time?.label }}</template>
+        </ConfirmationBaseBlock>
+        <ConfirmationBaseBlock>
+            <template #title>{{ generalConfig?.static_info?.global_words?.starting_point }}</template>
+            <template #description>{{ getTitlePlacesStart(orderInfo?.place_start_id) }}</template>
+        </ConfirmationBaseBlock>
+        <ConfirmationBaseBlock>
+            <template #title>{{ generalConfig?.static_info?.global_words?.tourist_telephone }}</template>
+            <template #description>{{ orderInfo?.client_telephone }}</template>
+        </ConfirmationBaseBlock>
+        <ConfirmationBaseBlock>
+            <template #title>{{ generalConfig?.static_info?.global_words?.email }}</template>
+            <template #description>{{ orderInfo?.client_email }}</template>
+        </ConfirmationBaseBlock>
+        <ConfirmationBaseBlock v-for="item in filterTickets">
+            <template #title>{{ getTitleTypeTicket(item?.id) }}</template>
+            <template #description>({{ item?.count }}) {{ item?.price * item?.count }} руб.</template>
+        </ConfirmationBaseBlock>
+        <ConfirmationBaseBlock v-for="item in filterAdditionals">
+            <template #title>{{ item?.title }}</template>
+            <template #description>({{ item?.count }}) {{ item?.price * item?.count }} руб.</template>
+        </ConfirmationBaseBlock>
+        <ConfirmationBaseBlock>
+            <template #title>{{ generalConfig?.static_info?.global_words?.sale_coupon }}</template>
+            <template #description>{{ orderInfo?.coupon?.id ? `${generalConfig?.static_info?.global_words?.sale} ${orderInfo?.coupon?.sale_percent}%` : '-' }}</template>
+        </ConfirmationBaseBlock>
         <div class="flex flex-col justify-between gap-3 py-3 lg:py-5 px-5 lg:px-7.5 last:border-none border-b border-#E8E8E8 text-sm leading-1.4 text-fblack">
             <p>{{ generalConfig?.static_info?.global_words?.note }}</p>
             <p class="font-medium">{{ orderInfo?.comment_client ?? '-' }}</p>
@@ -49,7 +49,7 @@
 
 <script setup>
 defineOptions({
-    inheritAttrs:false
+    inheritAttrs: false
 })
 const { orderInfo } = storeToRefs(useOrderStore())
 const { generalConfig } = storeToRefs(useGeneralConfigStore())

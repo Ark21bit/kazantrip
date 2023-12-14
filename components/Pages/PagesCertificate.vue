@@ -13,9 +13,11 @@
 
 <script lang="ts" setup>
 import type { CertificateData } from '~/types/fetch/pathMatch/certificate';
+import type { PageType } from '~/types/fetch/shared';
 
 const props = defineProps({
-    pageInfo: Object as PropType<CertificateData>
+    pageInfo: Object as PropType<CertificateData>,
+    type: String as PropType<PageType>
 })
 const { generalConfig } = storeToRefs(useGeneralConfigStore())
 const { closeModal, isModalShow, openModal } = useModal()

@@ -90,7 +90,7 @@
                     <p class="text-second text-xs lg:text-sm leading-1.4 lg:leading-1.4">{{ generalConfig?.static_info?.global_words?.departure }}</p>
                 </div>
                 <div class="flex flex-col lg:flex-row lg:border-t border-#EBEBEB">
-                    <div v-for="item in pageInfo?.start_place_types" class="flex-1 py-3 lg:py-5 p-5 border-t lg:border-r lg:last:border-r-none border-#EBEBEB">                        
+                    <div v-for="item in pageInfo?.start_place_types" class="flex-1 py-3 lg:py-5 p-5 border-t lg:border-r lg:last:border-r-none border-#EBEBEB">
                         <p class="mt-1.5 lg:mt-.75 font-semibold text-fblack leading-1.2 lg:leading-1.2 text-base lg:text-2xl">{{ getTitlePlacesStart(item) }}</p>
                     </div>
                 </div>
@@ -139,8 +139,10 @@
 <script setup lang="ts">
 import CustomLink from '~/components/atoms/CustomLink.vue';
 import type { RegularEData } from '~/types/fetch/pathMatch/regularE';
+import type { PageType } from '~/types/fetch/shared';
 const props = defineProps({
-    pageInfo: Object as PropType<RegularEData>
+    pageInfo: Object as PropType<RegularEData>,
+    type: String as PropType<PageType>
 })
 
 const { locale } = useI18n()

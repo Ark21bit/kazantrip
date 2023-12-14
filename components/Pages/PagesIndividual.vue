@@ -35,8 +35,11 @@
 </template>
 
 <script setup lang="ts">
+import type { PageType } from '~/types/fetch/shared';
+
 const props = defineProps({
-    pageInfo: Object as PropType<any>
+    pageInfo: Object as PropType<any>,
+    type: String as PropType<PageType>
 })
 const { closeModal, isModalShow, openModal } = useModal()
 const { generalConfig } = storeToRefs(useGeneralConfigStore())

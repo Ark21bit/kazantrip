@@ -2,22 +2,22 @@
     <slot name="title"></slot>
     <div v-bind="$attrs">
         <slot name="head"></slot>
-        <div class="flex flex-col lg:flex-row justify-between gap-3 py-3 px-5 lg:px-7.5 last:border-none border-b border-#E8E8E8 text-sm leading-1.4 text-fblack">
-            <p>{{ 'название сертификата' }}</p>
-            <p class="font-medium"> {{ orderInfo?.title }}</p>
-        </div>
-        <div class="flex flex-col lg:flex-row justify-between gap-3 py-3 px-5 lg:px-7.5 last:border-none border-b border-#E8E8E8 text-sm leading-1.4 text-fblack">
-            <p>{{ generalConfig?.static_info?.global_words?.product_name }}</p>
-            <p class="font-medium">{{ orderInfo?.certificateTitle }}</p>
-        </div>
-        <div class="flex flex-col lg:flex-row justify-between gap-3 py-3 px-5 lg:px-7.5 last:border-none border-b border-#E8E8E8 text-sm leading-1.4 text-fblack">
-            <p>{{ generalConfig?.static_info?.global_words?.tourist_telephone }}</p>
-            <p class="font-medium">{{ orderInfo?.client_telephone }}</p>
-        </div>
-        <div class="flex flex-col lg:flex-row justify-between gap-3 py-3 px-5 lg:px-7.5 last:border-none border-b border-#E8E8E8 text-sm leading-1.4 text-fblack">
-            <p>{{ generalConfig?.static_info?.global_words?.email }}</p>
-            <p class="font-medium">{{ orderInfo?.client_email }}</p>
-        </div>
+        <ConfirmationBaseBlock>
+            <template #title>{{ 'название сертификата' }}</template>
+            <template #description>{{ orderInfo?.title }}</template>
+        </ConfirmationBaseBlock>
+        <ConfirmationBaseBlock>
+            <template #title>{{ generalConfig?.static_info?.global_words?.product_name }}</template>
+            <template #description>{{ orderInfo?.certificateTitle }}</template>
+        </ConfirmationBaseBlock>
+        <ConfirmationBaseBlock>
+            <template #title>{{ generalConfig?.static_info?.global_words?.tourist_telephone }}</template>
+            <template #description>{{ orderInfo?.client_telephone }}</template>
+        </ConfirmationBaseBlock>
+        <ConfirmationBaseBlock>
+            <template #title>{{ generalConfig?.static_info?.global_words?.email }}</template>
+            <template #description>{{ orderInfo?.client_email }}</template>
+        </ConfirmationBaseBlock>
         <slot name="footer" :totalPrice="totalPrice"></slot>
     </div>
     <slot name="buttons" :storeOrderInfo="storeOrderInfo"></slot>
@@ -25,7 +25,7 @@
 
 <script setup>
 defineOptions({
-    inheritAttrs:false
+    inheritAttrs: false
 })
 const { orderInfo } = storeToRefs(useOrderStore())
 const { generalConfig } = storeToRefs(useGeneralConfigStore())

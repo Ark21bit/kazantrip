@@ -1,7 +1,7 @@
 <template>
     <Modal size="lg">
         <img class="w-49 h-24 mt-2.5 mx-auto" src="/thanksBg.png" alt="">
-        <h3 class="mt-7.5 lg:mt-5 text-center font-Montserrat font-bold leading-1.2 sm:leading-1.2 text-5.5 sm:text-6.5 text-fblack">{{ generalConfig?.static_info?.global_words?.thank_you }}</h3>
+        <h3 class="mt-7.5 lg:mt-5 text-center font-Montserrat font-bold leading-1.2 sm:leading-1.2 text-5.5 sm:text-6.5 text-fblack">{{ generalConfig?.static_info?.global_words?.congratulations }}</h3>
         <template v-if="orderResponse?.data?.url_telegram_subscribe">
             <p class="mt-4 text-center">{{ generalConfig?.static_info?.global_words?.subscribe_telegram_text }}</p>
             <Button :tag="CustomLink" :to="orderResponse?.data?.url_telegram_subscribe" class="mt-1 mx-auto w-full gap-2">

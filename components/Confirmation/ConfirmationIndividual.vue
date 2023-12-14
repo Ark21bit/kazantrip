@@ -2,30 +2,30 @@
     <slot name="title"></slot>
     <div v-bind="$attrs">
         <slot name="head"></slot>
-        <div class="flex flex-col lg:flex-row justify-between gap-3 py-3 px-5 lg:px-7.5 last:border-none border-b border-#E8E8E8 text-sm leading-1.4 text-fblack">
-            <p>{{ generalConfig?.static_info?.global_words?.product_name }}</p>
-            <p class="font-medium"> {{ orderInfo?.title }}</p>
-        </div>
-        <div class="flex flex-col lg:flex-row justify-between gap-3 py-3 px-5 lg:px-7.5 last:border-none border-b border-#E8E8E8 text-sm leading-1.4 text-fblack">
-            <p>{{ generalConfig?.static_info?.global_words?.product_date }}</p>
-            <p class="font-medium">{{ $dayjs(orderInfo?.date).tz('Europe/Moscow').locale(locale).format('L') }}</p>
-        </div>
-        <div class="flex flex-col lg:flex-row justify-between gap-3 py-3 px-5 lg:px-7.5 last:border-none border-b border-#E8E8E8 text-sm leading-1.4 text-fblack">
-            <p>{{ generalConfig?.static_info?.global_words?.tourist_telephone }}</p>
-            <p class="font-medium">{{ orderInfo?.client_telephone }}</p>
-        </div>
-        <div class="flex flex-col lg:flex-row justify-between gap-3 py-3 px-5 lg:px-7.5 last:border-none border-b border-#E8E8E8 text-sm leading-1.4 text-fblack">
-            <p>{{ generalConfig?.static_info?.global_words?.email }}</p>
-            <p class="font-medium">{{ orderInfo?.client_email }}</p>
-        </div>
-        <div class="flex flex-col lg:flex-row justify-between gap-3 py-3 px-5 lg:px-7.5 last:border-none border-b border-#E8E8E8 text-sm leading-1.4 text-fblack">
-            <p>{{ generalConfig?.static_info?.global_words?.count_people }}</p>
-            <p class="font-medium">{{ getTitleInfoPrices(orderInfo?.type_price_id) }}</p>
-        </div>
-        <div v-for="item in filterAdditionals" class="flex flex-col lg:flex-row justify-between gap-3 py-3 px-5 lg:px-7.5 last:border-none border-b border-#E8E8E8 text-sm leading-1.4 text-fblack">
-            <p>{{ item?.title }}</p>
-            <p class="font-medium">({{ item?.count }}) {{ item?.price * item?.count }} руб.</p>
-        </div>
+        <ConfirmationBaseBlock>
+            <template #title>{{ generalConfig?.static_info?.global_words?.product_name }}</template>
+            <template #description>{{ orderInfo?.title }}</template>
+        </ConfirmationBaseBlock>
+        <ConfirmationBaseBlock>
+            <template #title>{{ generalConfig?.static_info?.global_words?.product_date }}</template>
+            <template #description>{{ $dayjs(orderInfo?.date).tz('Europe/Moscow').locale(locale).format('L') }}</template>
+        </ConfirmationBaseBlock>
+        <ConfirmationBaseBlock>
+            <template #title>{{ generalConfig?.static_info?.global_words?.tourist_telephone }}</template>
+            <template #description>{{ orderInfo?.client_telephone }}</template>
+        </ConfirmationBaseBlock>
+        <ConfirmationBaseBlock>
+            <template #title>{{ generalConfig?.static_info?.global_words?.email }}</template>
+            <template #description>{{ orderInfo?.client_email }}</template>
+        </ConfirmationBaseBlock>
+        <ConfirmationBaseBlock>
+            <template #title>{{ generalConfig?.static_info?.global_words?.count_people }}</template>
+            <template #description>{{ getTitleInfoPrices(orderInfo?.type_price_id) }}</template>
+        </ConfirmationBaseBlock>
+        <ConfirmationBaseBlock v-for="item in filterAdditionals">
+            <template #title>{{ item?.title }}</template>
+            <template #description>({{ item?.count }}) {{ item?.price * item?.count }} руб.</template>
+        </ConfirmationBaseBlock>
         <div class="flex flex-col justify-between gap-3 py-3 lg:py-5 px-5 lg:px-7.5 last:border-none border-b border-#E8E8E8 text-sm leading-1.4 text-fblack">
             <p>{{ generalConfig?.static_info?.global_words?.note }}</p>
             <p class="font-medium">{{ orderInfo?.comment_client ?? '-' }}</p>
@@ -37,7 +37,7 @@
 
 <script setup>
 defineOptions({
-    inheritAttrs:false
+    inheritAttrs: false
 })
 const { orderInfo } = storeToRefs(useOrderStore())
 const { generalConfig } = storeToRefs(useGeneralConfigStore())
