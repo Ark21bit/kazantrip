@@ -38,7 +38,7 @@
             <template #title>{{ generalConfig?.static_info?.global_words?.sale_coupon }}</template>
             <template #description>{{ orderInfo?.coupon?.id ? `${generalConfig?.static_info?.global_words?.sale} ${orderInfo?.coupon?.sale_percent}%` : '-' }}</template>
         </ConfirmationBaseBlock>
-        <div class="flex flex-col justify-between gap-3 py-3 lg:py-5 px-5 lg:px-7.5 last:border-none border-b border-#E8E8E8 text-sm leading-1.4 text-fblack">
+        <div class="flex flex-col justify-between gap-1.5 3xl:gap-3 py-1.5 3xl:py-3 px-5 3xl:px-7.5 last:border-none border-b border-#E8E8E8 text-sm leading-1.4 text-fblack">
             <p>{{ generalConfig?.static_info?.global_words?.note }}</p>
             <p class="font-medium">{{ orderInfo?.comment_client ?? '-' }}</p>
         </div>

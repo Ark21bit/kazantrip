@@ -46,7 +46,15 @@ export default defineConfig({
         },
         boxShadow: {
             base: 'var(--un-shadow-inset) 0 4px 19px 0 var(--un-shadow-color, rgb(0 0 0 / 0.04)),var(--un-shadow-inset) 0px 12px 35px 0px var(--un-shadow-color, rgb(0 0 0 / 0.04))'
-        }
+        },
+        breakpoints: {
+            sm: "640px",
+            md: "768px",
+            lg: "1024px",
+            'xl': '1280px',
+            '2xl': '1536px',
+            "3xl": '1920px',
+        },
     },
     rules: [
         [/^leading-([\.\d]+)$/, ([_, num]) => ({ "line-height": `${num}` })]
