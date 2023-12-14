@@ -16,7 +16,7 @@
                 <div class="w-full h-30 lg:h-37.5 [&>img]:(w-full h-full object-center object-cover rounded-2.5)" v-html="trail?.media_preview"></div>
             </div>
         </SwiperSlide>
-        <SliderController class="mt-7.5 max-lg:hidden w-fit" />
+        <SliderController color="azul" class="max-lg:hidden absolute top-1/2 left-0 -translate-y-1/2 w-full z-1" />
         <SliderPagination class="mt-5 lg:hidden" />
     </Swiper>
 </template>
