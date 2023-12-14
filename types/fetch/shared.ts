@@ -8,7 +8,7 @@ export interface BasePage<Type> {
     data: Type;
     is_redirect: boolean;
 }
-export type PageType = "hotel" | "product" | "blog" | "page" | "timetable"
+export type PageType = "product" | "blog" | "page" | "timetable"
 
 export type Lang = 'en' | 'ru'
 
@@ -90,4 +90,5 @@ export type MediaGallery = StatusAndData<MediaGalleryData[]>
 export interface MediaGalleryData {
     html: string;
 }
+
 

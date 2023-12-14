@@ -1,7 +1,11 @@
 <template>
     <div v-bind="$attrs" class="flex flex-col lg:flex-row gap-y-7.5 gap-x-5">
         <div class="flex flex-col gap-5 lg:w-75.75 shrink-0 max-lg:order-1">
-            <CardTimetable :info="generalConfig?.timetable?.today" class="max-lg:hidden" v-if="timetable"></CardTimetable>
+            <CardTimetable :info="type === 'timetable' ? timetableData : generalConfig?.timetable?.today" :day="day" class="max-lg:hidden">
+                <template #calendar>
+                    <CalendarForm v-model="date" />
+                </template>
+            </CardTimetable>
             <div class="flex flex-col gap-5 p-5 rounded-5 border border-#F6F6F6">
                 <p class="text-lg lg:text-xl leading-1.2 lg:leading-1.2 font-Montserrat font-bold text-fblack [&>span]:text-primary" v-html="generalConfig?.static_info?.global_words?.send_request_to_indiv_excursion"></p>
                 <ModalRequestIndividual #="{ openModal }">
@@ -13,20 +17,44 @@
                 <p class="text-sm text-second leading-1.4">{{ generalConfig?.static_info?.global_words?.leave_your_review }}</p>
             </CustomLink>
             <div class="mt-2.5 rounded-5 bg-#EFEFEF h-106">
-
             </div>
         </div>
         <slot></slot>
     </div>
 </template>
 <script setup lang="ts">
+import type { PageType } from '~/types/fetch/shared';
+import type { TimetableInfo } from '~/types/fetch/timetable';
+
+const date = ref()
 defineOptions({
     inheritAttrs: false
 })
 
 const { generalConfig } = storeToRefs(useGeneralConfigStore())
 
-defineProps({
-    timetable: { type: Boolean, defaults: false }
+const props = defineProps({
+    timetable: { type: Boolean, default: false },
+    type: { type: String as PropType<PageType> }
 })
+const localePath = useLocalePath()
+const dayjs = useDayjs()
+const route = useRoute()
+watch(date, async () => {
+    return await navigateTo(localePath(`/excursion/timetable/${dayjs(date.value).format('YYYY/MM/DD')}`))
+})
+
+const day = computed(() => {
+    if (props.type === 'timetable') return route.path.slice(-10)
+    return undefined
+})
+
+const { data: timetableData, execute } = await useBaseFetch<TimetableInfo[]>(() => `products/timetable-date-info?date=${day.value}`, {
+    immediate: false,
+})
+
+watchEffect(() => {
+    if (day.value) execute()
+})
+
 </script>

@@ -1,3 +1,5 @@
+import type { TimetableInfo } from "./timetable";
+
 export interface GeneralConfig {
     products: Products;
     structure: any[];
@@ -298,5 +300,5 @@ export interface VisitTatarstan {
 }
 
 export interface Timetable {
-    today: any[];
+    today: TimetableInfo[];
 }
