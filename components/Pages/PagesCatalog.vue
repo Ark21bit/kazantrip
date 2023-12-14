@@ -10,7 +10,7 @@
         </CatalogContainer>
     </div>
     <div v-if="pageInfo?.info_seo_blocks?.data?.length ?? 0 > 0" class="mt-20 lg:mt-25 pb-7.5 border-b border-#EBEBEB col-span-full">
-        <SeoBlock v-for="item in pageInfo?.info_seo_blocks?.data" :title="item?.lang_info?.title" :description="item?.lang_info?.text" class="wrapper" />
+        <SeoBlock :data="pageInfo?.info_seo_blocks?.data" class="wrapper" />
     </div>
     <Modal @close="closeModal" :is-show="isModalShow" :class="{ 'min-h-225': pending }">
         <div v-if="pending" class="m-auto flex justify-center items-center">

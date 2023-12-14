@@ -22,7 +22,7 @@
     </Table>
     <p class="text-second text-base leading-1.4 mt-5">{{ pageInfo?.lang_info?.mini_description }}</p>
     <div v-if="pageInfo?.info_seo_blocks?.data?.length ?? 0 > 0" class="mt-15 lg:mt-25 col-span-full pb-7.5 border-b border-#EBEBEB">
-        <SeoBlock v-for="item in pageInfo?.info_seo_blocks?.data" :title="item?.lang_info?.title" :text="item?.lang_info?.text" class="wrapper"></SeoBlock>
+        <SeoBlock :data="pageInfo?.info_seo_blocks?.data" class="wrapper"></SeoBlock>
     </div>
     <Reviews :reviews="pageInfo?.info_reviews?.data" :product-id="pageInfo?.id" class="mt-15 lg:mt-25"></Reviews>
     <div v-if="pageInfo?.info_recommendations?.data?.length ?? 0 > 0" class="mt-15 lg:mt-25">
