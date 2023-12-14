@@ -34,7 +34,8 @@ export default {
                 'clearable',
                 'monthNameFormat',
                 'timezone',
-                'placeholder'
+                'placeholder',
+                'teleport'
             ]
         }),
         ratingC: createInput(rating, {

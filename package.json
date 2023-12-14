@@ -20,7 +20,7 @@
   },
   "dependencies": {
     "@nuxtjs/i18n": "^8.0.0-rc.7",
-    "@vuepic/vue-datepicker": "^7.3.0",
+    "@vuepic/vue-datepicker": "^7.4.0",
     "@vueuse/components": "^10.7.0",
     "maska": "^2.1.10",
     "nuxt-icon": "^0.6.6",

@@ -1,5 +1,5 @@
 <template>
-    <VueDatePicker :model-value="context.value" @update:model-value="handleInput" v-bind="options">
+    <VueDatePicker :teleport="true" :model-value="context.value" @update:model-value="handleInput" v-bind="options">
         <template #calendar-header="{ day }">
             <span class="text-sm font-medium">{{ day[0] }}</span>
         </template>
@@ -44,7 +44,7 @@ const options = {
     monthNameFormat: props.context.monthNameFormat ?? "long",
     timezone: props.context.timezone ?? "Europe/Moscow",
     placeholder: props.context.placeholder ?? null,
-    format: (value) => useDayjs()(value).locale(localeI18n.value).format(props.context.format ?? "L")
+    format: (value) => useDayjs()(value).locale(localeI18n.value).format(props.context.format ?? "L"),
 }
 </script>
 
