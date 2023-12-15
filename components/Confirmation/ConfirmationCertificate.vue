@@ -38,5 +38,5 @@ const storeOrderInfo = computed(() => ({
     product_in_certificate_id: orderInfo.value?.product_in_certificate_id,
 }))
 
-const totalPrice = computed(() => orderInfo.value?.price ?? 0)
+const totalPrice = computed(() => (orderInfo.value?.price ?? 0) * 2)
 </script>
