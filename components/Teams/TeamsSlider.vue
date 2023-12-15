@@ -4,7 +4,7 @@
             <SwiperSlide class="w-67.5 sm:w-76.25 min-[868px]:w-92.5 lg:w-[calc(25%-15px)] last:mr-0 mr-5" v-for="team in teams">
                 <TeamsCard @open-team-full="openTeamFull(team)" v-bind="team" class="w-full" />
             </SwiperSlide>
-            <SliderController color="azul" class="mt-7.5 w-fit max-lg:hidden" />
+            <SliderController color="azul" class="absolute max-lg:hidden top-1/2 -translate-y-1/2 w-full z-1" />
             <SliderPagination class="mt-5 lg:hidden" />
         </Swiper>
     </TeamsModal>
