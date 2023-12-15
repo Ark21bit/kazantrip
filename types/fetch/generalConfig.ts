@@ -65,8 +65,13 @@ export interface Contact {
     office_info: OfficeInfo;
     number_rto: NumberRto;
     socials: Socials;
-    departure_points: string[];
+    departure_points: departure_pointsData[];
     company_details: string;
+}
+
+export interface departure_pointsData {
+    url:string;
+    title:string;
 }
 
 export interface OfficeInfo {
