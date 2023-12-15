@@ -84,13 +84,13 @@
                 <p class="mt-3 lg:mt-6 text-second text-xs lg:text-sm leading-1.4 lg:leading-1.4"> {{ generalConfig?.static_info?.global_words?.radio_guide }}</p>
                 <p class="mt-1.5 lg:mt-.75 font-semibold text-fblack leading-1.2 lg:leading-1.2 text-base lg:text-2xl"> {{ pageInfo?.is_radio_gid ? generalConfig?.static_info?.global_words?.yes_free : generalConfig?.static_info?.global_words?.guide_loudspeaker }}</p>
             </div>
-            <div class="ring-(inset 1 #F6F6F6) rounded-5 bg-white shadow-base col-span-full lg:col-span-3">
+            <div class="ring-(inset 1 #F6F6F6) rounded-5 bg-white shadow-base col-span-full" :class="Number(pageInfo?.start_place_types?.length) > 3 ? '' : 'lg:col-span-[3]'">
                 <div class="p-4 pb-3 lg:p-5 flex gap-2.5 lg:gap-3.75 items-center">
                     <Icon name="Map" class="text-8 lg:text-10 bg-#E2F1F2 text-primary p-2 lg:p-2.5 rounded-lg"></Icon>
                     <p class="text-second text-xs lg:text-sm leading-1.4 lg:leading-1.4">{{ generalConfig?.static_info?.global_words?.departure }}</p>
                 </div>
-                <div class="flex flex-col lg:flex-row lg:border-t border-#EBEBEB">
-                    <div v-for="item in pageInfo?.start_place_types" class="flex-1 py-3 lg:py-5 p-5 border-t lg:border-r lg:last:border-r-none border-#EBEBEB">
+                <div class="flex flex-col lg:flex-row flex-wrap">
+                    <div v-for="item in pageInfo?.start_place_types" class="lg:w-1/4 grow py-3 lg:py-5 p-5 border-t lg:border-r lg:[&:nth-child(4)]:border-r-none lg:last:border-r-none border-#EBEBEB">
                         <p class="mt-1.5 lg:mt-.75 font-semibold text-fblack leading-1.2 lg:leading-1.2 text-base lg:text-2xl">{{ getTitlePlacesStart(item) }}</p>
                     </div>
                 </div>
