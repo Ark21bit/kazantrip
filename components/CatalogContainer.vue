@@ -55,7 +55,7 @@ const { data: timetableData, execute } = await useBaseFetch<TimetableInfo[]>(() 
 })
 
 const timitableVisible = computed(() => {
-    if (props.type === 'timetable' || route.path === '/ekskursii/regulyarnyye' || route.path === '/ekskursii') return true
+    if (props.type === 'timetable' || route.path === localePath('/ekskursii/regulyarnyye') || route.path === localePath('/ekskursii')) return true
     return false
 })
 

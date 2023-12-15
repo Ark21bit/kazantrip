@@ -1,5 +1,5 @@
 <template>
-    <h1 class="mt-10 lg:mt-20 text-6.5 lg:text-9.5 font-Montserrat leading-1.2 font-bold text-fblack">{{ pageInfo?.lang_info?.title }}</h1>
+    <h1 class="mt-10 lg:mt-20 text-6.5 lg:text-9.5 font-Montserrat leading-1.2 font-bold text-fblack">{{ type === 'timetable' ? timetableTitle[locale] : pageInfo?.lang_info?.title }}</h1>
     <SliderExcursionsCatalog class="py-5 lg:mt-2.5" />
     <div class="mt-2.5 col-span-full border-t lg:border-y border-#EBEBEB pt-7.5 lg:py-7.5">
         <CatalogContainer :type="type" class="wrapper" :timetable="true">
@@ -27,9 +27,7 @@ const props = defineProps({
     pageInfo: Object,
     type: String as PropType<PageType>
 })
-
-const localePath = useLocalePath()
-const route = useRoute()
+const { locale } = useI18n()
 
 const selectOrder = ref<string | null>(null)
 const { data: product, pending, execute } = useBaseFetch('search/slugs', {
@@ -46,15 +44,15 @@ const order = computedWithControl(() => product.value?.type_id, () => {
     return null
 })
 
-
-const dayjs = useDayjs()
-const dateVisible = computed(() => route.path == localePath('/ekskursii/regulyarnyye'))
-const changeTimetamble = async (date: any) => await navigateTo(localePath(`/excursion/timetable/${dayjs(date).format('YYYY/MM/DD')}`))
-
 const { closeModal, isModalShow, openModal } = useModal()
 const openOrder = async (value: string) => {
     openModal()
     selectOrder.value = value
     execute()
+}
+
+const timetableTitle: any = {
+    en: 'Group tours of Kazan and Tatarstan',
+    ru: 'Групповые экскурсии по Казани и Татарстану'
 }
 </script>
