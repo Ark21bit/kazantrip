@@ -4,7 +4,10 @@
             <div class="absolute inset-0">
                 <img src="/sliderBg2.svg" class="w-full h-full object-cover object-bottom" alt="">
             </div>
-            <div class="absolute inset-0 index__slider-img [&>img]:(w-full h-full object-cover object-bottom)" v-html="slide?.media_preview"></div>
+            <div class="absolute inset-0 index__slider-img-container [&>img]:(w-full h-full object-cover object-bottom)">
+                <div class="absolute top-0 left-0 w-full h-full bg-black/50"></div>
+                <template v-html="slide?.media_preview"></template>
+            </div>
             <div class="flex flex-col items-center gap-4 lg:gap-5 text-white z-1 wrapper">
                 <h2 class="font-Montserrat text-6.5 lg:text-10.5 leading-1.2 lg:leading-1.2 font-bold text-center lg:w-[calc(100%-6.25rem)] lg:max-w-266">{{ slide?.lang_info?.title }}</h2>
                 <p class="text-sm lg:text-lg leading-1.4 lg:leading-1.4 text-center max-w-211.5">{{ slide?.lang_info?.description }}</p>
