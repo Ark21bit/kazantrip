@@ -80,7 +80,7 @@
                 <p class="mt-1.5 lg:mt-.75 font-semibold text-fblack leading-1.2 lg:leading-1.2 text-base lg:text-2xl">{{ getTitleCategoriesProduct(pageInfo?.category_id) }}</p>
             </div>
             <div class="ring-(inset 1 #F6F6F6) rounded-5 py-4 px-3 lg:p-5 bg-white shadow-base">
-                <Icon name="Radiogid" class="text-8 lg:text-10 bg-#E2F1F2 text-primary p-2 lg:p-2.5 rounded-lg"></Icon>
+                <Icon :name="pageInfo?.is_radio_gid ? 'Radiogid' : 'Megaphone'" class="text-8 lg:text-10 bg-#E2F1F2 text-primary p-2 lg:p-2.5 rounded-lg"></Icon>
                 <p class="mt-3 lg:mt-6 text-second text-xs lg:text-sm leading-1.4 lg:leading-1.4"> {{ generalConfig?.static_info?.global_words?.radio_guide }}</p>
                 <p class="mt-1.5 lg:mt-.75 font-semibold text-fblack leading-1.2 lg:leading-1.2 text-base lg:text-2xl"> {{ pageInfo?.is_radio_gid ? generalConfig?.static_info?.global_words?.yes_free : generalConfig?.static_info?.global_words?.guide_loudspeaker }}</p>
             </div>
