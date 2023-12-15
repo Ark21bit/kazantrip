@@ -7,8 +7,8 @@
         <div class="flex flex-col gap-4.5 lg:gap-5">
             <p class="text-base font-semibold text-fblack leading-1.2 max-lg:hidden font-Montserrat">{{ generalConfig?.static_info?.global_words?.select_datetime }}</p>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-4.5">
-                <FormKit name="date" validation="required" type="datepickerC" :allowedDates="availableSelectDate" :minDate="$dayjs().toDate()" :placeholder="generalConfig?.static_info?.global_words?.date"></FormKit>
-                <FormKit :disabled="!forms?.date" name="time" validation="required" type="selectC" :options="timeatableTimes" :placeholder="generalConfig?.static_info?.global_words?.time"></FormKit>
+                <FormKit name="date" validation="required" type="datepickerC" :allowedDates="availableSelectDate" :minDate="$dayjs().toDate()" :validation-label="generalConfig?.static_info?.global_words?.date"  :placeholder="generalConfig?.static_info?.global_words?.date"></FormKit>
+                <FormKit :disabled="!forms?.date" name="time" validation="required" type="selectC" :options="timeatableTimes" :validation-label="generalConfig?.static_info?.global_words?.time"  :placeholder="generalConfig?.static_info?.global_words?.time"></FormKit>
             </div>
             <p v-if="forms?.date && forms?.time" class="lg:mt-1 text-base font-semibold text-fblack leading-1.2 [&>span]:text-primary">
                 <span>{{ $dayjs(forms?.date).tz('Europe/Moscow').locale(locale).format('LL') }}</span>
@@ -54,18 +54,14 @@
                 <FormKit name="payment_type_id" validation="required" type="selectC" :options="paymentTypes" :validation-label="generalConfig?.static_info?.global_words?.type_payment" :placeholder="generalConfig?.static_info?.global_words?.type_payment" />
                 <FormKit name="client_email" validation="email|required|length:0,32" type="email" :validation-label="generalConfig?.static_info?.global_words?.email" :placeholder="generalConfig?.static_info?.global_words?.email" />
                 <div class="flex flex-col gap-4 col-span-full">
-                    <FormKit :validation-messages="{ accepted: String(generalConfig?.static_info?.global_words?.confirm_excursion_info) }" validation="accepted" type="checkbox">
-                        <template #label>
-                            <CustomLink target="_blank" to="/procedure-provision-excursion-services">
-                                {{ generalConfig?.static_info?.global_words?.order_confirm_procedure_provision_excursion_services }}
-                            </CustomLink>
+                    <FormKit :validation-messages="{ accepted: String(generalConfig?.static_info?.global_words?.confirm_excursion_info) }" validation="accepted" type="checkbox" label-class="[&_a]:text-primary [&_a]:hover:text-#21747C">
+                        <template #label="{ classes }">
+                            <span :class="classes.label" v-html="generalConfig?.static_info?.global_words?.order_confirm_procedure_provision_excursion_services"></span>
                         </template>
                     </FormKit>
-                    <FormKit :validation-messages="{ accepted: String(generalConfig?.static_info?.global_words?.confirm_personal_data) }" validation="accepted" type="checkbox">
-                        <template #label>
-                            <CustomLink target="_blank" to="/personal-data">
-                                {{ generalConfig?.static_info?.global_words?.order_fz_confirm_text }}
-                            </CustomLink>
+                    <FormKit :validation-messages="{ accepted: String(generalConfig?.static_info?.global_words?.confirm_personal_data) }" validation="accepted" type="checkbox" label-class="[&_a]:text-primary [&_a]:hover:text-#21747C">
+                        <template #label="{classes}">
+                            <span :class="classes.label" v-html="generalConfig?.static_info?.global_words?.order_fz_confirm_text"></span>
                         </template>
                     </FormKit>
                 </div>

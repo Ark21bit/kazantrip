@@ -24,18 +24,14 @@
                 <FormKit name="payment_type_id" validation="required" type="selectC" :options="paymentTypes" :validation-label="generalConfig?.static_info?.global_words?.type_payment" :placeholder="generalConfig?.static_info?.global_words?.type_payment" />
                 <FormKit name="client_email" validation="email|required|length:0,32" type="email" :validation-label="generalConfig?.static_info?.global_words?.email" :placeholder="generalConfig?.static_info?.global_words?.email" />
                 <div class="flex flex-col gap-4 col-span-full">
-                    <FormKit :validation-messages="{ accepted: String(generalConfig?.static_info?.global_words?.confirm_excursion_info) }" validation="accepted" type="checkbox">
-                        <template #label>
-                            <CustomLink target="_blank" to="/procedure-provision-excursion-services">
-                                {{ generalConfig?.static_info?.global_words?.order_confirm_procedure_provision_excursion_services }}
-                            </CustomLink>
+                    <FormKit :validation-messages="{ accepted: String(generalConfig?.static_info?.global_words?.confirm_excursion_info) }" validation="accepted" type="checkbox" label-class="[&_a]:text-primary [&_a]:hover:text-#21747C">
+                        <template #label="{ classes }">
+                            <span :class="classes.label" v-html="generalConfig?.static_info?.global_words?.order_confirm_procedure_provision_excursion_services"></span>
                         </template>
                     </FormKit>
-                    <FormKit :validation-messages="{ accepted: String(generalConfig?.static_info?.global_words?.confirm_personal_data) }" validation="accepted" type="checkbox">
-                        <template #label>
-                            <CustomLink target="_blank" to="/personal-data">
-                                {{ generalConfig?.static_info?.global_words?.order_fz_confirm_text }}
-                            </CustomLink>
+                    <FormKit :validation-messages="{ accepted: String(generalConfig?.static_info?.global_words?.confirm_personal_data) }" validation="accepted" type="checkbox" label-class="[&_a]:text-primary [&_a]:hover:text-#21747C">
+                        <template #label="{ classes }">
+                            <span :class="classes.label" v-html="generalConfig?.static_info?.global_words?.order_fz_confirm_text"></span>
                         </template>
                     </FormKit>
                 </div>
