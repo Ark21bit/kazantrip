@@ -5,8 +5,8 @@ export default defineConfig({
         presetUno(),
         presetWebFonts({
             fonts: {
-                Onest: { name: "Onest", weights: [400, 500, 600, 700, 800, 900] },
-                Montserrat: { name: "Montserrat", weights: [400, 500, 600, 700, 800, 900] }
+                Onest: { name: "Onest", weights: [300, 400, 500, 600, 700] },
+                Montserrat: { name: "Montserrat", weights: [600, 700] }
             },
         }),
         formKitUnocssPlugin()
@@ -27,12 +27,6 @@ export default defineConfig({
         transformerVariantGroup()
     ],
     theme: {
-        transitionTimingFunction: {
-            DEFAULT: 'linear'
-        },
-        transitionDuration: {
-            DEFAULT: "500ms"
-        },
         colors: {
             "primary": "#39919A",
             "mercury": "#ebebeb",
