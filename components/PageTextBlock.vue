@@ -14,5 +14,5 @@ defineProps({
 })
 const { generalConfig } = storeToRefs(useGeneralConfigStore())
 const pMessage = ref<HTMLElement>()
-const { clampButtonVisible, isClamp, isClampToglle } = useClamp(pMessage, { fontSize: 16, lineHeight: 1.4, countLine: 3 })
+const { clampButtonVisible, isClamp, isClampToglle } = useClamp(pMessage)
 </script>

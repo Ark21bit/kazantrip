@@ -25,7 +25,7 @@ const { locale } = useI18n()
 const { generalConfig } = storeToRefs(useGeneralConfigStore())
 
 const pMessage = ref<HTMLElement>()
-const { clampButtonVisible } = useClamp(pMessage, { fontSize: 14, lineHeight: 1.4, countLine: 7 })
+const { clampButtonVisible } = useClamp(pMessage)
 const emit = defineEmits(['open-full-review'])
 </script>
 

@@ -1,34 +1,23 @@
-interface Options {
-    fontSize?: number,
-    lineHeight?: number,
-    countLine?: number,
-}
+export default function useClamp(clampNode: Ref<HTMLElement | undefined>) {
 
-export default function useClamp(clampNode: Ref<HTMLElement | undefined>, options: Options) {
-    const { fontSize = 16, lineHeight = 1.5, countLine = 10 } = options;
+    const isClamp = ref(true)
+    const clampButtonVisible = ref(false)
 
-    const isClamp = ref(true);
-    const clampButtonVisible = computed(() => {
-        if (clampNodeH.value > fontSize * lineHeight * countLine) return true;
-        return false;
-    });
+    const getClampButtonVisible = () => {
+        if (clampNode.value === undefined) return clampButtonVisible.value = false
+        if (clampNode.value.scrollHeight > clampNode.value.clientHeight) return clampButtonVisible.value = true
+        return clampButtonVisible.value = false
+    }
 
     const isClampToglle = () => {
         isClamp.value = !isClamp.value;
     };
 
-    const clampNodeH = ref(0);
+    watch(clampNode, () => getClampButtonVisible(), {
+        flush: 'post'
+    })
 
-    const getMessageScrollH = () => {
-        if (clampNode.value === undefined) return clampNodeH.value = 0
-        clampNodeH.value = clampNode.value.scrollHeight;
-    };
-
-    onMounted(() => {
-        setTimeout(getMessageScrollH, 1)
-    });
-
-    useEventListener('resize', getMessageScrollH)
+    useEventListener('resize', getClampButtonVisible)
 
     return { isClamp, clampButtonVisible, isClampToglle };
 }
