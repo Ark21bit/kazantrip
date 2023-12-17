@@ -67,11 +67,11 @@ body.modal-open-mobile {
 	}
 
 	.wrapper {
-		--at-apply: "mx-auto w-[calc(100%-var(--width-content-margin)*2)] max-w-[var(--width-content)]";
+		--at-apply: "mx-auto w-[calc(100%-(--width-content-margin)*2)] max-w-[--width-content]";
 	}
 
 	.container {
-		--at-apply:"max-w-[var(--width-content)]";
+		--at-apply:"max-w-[--width-content]";
 	}
     
     .scroll-h-0::-webkit-scrollbar {
