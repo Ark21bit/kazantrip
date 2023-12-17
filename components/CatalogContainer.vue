@@ -9,7 +9,7 @@
             <div class="flex flex-col gap-5 p-5 rounded-5 border border-#F6F6F6">
                 <p class="text-lg lg:text-xl leading-1.2 lg:leading-1.2 font-Montserrat font-bold text-fblack [&>span]:text-primary" v-html="generalConfig?.static_info?.global_words?.send_request_to_indiv_excursion"></p>
                 <ModalRequestIndividual #="{ openModal }">
-                    <Button @click="openModal" size="sm" class="w-41">Подобрать</Button>
+                    <Button @click="openModal" size="sm" class="w-41">{{ generalConfig?.static_info?.global_words?.pick_up }}</Button>
                 </ModalRequestIndividual>
             </div>
             <CustomLink to="https://yandex.ru/profile/1020776306" target="_blank" class="hidden lg:flex flex-col gap-2 p-5 rounded-5 border border-#F6F6F6">

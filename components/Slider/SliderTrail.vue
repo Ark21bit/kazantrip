@@ -71,11 +71,15 @@ const options = {
         clickable: true
     },
 }
+
+const { generalConfig } = storeToRefs(useGeneralConfigStore())
+
+const start = computed(() => `"${generalConfig.value?.static_info?.global_words?.start}"`)
 </script>
 
 <style>
 .group\/swiperTrail:first-child .after-swiper-trail::after {
     --at-apply: "-translate-y-full -translate-x-1/2 -top-2.5 left-1/2 absolute text-lg lg:text-xl leading-1.2 lg:leading-1.2 font-semibold text-primary";
-    content: 'Cтарт';
+    content:v-bind(start);
 }
 </style>

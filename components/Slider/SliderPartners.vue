@@ -11,6 +11,7 @@
 <script lang="ts" setup>
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Mousewheel } from 'swiper/modules';
+import type { PartnersDatum } from '~/types/fetch';
 const options = {
     rewind: true,
     modules: [Mousewheel],
@@ -19,7 +20,7 @@ const options = {
     },
 }
 defineProps({
-    slides: Array
+    slides: Array as PropType<PartnersDatum[]>
 })
 </script>
 

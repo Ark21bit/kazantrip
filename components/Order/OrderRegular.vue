@@ -7,19 +7,15 @@
         <div class="flex flex-col gap-4.5 lg:gap-5">
             <p class="text-base font-semibold text-fblack leading-1.2 max-lg:hidden font-Montserrat">{{ generalConfig?.static_info?.global_words?.select_datetime }}</p>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-4.5">
-                <FormKit name="date" validation="required" type="datepickerC" :allowedDates="availableSelectDate" :minDate="$dayjs().toDate()" :validation-label="generalConfig?.static_info?.global_words?.date"  :placeholder="generalConfig?.static_info?.global_words?.date"></FormKit>
-                <FormKit :disabled="!forms?.date" name="time" validation="required" type="selectC" :options="timeatableTimes" :validation-label="generalConfig?.static_info?.global_words?.time"  :placeholder="generalConfig?.static_info?.global_words?.time"></FormKit>
+                <FormKit name="date" validation="required" type="datepickerC" :allowedDates="availableSelectDate" :minDate="$dayjs().toDate()" :validation-label="generalConfig?.static_info?.global_words?.date" :placeholder="generalConfig?.static_info?.global_words?.date"></FormKit>
+                <FormKit :disabled="!forms?.date" name="time" validation="required" type="selectC" :options="timeatableTimes" :validation-label="generalConfig?.static_info?.global_words?.time" :placeholder="generalConfig?.static_info?.global_words?.time"></FormKit>
             </div>
-            <p v-if="forms?.date && forms?.time" class="lg:mt-1 text-base font-semibold text-fblack leading-1.2 [&>span]:text-primary">
-                <span>{{ $dayjs(forms?.date).tz('Europe/Moscow').locale(locale).format('LL') }}</span>
-                на
-                <span>{{ forms?.time?.label }}</span>
-            </p>
+            <p v-if="forms?.date && forms?.time" class="lg:mt-1 text-base font-semibold text-fblack leading-1.2 [&>span]:text-primary" v-html="dateTimeOrderSelectText"></p>
         </div>
         <div class="h-px w-[calc(100%+40px)] lg:w-[calc(100%+60px)] -translate-x-20px lg:-translate-x-30px bg-#EBEBEB"></div>
         <div class="flex flex-col lg:flex-row gap-x-4.5 gap-y-5">
             <div class="flex flex-col gap-4 lg:gap-5 flex-1">
-                <h4 class="text-base font-semibold text-fblack leading-1.2 font-Montserrat">Выберите тип билета</h4>
+                <h4 class="text-base font-semibold text-fblack leading-1.2 font-Montserrat">{{ generalConfig?.static_info?.global_words?.select_type_ticket }}</h4>
                 <FormKit name="tickets" type="list">
                     <TicketsTable :tickets="product?.info_prices?.data"></TicketsTable>
                 </FormKit>
@@ -60,7 +56,7 @@
                         </template>
                     </FormKit>
                     <FormKit :validation-messages="{ accepted: String(generalConfig?.static_info?.global_words?.confirm_personal_data) }" validation="accepted" type="checkbox" label-class="[&_a]:text-primary [&_a]:hover:text-#21747C">
-                        <template #label="{classes}">
+                        <template #label="{ classes }">
                             <span :class="classes.label" v-html="generalConfig?.static_info?.global_words?.order_fz_confirm_text"></span>
                         </template>
                     </FormKit>
@@ -151,4 +147,9 @@ const paymentTypes = computed(() =>
 const TitlePlacesStart = computed(() =>
     props.product?.start_place_types?.map(TitlePlaceStart => ({ label: getTitlePlacesStart(TitlePlaceStart), value: TitlePlaceStart })) ?? []
 )
+
+const dateTimeOrderSelectText = computed(() => {
+    if (!forms.value?.date || !forms.value?.time) return    
+    return generalConfig.value?.static_info?.global_words?.date_time_order_select?.replace('%s', `<span>${dayjs(forms.value?.date).tz('Europe/Moscow').locale(locale.value).format('LL')}</span>`).replace('%s', `<span>${forms.value?.time?.label}</span>`)
+})
 </script>

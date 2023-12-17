@@ -3,7 +3,7 @@
         <p class="text-sm lg:text-base font-medium leading-1.4 lg:leading-1.4 text-primary mt-1 lg:mt-0">{{ product?.lang_info?.title }}</p>
         <div class="flex flex-col gap-4.5 lg:gap-5">
             <h4 class="text-base font-semibold text-fblack leading-1.2 font-Montserrat">{{ generalConfig?.static_info?.global_words?.select_datetime }}</h4>
-            <FormKit name="date" validation="required" type="datepickerC" :minDate="$dayjs().toDate()" :placeholder="generalConfig?.static_info?.global_words?.date"></FormKit>
+            <FormKit name="date" validation="required" type="datepickerC" :minDate="$dayjs().toDate()" :validation-label="generalConfig?.static_info?.global_words?.date" :placeholder="generalConfig?.static_info?.global_words?.date"></FormKit>
         </div>
         <div v-if="product?.info_additional_products?.data?.length ?? 0 > 0" class="flex flex-col gap-5">
             <FormKit name="additional" type="list">

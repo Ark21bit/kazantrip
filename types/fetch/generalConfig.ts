@@ -64,14 +64,14 @@ export interface Contact {
     addresses: Addresses;
     office_info: OfficeInfo;
     number_rto: NumberRto;
-    socials: Socials;
+    socials: Record<Socials, string>;
     departure_points: departure_pointsData[];
     company_details: string;
 }
 
 export interface departure_pointsData {
-    url:string;
-    title:string;
+    url: string;
+    title: string;
 }
 
 export interface OfficeInfo {
@@ -83,7 +83,6 @@ export interface Office {
     address: string;
     telephone: string;
 }
-
 
 export type Socials = 'telegram' | 'vk' | 'whatsApp'
 
@@ -268,8 +267,13 @@ export interface GlobalWords {
     read_reviews_our_clients: string;
     reservation_a_place: string;
     guide_loudspeaker: string;
-    confirm_excursion_info: string
-    confirm_personal_data: string
+    confirm_excursion_info: string;
+    confirm_personal_data: string;
+    select_type_ticket: string;
+    pick_up: string;
+    certificate_name: string;
+    start: string;
+    date_time_order_select: string;
 }
 export interface TimeText {
     short_h: string;
@@ -277,21 +281,14 @@ export interface TimeText {
 }
 
 export interface Menu {
-    header: Footer;
-    footer: Footer;
-}
-
-export interface Footer {
-    excursions: Excursions;
-    about: Excursions;
-    panorams: Excursions;
-    reviews?: Excursions;
+    header: Record<'excursions' | 'reviews' | 'about' | 'panorams', Excursions>;
+    footer: Record<'excursions' | 'about' | 'panorams' | 'blog', Excursions>;
 }
 
 export interface Excursions {
     title: string;
     slug: string;
-    children?: PaymentRules[];
+    children?: Excursions[];
 }
 
 export interface OtherLinks {

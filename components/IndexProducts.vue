@@ -11,7 +11,7 @@
         <div v-if="pending" class="m-auto flex justify-center items-center">
             <Icon name="eos-icons:loading" class="text-7xl text-primary"></Icon>
         </div>
-        <component v-else :is="order" :product="product"></component>
+        <component v-else :is="order" @close="closeModal" :product="product"></component>
     </Modal>
 </template>
 

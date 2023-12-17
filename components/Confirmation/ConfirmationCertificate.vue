@@ -3,7 +3,7 @@
     <div v-bind="$attrs">
         <slot name="head"></slot>
         <ConfirmationBaseBlock>
-            <template #title>{{ 'название сертификата' }}</template>
+            <template #title>{{ generalConfig?.static_info?.global_words?.certificate_name }}</template>
             <template #description>{{ orderInfo?.title }}</template>
         </ConfirmationBaseBlock>
         <ConfirmationBaseBlock>

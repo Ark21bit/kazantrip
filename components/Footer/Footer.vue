@@ -34,8 +34,8 @@
                             </div>
                             <div class="text-white grow max-lg:(pb-5 border-b border-#303030)">
                                 <h2 class="text-base font-semibold leading-1.2">{{ generalConfig?.static_info?.global_words?.contact }}</h2>
-                                <p class="mt-4 text-#7B7B7B text-sm leading-1.2">{{ generalConfig?.static_info?.global_words?.single_line }} 
-                                    <span class="text-primary">8 800 2222 161</span>
+                                <p class="mt-4 text-#7B7B7B text-sm leading-1.2">{{ generalConfig?.static_info?.global_words?.single_line }}
+                                    <NuxtLink :to="phoneLinkReplace(firstPhone)" class="text-white hover:text-primary transition-colors duration-500 ease-linear">{{ firstPhone }}</NuxtLink>
                                 </p>
                                 <ul class="mt-3 flex flex-col gap-3 text-3.25 font-medium leading-1.4">
                                     <li v-for="item in generalConfig?.static_info?.contact?.office_info" class="flex gap-3 before:(bg-#39919A w-2.5 h-2.5 content-empty rounded-full mt-.7em -translate-y-1/2)">{{ `${item?.address}\n${item?.telephone}` }}</li>
@@ -49,7 +49,7 @@
                                 </ul>
                             </div>
                             <div class="flex lg:hidden pb-5 border-b border-#303030">
-                                <CustomLink class="text-base font-semibold leading-1.2 text-white" to="/test">Блог</CustomLink>
+                                <CustomLink class="text-base font-semibold leading-1.2 text-white" :to="generalConfig?.static_info?.menu?.footer?.blog.slug">{{ generalConfig?.static_info?.menu?.footer?.blog?.title }}</CustomLink>
                             </div>
                         </div>
                         <div class="flex justify-between gap-2 mt-auto">
@@ -77,4 +77,6 @@ const { generalConfig } = storeToRefs(useGeneralConfigStore())
 const scrollToUp = () => {
     window.scrollTo(0, 0)
 }
+
+const [firstPhone] = generalConfig.value?.static_info?.contact?.telephones ?? []
 </script>
