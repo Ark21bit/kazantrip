@@ -40,7 +40,10 @@ import { CustomLink } from '#components';
 import type { IndexPage } from '~/types/fetch';
 
 definePageMeta({
-    layout: 'main'
+    headerAttrs: {
+        absolute: true,
+        dark: true,
+    },
 })
 const { generalConfig } = storeToRefs(useGeneralConfigStore())
 

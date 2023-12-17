@@ -1,7 +1,9 @@
 <template>
-    <NuxtLayout>
+    <Header v-bind="headerAttrs"></Header>
+    <main class="grid-container grow auto-rows-min pb-20 lg:pb-25">
         <NuxtPage></NuxtPage>
-    </NuxtLayout>
+    </main>
+    <Footer />
     <div id="teleported"></div>
     <div class="fixed z-30 right-[var(--width-content-margin)] bottom-7.5 leading-none items-end flex flex-col gap-2 text-white group-[.modal-open]/body:pr-4.25 group-[.modal-open.modal-open-mobile]/body:pr-0">
         <CustomLink target="_blank" :to="generalConfig?.static_info?.contact?.socials?.telegram" class="p-2.5 bg-#2AABEE transition-colors duration-500 ease-linear rounded-lg">
@@ -35,5 +37,8 @@ useHead({
         lang: () => locale.value,
     },
 })
+
+const route = useRoute()
+const headerAttrs = computed(() => ({ ...route.meta?.headerAttrs as object }))
 </script>
 
