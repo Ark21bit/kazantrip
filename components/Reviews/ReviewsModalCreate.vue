@@ -16,7 +16,7 @@
                         input-class="max-lg:text-sm" outer-class="col-span-full"/>
                         <FormKit name="email" validation="required|email" :validation-label="generalConfig?.static_info?.global_words?.email_en" :placeholder="generalConfig?.static_info?.global_words?.email_en" type="email" outer-class="col-span-full" input-class="max-lg:text-sm" />
                         <FormKit name="name" validation="required:trim" :validation-label="generalConfig?.static_info?.global_words?.fio" :placeholder="generalConfig?.static_info?.global_words?.fio" type="text" input-class="max-lg:text-sm" />
-                    <FormKit name="date" validation="required" :maxDate="$dayjs().toDate()" :validation-label="generalConfig?.static_info?.global_words?.product_date" :placeholder="generalConfig?.static_info?.global_words?.product_date" type="datepickerC" input-class="max-lg:text-sm" />
+                    <FormKit name="date" validation="required" :maxDate="$dayjs().tz('Europe/Moscow').toDate()" :validation-label="generalConfig?.static_info?.global_words?.product_date" :placeholder="generalConfig?.static_info?.global_words?.product_date" type="datepickerC" input-class="max-lg:text-sm" />
                     <FormKit name="message" validation="required:trim" :validation-label="generalConfig?.static_info?.global_words?.message" :placeholder="generalConfig?.static_info?.global_words?.message" type="textarea" input-class="max-lg:text-sm h-30 lg:h-46.25"
                         outer-class="col-span-full" />
                 </div>

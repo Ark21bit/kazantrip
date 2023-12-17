@@ -1,5 +1,5 @@
 <template>
-    <FormKit v-model="modelValue" type="datepickerC" outer-class="[&_input]:!hidden datepicker-catalog" :minDate="$dayjs().toDate()" teleport inner-class="$remove:bg-#F2F8F8 $remove:border-#E8E8E8 border-primary overflow-hidden" inputIconClass="$remove:text-fblack text-primary transition duration-500 ease-linear"></FormKit>
+    <FormKit v-model="modelValue" type="datepickerC" outer-class="[&_input]:!hidden datepicker-catalog" :minDate="$dayjs().tz('Europe/Moscow').toDate()" teleport inner-class="$remove:bg-#F2F8F8 $remove:border-#E8E8E8 border-primary overflow-hidden" inputIconClass="$remove:text-fblack text-primary transition duration-500 ease-linear"></FormKit>
 </template>
 
 <script setup lang="ts">

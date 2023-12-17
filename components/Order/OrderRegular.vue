@@ -7,7 +7,7 @@
         <div class="flex flex-col gap-4.5 lg:gap-5">
             <p class="text-base font-semibold text-fblack leading-1.2 max-lg:hidden font-Montserrat">{{ generalConfig?.static_info?.global_words?.select_datetime }}</p>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-4.5">
-                <FormKit name="date" validation="required" type="datepickerC" :allowedDates="availableSelectDate" :minDate="$dayjs().toDate()" :validation-label="generalConfig?.static_info?.global_words?.date" :placeholder="generalConfig?.static_info?.global_words?.date"></FormKit>
+                <FormKit name="date" validation="required" type="datepickerC" :allowedDates="availableSelectDate" :minDate="$dayjs().tz('Europe/Moscow').toDate()" :validation-label="generalConfig?.static_info?.global_words?.date" :placeholder="generalConfig?.static_info?.global_words?.date"></FormKit>
                 <FormKit :disabled="!forms?.date" name="time" validation="required" type="selectC" :options="timeatableTimes" :validation-label="generalConfig?.static_info?.global_words?.time" :placeholder="generalConfig?.static_info?.global_words?.time"></FormKit>
             </div>
             <p v-if="forms?.date && forms?.time" class="lg:mt-1 text-base font-semibold text-fblack leading-1.2 [&>span]:text-primary" v-html="dateTimeOrderSelectText"></p>

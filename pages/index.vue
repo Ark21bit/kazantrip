@@ -5,7 +5,7 @@
     <div class="flex flex-col lg:flex-row gap-5 mt-7.5 lg:mt-12.5 justify-between">
         <Button :tag="CustomLink" :to="pageInfo?.content?.timetable?.slug" class="max-lg:w-full">{{ pageInfo?.content?.timetable?.title }}</Button>
         <div class="flex flex-col lg:flex-row gap-2.5 lg:gap-5 max-lg:border-t border-#E2E2E2 max-lg:pt-5">
-            <FormKit v-model="date" type="datepickerC" :minDate="$dayjs().toDate()" outer-class="w-full lg:w-39.5"></FormKit>
+            <FormKit v-model="date" type="datepickerC" :minDate="$dayjs().tz('Europe/Moscow').toDate()" outer-class="w-full lg:w-39.5"></FormKit>
             <Button @click="changeTimetamble" class="max-lg:w-full">{{ generalConfig?.static_info?.global_words?.choose_an_excursion }}</Button>
         </div>
     </div>
@@ -61,5 +61,5 @@ useSeoMeta({
 const dayjs = useDayjs()
 const localePath = useLocalePath()
 const date = ref(dayjs().toDate())
-const changeTimetamble = async () => await navigateTo(localePath(`/excursion/timetable/${dayjs(date.value).format('YYYY/MM/DD')}`))
+const changeTimetamble = async () => await navigateTo(localePath(`/excursion/timetable/${dayjs(date.value).tz('Europe/Moscow').format('YYYY/MM/DD')}`))
 </script>

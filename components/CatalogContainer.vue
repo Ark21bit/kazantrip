@@ -42,7 +42,7 @@ const localePath = useLocalePath()
 const dayjs = useDayjs()
 const route = useRoute()
 watch(date, async () => {
-    return await navigateTo(localePath(`/excursion/timetable/${dayjs(date.value).format('YYYY/MM/DD')}`))
+    return await navigateTo(localePath(`/excursion/timetable/${dayjs(date.value).tz('Europe/Moscow').format('YYYY/MM/DD')}`))
 })
 
 const day = computed(() => {
