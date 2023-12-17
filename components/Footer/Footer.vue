@@ -49,7 +49,7 @@
                                 </ul>
                             </div>
                             <div class="flex lg:hidden pb-5 border-b border-#303030">
-                                <CustomLink class="text-base font-semibold leading-1.2 text-white" :to="generalConfig?.static_info?.menu?.footer?.blog.slug">{{ generalConfig?.static_info?.menu?.footer?.blog?.title }}</CustomLink>
+                                <CustomLink class="text-base font-semibold leading-1.2 text-white" :to="generalConfig?.static_info?.menu?.footer?.blog?.slug">{{ generalConfig?.static_info?.menu?.footer?.blog?.title }}</CustomLink>
                             </div>
                         </div>
                         <div class="flex justify-between gap-2 mt-auto">
