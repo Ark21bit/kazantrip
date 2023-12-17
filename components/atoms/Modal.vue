@@ -1,6 +1,6 @@
 <template>
-    <Teleport to="#teleported">
-        <Transition enter-from-class="opacity-0" leave-to-class="opacity-0" enter-active-class="transition-opacity duration-500 easy-linear" leave-active-class="transition-opacity duration-500 easy-linear">
+    <Teleport to="body">
+        <Transition enter-from-class="opacity-0" leave-to-class="opacity-0" enter-active-class="transition-opacity duration-300 ease-in-out" leave-active-class="transition-opacity duration-300 ease-in">
             <template v-if="directive == 'if'">
                 <div v-if="isShow" :class="modalOverlayClass" @keyup.esc="closeModal" tabindex="0" @mouseover.self="state = 'wait'" @mouseout.self="state = 'idle'" @mousedown.left.self="state = 'down'" @mouseup.left.self="state == 'down' && closeModal()">
                     <div :class="modalWrapperClass">
