@@ -32,6 +32,7 @@ export interface IndividualEData {
 
 export interface IndividualELangInfo extends LangInfo {
     mini_description?: string;
+    part_info: string[]
 }
 
 type InfoPrices = StatusAndData<InfoPricesData[]>

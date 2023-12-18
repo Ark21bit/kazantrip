@@ -20,7 +20,12 @@
             <TableTd before :data-label="generalConfig?.static_info?.global_words?.cost_per_group">{{ infoPrice?.price }} ₽</TableTd>
         </TableTr>
     </Table>
-    <p class="text-second text-base leading-1.4 mt-5">{{ pageInfo?.lang_info?.mini_description }}</p>
+    <div>
+        <p class="text-second text-base leading-1.4 mt-5">{{ pageInfo?.lang_info?.mini_description }}</p>
+        <ul class="list-inside list-disc">
+            <li class="marker-text-primary" v-for="item in pageInfo?.lang_info?.part_info">{{ item }}</li>
+        </ul>
+    </div>
     <div v-if="pageInfo?.info_seo_blocks?.data?.length ?? 0 > 0" class="mt-15 lg:mt-25 col-span-full pb-7.5 border-b border-#EBEBEB">
         <SeoBlock :data="pageInfo?.info_seo_blocks?.data" class="wrapper"></SeoBlock>
     </div>
@@ -35,10 +40,11 @@
 </template>
 
 <script setup lang="ts">
+import type { IndividualEData } from '~/types/fetch/pathMatch/individualE';
 import type { PageType } from '~/types/fetch/shared';
 
 const props = defineProps({
-    pageInfo: Object as PropType<any>,
+    pageInfo: Object as PropType<IndividualEData>,
     type: String as PropType<PageType>
 })
 const { closeModal, isModalShow, openModal } = useModal()
