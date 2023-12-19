@@ -39,7 +39,7 @@ export default {
             ]
         }),
         ratingC: createInput(rating, {
-            props: ['max']
+            props: ['max', 'size']
         }),
     },
 }
@@ -61,6 +61,8 @@ declare module '@formkit/inputs' {
         }
         'ratingC': {
             type: 'ratingC',
+            max?: number,
+            size?: string
         }
     }
 }
