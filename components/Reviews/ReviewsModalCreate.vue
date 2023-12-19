@@ -11,14 +11,13 @@
                     <p class="text-sm text-second leading-1.4">{{ generalConfig?.static_info?.global_words?.tell_about_impressions_trip }}</p>
                 </div>
                 <div class="grid grid-cols-2 gap-4 lg:gap-4.5">
-                    <FormKit name="rating" validation="required" :label="generalConfig?.static_info?.global_words?.you_mark" type="ratingC" input-class="max-lg:text-sm" outer-class="col-span-full" />
-                    <FormKit name="product_id" validation="required" :value="productId" :validation-label="generalConfig?.static_info?.global_words?.title_excursion" :placeholder="generalConfig?.static_info?.global_words?.title_excursion" optionLabel="title" optionValue="id" :options="products" type="selectC"
-                        input-class="max-lg:text-sm" outer-class="col-span-full"/>
-                        <FormKit name="email" validation="required|email" :validation-label="generalConfig?.static_info?.global_words?.email_en" :placeholder="generalConfig?.static_info?.global_words?.email_en" type="email" outer-class="col-span-full" input-class="max-lg:text-sm" />
-                        <FormKit name="name" validation="required:trim" :validation-label="generalConfig?.static_info?.global_words?.fio" :placeholder="generalConfig?.static_info?.global_words?.fio" type="text" input-class="max-lg:text-sm" />
-                    <FormKit name="date" validation="required" :maxDate="$dayjs().tz('Europe/Moscow').toDate()" :validation-label="generalConfig?.static_info?.global_words?.product_date" :placeholder="generalConfig?.static_info?.global_words?.product_date" type="datepickerC" input-class="max-lg:text-sm" />
-                    <FormKit name="message" validation="required:trim" :validation-label="generalConfig?.static_info?.global_words?.message" :placeholder="generalConfig?.static_info?.global_words?.message" type="textarea" input-class="max-lg:text-sm h-30 lg:h-46.25"
-                        outer-class="col-span-full" />
+                    <FormKit name="rating" :value="5" validation="required" :label="generalConfig?.static_info?.global_words?.you_mark" type="ratingC" input-class="max-lg:text-sm" outer-class="col-span-full" />
+                    <FormKit type="text" disabled :value="productTitle" :validation-label="generalConfig?.static_info?.global_words?.title_excursion" :placeholder="generalConfig?.static_info?.global_words?.title_excursion" input-class="max-lg:text-sm" outer-class="col-span-full" />
+                    <FormKit name="email" validation="required|email" :validation-label="generalConfig?.static_info?.global_words?.email_en" :placeholder="generalConfig?.static_info?.global_words?.email_en" type="email" outer-class="col-span-full" input-class="max-lg:text-sm" />
+                    <FormKit name="name" validation="required:trim" :validation-label="generalConfig?.static_info?.global_words?.fio" :placeholder="generalConfig?.static_info?.global_words?.fio" type="text" input-class="max-lg:text-sm" />
+                    <FormKit name="date" validation="required" :maxDate="$dayjs().tz('Europe/Moscow').toDate()" :validation-label="generalConfig?.static_info?.global_words?.product_date" :placeholder="generalConfig?.static_info?.global_words?.product_date" type="datepickerC"
+                        input-class="max-lg:text-sm" />
+                    <FormKit name="message" validation="required:trim" :validation-label="generalConfig?.static_info?.global_words?.message" :placeholder="generalConfig?.static_info?.global_words?.message" type="textarea" input-class="max-lg:text-sm h-30 lg:h-46.25" outer-class="col-span-full" />
                 </div>
                 <div class="flex flex-col lg:flex-row gap-3 lg:justify-between mt-1 lg:mt-0">
                     <Button :disabled="status == 'pending'" :loading="status == 'pending'" class="w-full lg:w-49">{{ generalConfig?.static_info?.global_words?.send }}</Button>
@@ -31,12 +30,12 @@
 
 <script setup lang="ts">
 import { reset } from '@formkit/core'
-import type { ProductsShortList } from '~/types/fetch/shared';
 defineOptions({
     inheritAttrs: false,
 })
 const props = defineProps({
     productId: Number,
+    productTitle:String,
 })
 const { generalConfig } = storeToRefs(useGeneralConfigStore())
 const { closeModal, isModalShow, openModal: openModalInit } = useModal()
@@ -73,8 +72,4 @@ const reviewStore = async () => {
     })
     reset('create-review')
 }
-
-const { data: products } = await useBaseFetch<ProductsShortList[]>('products/short-list', {
-    key: 'products-short-list'
-})
 </script>
