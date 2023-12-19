@@ -1,7 +1,7 @@
 <template>
     <FeedbackFormContainer :subTitle="generalConfig?.static_info?.global_words?.tell_about_impressions_trip" :title="generalConfig?.static_info?.global_words?.send_review" img="/imgs/reviewForm.png">
         <FormKit id="create-review" @submit="reviewStore" v-model="forms" type="form" form-class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-4.5" :actions="false">
-            <FormKit name="rating" validation="required" :label="generalConfig?.static_info?.global_words?.you_mark" type="ratingC" input-class="max-lg:text-sm" />
+            <FormKit name="rating" :value="5" size="30" validation="required" :label="generalConfig?.static_info?.global_words?.you_mark" type="ratingC" input-class="max-lg:text-sm" />
             <FormKit name="product_id" validation="required" :validation-label="generalConfig?.static_info?.global_words?.title_excursion" :placeholder="generalConfig?.static_info?.global_words?.title_excursion" optionLabel="title" optionValue="id" :options="products" type="selectC"
                 input-class="max-lg:text-sm" outer-class="col-span-full" />
             <FormKit name="name" validation="required:trim" :validation-label="generalConfig?.static_info?.global_words?.fio" :placeholder="generalConfig?.static_info?.global_words?.fio" type="text" outer-class="col-span-full" input-class="max-lg:text-sm" />
