@@ -73,7 +73,7 @@
                 </div>
                 <div class="flex flex-col lg:flex-row flex-wrap">
                     <div v-for="item in pageInfo?.start_place_types" class="lg:w-1/4 grow py-3 lg:py-5 p-5 border-t lg:border-r lg:[&:nth-child(4)]:border-r-none lg:last:border-r-none border-#EBEBEB">
-                        <p class="mt-1.5 lg:mt-.75 font-semibold text-fblack leading-1.2 lg:leading-1.2 text-base lg:text-2xl">{{ getTitlePlacesStart(item) }}</p>
+                        <p class="mt-1.5 lg:mt-.75 font-semibold text-fblack leading-1.2 lg:leading-1.2 text-sm sm:text-base lg:text-xl">{{ getTitlePlacesStart(item) }}</p>
                     </div>
                 </div>
             </div>
