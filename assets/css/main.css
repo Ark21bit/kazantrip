@@ -67,7 +67,7 @@ body.modal-open-mobile {
 	}
 
 	.wrapper {
-		--at-apply: "mx-auto w-[calc(100%-(--width-content-margin)*2)] max-w-[--width-content]";
+		--at-apply: "mx-auto w-[calc(100%-var(--width-content-margin)*2)] max-w-[--width-content]";
 	}
 
 	.container {
