@@ -6,8 +6,8 @@
             </CustomLink>
             <Nav :dark="dark" class="grow max-lg:hidden" />
             <DropdownHover :dark="dark" class="max-lg:hidden">
-                <template #title>
-                    <span class="text-primary uppercase">{{ generalConfig?.locales?.[locale as 'ru' | 'en'].slice(0, 2) }}</span>
+                <template #title="{}">
+                    <span class="uppercase">{{ generalConfig?.locales?.[locale as 'ru' | 'en'].slice(0, 2) }}</span>
                 </template>
                 <template #default="{ classes }">
                     <NuxtLink v-for="(item, key) in generalConfig?.locales" :to="switchLocalePath(key)" :class="classes">{{ item?.slice(0, 2) }}</NuxtLink>
