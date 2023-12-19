@@ -15,7 +15,7 @@
                 на карте Казани — Яндекс Карты</a>
         </div>
     </div>
-    <ReviewsCreateForm id="create-review" class="mt-20 lg:mt-37.5" />
+    <ReviewsCreateForm class="mt-20 lg:mt-37.5" />
 </template>
 
 <script setup lang="ts">
