@@ -7,7 +7,7 @@
             </slot>
         </span>
     </button>
-    <Transition enter-from-class="opacity-0" leave-to-class="opacity-0" enter-active-class="transition-opacity duration-500 easy-linear" leave-active-class="transition-opacity duration-500 easy-linear">
+    <Transition enter-from-class="opacity-0" leave-to-class="opacity-0" enter-active-class="transition-opacity duration-500 ease-in-out" leave-active-class="transition-opacity duration-500 ease-in">
         <div v-show="isShow" class="formkit-dropdown-wrapper" :class="context.classes.dropdownWrapper">
             <ul class="formkit-listbox" role="listbox" :class="context.classes.listbox">
                 <li v-for="option in  options" @click="handleInput(option[optionValue])" class="formkit-listitem" :class="[context.classes.listitem, option[optionValue] == context.value ? context.classes.listitemSelect : null, { 'pointer-events-none': !isShow }]">
