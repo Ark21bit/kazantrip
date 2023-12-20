@@ -12,7 +12,7 @@
     "@formkit/nuxt": "^1.4.0",
     "@nuxt/devtools": "latest",
     "@pinia/nuxt": "^0.5.1",
-    "@unocss/nuxt": "^0.57.7",
+    "@unocss/nuxt": "^0.58.0",
     "@vueuse/core": "^10.7.0",
     "@vueuse/nuxt": "^10.7.0",
     "dayjs-nuxt": "^2.1.9",
@@ -26,10 +26,10 @@
     "nuxt-icon": "^0.6.7",
     "swiper": "^11.0.5",
     "typescript": "^5.3.3",
-    "vue-yandex-maps": "^2.0.0-rc.8"
+    "vue-yandex-maps": "^2.0.0-rc.9"
   },
   "overrides": {
-    "unocss": "0.57.7",
+    "unocss": "0.58.0",
     "vue": "latest"
   }
 }
