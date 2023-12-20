@@ -1,9 +1,9 @@
 <template>
-    <Swiper class="w-full flex flex-col relative contain-layout overflow-visible" v-bind="options">
-        <SwiperSlide class="w-full min-w-62.5 lg:min-w-76.25 h-full shrink-0 [&>img]:(w-full h-full object-cover object-center) lg:w-[calc(25%-10px)] mr-5 last:mr-0 group/swiperTrail" v-for="(trail, index) in trails">
+    <Swiper slidesPerView="auto" class="w-full flex flex-col relative contain-layout overflow-visible" v-bind="options">
+        <SwiperSlide class="w-full w-62.5 lg:w-76.25 h-full shrink-0 [&>img]:(w-full h-full object-cover object-center) w-9/10 max-w-80 lg:max-w-auto sm:w-[calc(50%-10px)] lg:w-[calc(25%-20px/3)] group/swiperTrail" v-for="(trail, index) in trails">
             <div class="relative translate-x-3.25">
                 <div class="ring-(1 inset #F6F6F6) relative z-1 w-fit bg-white rounded-full p-1.25 after-swiper-trail">
-                    <span class="w-8 aspect-square rounded-full bg-primary flex items-center justify-center text-white text-lg leading-1.2 font-semibold">{{ index + 1 }}</span>
+                    <span class="w-8 aspect-square rounded-full bg-primary group-last/swiperTrail:bg-red flex items-center justify-center text-white text-lg leading-1.2 font-semibold">{{ index + 1 }}</span>
                 </div>
                 <div class="group-last/swiperTrail:hidden absolute top-1/2 -translate-y-1/2 border-t border-dashed border-primary w-[calc(100%+20px)]"></div>
             </div>
@@ -38,19 +38,16 @@ const options = {
     spaceBetween: 20,
     breakpoints: {
         640: {
-            slidesPerView: 2,
             pagination: {
                 enabled: true,
             },
         },
         768: {
-            slidesPerView: 3,
             pagination: {
                 enabled: true,
             },
         },
         1024: {
-            slidesPerView: 4,
             navigation: {
                 enabled: true,
             },
@@ -59,7 +56,6 @@ const options = {
             },
         }
     },
-    slidesPerView: 1.15,
     navigation: {
         enabled: false,
         nextEl: '.swiper-button-next',
@@ -75,11 +71,17 @@ const options = {
 const { generalConfig } = storeToRefs(useGeneralConfigStore())
 
 const start = computed(() => `"${generalConfig.value?.static_info?.global_words?.start}"`)
+const finish = computed(() => `"${generalConfig.value?.static_info?.global_words?.finish}"`)
 </script>
 
 <style>
 .group\/swiperTrail:first-child .after-swiper-trail::after {
     --at-apply: "-translate-y-full -translate-x-1/2 -top-2.5 left-1/2 absolute text-lg lg:text-xl leading-1.2 lg:leading-1.2 font-semibold text-primary";
-    content:v-bind(start);
+    content: v-bind(start);
+}
+
+.group\/swiperTrail:last-child .after-swiper-trail::after {
+    --at-apply: "-translate-y-full -translate-x-1/2 -top-2.5 left-1/2 absolute text-lg lg:text-xl leading-1.2 lg:leading-1.2 font-semibold text-primary";
+    content: v-bind(finish);
 }
 </style>
