@@ -64,7 +64,7 @@
             <div class="ring-(inset 1 #F6F6F6) rounded-5 py-4 px-3 lg:p-5 bg-white shadow-base">
                 <Icon :name="pageInfo?.is_radio_gid ? 'Radiogid' : 'Megaphone'" class="text-8 lg:text-10 bg-#E2F1F2 text-primary p-2 lg:p-2.5 rounded-lg"></Icon>
                 <p class="mt-3 lg:mt-6 text-second text-xs lg:text-sm leading-1.4 lg:leading-1.4"> {{ generalConfig?.static_info?.global_words?.radio_guide }}</p>
-                <p class="mt-1.5 lg:mt-.75 font-semibold text-fblack leading-1.2 lg:leading-1.2 text-base lg:text-2xl"> {{ pageInfo?.is_radio_gid ? generalConfig?.static_info?.global_words?.yes_free : generalConfig?.static_info?.global_words?.guide_loudspeaker }}</p>
+                <p class="mt-1.5 lg:mt-.75 font-semibold text-fblack leading-1.2 lg:leading-1.2 text-base lg:text-2xl break-words"> {{ pageInfo?.is_radio_gid ? generalConfig?.static_info?.global_words?.yes_free : generalConfig?.static_info?.global_words?.guide_loudspeaker }}</p>
             </div>
             <div class="ring-(inset 1 #F6F6F6) rounded-5 bg-white shadow-base col-span-full" :class="Number(pageInfo?.start_place_types?.length) > 3 ? '' : 'lg:col-span-[3]'">
                 <div class="p-4 pb-3 lg:p-5 flex gap-2.5 lg:gap-3.75 items-center">
@@ -72,8 +72,12 @@
                     <p class="text-second text-xs lg:text-sm leading-1.4 lg:leading-1.4">{{ generalConfig?.static_info?.global_words?.departure }}</p>
                 </div>
                 <div class="flex flex-col lg:flex-row flex-wrap">
-                    <div v-for="item in pageInfo?.start_place_types" class="lg:w-1/4 grow py-3 lg:py-5 p-5 border-t lg:border-r lg:[&:nth-child(4)]:border-r-none lg:last:border-r-none border-#EBEBEB">
-                        <p class="mt-1.5 lg:mt-.75 font-semibold text-fblack leading-1.2 lg:leading-1.2 text-sm sm:text-base lg:text-xl">{{ getTitlePlacesStart(item) }}</p>
+                    <div v-for="item in PlacesStart" class="flex flex-col w-full lg:w-1/4 grow py-3 lg:py-5 p-5 border-t lg:border-r lg:[&:nth-child(4)]:border-r-none lg:last:border-r-none border-#EBEBEB items-start">
+                        <p class="mt-1.5 lg:mt-.75 font-semibold text-fblack leading-1.2 lg:leading-1.2 text-sm sm:text-base lg:text-xl">{{ item?.title }}</p>
+                        <CustomLink v-if="item?.href" :to="item?.href" target="_blank" class="flex items-center hover:text-primary transition-colors text-fblack leading-1.2 text-sm">
+                            <Icon name="healthicons:geo-location" class="text-6 text-primary "></Icon>
+                            {{  generalConfig?.static_info?.global_words?.on_map }}
+                        </CustomLink>
                     </div>
                 </div>
             </div>
@@ -136,4 +140,6 @@ const nearestDate = computed(() => {
 })
 
 const { closeModal, isModalShow, openModal } = useModal()
+
+const PlacesStart = computed(() => props.pageInfo?.start_place_types?.map(a => getPlacesStart(a)))
 </script>

@@ -16,7 +16,7 @@
         </ConfirmationBaseBlock>
         <ConfirmationBaseBlock>
             <template #title>{{ generalConfig?.static_info?.global_words?.starting_point }}</template>
-            <template #description>{{ getTitlePlacesStart(orderInfo?.place_start_id) }}</template>
+            <template #description>{{ getPlacesStart(orderInfo?.place_start_id)?.title }}</template>
         </ConfirmationBaseBlock>
         <ConfirmationBaseBlock>
             <template #title>{{ generalConfig?.static_info?.global_words?.tourist_telephone }}</template>

@@ -16,7 +16,12 @@ export interface Locales {
 }
 
 export interface Orders {
-    places_start: PaymentType[];
+    places_start: {
+        id: number;
+        title: string;
+        map_href: string;
+        key: string;
+    }[];
     payment_types: PaymentType[];
     price_types: PaymentType[];
     ticket_types: PaymentType[];
@@ -175,6 +180,8 @@ export interface GlobalWords {
     sale_coupon: string;
     type_payment: string;
     type_ticket: string;
+    finish: string,
+    on_map: string,
     comment_for_order: string;
     reservation: string;
     price: string;

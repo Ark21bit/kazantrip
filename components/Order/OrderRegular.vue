@@ -145,7 +145,7 @@ const paymentTypes = computed(() =>
 )
 
 const TitlePlacesStart = computed(() =>
-    props.product?.start_place_types?.map(TitlePlaceStart => ({ label: getTitlePlacesStart(TitlePlaceStart), value: TitlePlaceStart })) ?? []
+    props.product?.start_place_types?.map(TitlePlaceStart => ({ label: getPlacesStart(TitlePlaceStart)?.title, value: TitlePlaceStart })) ?? []
 )
 
 const dateTimeOrderSelectText = computed(() => {
