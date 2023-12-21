@@ -10,7 +10,7 @@
             <div>
                 <div class="flex justify-between gap-2 items-center py-4 lg:py-6">
                     <Icon name="Logo" class="w-16.75 h-13 lg:(w-19 h-15) text-white"></Icon>
-                    <FooterNav class="max-lg:hidden mx-auto" />                    
+                    <FooterNav class="max-lg:hidden" />                    
                     <Socials class="flex gap-2 text-2xl text-white lg:hidden " />
                 </div>
                 <div class="flex flex-col lg:flex-row border-t lg:border-y border-#303030 py-5 lg:py-7.5 gap-5 lg:gap-7.5">
