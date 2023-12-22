@@ -90,7 +90,7 @@ const storeOrder = async (data) => {
 
 const cancel = () => {
     $reset()
-    navigateTo(localePath('/ekskursii/regulyarnyye'))
+    navigateTo(localePath('/excursions/regulyarnyye'))
 }
 
 const { closeModal, isModalShow, openModal } = useModal()

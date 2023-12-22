@@ -26,7 +26,7 @@
         </div>
         <div class="flex flex-col gap-3 min-h-45.25 lg:min-h-48.75 p-5 lg:p-6 pr-20 border-(#F6F6F6 1) bg-[position:top_0_right_15px] lg:bg-[position:top_0_right_30px] bg-[length:48px] lg:bg-[length:51px] bg-[url(/imgs/pattern.svg)] bg-repeat-y rounded-5">
             <h3 class="text-fblack text-xl lg:text-6.5 font-Montserrat font-bold leading-1.2 lg:leading-1.2">{{ generalConfig?.static_info?.global_words?.individual_excursions }}</h3>
-            <Button :tag="CustomLink" to="/ekskursii/individualnie-ehkskursii-po-kazani" size="sm" class="w-41 mt-auto">{{ generalConfig?.static_info?.global_words?.more }}</Button>
+            <Button :tag="CustomLink" to="/excursions/individual" size="sm" class="w-41 mt-auto">{{ generalConfig?.static_info?.global_words?.more }}</Button>
         </div>
     </div>
     <div class="mt-20 lg:mt-37.5">

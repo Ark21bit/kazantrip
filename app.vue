@@ -18,7 +18,7 @@
         <CustomLink target="_blank" :to="generalConfig?.static_info?.contact?.socials?.whatsApp" class="p-2.75 bg-#60D669 transition-colors duration-500 ease-linear rounded-lg">
             <Icon size="22" name="Whatsapp"></Icon>
         </CustomLink>
-        <CustomLink to="/ekskursii" class="py-3 px-4.125 bg-primary transition-colors duration-500 ease-linear rounded-lg text-base font-medium">
+        <CustomLink to="/excursions" class="py-3 px-4.125 bg-primary transition-colors duration-500 ease-linear rounded-lg text-base font-medium">
             {{ generalConfig?.static_info?.global_words?.all_excursion }}
         </CustomLink>
     </div>
