@@ -281,6 +281,8 @@ export interface GlobalWords {
     certificate_name: string;
     start: string;
     date_time_order_select: string;
+    team_managers: string;
+    team_gid: string;
 }
 export interface TimeText {
     short_h: string;
