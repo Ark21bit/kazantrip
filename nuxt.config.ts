@@ -8,7 +8,7 @@ export default defineNuxtConfig({
         },
     },
     devtools: { enabled: true },
-    modules: ["@unocss/nuxt", "nuxt-icon", "@nuxtjs/i18n", "@formkit/nuxt", "@pinia/nuxt", 'dayjs-nuxt', '@vueuse/nuxt', 'vue-yandex-maps/nuxt'],
+    modules: ["@unocss/nuxt", "nuxt-icon", "@nuxtjs/i18n", "@formkit/nuxt", "@pinia/nuxt", 'dayjs-nuxt', '@vueuse/nuxt', 'vue-yandex-maps/nuxt', 'yandex-metrika-module-nuxt3'],
     components: [
         { path: "~/components/atoms", pathPrefix: false },
         "~/components",
@@ -44,4 +44,8 @@ export default defineNuxtConfig({
     yandexMaps: {
         apikey: process.env?.YANDEX_MAPS_API_KEY ?? '',
     },
+    yandexMetrika: {
+        id: process.env.YANDEX_METRIKA_ID,
+        consoleLog: false,
+    }
 })
