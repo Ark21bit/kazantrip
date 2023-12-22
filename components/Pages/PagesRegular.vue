@@ -4,20 +4,20 @@
     <div class="col-span-full mt-7.5 lg:mt-10 pb-7.5 border-b border-#EBEBEB">
         <PageTextBlock class="wrapper" :title="pageInfo?.lang_info?.title" :text="pageInfo?.lang_info?.text" />
     </div>
-    <div class="mt-7.5 lg:mt-15 flex gap-5 flex-wrap">
+    <div v-if="pageInfo?.url_panorama" class="mt-7.5 lg:mt-15 flex gap-5 flex-wrap">
         <Button v-if="pageInfo?.url_panorama" target="_blank" :tag="CustomLink" :to="pageInfo?.url_panorama" class="!px-8 max-lg:(px-6 justify-center w-full)" variant="outline">
             <template #prefix>
                 <Icon name="Panorama" class="text-2xl"></Icon>
             </template>
             {{ generalConfig?.static_info?.global_words?.circular_photo_panorama }}
         </Button>
-        <Button class="!px-8 max-lg:(px-6 justify-center w-full)" variant="outline">
+        <Button v-if="false" class="!px-8 max-lg:(px-6 justify-center w-full)" variant="outline">
             <template #prefix>
                 <Icon name="Video" class="text-2xl"></Icon>
             </template>
             {{ generalConfig?.static_info?.global_words?.video_reviews_ou_tourists }}
         </Button>
-        <Button class="!px-8 max-lg:(px-6 justify-center w-full)" variant="outline">
+        <Button v-if="false" class="!px-8 max-lg:(px-6 justify-center w-full)" variant="outline">
             <template #prefix>
                 <Icon name="Audio" class="text-2xl"></Icon>
             </template>
@@ -76,7 +76,7 @@
                         <p class="mt-1.5 lg:mt-.75 font-semibold text-fblack leading-1.2 lg:leading-1.2 text-sm sm:text-base lg:text-xl">{{ item?.title }}</p>
                         <CustomLink v-if="item?.href" :to="item?.href" target="_blank" class="flex items-center hover:text-primary transition-colors text-fblack leading-1.2 text-sm">
                             <Icon name="healthicons:geo-location" class="text-6 text-primary "></Icon>
-                            {{  generalConfig?.static_info?.global_words?.on_map }}
+                            {{ generalConfig?.static_info?.global_words?.on_map }}
                         </CustomLink>
                     </div>
                 </div>
