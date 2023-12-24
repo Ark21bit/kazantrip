@@ -5,7 +5,7 @@
             <FormKit name="product_in_certificate_id" validation="required" type="selectC" :options="products" :validation-label="generalConfig?.static_info?.global_words?.title_excursion" :placeholder="generalConfig?.static_info?.global_words?.title_excursion" outer-class="col-span-full" />
             <FormKit name="client_fio" validation="required:trim|length:3,64" type="text" :validation-label="generalConfig?.static_info?.global_words?.fio" :placeholder="generalConfig?.static_info?.global_words?.fio" outer-class="col-span-full" />
             <FormKit name="client_email" validation="email|required|length:0,32" type="email" :validation-label="generalConfig?.static_info?.global_words?.email" :placeholder="generalConfig?.static_info?.global_words?.email" />
-            <FormKit name="client_telephone" :validation="[['matches', /^[0-9\(\)\-\+\s]+$/], ['required:trim']]" v-maska:[options] type="tel" :validation-label="generalConfig?.static_info?.global_words?.telephone" :placeholder="generalConfig?.static_info?.global_words?.telephone" />
+            <FormKit name="client_telephone" :validation="[['matches', /^[0-9\(\)\-\+\s]+$/], ['required', 'trim']]" v-maska:[options] type="tel" :validation-label="generalConfig?.static_info?.global_words?.telephone" :placeholder="generalConfig?.static_info?.global_words?.telephone" />
         </div>
         <div class="flex justify-between gap-3 text-xl lg:text-6.5 leading-1.2 font-semibold text-fblack max-lg:-my-1">
             <p>{{ generalConfig?.static_info?.global_words?.total }}</p>
