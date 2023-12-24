@@ -16,7 +16,7 @@
         <div class="flex flex-col lg:flex-row gap-x-4.5 gap-y-5">
             <div class="flex flex-col gap-4 lg:gap-5 flex-1">
                 <h4 class="text-base font-semibold text-fblack leading-1.2 font-Montserrat">{{ generalConfig?.static_info?.global_words?.select_type_ticket }}</h4>
-                <FormKit name="tickets" type="list">
+                <FormKit name="tickets" type="list" validation="counterGMin:1">
                     <TicketsTable :tickets="product?.info_prices?.data"></TicketsTable>
                 </FormKit>
             </div>

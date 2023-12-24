@@ -6,7 +6,9 @@ import select from './components/FormKit/Select.vue'
 import datepicker from './components/FormKit/Datepicker.vue'
 import rating from './components/FormKit/Rating.vue'
 import counter from './components/FormKit/Counter.vue'
+import counterGMin from './rules/counterGMin'
 export default {
+    rules: { counterGMin },
     locales: { ru, en },
     locale: 'ru',
     config: {
