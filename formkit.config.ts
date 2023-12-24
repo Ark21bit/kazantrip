@@ -7,8 +7,9 @@ import datepicker from './components/FormKit/Datepicker.vue'
 import rating from './components/FormKit/Rating.vue'
 import counter from './components/FormKit/Counter.vue'
 import counterGMin from './rules/counterGMin'
+import counterGMax from './rules/counterGMax'
 export default {
-    rules: { counterGMin },
+    rules: { counterGMin, counterGMax },
     locales: { ru, en },
     locale: 'ru',
     config: {
