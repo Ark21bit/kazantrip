@@ -46,7 +46,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-4.5">
                 <FormKit name="client_fio" validation="required:trim|length:3,64" type="text" :validation-label="generalConfig?.static_info?.global_words?.fio" :placeholder="generalConfig?.static_info?.global_words?.fio" />
                 <FormKit name="place_start_id" validation="required:trim" type="selectC" :options="TitlePlacesStart" :validation-label="generalConfig?.static_info?.global_words?.starting_point" :placeholder="generalConfig?.static_info?.global_words?.starting_point"></FormKit>
-                <FormKit name="client_telephone" validation="required:trim" type="tel" v-maska data-maska="+7(###)###-##-##" :validation-label="generalConfig?.static_info?.global_words?.telephone" :placeholder="generalConfig?.static_info?.global_words?.telephone" />
+                <FormKit name="client_telephone" type="tel" :validation="[['matches', /^[0-9\(\)\-\+\s]+$/], ['required:trim']]" v-maska:[options] :validation-label="generalConfig?.static_info?.global_words?.telephone" :placeholder="generalConfig?.static_info?.global_words?.telephone" />
                 <FormKit name="payment_type_id" validation="required" type="selectC" :options="paymentTypes" :validation-label="generalConfig?.static_info?.global_words?.type_payment" :placeholder="generalConfig?.static_info?.global_words?.type_payment" />
                 <FormKit name="client_email" validation="email|required|length:0,32" type="email" :validation-label="generalConfig?.static_info?.global_words?.email" :placeholder="generalConfig?.static_info?.global_words?.email" />
                 <div class="flex flex-col gap-4 col-span-full">
@@ -152,4 +152,6 @@ const dateTimeOrderSelectText = computed(() => {
     if (!forms.value?.date || !forms.value?.time) return    
     return generalConfig.value?.static_info?.global_words?.date_time_order_select?.replace('%s', `<span>${dayjs(forms.value?.date).tz('Europe/Moscow').locale(locale.value).format('LL')}</span>`).replace('%s', `<span>${forms.value?.time?.label}</span>`)
 })
+
+const { options } = usePhoneMaskaOptions()
 </script>

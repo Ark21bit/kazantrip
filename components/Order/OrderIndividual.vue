@@ -20,7 +20,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-4.5">
                 <FormKit name="client_fio" validation="required:trim|length:3,64" type="text" :validation-label="generalConfig?.static_info?.global_words?.fio" :placeholder="generalConfig?.static_info?.global_words?.fio" />
                 <FormKit name="type_price_id" validation="required:trim" type="selectC" :options="typePrices" :validation-label="generalConfig?.static_info?.global_words?.count_people" :placeholder="generalConfig?.static_info?.global_words?.count_people"></FormKit>
-                <FormKit name="client_telephone" validation="required:trim" type="tel" v-maska data-maska="+7(###)###-##-##" :validation-label="generalConfig?.static_info?.global_words?.telephone" :placeholder="generalConfig?.static_info?.global_words?.telephone" />
+                <FormKit name="client_telephone" :validation="[['matches', /^[0-9\(\)\-\+\s]+$/], ['required:trim']]" v-maska:[options] type="tel" :validation-label="generalConfig?.static_info?.global_words?.telephone" :placeholder="generalConfig?.static_info?.global_words?.telephone" />
                 <FormKit name="payment_type_id" validation="required" type="selectC" :options="paymentTypes" :validation-label="generalConfig?.static_info?.global_words?.type_payment" :placeholder="generalConfig?.static_info?.global_words?.type_payment" />
                 <FormKit name="client_email" validation="email|required|length:0,32" type="email" :validation-label="generalConfig?.static_info?.global_words?.email" :placeholder="generalConfig?.static_info?.global_words?.email" />
                 <div class="flex flex-col gap-4 col-span-full">
@@ -65,4 +65,6 @@ const paymentTypes = computed(() =>
 const typePrices = computed(() =>
     props.product?.info_prices?.data?.map(infoPrice => { return { label: getTitleInfoPrices(infoPrice?.type_price_id), value: infoPrice?.type_price_id } }) ?? []
 )
+
+const { options } = usePhoneMaskaOptions()
 </script>
