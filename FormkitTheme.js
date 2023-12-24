@@ -57,8 +57,8 @@ export default {
     selectC: {
         inner: '$remove:overflow-hidden flex relative items-center border border-#E8E8E8 focus-within:border-primary rounded-lg',
         input: 'items-center px-3.75 py-3.5 appearance-none bg-transparent flex grow justify-between w-full',
-        dropdownWrapper: 'absolute mt-1.25 shadow-base ring ring-inset ring-#F6F6F6 z-1 top-full overflow-auto min-w-full max-h-100',
-        listbox: 'bg-white overflow-hidden rounded-lg p-2.5',
+        dropdownWrapper: 'absolute mt-1.25 shadow-base rounded-lg ring ring-inset ring-#F6F6F6 z-1 top-full overflow-auto min-w-full max-h-100',
+        listbox: 'bg-white p-2.5',
         listitem: 'cursor-pointer hover:bg-primary px-3 py-2.5 rounded-lg hover:text-white transition-colors duration-500',
         listitemSelect: 'bg-primary text-white',
         selectIcon: 'text-lg transition-transform duration-500 ease-linear leading-none',
