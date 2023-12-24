@@ -53,7 +53,7 @@ const props = defineProps({
     size: { type: String as PropType<ModalSizes>, default: '4xl' },
     closeClass: { type: String },
     directive: { type: String, default: 'if' },
-    padding: { type: String, default: 'p-5 lg:p-7.5' }
+    padding: { type: String, default: 'p-5 lg:p-4 3xl:p-7.5' }
 })
 
 const modalOverlayClass = computed(() => {
