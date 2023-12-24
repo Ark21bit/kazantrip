@@ -7,7 +7,7 @@
             <h2 class="text-5.5 lg:text-6.5 text-fblack leading-1.2 font-Montserrat font-bold [&>span]:text-primary max-w-[calc(100%-27px)]">{{ generalConfig?.static_info?.global_words?.request_call }}</h2>
             <FormKit v-model="forms" @submit="statementsStore" type="form" :actions="false" form-class="flex flex-col gap-4 lg:gap-4.5 mt-3">
                 <FormKit name="fio" validation="required:trim|length:3,64" type="text" :validation-label="generalConfig?.static_info?.global_words?.fio" :placeholder="generalConfig?.static_info?.global_words?.fio" />
-                <FormKit name="phone" validation="required:trim" type="text" v-maska data-maska="+7(###)###-##-##" :validation-label="generalConfig?.static_info?.global_words?.telephone" :placeholder="generalConfig?.static_info?.global_words?.telephone" />
+                <FormKit name="phone" :validation="[['matches', /^[0-9\(\)\-\+\s]+$/], ['required:trim']]" v-maska:[options] type="tel" :validation-label="generalConfig?.static_info?.global_words?.telephone" :placeholder="generalConfig?.static_info?.global_words?.telephone" />
                 <div class="flex flex-col lg:flex-row gap-3 lg:justify-between">
                     <Button :disabled="status === 'pending'" :loading="status === 'pending'" class="w-full lg:w-fit">{{ generalConfig?.static_info?.global_words?.request_call }}</Button>
                     <Button :disabled="status === 'pending'" :loading="status === 'pending'" @click="closeModal" class="w-full lg:w-49" type="button" variant="outline">{{ generalConfig?.static_info?.global_words?.cancel }}</Button>
@@ -50,4 +50,6 @@ const statementsStore = async () => {
     })
     forms.value = {}
 }
+
+const { options } = usePhoneMaskaOptions()
 </script>
