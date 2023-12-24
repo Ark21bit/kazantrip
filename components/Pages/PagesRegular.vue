@@ -98,6 +98,9 @@
             </div>
             <div class="absolute max-lg:-translate-1/2 top-0 lg:-top-4 lg:-translate-y-full left-16% rounded-full w-2 aspect-square bg-#F7C03F"></div>
             <div class="absolute top-12.75 lg:top-0 left-0 lg:left-full -translate-1/2 rounded-full aspect-square w-3.75 lg:w-9.75 bg-primary"></div>
+            <div class="absolute top-5 lg:top-6 left-1/2 lg:left-6 -translate-1/2 rounded-full aspect-square w-3.2 lg:w-6 bg-primary max-lg:hidden"></div>
+            <div class="absolute top-full lg:top-1.5 left-full lg:left-3/5 lg:translate-1/2 rounded-full aspect-square w-3 lg:w-5 bg-#F7C03F"></div>
+            <div class="absolute top-full lg:top-8/9 left-0 lg:left-2/5 translate-1/2 rounded-full aspect-square w-3.5 lg:w-4 bg-#F7C03F"></div>
             <div class="absolute bottom-0 lg:-bottom-6.75 translate-y-1/2 lg:translate-y-full left-60% lg:left-2.5 rounded-full w-3.5 lg:w-5.75 aspect-square bg-primary"></div>
             <div class="max-lg:hidden absolute -bottom-5 translate-y-full right-22% rounded-full w-3.5 aspect-square bg-#F7C03F"></div>
         </div>
