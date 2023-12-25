@@ -1,7 +1,7 @@
 <template>
     <Swiper class="w-full flex overflow-hidden relative" v-bind="options">
-        <SwiperSlide class="w-full h-full shrink-0 [&>img]:(w-full h-full object-cover object-center)" v-for="img in imgs">
-            <div v-html="img?.html"></div>
+        <SwiperSlide class="w-full h-full shrink-0" v-for="img in imgs">
+            <div v-html="img?.html" class="w-full h-full [&>img]:(w-full h-full object-cover object-center)"></div>
         </SwiperSlide>
         <div class="absolute bottom-7.5 lg:top-1/2 lg:-translate-y-1/2 w-full h-fit z-1">
             <SliderController class="wrapper max-lg:hidden" />
