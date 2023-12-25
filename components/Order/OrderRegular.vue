@@ -17,8 +17,8 @@
             <div class="flex flex-col gap-4.5 lg:gap-3 3xl:gap-5 flex-1">
                 <h4 class="text-base font-semibold text-fblack leading-1.2 font-Montserrat">{{ generalConfig?.static_info?.global_words?.select_type_ticket }}</h4>
                 <FormKit name="tickets" type="list" :validation="`counterGMin:1|counterGMax:${maxCountTickets}`">
-                    <TicketsTable :tickets="product?.info_prices?.data"></TicketsTable>
-                    <div v-if="forms?.time" class="flex gap-1 -mt-2 flex-wrap justify-between text-base leading-1.2 text-fblack">
+                    <TicketsTable :tickets="prices?.data"></TicketsTable>
+                    <div v-if="forms?.time && remainingTickets < 10" class="flex gap-1 -mt-2 flex-wrap justify-between text-base leading-1.2 text-fblack">
                         <h4>
                             {{ generalConfig?.static_info?.global_words?.tickets_left?.replace("%s", remainingTickets) }}
                             <span v-if="remainingTickets < 0" class="text-red ">{{ generalConfig?.static_info?.global_words?.not_enough_tickets }}</span>
@@ -159,11 +159,23 @@ const dateTimeOrderSelectText = computed(() => {
     return generalConfig.value?.static_info?.global_words?.date_time_order_select?.replace('%s', `<span>${dayjs(forms.value?.date).tz('Europe/Moscow').locale(locale.value).format('LL')}</span>`).replace('%s', `<span>${forms.value?.time?.label}</span>`)
 })
 
-const maxCountTickets = computedWithControl(() => forms.value?.time, () =>
-    props.product?.info_timetables?.data?.find(a => a.id === forms.value?.time?.id)?.left_count
-)
+const selectTimetable = computedWithControl(() => forms.value?.time, () => props.product?.info_timetables?.data?.find(a => a.id === forms.value?.time?.id))
+
+const maxCountTickets = computed(() => selectTimetable.value?.left_count)
 const selectedNumberTickets = computed(() => forms.value?.tickets?.reduce((a, b) => a + Number(b?.count), 0))
 const remainingTickets = computed(() => Number(maxCountTickets.value) - Number(selectedNumberTickets.value))
 
 const { options } = usePhoneMaskaOptions()
+
+const { data: prices, error: errorPrices, execute: executePrices } = useBaseFetch(() => `products/${selectTimetable.value?.id}/price-timetable`, {
+    immediate: false,
+    watch: false,
+    key: 'products/:timetable/price-timetable'
+})
+
+watch(selectTimetable, async(newValue) => {
+    if (newValue === undefined) return clearNuxtData('products/:timetable/price-timetable')
+    await executePrices()
+})
+
 </script>
