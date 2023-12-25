@@ -35,6 +35,7 @@
                 </template>
             </component>
         </div>
+        <ModalConfirmation />
     </ClientOnly>
     <div class="col-span-full max-lg:hidden -mb-65 -z-1">
         <img src="/eventImg.png" alt="">
@@ -99,4 +100,6 @@ const title = {
     en: 'Thank you for booking at the Excursion Center of Kazan KazanTrip',
     ru: 'Благодарим за бронирование экскурсии в Экскурсионном центре г. Казани KazanTrip!'
 }
+
+
 </script>
