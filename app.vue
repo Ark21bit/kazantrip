@@ -4,6 +4,7 @@
         <NuxtPage></NuxtPage>
     </main>
     <Footer />
+    <CustomLoadingIndicator />
     <div id="teleported"></div>
     <Transition enter-from-class="opacity-0" leave-to-class="opacity-0" enter-active-class="transition-opacity duration-300 ease-in-out" leave-active-class="transition-opacity duration-300 ease-in">
         <button v-show="scrollToUpButtonVisible" @click="scrollToUp" class="text-primary fixed top-1/2 -translate-y-1/2 right-[--width-content-margin] z-30 flex items-center gap-2.5 text-sm leading-1.25 group-[.modal-open]/body:pr-4.25 group-[.modal-open.modal-open-mobile]/body:pr-0">
