@@ -19,14 +19,14 @@
     "nuxt": "^3.8.2"
   },
   "dependencies": {
-    "@nuxtjs/i18n": "^8.0.0-rc.11",
+    "@nuxtjs/i18n": "^8.0.0",
     "@vuepic/vue-datepicker": "^7.4.0",
     "@vueuse/components": "^10.7.0",
     "maska": "^2.1.10",
     "nuxt-icon": "^0.6.7",
     "swiper": "^11.0.5",
     "typescript": "^5.3.3",
-    "vue-yandex-maps": "^2.0.0-rc.9",
+    "vue-yandex-maps": "^2.0.0-rc.10",
     "yandex-metrika-module-nuxt3": "^1.5.3"
   },
   "overrides": {
