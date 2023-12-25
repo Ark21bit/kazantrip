@@ -31,7 +31,7 @@
         </div>
         <div class="p-5 lg:p-6 max-lg:border-b lg:border-r border-#EBEBEB flex flex-col justify-center gap-1.5">
             <p class="text-sm leading-1.2 text-fblack">{{ generalConfig?.static_info?.global_words?.price_list }}</p>
-            <p class="text-2xl font-semibold leading-1.2 text-primary">{{ pageInfo?.price_see }}₽<span class="ml-1.5 leading-1.2 text-#A4A4A4 text-sm line-through decoration-fblack">{{ pageInfo?.price_see_old }}₽</span></p>
+            <p class="text-2xl font-semibold leading-1.2 text-primary">{{ pageInfo?.price_see }}₽<span class="ml-1.5 leading-1.2 text-#A4A4A4 text-sm line-through decoration-fblack" v-if="pageInfo?.price_see_old">{{ pageInfo?.price_see_old }}₽</span></p>
         </div>
         <div class="p-5 py-6 lg:p-6 flex flex-col justify-center gap-1.5">
             <Button @click="openModal" class="w-full">{{ generalConfig?.static_info?.global_words?.order }}</Button>
