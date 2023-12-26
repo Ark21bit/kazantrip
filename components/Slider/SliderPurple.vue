@@ -14,7 +14,7 @@
                 <h3 class="max-lg:hidden text-7 font-bold leading-1.2 font-Montserrat text-fblack [&>span]:text-primary">Организация <span>тура</span></h3>
                 <div class="lg:mt-7.5 flex flex-col gap-5 p-5 lg:pr-22 lg:p-6 last:mr-0 mr-5 lg:bg-[url(/imgs/pattern.svg)] bg-[position:top_0_right_24px] grow bg-repeat-y shadow-base rounded-2xl ring-(1 inset #F6F6F6)">
                     <h3 class="lg:hidden text-5.5 font-bold leading-1.2 font-Montserrat text-fblack [&>span]:text-primary">Организация <span>тура</span></h3>
-                    <p class="text-sm lg:text-base text-second leading-1.4 lg:leading-1.4 [&>a]:text-primary">По вопросам организации многодневного тура, включающего экскурсию "ТЁПЛАЯ обзорная по Казани с посещением Казанского Кремля" обращайтесь по телефону <a href="tel:+7 927 487 03 00">+7 927 487 03
+                    <p class="text-sm lg:text-base text-second leading-1.4 lg:leading-1.4 [&>a]:text-primary">По вопросам организации многодневного тура, включающего экскурсию "{{ title }}" обращайтесь по телефону <a href="tel:+7 927 487 03 00">+7 927 487 03
                             00</a> и электронной почте
                         <a href="mailto:ex@kazantrip.ru">ex@kazantrip.ru</a>
                     </p>
@@ -31,6 +31,9 @@ import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Pagination, Mousewheel } from 'swiper/modules';
 defineOptions({
     inheritAttrs: false
+})
+defineProps({
+    title: String
 })
 const { generalConfig } = storeToRefs(useGeneralConfigStore())
 const options = {

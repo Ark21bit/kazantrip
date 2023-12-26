@@ -111,7 +111,7 @@
             <li v-for="item in pageInfo?.lang_info?.half_text" class="flex gap-2.5 items-start before:(aspect-square shrink-0 bg-primary mt-0.6em -translate-y-1/2 content-empty w-2.5 rounded-full)">{{ item }}</li>
         </ul>
     </div>
-    <SliderPurple class="mt-15 lg:mt-25"></SliderPurple>
+    <SliderPurple class="mt-15 lg:mt-25" :title="pageInfo?.lang_info?.title"></SliderPurple>
     <div v-if="pageInfo?.info_seo_blocks?.data?.length ?? 0 > 0" class="mt-15 lg:mt-25 col-span-full pb-7.5 border-b border-#EBEBEB">
         <SeoBlock :data="pageInfo?.info_seo_blocks?.data" class="wrapper"></SeoBlock>
     </div>
