@@ -139,6 +139,7 @@ export interface GlobalWords {
     order: string;
     hotel: string;
     group: string;
+    check_data_and_send_order: string,
     all_excursion: string;
     "1_people_placement": string;
     "2_people_placement": string;
