@@ -19,7 +19,7 @@
 </template>
 
 <script lang="ts" setup>
-/* import type { SEO } from '~/types/fetch/shared'
+import type { SEO } from '~/types/fetch/shared'
 interface Fetch {
     content: {
         title: string;
@@ -37,5 +37,5 @@ useSeoMeta({
     title: () => data.value?.seo?.title ?? " ",
     description: () => data.value?.seo?.description ?? " ",
     keywords: () => data.value?.seo?.keywords ?? ' ',
-}) */
+})
 </script>
