@@ -16,7 +16,7 @@
                         <p>{{ generalConfig?.static_info?.global_words?.total_order_payment }}</p>
                         <p>{{ totalPrice }}₽</p>
                     </div>
-                    <div class="flex flex-col sm:flex-row justify-between gap-3 py-3 px-5 lg:py-1.5 3xl:py-3 3xl:px-7.5 last:border-none border-b border-#E8E8E8 text-sm leading-1.4 text-fblack">
+                    <div class="flex flex-col sm:flex-row justify-between gap-1 lg:gap-3 px-5 py-2 lg:py-1.5 3xl:py-3 3xl:px-7.5 last:border-none border-b border-#E8E8E8 text-sm leading-1.4 text-fblack">
                         <p>{{ generalConfig?.static_info?.global_words?.type_payment }}</p>
                         <p class="font-medium">{{ getTitlePaymentTypes(orderInfo?.payment_type_id) }}</p>
                     </div>
