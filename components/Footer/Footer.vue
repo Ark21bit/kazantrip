@@ -9,7 +9,7 @@
         <div class="grid-container bg-#031F27">
             <div>
                 <div class="flex justify-between gap-2 items-center py-4 lg:py-6">
-                    <Icon name="Logo" class="w-16.75 h-13 lg:(w-19 h-15) text-white"></Icon>
+                    <span class="w-16.75 h-13 lg:(w-19 h-15) text-white i-custom:logo-white?bg"></span>
                     <FooterNav class="max-lg:hidden" />                    
                     <Socials class="flex gap-2 text-2xl text-white lg:hidden " />
                 </div>

@@ -4,10 +4,10 @@
             <span class="text-sm font-medium">{{ day[0] }}</span>
         </template>
         <template #input-icon>
-            <Icon :class="context.classes.inputIcon" name="CalendarOutline"></Icon>
+            <span :class="context.classes.inputIcon" class="i-custom:calendar-outline"></span>
         </template>
         <template #calendar-icon>
-            <Icon :class="context.classes.calendarIcon" name="CalendarOutline"></Icon>
+            <span :class="context.classes.calendarIcon" class="i-custom:calendar-outline"></span>
         </template>
         <template #arrow-left>
             <svg class="text-sm inline" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">

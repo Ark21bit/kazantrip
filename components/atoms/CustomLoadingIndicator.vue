@@ -1,7 +1,7 @@
 <template>
     <transition enter-from-class="opacity-0" leave-to-class="opacity-0" leave-active-class="transition-opacity duration-500 ease-out" enter-active-class="transition-opacity duration-500 ease-out">
         <div class="min-h-screen w-full bg-white fixed top-0 left-0 flex items-center justify-center z-99999" v-if="isLoading">
-            <Icon name="eos-icons:loading" class="text-7xl text-primary"></Icon>
+            <span class="text-7xl text-primary i-eos-icons:loading"></span>
         </div>
     </transition>
 </template>

@@ -11,7 +11,7 @@
             </div>
         </div>
         <NuxtLink v-if="team?.email" :to="`mailto:${team.email}`" class="flex gap-1.75 items-center text-primary text-sm leading-1.4 mt-3">
-            <Icon name="Mail" class="text-lg"></Icon> {{ team.email }}
+            <span class="text-lg i-custom:mail"></span> {{ team.email }}
         </NuxtLink>
         <p class="text-fblack text-base leading-1.2 mt-5">{{ team?.about }}</p>
         <Button @click="closeModal" class="mx-auto w-48 mt-7.5" variant="outline">{{generalConfig?.static_info?.global_words?.close }}</Button>

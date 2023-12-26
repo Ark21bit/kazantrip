@@ -10,7 +10,7 @@
             <p class="mt-4 text-center">{{ generalConfig?.static_info?.global_words?.subscribe_telegram_text }}</p>
             <Button :tag="CustomLink" :to="orderResponse?.data?.url_telegram_subscribe" class="mt-1 mx-auto w-full gap-2">
                 {{ generalConfig?.static_info?.global_words?.subscribe }}
-                <Icon name="icon-park-outline:telegram" class="text-lg" />
+                <span class="text-lg i-icon-park-outline:telegram" />
             </Button>
         </template>
 

@@ -6,7 +6,7 @@
             <p class="font-semibold text-lg lg:text-xl lg:leading-1.2 leading-1.2 text-fblack">{{ fio }}</p>
             <p class="mt-3 lg:mt-1.5 text-sm text-#A8A8A8 leading-1.2">{{ post }}</p>
             <NuxtLink v-if="email" :to="`mailto:${email}`" class="flex gap-1.75 items-center text-primary text-sm leading-1.4 mt-3">
-                <Icon name="Mail" class="text-lg"></Icon>{{ email }}
+                <span class="text-lg i-custom:mail"></span>{{ email }}
             </NuxtLink>
             <p class="text-fblack text-sm leading-1.4 mt-4">{{ about }}</p>
             <Button class="mt-5" padded size="lg" variant="link" @click="emit('openTeamFull')">{{ generalConfig?.static_info?.global_words?.more }}</Button>

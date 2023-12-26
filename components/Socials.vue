@@ -1,13 +1,13 @@
 <template>
     <div>
         <CustomLink target="_blank" :to="generalConfig?.static_info?.contact?.socials?.telegram">
-            <Icon name="Tg" class="hover:text-#39919A transition-colors"></Icon>
+            <span name="Tg" class="hover:text-#39919A transition-colors i-custom:tg"></span>
         </CustomLink>
         <CustomLink target="_blank" :to="generalConfig?.static_info?.contact?.socials?.whatsApp">
-            <Icon name="Whatsapp" class="hover:text-#39919A transition-colors"></Icon>
+            <span name="Whatsapp" class="hover:text-#39919A transition-colors i-custom:whatsapp"></span>
         </CustomLink>
         <CustomLink target="_blank" :to="generalConfig?.static_info?.contact?.socials?.vk">
-            <Icon name="Vk" class="hover:text-#39919A transition-colors"></Icon>
+            <span name="Vk" class="hover:text-#39919A transition-colors i-custom:vk"></span>
         </CustomLink>
     </div>
 </template>

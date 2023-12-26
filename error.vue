@@ -12,10 +12,10 @@
     <div id="teleported"></div>
     <div class="fixed z-30 right-[--width-content-margin] bottom-7.5 leading-none items-end flex flex-col gap-2 text-white group-[.modal-open]/body:pr-4.25 group-[.modal-open.modal-open-mobile]/body:pr-0">
         <CustomLink target="_blank" :to="generalConfig?.static_info?.contact?.socials?.telegram" class="p-2.5 bg-#2AABEE transition-colors duration-500 ease-linear rounded-lg">
-            <Icon size="24" name="Tg"></Icon>
+            <span class="i-custom:tg text-2xl"></span>
         </CustomLink>
         <CustomLink target="_blank" :to="generalConfig?.static_info?.contact?.socials?.whatsApp" class="p-2.75 bg-#60D669 transition-colors duration-500 ease-linear rounded-lg">
-            <Icon size="22" name="Whatsapp"></Icon>
+            <span class="text-5.5 i-custom:whatsapp"></span>
         </CustomLink>
         <CustomLink to="/excursions" class="py-3 px-4.125 bg-primary transition-colors duration-500 ease-linear rounded-lg text-base font-medium">
             {{ generalConfig?.static_info?.global_words?.all_excursion }}

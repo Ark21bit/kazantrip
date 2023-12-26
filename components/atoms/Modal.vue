@@ -8,7 +8,7 @@
                         <div v-bind="$attrs" :class="modalClass">
                             <button @click="closeModal" type="button" :class="modalCloseClass">
                                 <slot name="close-icon">
-                                    <Icon name="Close" size="24"></Icon>
+                                    <span class="i-custom:close text-2xl"></span>
                                 </slot>
                             </button>
                             <slot />
@@ -23,7 +23,7 @@
                         <div v-bind="$attrs" :class="modalClass">
                             <button @click="closeModal" type="button" :class="modalCloseClass">
                                 <slot name="close-icon">
-                                    <Icon name="Close" size="24"></Icon>
+                                    <span class="i-custom:close text-2xl"></span>
                                 </slot>
                             </button>
                             <slot />

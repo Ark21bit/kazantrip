@@ -32,7 +32,7 @@
         </template>
         <TableTr class="max-lg:grid max-lg:grid-cols-2 max-lg:grid-rows-[auto_auto] max-lg:gap-2" v-else>
             <TableTd class="min-h-54 col-span-full">
-                <Icon v-if="loading" name="eos-icons:loading" class="text-5xl text-primary m-auto"></Icon>
+                <span v-if="loading" class="text-5xl text-primary m-auto i-eos-icons:loading"></span>
                 <span class="text-base lg:text-lg text-fblack leading-tight lg:leading-tight text-center m-auto" v-else>Выберите дату и время</span>
             </TableTd>
         </TableTr>

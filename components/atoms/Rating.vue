@@ -1,7 +1,7 @@
 <template>
     <div class="flex">
-        <Icon v-for="n in rating" name="material-symbols:star-rounded" :size="size" :class="colorClass"></Icon>
-        <Icon v-for="n in count - rating" name="material-symbols:star-rounded" :size="size" class="text-inactive"></Icon>
+        <span v-for="n in rating" class="i-material-symbols:star-rounded" :class="[colorClass, size]"></span>
+        <span v-for="n in count - rating" class="text-inactive i-material-symbols:star-rounded" :class="size"></span>
     </div>
 </template>
 
@@ -9,7 +9,7 @@
 defineProps({
     rating: { type: Number, default: 3 },
     count: { type: Number, default: 5 },
-    size: { type: String, default: "26" },
+    size: { type: String, default: "text-6.5" },
     colorClass: { type: String, default: "text-#F7C03F" }
 })
 </script>

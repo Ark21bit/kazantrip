@@ -8,11 +8,10 @@ export default defineNuxtConfig({
         },
     },
     devtools: { enabled: true },
-    modules: ["@unocss/nuxt", "nuxt-icon", "@nuxtjs/i18n", "@formkit/nuxt", "@pinia/nuxt", 'dayjs-nuxt', '@vueuse/nuxt', 'vue-yandex-maps/nuxt', 'yandex-metrika-module-nuxt3'],
+    modules: ["@unocss/nuxt", "@nuxtjs/i18n", "@formkit/nuxt", "@pinia/nuxt", 'dayjs-nuxt', '@vueuse/nuxt', 'vue-yandex-maps/nuxt', 'yandex-metrika-module-nuxt3'],
     components: [
         { path: "~/components/atoms", pathPrefix: false },
         "~/components",
-        { path: "~/components/global", global: true },
     ],
     css: ['swiper/css', "~/assets/css/main.css"],
     runtimeConfig: {

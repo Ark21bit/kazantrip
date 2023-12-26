@@ -9,7 +9,7 @@
     </div>
     <Modal @close="closeModal" :is-show="isModalShow" :class="{ 'min-h-225': pending }">
         <div v-if="pending" class="m-auto flex justify-center items-center">
-            <Icon name="eos-icons:loading" class="text-7xl text-primary"></Icon>
+            <span class="text-7xl text-primary i-eos-icons:loading"></span>
         </div>
         <component v-else :is="order" @close="closeModal" :product="product"></component>
     </Modal>

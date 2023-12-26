@@ -3,7 +3,7 @@
         <span class="formkit-select-text" :class="selectOptions ? context.classes.selectText : context.classes.placeholder">{{ selectOptions ? selectOptions : context.placeholder }}</span>
         <span class="formkit-select-icon formkit-icon" :class="[{ 'rotate-180': isShow }, context.classes.selectIcon]">
             <slot name="select-icon">
-                <Icon name="ChevronDown"></Icon>
+                <span class="i-custom:chevron-down"></span>
             </slot>
         </span>
     </button>

@@ -9,7 +9,7 @@
             <div class="flex flex-col gap-4 grow">
                 <div class="flex justify-between gap-3 text-sm lg:text-base leading-1.4 lg:leading-1.4 text-fblack">
                     <div class="flex gap-1.5 items-end">
-                        <Icon name="Star" class="text-#F7C03F text-xl lg:text-2xl"></Icon>
+                        <span class="text-#F7C03F text-xl lg:text-2xl i-custom:star"></span>
                         <span class="font-medium">{{ rating }}</span>
                     </div>
                     <p> {{ generalConfig?.static_info?.global_words?.count_reviews?.replace('%s', String(reviewsCount)) }}</p>
@@ -20,15 +20,15 @@
             </div>
             <div class="hidden lg:flex flex-col gap-3 text-#333333">
                 <div class="flex gap-1.75 items-center">
-                    <Icon name="Time" class="text-2xl"></Icon>
+                    <span class="text-2xl i-custom:time"></span>
                     <p class="text-sm font-medium leading-1.4">{{ duration }}</p>
                 </div>
                 <div class="flex gap-1.75 items-center">
-                    <Icon :name="isRadioGid ? 'Radiogid' : 'Megaphone'" class="text-2xl"></Icon>
+                    <span :class="isRadioGid ? 'i-custom:radiogid' : 'i-custom:megaphone'" class="text-2xl "></span>
                     <p class="text-sm font-medium leading-1.4">{{ isRadioGid ? generalConfig?.static_info?.global_words?.yes_free : generalConfig?.static_info?.global_words?.guide_loudspeaker }}</p>
                 </div>
                 <div class="flex gap-1.75 items-center">
-                    <Icon name="Trail" class="text-2xl"></Icon>
+                    <span class="text-2xl i-custom:trail"></span>
                     <p class="text-sm font-medium leading-1.4">{{ getTitleCategoriesProduct(category_id) }}</p>
                 </div>
             </div>

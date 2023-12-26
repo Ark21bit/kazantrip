@@ -7,19 +7,19 @@
     <div v-if="pageInfo?.url_panorama" class="mt-7.5 lg:mt-15 flex gap-5 flex-wrap">
         <Button v-if="pageInfo?.url_panorama" target="_blank" :tag="CustomLink" :to="pageInfo?.url_panorama" class="!px-8 max-lg:(px-6 justify-center w-full)" variant="outline">
             <template #prefix>
-                <Icon name="Panorama" class="text-2xl"></Icon>
+                <span class="text-2xl i-custom:panorama"></span>
             </template>
             {{ generalConfig?.static_info?.global_words?.circular_photo_panorama }}
         </Button>
         <Button v-if="false" class="!px-8 max-lg:(px-6 justify-center w-full)" variant="outline">
             <template #prefix>
-                <Icon name="Video" class="text-2xl"></Icon>
+                <span class="text-2xl i-custom:video"></span>
             </template>
             {{ generalConfig?.static_info?.global_words?.video_reviews_ou_tourists }}
         </Button>
         <Button v-if="false" class="!px-8 max-lg:(px-6 justify-center w-full)" variant="outline">
             <template #prefix>
-                <Icon name="Audio" class="text-2xl"></Icon>
+                <span class="text-2xl i-custom:audio"></span>
             </template>
             {{ generalConfig?.static_info?.global_words?.brief_audio_tour }}
         </Button>
@@ -47,35 +47,45 @@
         </div>
         <div class="mt-5 lg:mt-7.5 grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5">
             <div class="ring-(inset 1 #F6F6F6) rounded-5 py-4 px-3 lg:p-5 bg-white shadow-base">
-                <Icon name="Calendar" class="text-8 lg:text-10 bg-#E2F1F2 text-primary p-2 lg:p-2.5 rounded-lg"></Icon>
+                <div class="inline-flex text-base lg:text-xl bg-#E2F1F2 text-primary p-2 lg:p-2.5 rounded-lg ">
+                    <span class="i-custom:calendar"></span>
+                </div>
                 <p class="mt-3 lg:mt-6 text-second text-xs lg:text-sm leading-1.4 lg:leading-1.4">{{ generalConfig?.static_info?.global_words?.nearest_date }}</p>
                 <p class="mt-1.5 lg:mt-.75 font-semibold text-fblack leading-1.2 lg:leading-1.2 text-base lg:text-2xl">{{ nearestDate }}</p>
             </div>
             <div class="ring-(inset 1 #F6F6F6) rounded-5 py-4 px-3 lg:p-5 bg-white shadow-base">
-                <Icon name="Time" class="text-8 lg:text-10 bg-#E2F1F2 text-primary p-2 lg:p-2.5 rounded-lg"></Icon>
+                <div class="inline-flex text-base lg:text-xl bg-#E2F1F2 text-primary p-2 lg:p-2.5 rounded-lg">
+                    <span class="i-custom:time"></span>
+                </div>
                 <p class="mt-3 lg:mt-6 text-second text-xs lg:text-sm leading-1.4 lg:leading-1.4">{{ generalConfig?.static_info?.global_words?.duration }}</p>
                 <p class="mt-1.5 lg:mt-.75 font-semibold text-fblack leading-1.2 lg:leading-1.2 text-base lg:text-2xl">{{ pageInfo?.duration_event_text }}</p>
             </div>
             <div class="ring-(inset 1 #F6F6F6) rounded-5 py-4 px-3 lg:p-5 bg-white shadow-base">
-                <Icon name="Trail" class="text-8 lg:text-10 bg-#E2F1F2 text-primary p-2 lg:p-2.5 rounded-lg"></Icon>
+                <div class="inline-flex text-base lg:text-xl bg-#E2F1F2 text-primary p-2 lg:p-2.5 rounded-lg">
+                    <span class="i-custom:trail"></span>
+                </div>
                 <p class="mt-3 lg:mt-6 text-second text-xs lg:text-sm leading-1.4 lg:leading-1.4">{{ generalConfig?.static_info?.global_words?.type_excursion }}</p>
                 <p class="mt-1.5 lg:mt-.75 font-semibold text-fblack leading-1.2 lg:leading-1.2 text-base lg:text-2xl">{{ getTitleCategoriesProduct(pageInfo?.category_id) }}</p>
             </div>
             <div class="ring-(inset 1 #F6F6F6) rounded-5 py-4 px-3 lg:p-5 bg-white shadow-base">
-                <Icon :name="pageInfo?.is_radio_gid ? 'Radiogid' : 'Megaphone'" class="text-8 lg:text-10 bg-#E2F1F2 text-primary p-2 lg:p-2.5 rounded-lg"></Icon>
+                <div class="inline-flex text-base lg:text-xl bg-#E2F1F2 text-primary p-2 lg:p-2.5 rounded-lg">
+                    <span :class="pageInfo?.is_radio_gid ? 'i-custom:radiogid' : 'i-custom:megaphone'"></span>
+                </div>
                 <p class="mt-3 lg:mt-6 text-second text-xs lg:text-sm leading-1.4 lg:leading-1.4"> {{ generalConfig?.static_info?.global_words?.radio_guide }}</p>
                 <p class="mt-1.5 lg:mt-.75 font-semibold text-fblack leading-1.2 lg:leading-1.2 text-base lg:text-2xl break-words"> {{ pageInfo?.is_radio_gid ? generalConfig?.static_info?.global_words?.yes_free : generalConfig?.static_info?.global_words?.guide_loudspeaker }}</p>
             </div>
             <div class="ring-(inset 1 #F6F6F6) rounded-5 bg-white shadow-base col-span-full" :class="Number(pageInfo?.start_place_types?.length) > 3 ? '' : 'lg:col-span-[3]'">
                 <div class="p-4 pb-3 lg:p-5 flex gap-2.5 lg:gap-3.75 items-center">
-                    <Icon name="Map" class="text-8 lg:text-10 bg-#E2F1F2 text-primary p-2 lg:p-2.5 rounded-lg"></Icon>
+                    <div class="inline-flex text-base lg:text-xl bg-#E2F1F2 text-primary p-2 lg:p-2.5 rounded-lg">
+                        <span class="i-custom:map"></span>
+                    </div>
                     <p class="text-second text-xs lg:text-sm leading-1.4 lg:leading-1.4">{{ generalConfig?.static_info?.global_words?.departure }}</p>
                 </div>
                 <div class="flex flex-col lg:flex-row flex-wrap">
                     <div v-for="item in PlacesStart" class="flex flex-col w-full lg:w-1/4 grow py-3 lg:py-5 p-5 border-t lg:border-r lg:[&:nth-child(4)]:border-r-none lg:last:border-r-none border-#EBEBEB items-start">
                         <p class="mt-1.5 lg:mt-.75 font-semibold text-fblack leading-1.2 lg:leading-1.2 text-sm sm:text-base lg:text-xl">{{ item?.title }}</p>
                         <CustomLink v-if="item?.href" :to="item?.href" target="_blank" class="flex items-center hover:text-primary transition-colors text-fblack leading-1.2 text-sm">
-                            <Icon name="healthicons:geo-location" class="text-6 text-primary "></Icon>
+                            <span class="text-6 text-primary i-healthicons:geo-location"></span>
                             {{ generalConfig?.static_info?.global_words?.on_map }}
                         </CustomLink>
                     </div>

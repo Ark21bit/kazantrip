@@ -1,7 +1,7 @@
 <template>
     <div class="rounded-md w-full max-w-120" :class="wrapperClass" role="alert">
         <div class="flex items-start py-5 px-7 gap-2">
-            <Icon :name="icon" class="text-2xl shrink-0"></Icon>
+            <span class="text-2xl shrink-0" :class="icon"></span>
             <div class="text-base font-normal flex gap-1 flex-col flex-1 grow shrink ml-4">
                 <span class="font-bold block">{{ title }}</span>
                 <template v-if="true">
@@ -12,7 +12,7 @@
                 </template>
             </div>
             <button @click="deleteToast(id)" class="flex p-1 rounded-full bg-transparent transition duration-200 ease-in-out ml-auto overflow-hidden hover:bg-white/30" type="button">
-                <Icon name="material-symbols:close-rounded" class="shrink-0 text-lg"></Icon>
+                <span class="shrink-0 text-lg i-material-symbols:close-rounded"></span>
             </button>
         </div>
     </div>
@@ -33,8 +33,8 @@ useTimeoutFn(() => {
 }, props.duration)
 
 const icon = computed(() => {
-    if (props.severity == 'error') return 'bx:bxs-error-alt'
-    return 'bx:bxs-error-alt'
+    if (props.severity == 'error') return 'i-bxs:error-alt'
+    return 'i-bxs:error-alt'
 })
 
 const wrapperClass = computed(() => {

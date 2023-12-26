@@ -2,7 +2,7 @@
     <header class="grid-container py-1.5 lg:py-3.75 z-20 max-lg:bg-white" :class="[absolute ? 'absolute w-full z-10' : 'relative border-b border-#EBEBEB', dark ? 'text-fblack lg:text-white' : 'text-fblack']">
         <div class="flex gap-2.5 lg:gap-10 justify-between items-center">
             <CustomLink to="/" class="shrink-0">
-                <Icon name="Logo" class="w-17 lg:w-18 h-13 lg:h-14" />
+                <span class="w-17 lg:w-18 h-13 lg:h-14" :class="dark ? 'i-custom:logo-white?bg' : 'i-custom:logo-black?bg'" />
             </CustomLink>
             <Nav :dark="dark" class="grow max-lg:hidden" />
             <DropdownHover :dark="dark" class="max-lg:hidden">
@@ -16,7 +16,7 @@
             <NuxtLink :to="phoneLinkReplace(generalConfig?.static_info?.contact?.telephones?.find(() => true))" class="text-lg font-medium lining-nums">{{ generalConfig?.static_info?.contact?.telephones?.find(() => true) }}</NuxtLink>
             <ModalCallback #="{ openModal }">
                 <Button @click="openModal" class="lg:w-41 max-lg:p-2.25" size="sm">
-                    <Icon class="lg:!hidden text-xl" name="Phone"></Icon>
+                    <span class="lg:!hidden text-xl i-custom:phone"></span>
                     <span class="max-lg:hidden">{{ generalConfig?.static_info?.global_words?.request_call }}</span>
                 </Button>
             </ModalCallback>

@@ -1,11 +1,11 @@
 <template>
     <component :is="tag" :class="buttonClass">
         <slot name="prefix">
-            <Icon v-if="prefixIcon" :name="prefixIcon" :class="iconClass"></Icon>
+            <span v-if="prefixIcon" :class="[iconClass, prefixIcon]"></span>
         </slot>
         <slot />
         <slot name="suffix">
-            <Icon v-if="suffixIconName" :name="suffixIconName" :class="iconClass"></Icon>
+            <span v-if="suffixIconName" :class="[iconClass, suffixIconName]"></span>
         </slot>
     </component>
 </template>
@@ -24,7 +24,7 @@ const props = defineProps({
     prefixIcon: String,
     suffixIcon: String,
     loading: Boolean,
-    loadingIcon: { type: String, default: 'line-md:loading-twotone-loop' },
+    loadingIcon: { type: String, default: 'i-eos-icons:loading' },
     padded: { type: Boolean, default: false },
 })
 

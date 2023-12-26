@@ -1,7 +1,7 @@
 <template>
     <button :class="buttonClasses">
         <slot>
-            <Icon name="Arrow"></Icon>
+            <span class="i-custom:arrow"></span>
         </slot>
     </button>
 </template>

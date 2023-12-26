@@ -3,7 +3,7 @@
         <slot name="title">
             {{ title }}
         </slot>
-        <Icon name="ChevronDown" size="13" :class="{ 'rotate-180': isShow }" class="transition-transform duration-500 ease-linear p-0.5 box-content shrink-0"></Icon>
+        <span :class="{ 'rotate-180': isShow }" class="text-3.25 transition-transform duration-500 ease-linear p-0.5 box-content shrink-0 i-custom:chevron-down"></span>
         <Transition enter-from-class="opacity-0" leave-to-class="opacity-0" enter-active-class="transition-opacity duration-500 ease-in-out" leave-active-class="transition-opacity duration-500 ease-in">
             <div v-show="isShow" class="absolute top-full pt-2.25 w-max max-w-50 z-10">
                 <div class="flex flex-col overflow-hidden shadow-base rounded-lg ring ring-inset ring-#F6F6F6 bg-white p-2.5 max-h-50">

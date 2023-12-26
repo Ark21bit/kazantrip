@@ -16,7 +16,7 @@
                 </div>
             </template>
             <div v-else class="h-110 flex justify-center items-center">
-                <Icon class="text-5xl text-primary" name="eos-icons:loading"></Icon>
+                <span class="text-5xl text-primary i-eos-icons:loading"></span>
             </div>
         </div>
         <div v-if="Number(info?.length) > 3" class="mt-auto flex py-5 lg:py-3 3xl:py-5 border-t border-#EBEBEB">
