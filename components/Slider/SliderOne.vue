@@ -5,7 +5,7 @@
         </SwiperSlide>
         <div class="absolute bottom-7.5 lg:top-1/2 lg:-translate-y-1/2 w-full h-fit z-1">
             <SliderController class="wrapper max-lg:hidden" />
-            <SliderPagination class="lg:hidden" />
+            <SliderPagination />
         </div>
     </Swiper>
 </template>

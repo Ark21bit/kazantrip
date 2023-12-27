@@ -17,7 +17,7 @@
             </div>
         </SwiperSlide>
         <SliderController color="azul" class="max-lg:hidden absolute top-1/2 left-0 -translate-y-1/2 w-full z-1" />
-        <SliderPagination class="mt-5 lg:hidden" />
+        <SliderPagination class="mt-5" />
     </Swiper>
 </template>
 

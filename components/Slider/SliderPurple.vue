@@ -21,7 +21,7 @@
                     <Button @click="openModal" class="w-full lg:w-41 mt-auto" size="sm">{{ generalConfig?.static_info?.global_words?.order }}</Button>
                 </div>
             </SwiperSlide>
-            <SliderPagination color="gray" class="mt-5 lg:hidden" />
+            <SliderPagination color="gray" class="mt-5" />
         </Swiper>
     </ModalRequestIndividual>
 </template>

@@ -5,7 +5,7 @@
                 <TeamsCard @open-team-full="openTeamFull(team)" v-bind="team" class="w-full h-full" />
             </SwiperSlide>
             <SliderController color="azul" class="w-full mt-7.5 max-lg:hidden" />
-            <SliderPagination class="mt-5 lg:hidden" color="gray"/>
+            <SliderPagination class="mt-5 mx-auto" color="gray" />
         </Swiper>
     </TeamsModal>
 </template>
@@ -42,7 +42,8 @@ const options: SwiperOptions = {
     pagination: {
         el: '.swiper-pagination',
         enabled: true,
-        clickable: true
+        clickable: true,
+        dynamicBullets: true
     },
     mousewheel: {
         forceToAxis: true

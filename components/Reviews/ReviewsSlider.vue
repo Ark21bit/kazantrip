@@ -5,7 +5,7 @@
                 <ReviewsCard class="h-full" :slug="review?.product_info?.slug" :name="review?.name" :rating="review?.rating" :created_at="review?.created_at" :message="review?.message" :title="review?.product_info?.lang_info?.title" @open-full-review="openFullReview(review)" />
             </SwiperSlide>
             <SliderController color="azul" class="w-full mt-7.5 max-lg:hidden" />
-            <SliderPagination color="gray" class="mt-5" />
+            <SliderPagination color="gray" class="mt-5 mx-auto" />
         </Swiper>
     </ReviewsModalFull>
 </template>
@@ -41,7 +41,8 @@ const options = {
     pagination: {
         el: '.swiper-pagination',
         enabled: true,
-        clickable: true
+        clickable: true,
+        dynamicBullets: true
     },
     mousewheel: {
         forceToAxis: true
