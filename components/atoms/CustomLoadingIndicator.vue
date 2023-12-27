@@ -8,7 +8,7 @@
 
 <script lang="ts" setup>
 const props = defineProps({
-    throttle: { type: Number, default: 400 },
+    throttle: { type: Number, default: 300 },
     duration: { type: Number, default: 5000 },
 })
 
