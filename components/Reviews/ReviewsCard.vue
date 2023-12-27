@@ -20,7 +20,6 @@
 <script setup lang="ts">
 import type { Review } from '~/types/fetch/review';
 defineProps<Review & { slug?: string }>()
-const { locale } = useI18n()
 const { generalConfig } = storeToRefs(useGeneralConfigStore())
 
 const pMessage = ref<HTMLElement>()
