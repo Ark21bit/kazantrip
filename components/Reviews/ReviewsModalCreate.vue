@@ -10,7 +10,7 @@
                     <h2 class="text-5.5 lg:text-6.5 text-fblack leading-1.2 font-bold [&>span]:text-primary max-w-[calc(100%-27px)]" v-html="generalConfig?.static_info?.global_words?.send_review"></h2>
                     <p class="text-sm text-second leading-1.4">{{ generalConfig?.static_info?.global_words?.tell_about_impressions_trip }}</p>
                 </div>
-                <div class="grid grid-cols-2 gap-4 lg:gap-4.5">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-4.5">
                     <FormKit name="rating" :value="5" validation="required" size="text-6.5" :label="generalConfig?.static_info?.global_words?.you_mark" type="ratingC" input-class="max-lg:text-sm" outer-class="col-span-full" />
                     <FormKit type="text" disabled :value="productTitle" :validation-label="generalConfig?.static_info?.global_words?.title_excursion" :placeholder="generalConfig?.static_info?.global_words?.title_excursion" input-class="max-lg:text-sm" outer-class="col-span-full" />
                     <FormKit name="email" validation="email|required|length:0,64" :validation-label="generalConfig?.static_info?.global_words?.email_en" :placeholder="generalConfig?.static_info?.global_words?.email_en" type="email" outer-class="col-span-full" input-class="max-lg:text-sm" />
