@@ -12,13 +12,11 @@
             <Rating :rating="review?.rating"></Rating>
         </div>
         <p class="text-fblack text-sm lg:text-base leading-1.4 lg:leading-1.4">{{ review?.message }}</p>
-        <p class="mt-auto text-sm leading-1.4 text-#7B7B7B">{{ $dayjs(review?.created_at).tz('Europe/Moscow').locale(locale).format('L') }}</p>
     </Modal>
 </template>
 
 <script setup lang="ts">
 import type { Review, ReviewsDatum } from '~/types/fetch/review';
-const { locale } = useI18n()
 
 defineOptions({
     inheritAttrs: false,
