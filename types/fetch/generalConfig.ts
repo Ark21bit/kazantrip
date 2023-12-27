@@ -131,6 +131,9 @@ export interface GlobalWords {
     seo_footer_text_1: string;
     seo_footer_text_2: string;
     copyright: string;
+    need_select_min_one_ticket: string
+    no_only_children: string
+    select_date_and_time: string
     select_date: string;
     menu: string;
     more: string;

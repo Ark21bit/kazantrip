@@ -16,13 +16,12 @@
         <div class="flex flex-col lg:flex-row gap-x-4.5 gap-y-5">
             <div class="flex flex-col gap-4.5 lg:gap-3 3xl:gap-5 flex-1">
                 <h4 class="text-base font-semibold text-fblack leading-1.2 font-Montserrat">{{ generalConfig?.static_info?.global_words?.select_type_ticket }}</h4>
-                <FormKit name="tickets" type="list" :validation="`counterGMin:1|counterGMax:${maxCountTickets}`">
+                <FormKit name="tickets" type="list" :validation="`counterGMin:1|children|*counterGMax:${maxCountTickets}`"
+                    :validation-messages="{ children: generalConfig?.static_info?.global_words?.no_only_children, counterGMin: generalConfig?.static_info?.global_words?.need_select_min_one_ticket, counterGMax: generalConfig?.static_info?.global_words?.not_enough_tickets }">
                     <TicketsTable :tickets="prices?.data" :loading="statusPrices === 'pending'"></TicketsTable>
-                    <div v-if="forms?.time && remainingTickets < 10" class="flex gap-1 -mt-2 flex-wrap justify-between text-base leading-1.2 text-fblack">
-                        <h4>
-                            {{ generalConfig?.static_info?.global_words?.tickets_left?.replace("%s", remainingTickets) }}
-                            <span v-if="remainingTickets < 0" class="text-red ">{{ generalConfig?.static_info?.global_words?.not_enough_tickets }}</span>
-                        </h4>
+                    <div>
+                        <p v-if="forms?.time && remainingTickets < 10" class="flex gap-1 -mt-2 flex-wrap justify-between text-base leading-1.2 text-fblack">{{ generalConfig?.static_info?.global_words?.tickets_left?.replace("%s", remainingTickets) }}</p>
+                        <FormKitMessages></FormKitMessages>
                     </div>
                 </FormKit>
             </div>
@@ -79,6 +78,7 @@
     </FormKit>
 </template>
 <script setup>
+import { FormKitMessages } from '@formkit/vue'
 const props = defineProps({
     product: Object
 })
@@ -167,15 +167,15 @@ const remainingTickets = computed(() => Number(maxCountTickets.value) - Number(s
 
 const { options } = usePhoneMaskaOptions()
 
-const { data: prices, error: errorPrices, execute: executePrices, status:statusPrices } = useBaseFetch(() => `products/${selectTimetable.value?.id}/price-timetable`, {
+const { data: prices, error: errorPrices, execute: executePrices, status: statusPrices } = useBaseFetch(() => `products/${selectTimetable.value?.id}/price-timetable`, {
     immediate: false,
     watch: false,
     key: 'products/:timetable/price-timetable'
 })
 
-watch(selectTimetable, async(newValue, oldValue) => {
+watch(selectTimetable, async (newValue, oldValue) => {
     clearNuxtData('products/:timetable/price-timetable')
-    if (newValue === undefined) return 
+    if (newValue === undefined) return
     await executePrices()
 })
 

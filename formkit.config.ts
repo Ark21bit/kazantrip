@@ -8,8 +8,9 @@ import rating from './components/FormKit/Rating.vue'
 import counter from './components/FormKit/Counter.vue'
 import counterGMin from './rules/counterGMin'
 import counterGMax from './rules/counterGMax'
+import children from './rules/children'
 export default {
-    rules: { counterGMin, counterGMax },
+    rules: { counterGMin, counterGMax, children },
     locales: { ru, en },
     locale: 'ru',
     config: {
