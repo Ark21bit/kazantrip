@@ -4,7 +4,7 @@
             <SwiperSlide v-for="review in reviews" class="lg:w-[calc(50%-10px)] mr-5 last:mr-0">
                 <ReviewsCard class="h-full" :slug="review?.product_info?.slug" :name="review?.name" :rating="review?.rating" :created_at="review?.created_at" :message="review?.message" :title="review?.product_info?.lang_info?.title" @open-full-review="openFullReview(review)" />
             </SwiperSlide>
-            <SliderController color="azul" class="absolute max-lg:hidden top-1/2 -translate-y-1/2 w-full z-1" />
+            <SliderController color="azul" class="w-full mt-7.5 max-lg:hidden" />
             <SliderPagination color="gray" class="mt-5" />
         </Swiper>
     </ReviewsModalFull>
