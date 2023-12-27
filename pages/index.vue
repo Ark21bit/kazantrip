@@ -10,7 +10,7 @@
         </div>
     </div>
     <SliderExcursions class="py-5 mt-5 lg:mt-10"></SliderExcursions>
-    <IndexProducts class="mt-15 lg:mt-20" :title="pageInfo?.content?.main_products?.title" :products="pageInfo?.main_products?.data" />
+    <IndexProducts class="lg:mt-20" :title="pageInfo?.content?.main_products?.title" :products="pageInfo?.main_products?.data" />
 
     <Feedback :subTitle="pageInfo?.content?.form_search?.description" :title="pageInfo?.content?.form_search?.title" />
     <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-[repeat(auto-fit,minmax(0,1fr))] gap-5 mt-15 lg:mt-37.5">
