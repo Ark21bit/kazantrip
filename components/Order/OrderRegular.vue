@@ -70,8 +70,8 @@
             </div>
         </div>
         <div class="flex flex-col lg:flex-row gap-3 lg:gap-2 3xl:gap-3 lg:justify-between mt-2.5 lg:mt-0 3xl:mt-1.5">
-            <Button @click="emit('close')" class="w-full lg:w-49" type="button" variant="outline">{{ generalConfig?.static_info?.global_words?.cancel }}</Button>
-            <Button class="w-full lg:w-49">{{ generalConfig?.static_info?.global_words?.reservation }}</Button>
+            <Button @click="emit('close')" class="w-full lg:w-49 max-lg:py-2.5" color="green-faded" type="button" variant="outline">{{ generalConfig?.static_info?.global_words?.cancel }}</Button>
+            <Button class="w-full lg:w-49 max-lg:order-first">{{ generalConfig?.static_info?.global_words?.reservation }}</Button>
         </div>
         <FormKit type="meta" name="title" :value="product?.lang_info?.title"></FormKit>
         <FormKit type="meta" name="type_id" :value="product?.type_id"></FormKit>

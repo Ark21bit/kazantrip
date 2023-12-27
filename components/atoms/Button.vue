@@ -11,7 +11,7 @@
 </template>
 
 <script lang="ts" setup>
-type ButtonColor = 'green' | 'yellow'
+type ButtonColor = 'green' | 'yellow' | 'green-faded'
 type ButtonSize = 'md' | 'sm' | 'lg'
 type ButtonVariant = 'outline' | 'solid' | 'link'
 const props = defineProps({
@@ -46,6 +46,11 @@ const ui = {
             solid: 'bg-primary text-white hover:bg-#21747C disabled:bg-inactive',
             outline: 'bg-transparent ring-1 ring-inactive ring-inset text-fblack hover:(text-primary ring-primary) disabled:(text-inactive ring-bg-inactive)',
             link: 'text-#39919A underline hover:text-#21747C'
+        },
+        "green-faded": {
+            solid: '',
+            outline: 'bg-transparent ring-1 ring-inactive ring-inset text-second hover:(text-primary ring-primary) disabled:(text-inactive ring-bg-inactive)',
+            link: ''
         },
         yellow: {
             solid: 'bg-#F7C03F text-white hover:bg-#d7C63F disabled:bg-inactive',
