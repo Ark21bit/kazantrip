@@ -3,7 +3,9 @@
         <div class="flex bg-#E2F1F2 p-5 lg:p-3 3xl:p-5 gap-3 text-base lg:text-lg font-semibold leading-1.2 lg:leading-1.2 text-fblack border-b border-#EBEBEB  justify-between">
             <div>
                 <p>{{ generalConfig?.static_info?.global_words?.timetable_on }}</p>
-                <p class="text-primary">{{ $dayjs(day).tz('Europe/Moscow').locale(locale).format('dddd DD MMMM') }}</p>
+                <ClientOnly >
+                    <p class="text-primary">{{ $dayjs(day).tz('Europe/Moscow').locale(locale).format('dddd DD MMMM') }}</p>
+                </ClientOnly>
             </div>
             <slot name="calendar"></slot>
         </div>
