@@ -16,7 +16,7 @@
                 <p class="text-lg lg:text-xl leading-1.2 lg:leading-1.2 font-Montserrat font-bold text-fblack [&>span]:text-#FF3D15" v-html="generalConfig?.static_info?.global_words?.yandex_review"></p>
                 <p class="text-sm text-second leading-1.4">{{ generalConfig?.static_info?.global_words?.leave_your_review }}</p>
             </CustomLink>
-            <div class="mt-2.5 rounded-5 bg-#EFEFEF h-106">
+            <div v-if="false" class="mt-2.5 rounded-5 bg-#EFEFEF h-106">
             </div>
         </div>
         <slot></slot>
