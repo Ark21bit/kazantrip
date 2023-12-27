@@ -49,6 +49,10 @@ export interface StaticInfo {
     global_words: GlobalWords;
     bottom_footer: BottomFooter;
     other_links: OtherLinks;
+    agent_info:{
+        title:string;
+        url:string;
+    }
 }
 
 export interface BottomFooter {
