@@ -20,9 +20,9 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-3 3xl:gap-4.5">
                 <FormKit name="client_fio" validation="required:trim|length:3,64" type="text" :validation-label="generalConfig?.static_info?.global_words?.fio" :placeholder="generalConfig?.static_info?.global_words?.fio" />
                 <FormKit name="type_price_id" validation="required:trim" type="selectC" :options="typePrices" :validation-label="generalConfig?.static_info?.global_words?.count_people" :placeholder="generalConfig?.static_info?.global_words?.count_people"></FormKit>
-                <FormKit name="client_telephone" :validation="[['matches', /^[0-9\(\)\-\+\s]+$/], ['required', 'trim']]" v-maska:[options] type="tel" :validation-label="generalConfig?.static_info?.global_words?.telephone" :placeholder="generalConfig?.static_info?.global_words?.telephone" />
+                <FormKit name="client_telephone" :validation="getPhoneValidation()" v-maska:[options] type="tel" :validation-label="generalConfig?.static_info?.global_words?.telephone" :placeholder="generalConfig?.static_info?.global_words?.telephone" />
                 <FormKit name="payment_type_id" validation="required" type="selectC" :options="paymentTypes" :validation-label="generalConfig?.static_info?.global_words?.type_payment" :placeholder="generalConfig?.static_info?.global_words?.type_payment" />
-                <FormKit name="client_email" validation="email|required|length:0,32" type="email" :validation-label="generalConfig?.static_info?.global_words?.email" :placeholder="generalConfig?.static_info?.global_words?.email" />
+                <FormKit name="client_email" validation="email|required|length:0,64" type="email" :validation-label="generalConfig?.static_info?.global_words?.email" :placeholder="generalConfig?.static_info?.global_words?.email" />
                 <div class="flex flex-col gap-4 lg:gap-2 3xl:gap-4 col-span-full">
                     <FormKit :validation-messages="{ accepted: String(generalConfig?.static_info?.global_words?.confirm_excursion_info) }" validation="accepted" type="checkbox" label-class="[&_a]:text-primary [&_a]:hover:text-#21747C">
                         <template #label="{ classes }">

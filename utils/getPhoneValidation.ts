@@ -1,0 +1,1 @@
+export const getPhoneValidation = (): any[] => [['matches', /^[0-9\(\)\-\+\s]+$/], ['required', 'trim'], ['length', 8, 32]]
