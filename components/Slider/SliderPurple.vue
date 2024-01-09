@@ -7,7 +7,7 @@
                     <h3 class="lg:hidden text-5.5 font-bold leading-1.2 font-Montserrat text-fblack [&>span]:text-primary"><span>Индивидуальная</span> экскурсия</h3>
                     <p class="text-sm lg:text-base text-second leading-1.4 lg:leading-1.4 [&>a]:text-primary">Возможна организация экскурсии по индивидуальному запросу в удобное время, с удобным местом начала и окончания. Заявки на бронирование и расчет стоимости принимаются по почте <a
                             href="mailto:ex@kazantrip.ru">ex@kazantrip.ru</a> и по телефону <a href="tel:88002222161">8 800 2222 161</a></p>
-                    <Button @click="openModal" class="w-full lg:w-41 mt-auto" size="sm">{{ generalConfig?.static_info?.global_words?.order }}</Button>
+                    <Button @click="openModal(undefined)" class="w-full lg:w-41 mt-auto" size="sm">{{ generalConfig?.static_info?.global_words?.order }}</Button>
                 </div>
             </SwiperSlide>
             <SwiperSlide class="flex flex-col">
@@ -18,7 +18,7 @@
                             00</a> и электронной почте
                         <a href="mailto:ex@kazantrip.ru">ex@kazantrip.ru</a>
                     </p>
-                    <Button @click="openModal" class="w-full lg:w-41 mt-auto" size="sm">{{ generalConfig?.static_info?.global_words?.order }}</Button>
+                    <Button @click="openModal(undefined)" class="w-full lg:w-41 mt-auto" size="sm">{{ generalConfig?.static_info?.global_words?.order }}</Button>
                 </div>
             </SwiperSlide>
             <SliderPagination color="gray" class="mt-5" />

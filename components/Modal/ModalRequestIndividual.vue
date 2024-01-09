@@ -11,7 +11,7 @@
                     <p class="text-sm leading-1.4 text-second">{{ generalConfig?.static_info?.global_words?.submit_request_private }}</p>
                 </div>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-4.5">
-                    <FormKit name="name_service" validation="required:trim" type="text" :validation-label="generalConfig?.static_info?.global_words?.title_excursion" :placeholder="generalConfig?.static_info?.global_words?.title_excursion" outer-class="col-span-full" />
+                    <FormKit name="name_service" :disabled="Boolean(productName)" validation="required:trim" type="text" :validation-label="generalConfig?.static_info?.global_words?.title_excursion" :placeholder="generalConfig?.static_info?.global_words?.title_excursion" outer-class="col-span-full" />
                     <FormKit name="fio" validation="required:trim|length:3,64" type="text" :validation-label="generalConfig?.static_info?.global_words?.fio" :placeholder="generalConfig?.static_info?.global_words?.fio" outer-class="col-span-full" />
                     <FormKit name="count_people" validation="required:trim|min:1|max:255" type="number" v-maska data-maska="###" :validation-label="generalConfig?.static_info?.global_words?.count_people" :placeholder="generalConfig?.static_info?.global_words?.count_people" outer-class="col-span-full" />
                     <FormKit name="start_at" validation="required" type="datepickerC" :minDate="$dayjs().tz('Europe/Moscow').toDate()" :validation-label="generalConfig?.static_info?.global_words?.product_date" :placeholder="generalConfig?.static_info?.global_words?.product_date" />
@@ -33,12 +33,15 @@
 const { options } = usePhoneMaskaOptions()
 const { closeModal, isModalShow, openModal: openModalInit } = useModal()
 const { generalConfig } = storeToRefs(useGeneralConfigStore())
-const openModal = () => {
+const productName = ref<string>()
+const forms = ref<any>({})
+const openModal = (name?: string) => {
+    forms.value = { name_service: name }
+    productName.value = name
     if (status.value == 'success') clearNuxtData('statements/store-find-service')
     openModalInit()
 }
 
-const forms = ref()
 const { error, execute, status } = await useBaseFetch('statements/store', {
     method: 'POST',
     immediate: false,

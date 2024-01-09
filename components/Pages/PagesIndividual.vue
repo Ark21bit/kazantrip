@@ -4,7 +4,9 @@
     <div class="col-span-full mt-7.5 lg:mt-10 pb-7.5 border-b border-#EBEBEB">
         <PageTextBlock class="wrapper" :title="pageInfo?.lang_info?.title" :text="pageInfo?.lang_info?.text">
             <template #end>
-                <Button @click="openModal" class="max-lg:w-full">{{ generalConfig?.static_info?.global_words?.order }}</Button>
+                <ModalRequestIndividual #default="{ openModal }">
+                    <Button @click="openModal(pageInfo?.lang_info?.title)" class="max-lg:w-full">{{ generalConfig?.static_info?.global_words?.order }}</Button>
+                </ModalRequestIndividual>
             </template>
         </PageTextBlock>
     </div>
@@ -34,9 +36,6 @@
         <h2 class="text-fblack text-5.5 lg:text-7 font-bold leading-1.2 lg:leading-1.2 font-Montserrat">{{ generalConfig?.static_info?.global_words?.similar_excursions }}</h2>
         <SliderRecomendations :data="pageInfo?.info_recommendations?.data" class="mt-5 lg:mt-10" />
     </div>
-    <Modal @close="closeModal" :is-show="isModalShow">
-        <OrderIndividual @close="closeModal" :product="pageInfo"></OrderIndividual>
-    </Modal>
 </template>
 
 <script setup lang="ts">
