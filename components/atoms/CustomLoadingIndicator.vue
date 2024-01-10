@@ -1,7 +1,10 @@
 <template>
     <transition enter-from-class="opacity-0" leave-to-class="opacity-0" leave-active-class="transition-opacity duration-500 ease-out" enter-active-class="transition-opacity duration-500 ease-out">
         <div class="min-h-screen w-full bg-white fixed top-0 left-0 flex items-center justify-center z-99999" v-if="isLoading">
-            <span class="text-7xl text-primary i-eos-icons:loading"></span>
+            <div class="text-9xl text-primary">
+                <span class="i-custom:logo"></span>
+                <span class="animate-preloader w-3 h-3 rounded-full mt-4 mx-auto block"></span>
+            </div>
         </div>
     </transition>
 </template>

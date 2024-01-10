@@ -119,4 +119,23 @@ body.modal-open-mobile {
     .swiper-pagination-bullets-dynamic .swiper-pagination-bullet-active-prev-prev {
       transform: scale(0.40);
     }
+
+    .animate-preloader{
+        animation: preloader 2s linear infinite;
+    }
 }
+
+@keyframes preloader {
+    0%, 100% {
+      box-shadow: 14px 0 0 -2px,  38px 0 0 -2px,  -14px 0 0 -2px,  -38px 0 0 -2px;
+    }
+    20% {
+      box-shadow: 14px 0 0 -2px,  38px 0 0 -2px,  -14px 0 0 -2px,  -38px 0 0 2px;
+    }
+    40% {
+      box-shadow: 14px 0 0 -2px,  38px 0 0 -2px,  -14px 0 0 2px,  -38px 0 0 -2px;
+    }
+    80% {
+      box-shadow: 14px 0 0 2px,  38px 0 0 -2px,  -14px 0 0 -2px,  -38px 0 0 -2px;
+    }
+  }
