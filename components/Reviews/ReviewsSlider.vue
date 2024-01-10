@@ -1,7 +1,7 @@
 <template>
     <ReviewsModalFull #="{ openFullReview }">
         <Swiper class="w-full flex-col flex relative contain-layout overflow-visible" v-bind="options, $attrs">
-            <SwiperSlide v-for="review in reviews" class="lg:w-[calc(50%-10px)] mr-5 last:mr-0">
+            <SwiperSlide v-for="review in reviews" class="mr-5 last:mr-0">
                 <ReviewsCard class="h-full" :slug="review?.product_info?.slug" :name="review?.name" :rating="review?.rating" :created_at="review?.created_at" :message="review?.message" :title="review?.product_info?.lang_info?.title" @open-full-review="openFullReview(review)" />
             </SwiperSlide>
             <SliderController color="azul" class="w-full mt-7.5 max-lg:hidden" />
