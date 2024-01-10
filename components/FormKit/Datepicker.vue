@@ -73,6 +73,10 @@ const options = {
     --dp-highlight-color: rgba(25, 118, 210, 0.1);
 }
 
+.dp__cell_inner:not(.dp__cell_disabled) {
+    border: 1px solid var(--dp-primary-color);
+}
+
 .dp__input {
     padding: 13px 12px 13px 47px;
     border: 0;
@@ -105,10 +109,10 @@ const options = {
     background: transparent;
 }
 
-.dp__btn{
+.dp__btn {
     font-weight: 500;
     line-height: 1.4;
-} 
+}
 
 .dp--year-select {
     color: #39919A;
