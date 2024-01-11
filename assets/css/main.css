@@ -1,5 +1,8 @@
 @import '@unocss/reset/tailwind.css';
 
+html{
+    --at-apply: "scroll-smooth";
+}
 body{
     --at-apply: "font-Onest";
 }

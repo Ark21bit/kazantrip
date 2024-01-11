@@ -49,9 +49,9 @@ export interface StaticInfo {
     global_words: GlobalWords;
     bottom_footer: BottomFooter;
     other_links: OtherLinks;
-    agent_info:{
-        title:string;
-        url:string;
+    agent_info: {
+        title: string;
+        url: string;
     }
 }
 
@@ -291,6 +291,9 @@ export interface GlobalWords {
     date_time_order_select: string;
     team_managers: string;
     team_gid: string;
+    our_history: string;
+    our_employee: string;
+    our_gids: string;
 }
 export interface TimeText {
     short_h: string;
