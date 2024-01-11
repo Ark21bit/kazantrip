@@ -306,6 +306,7 @@ export interface Excursions {
     title: string;
     slug: string;
     children?: Excursions[];
+    title_hidden?: string;
 }
 
 export interface OtherLinks {
