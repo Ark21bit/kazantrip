@@ -31,7 +31,7 @@
     </div>
     <div class="col-span-full h-90 lg:h-125 mt-20 lg:mt-20">
         <yandex-map :settings="{ location: { center: [49.122386, 55.786445], zoom: 15 } }">
-            <YandexMapDefaultSchemeLayer :settings="{ theme: 'dark' }" />
+            <YandexMapDefaultSchemeLayer/>
             <YandexMapDefaultFeaturesLayer />
             <yandex-map-default-marker :settings="{ coordinates: [49.122386, 55.786445] }" />
             <yandex-map-default-marker :settings="{ coordinates: [49.103726, 55.788344] }" />
