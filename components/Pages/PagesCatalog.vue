@@ -5,9 +5,9 @@
         <CatalogContainer :type="type" class="wrapper" :timetable="true">
             <ModalRequestIndividual #default="{ openModal }">
                 <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-x-5 gap-y-5 lg:gap-y-7.5 h-fit max-lg:(pb-7.5 border-b border-#EBEBEB)">
-                    <CardCatalog v-for="card in type === 'timetable' ? pageInfo : pageInfo?.info_products?.data" @order="card?.type_id === 12 ? openModal(card?.lang_info?.title) : openOrder(card?.slug)" :key="card?.id" :type_id="card?.type_id" :img="card?.media_preview" :slug="card?.slug"
-                        :title="card?.lang_info?.title" :duration="card?.duration_event_text" :price="card?.price_see" :description="card?.lang_info?.description" :reviews-count="card.reviews_count" :is-sale="card?.is_sale" :category_id="card?.category_id" :is-radio-gid="card?.is_radio_gid"
-                        :price-old="card?.price_see_old" :rating="card?.rating" />
+                    <CardCatalog v-for="card in type === 'timetable' ? pageInfo : pageInfo?.info_products?.data" :nameplates="[card?.lang_info?.visible_text]?.filter(a => a !== undefined)" @order="card?.type_id === 12 ? openModal(card?.lang_info?.title) : openOrder(card?.slug)" :key="card?.id"
+                        :type_id="card?.type_id" :img="card?.media_preview" :slug="card?.slug" :title="card?.lang_info?.title" :duration="card?.duration_event_text" :price="card?.price_see" :description="card?.lang_info?.description" :reviews-count="card.reviews_count" :is-sale="card?.is_sale"
+                        :category_id="card?.category_id" :is-radio-gid="card?.is_radio_gid" :price-old="card?.price_see_old" :rating="card?.rating" />
                 </div>
             </ModalRequestIndividual>
         </CatalogContainer>
