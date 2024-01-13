@@ -3,6 +3,7 @@
         <NuxtLink class="hover:text-primary duration-500 transition-colors ease-linear" to="#history">{{ generalConfig?.static_info?.global_words?.our_history }}</NuxtLink>
         <NuxtLink class="hover:text-primary duration-500 transition-colors ease-linear" to="#employee">{{ generalConfig?.static_info?.global_words?.our_employee }}</NuxtLink>
         <NuxtLink class="hover:text-primary duration-500 transition-colors ease-linear" to="#gids">{{ generalConfig?.static_info?.global_words?.our_gids }}</NuxtLink>
+        <CustomLink class="hover:text-primary duration-500 transition-colors ease-linear" to="/contact">{{ generalConfig?.static_info?.global_words?.contact }}</CustomLink>
     </div>
     <p class="mt-5 lg:mt-7.5 font-semibold leading-1.4 text-base lg:text-xl max-w-211.75 text-fblack [&>span]:text-primary">{{ pageInfo?.content?.text_1 }}</p>
     <AboutHistory id="history" :data="pageInfo?.history_year" />
