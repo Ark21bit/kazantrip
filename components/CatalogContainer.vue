@@ -1,22 +1,23 @@
 <template>
     <div v-bind="$attrs" class="flex flex-col lg:flex-row gap-y-7.5 gap-x-5">
-        <div class="flex flex-col gap-5 lg:w-75.75 shrink-0 max-lg:order-1">
-            <CardTimetable v-if="timitableVisible" :info="type === 'timetable' ? timetableData : generalConfig?.timetable?.today" :day="day" class="max-lg:hidden">
-                <template #calendar>
-                    <CalendarForm v-model="date" />
-                </template>
-            </CardTimetable>
-            <div class="flex flex-col gap-5 p-5 rounded-5 border border-#F6F6F6">
-                <p class="text-lg lg:text-xl leading-1.2 lg:leading-1.2 font-Montserrat font-bold text-fblack [&>span]:text-primary" v-html="generalConfig?.static_info?.global_words?.send_request_to_indiv_excursion"></p>
-                <ModalRequestIndividual #="{ openModal }">
-                    <Button @click="openModal(undefined)" size="sm" class="w-41">{{ generalConfig?.static_info?.global_words?.pick_up }}</Button>
-                </ModalRequestIndividual>
-            </div>
-            <CustomLink to="https://yandex.ru/profile/1020776306" target="_blank" class="hidden lg:flex flex-col gap-2 p-5 rounded-5 border border-#F6F6F6">
-                <p class="text-lg lg:text-xl leading-1.2 lg:leading-1.2 font-Montserrat font-bold text-fblack [&>span]:text-#FF3D15" v-html="generalConfig?.static_info?.global_words?.yandex_review"></p>
-                <p class="text-sm text-second leading-1.4">{{ generalConfig?.static_info?.global_words?.leave_your_review }}</p>
-            </CustomLink>
-            <div v-if="false" class="mt-2.5 rounded-5 bg-#EFEFEF h-106">
+        <div class="flex flex-col gap-5 lg:w-75.75 shrink-0 max-lg:order-1 relative">
+            <div class="sticky top-5">
+                <CardTimetable v-if="timitableVisible" :info="type === 'timetable' ? timetableData : generalConfig?.timetable?.today" :day="day" class="max-lg:hidden">
+                    <template #calendar>
+                        <CalendarForm v-model="date" />
+                    </template>
+                </CardTimetable>
+                <div class="flex flex-col gap-5 p-5 rounded-5 border border-#F6F6F6">
+                    <p class="text-lg lg:text-xl leading-1.2 lg:leading-1.2 font-Montserrat font-bold text-fblack [&>span]:text-primary" v-html="generalConfig?.static_info?.global_words?.send_request_to_indiv_excursion"></p>
+                    <ModalRequestIndividual #="{ openModal }">
+                        <Button @click="openModal(undefined)" size="sm" class="w-41">{{ generalConfig?.static_info?.global_words?.pick_up }}</Button>
+                    </ModalRequestIndividual>
+                </div>
+                <CustomLink to="https://yandex.ru/profile/1020776306" target="_blank" class="hidden lg:flex flex-col gap-2 p-5 rounded-5 border border-#F6F6F6">
+                    <p class="text-lg lg:text-xl leading-1.2 lg:leading-1.2 font-Montserrat font-bold text-fblack [&>span]:text-#FF3D15" v-html="generalConfig?.static_info?.global_words?.yandex_review"></p>
+                    <p class="text-sm text-second leading-1.4">{{ generalConfig?.static_info?.global_words?.leave_your_review }}</p>
+                </CustomLink>
+                <div v-if="false" class="mt-2.5 rounded-5 bg-#EFEFEF h-106"></div>
             </div>
         </div>
         <slot></slot>
