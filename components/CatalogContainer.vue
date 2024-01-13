@@ -1,7 +1,7 @@
 <template>
     <div v-bind="$attrs" class="flex flex-col lg:flex-row gap-y-7.5 gap-x-5">
-        <div class="flex flex-col gap-5 lg:w-75.75 shrink-0 max-lg:order-1 relative">
-            <div class="sticky top-5">
+        <div class="lg:w-75.75 shrink-0 max-lg:order-1 relative">
+            <div class="sticky top-5 flex flex-col gap-5">
                 <CardTimetable v-if="timitableVisible" :info="type === 'timetable' ? timetableData : generalConfig?.timetable?.today" :day="day" class="max-lg:hidden">
                     <template #calendar>
                         <CalendarForm v-model="date" />
