@@ -4,6 +4,7 @@ export default function useClamp(clampNode: Ref<HTMLElement | undefined>) {
     const clampButtonVisible = ref(false)
 
     const getClampButtonVisible = () => {
+        if (!isClamp.value) return clampButtonVisible.value = true
         if (clampNode.value === undefined) return clampButtonVisible.value = false
         if (clampNode.value.scrollHeight > clampNode.value.clientHeight) return clampButtonVisible.value = true
         return clampButtonVisible.value = false
