@@ -3,7 +3,7 @@
         <div class="flex bg-#E2F1F2 p-5 lg:p-3 3xl:p-5 gap-3 text-base lg:text-lg font-semibold leading-1.2 lg:leading-1.2 text-fblack border-b border-#EBEBEB  justify-between">
             <div>
                 <p>{{ generalConfig?.static_info?.global_words?.timetable_on }}</p>
-                <ClientOnly >
+                <ClientOnly>
                     <p class="text-primary">{{ $dayjs(day).tz('Europe/Moscow').locale(locale).format('dddd DD MMMM') }}</p>
                 </ClientOnly>
             </div>
@@ -22,7 +22,7 @@
             </div>
         </div>
         <div v-if="Number(info?.length) > 3" class="mt-auto flex py-5 lg:py-3 3xl:py-5 border-t border-#EBEBEB">
-            <Button @click="toggle" variant="link" size="lg" padded class="mx-auto">{{ isShort ? generalConfig?.static_info?.global_words?.more_excursions : generalConfig?.static_info?.global_words?.hide_more_details }}</Button>
+            <Button @click="toggle" variant="link" size="lg" padded class="mx-auto">{{ isShort ? generalConfig?.static_info?.global_words?.more_excursions : generalConfig?.static_info?.global_words?.hide }}</Button>
         </div>
     </div>
 </template>

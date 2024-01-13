@@ -4,7 +4,7 @@
             <SwiperSlide v-for="item in generalConfig?.structure" class="w-fit">
                 <Bage class="[&.router-link-active]:(bg-primary text-white)" :tag="CustomLink" :to="item?.slug" link>{{ item?.title }}</Bage>
             </SwiperSlide>
-            <Button class="w-fit lg:hidden mt-5" size="lg" @click="toggle" padded variant="link">{{ isShort ? generalConfig?.static_info?.global_words?.more : generalConfig?.static_info?.global_words?.hide_more_details }}</Button>
+            <Button class="w-fit lg:hidden mt-5" size="lg" @click="toggle" padded variant="link">{{ isShort ? generalConfig?.static_info?.global_words?.more : generalConfig?.static_info?.global_words?.hide }}</Button>
         </Swiper>
         <div class="flex gap-3 justify-between lg:absolute left-1/2 pointer-events-none lg:top-1/2 lg:-translate-1/2 w-full z-1 max-lg:hidden">
             <div class="max-lg:hidden absolute left-0 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none w-37.5 h-19 [background:linear-gradient(89deg,#FFF_57.43%,rgba(255,255,255,0)_95.33%)]"></div>
