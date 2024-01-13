@@ -5,7 +5,9 @@
             <div class="text-fblack sm:max-lg:flex-1">
                 <h2 class="text-lg font-semibold leading-1.2">{{ generalConfig?.static_info?.global_words?.addresses }}</h2>
                 <ul class="mt-2 flex flex-col gap-3 text-sm font-medium leading-1.4">
-                    <li v-for="item in generalConfig?.static_info?.contact?.departure_points" class="flex gap-3">{{ `${item?.title} \n${item?.phone} ` }}</li>
+                    <li v-for="item in generalConfig?.static_info?.contact?.departure_points">
+                        <CustomLink :to="item?.url" target="_blank" class="hover:text-primary transition-colors duration-500 ease-linear">{{ `${item?.title} \n${item?.phone} ` }}</CustomLink>
+                    </li>
                 </ul>
                 <!-- <p class="mt-2 text-sm leading-1.2 max-w-[284px]">{{ generalConfig?.static_info?.contact?.addresses?.main }}</p> -->
             </div>
