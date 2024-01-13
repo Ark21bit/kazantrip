@@ -81,6 +81,7 @@ export interface Contact {
 export interface departure_pointsData {
     url: string;
     title: string;
+    phone: string;
 }
 
 export interface OfficeInfo {
