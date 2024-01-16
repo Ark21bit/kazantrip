@@ -126,6 +126,10 @@ body.modal-open-mobile {
     .animate-preloader{
         animation: preloader 2s linear infinite;
     }
+    .animation-waves{
+        animation: waves 10s linear infinite;
+      }
+    
 }
 
 @keyframes preloader {
@@ -144,4 +148,14 @@ body.modal-open-mobile {
     80% {
         box-shadow: 14px 0 0 -2px,  38px 0 0 2px,  -14px 0 0 -2px,  -38px 0 0 -2px;
       }
+  }
+
+  
+@keyframes waves {
+    0% {
+     transform: translateX(0);
+    }
+    100%{
+        transform: translateX(100%);
+    }
   }
