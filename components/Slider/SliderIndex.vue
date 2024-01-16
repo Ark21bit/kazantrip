@@ -1,8 +1,9 @@
 <template>
     <Swiper class="w-full h-136 lg:h-205.5 flex" v-bind="options">
         <SwiperSlide class="w-full h-full shrink-0 relative flex items-center" v-for="slide in slides">
-            <div class="absolute inset-0">
-                <img src="/sliderBg2.svg" class="w-full h-full object-cover object-bottom" alt="">
+            <div class="flex justify-end absolute w-full h-full top-0 left-0 contain-paint">
+                <div class="shrink-0 w-full h-full animation-waves bg-[url(/imgs/swiper-index-bg-mobile.svg)] lg:bg-[url(/imgs/swiper-index-bg.svg)] bg-[length:100%_auto] [background-position-y:bottom]"></div>
+                <div class="shrink-0 w-full h-full animation-waves bg-[url(/imgs/swiper-index-bg-mobile.svg)] lg:bg-[url(/imgs/swiper-index-bg.svg)] bg-[length:100%_auto] [background-position-y:bottom]"></div>
             </div>
             <div class="absolute inset-0 index__slider-img-container">
                 <div class="absolute top-0 left-0 w-full h-full bg-black/50"></div>
