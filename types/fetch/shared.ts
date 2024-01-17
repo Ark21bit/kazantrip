@@ -53,6 +53,7 @@ export type InfoPrices = StatusAndData<InfoPricesDatum[]>
 export interface InfoPricesDatum {
     type_ticket_id: number;
     price: number;
+    ticket_sort: number;
 }
 
 export interface LangInfo {

@@ -106,7 +106,7 @@
     <div class="mt-10 lg:mt-17.5">
         <h2 class="text-fblack text-5.5 lg:text-7 font-bold leading-1.2 lg:leading-1.2 font-Montserrat">{{ generalConfig?.static_info?.global_words?.all_price }}</h2>
         <div class="grid relative grid-cols-[repeat(auto-fit,minmax(122px,1fr))] mt-5 lg:mt-7.5 p-3.75 py-5 lg:px-5 lg:py-6 gap-y-5 gap-4 lg:gap-5 bg-#E2F1F2 rounded-5">
-            <div @click="openModal" v-for="ticket in pageInfo?.info_prices?.data" class="flex flex-col gap-1.5 lg:gap-2 p-4 lg:p-5 rounded-5 ring-(1 inset #F6F6F6) font-semibold bg-white cursor-pointer">
+            <div @click="openModal" v-for="ticket in sortTickets" class="flex flex-col gap-1.5 lg:gap-2 p-4 lg:p-5 rounded-5 ring-(1 inset #F6F6F6) font-semibold bg-white cursor-pointer">
                 <p class="text-fblack text-sm lg:text-base leading-1.4 lg:leading-1.4">{{ getTitleTypeTicket(ticket?.type_ticket_id) }}</p>
                 <p class="text-primary text-2xl lg:text-8 leading-1.25 lg:leading-1.25 flex flex-col lg:flex-row gap-x-1.5 mt-auto">{{ ticket?.price }}₽</p>
             </div>
@@ -159,4 +159,10 @@ const nearestDate = computed(() => {
 const { closeModal, isModalShow, openModal } = useModal()
 
 const PlacesStart = computed(() => props.pageInfo?.start_place_types?.map(a => getPlacesStart(a)))
+
+const sortTickets = computed(() => {
+    const array = [...props.pageInfo?.info_prices?.data ?? []]
+    return array?.sort((a, b) => Number(generalConfig.value?.static_info?.ticket_sort?.indexOf(a?.type_ticket_id)) - Number(generalConfig.value?.static_info?.ticket_sort?.indexOf(b?.type_ticket_id)))
+})
+
 </script>

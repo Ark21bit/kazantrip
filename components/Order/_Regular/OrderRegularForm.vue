@@ -18,7 +18,7 @@
                 <h4 class="text-base font-semibold text-fblack leading-1.2 font-Montserrat">{{ generalConfig?.static_info?.global_words?.select_type_ticket }}</h4>
                 <FormKit name="tickets" type="list" :validation="`counterGMin:1|children|*counterGMax:${maxCountTickets}`"
                     :validation-messages="{ children: generalConfig?.static_info?.global_words?.no_only_children, counterGMin: generalConfig?.static_info?.global_words?.need_select_min_one_ticket, counterGMax: generalConfig?.static_info?.global_words?.not_enough_tickets }">
-                    <TicketsTable :tickets="prices?.data" :loading="statusPrices === 'pending'"></TicketsTable>
+                    <TicketsTable :tickets="sortPrices" :loading="statusPrices === 'pending'"></TicketsTable>
                     <div>
                         <p v-if="forms?.time && remainingTickets < 10" class="flex gap-1 -mt-2 flex-wrap justify-between text-base leading-1.2 text-fblack">{{ generalConfig?.static_info?.global_words?.tickets_left?.replace("%s", remainingTickets) }}</p>
                         <FormKitMessages></FormKitMessages>
@@ -171,6 +171,11 @@ const { data: prices, error: errorPrices, execute: executePrices, status: status
     immediate: false,
     watch: false,
     key: 'products/:timetable/price-timetable'
+})
+
+const sortPrices = computed(() => {
+    const array = [...prices.value?.data ?? []]
+    return array?.sort((a, b) => generalConfig.value?.static_info?.ticket_sort?.indexOf(a?.type_ticket_id) - generalConfig.value?.static_info?.ticket_sort?.indexOf(b?.type_ticket_id))
 })
 
 watch(selectTimetable, async (newValue, oldValue) => {
