@@ -125,7 +125,7 @@ export interface MainProductsDatum {
     is_auto_access: boolean;
     payment_types: number[];
     start_place_types: number[] | null;
-    duration_event:  string;
+    duration_event: string;
     duration_event_text: string;
     price_see: number;
     price_see_old: number;
@@ -171,6 +171,7 @@ export interface SliderIndex {
 export interface SliderIndexDatum {
     target_url: string;
     is_sales: boolean;
-    lang_info: MainIsExclusiveLangInfo;
+    is_see_button: boolean;
+    lang_info: MainIsExclusiveLangInfo & { title_short: string };
     media_preview: string;
 }

@@ -1,7 +1,7 @@
 <template>
     <Swiper class="w-full h-136 lg:h-205.5 flex" v-bind="options">
         <SwiperSlide class="w-full h-full shrink-0 relative flex items-center" v-for="slide in slides">
-            <div class="flex justify-end absolute w-full h-full top-0 left-0 contain-paint">
+            <div class="flex justify-end absolute w-full h-full top-0 left-0 overflow-hidden">
                 <div class="shrink-0 w-full h-full animation-waves bg-[url(/imgs/swiper-index-bg-mobile.svg)] lg:bg-[url(/imgs/swiper-index-bg.svg)] bg-[length:100%_auto] [background-position-y:bottom]"></div>
                 <div class="shrink-0 w-full h-full animation-waves bg-[url(/imgs/swiper-index-bg-mobile.svg)] lg:bg-[url(/imgs/swiper-index-bg.svg)] bg-[length:100%_auto] [background-position-y:bottom]"></div>
             </div>
@@ -12,7 +12,7 @@
             <div class="flex flex-col items-center gap-4 lg:gap-5 text-white z-1 wrapper">
                 <h2 class="font-Montserrat text-6.5 lg:text-10.5 leading-1.2 lg:leading-1.2 font-bold text-center lg:w-[calc(100%-6.25rem)] lg:max-w-266">{{ slide?.lang_info?.title }}</h2>
                 <p class="text-sm lg:text-lg leading-1.4 lg:leading-1.4 text-center max-w-211.5">{{ slide?.lang_info?.description }}</p>
-                <Button v-if="slide?.target_url" :tag="CustomLink" :to="slide?.target_url" class="mt-2 lg:mt-1 max-md:w-full">{{ generalConfig?.static_info?.global_words?.find_out_more }}</Button>
+                <Button v-if="slide?.is_see_button" :tag="CustomLink" :to="slide?.target_url" class="mt-2 lg:mt-1 max-md:w-full">{{ slide?.lang_info?.title_short ?? generalConfig?.static_info?.global_words?.find_out_more }}</Button>
             </div>
         </SwiperSlide>
         <div class="absolute max-lg:bottom-16 lg:top-1/2 lg:-translate-y-1/2 w-full z-1">
