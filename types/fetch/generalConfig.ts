@@ -52,7 +52,8 @@ export interface StaticInfo {
     agent_info: {
         title: string;
         url: string;
-    }
+    },
+    ticket_sort: number[]
 }
 
 export interface BottomFooter {
