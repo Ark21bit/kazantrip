@@ -21,8 +21,9 @@
                             }">
                                 <YandexMapDefaultSchemeLayer :settings="{ theme: 'dark' }" />
                                 <YandexMapDefaultFeaturesLayer />
-                                <yandex-map-default-marker :settings="{ coordinates: [49.122386, 55.786445] }">
-                                </yandex-map-default-marker>
+                                <yandex-map-default-marker :settings="{ coordinates: [49.122386, 55.786445] }" />
+                                <yandex-map-default-marker :settings="{ coordinates: [49.103726, 55.788344] }" />
+                                <yandex-map-default-marker :settings="{ coordinates: [49.130027, 55.815289] }" />
                             </yandex-map>
                         </div>
                         <CustomLink class="text-base font-semibold leading-1.2 text-white hover:text-primary transition-colors duration-500 ease-linear block mt-3" target="_blank" :to="generalConfig?.static_info?.agent_info?.url">{{ generalConfig?.static_info?.agent_info?.title }}</CustomLink>
