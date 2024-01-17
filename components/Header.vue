@@ -2,7 +2,7 @@
     <header class="grid-container py-1.5 lg:py-3.75 z-20 max-lg:bg-white" :class="[absolute ? 'absolute w-full z-10' : 'relative border-b border-#EBEBEB', dark ? 'text-fblack lg:text-white' : 'text-fblack']">
         <div class="flex gap-2.5 lg:gap-10 justify-between items-center">
             <CustomLink to="/" class="shrink-0">
-                <span class="w-17 lg:w-18 h-13 lg:h-14" :class="dark ? 'i-custom:logo-white?bg' : 'i-custom:logo-black?bg'" />
+                <span class="w-17 lg:w-18 h-13 lg:h-14 max-lg:i-custom:logo-black?bg" :class="dark ? 'i-custom:logo-white?bg' : 'i-custom:logo-black?bg'" />
             </CustomLink>
             <Nav :dark="dark" class="grow max-lg:hidden" />
             <DropdownHover :dark="dark" class="max-lg:hidden">
