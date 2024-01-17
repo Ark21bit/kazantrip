@@ -2,7 +2,7 @@
     <component :is="tag" class="flex flex-col rounded-5 overflow-hidden shadow-base relative">
         <div class="relative h-62.5">
             <div class="h-full [&>img]:(w-full h-full object-cover object-center)" v-html="img ?? getDefaultImg()"></div>
-            <div class="flex gap-2 flex-wrap absolute top-5 lg:top-4 left-5 lg:left-4">
+            <div class="flex gap-2 flex-wrap absolute top-5 lg:top-4 inset-x-5 lg:inset-x-4">
                 <div v-if="isSale" class="bg-#DC3333 px-3 lg:px-4 py-1.5 lg:py-2.25 rounded-full font-medium leading-1.2 lg:leading-1.2 text-sm lg:text-base text-white">{{ generalConfig?.static_info?.global_words?.sale_text }}</div>
                 <div v-for="item in nameplates" class="bg-#DC3333 px-3 lg:px-4 py-1.5 lg:py-2.25 rounded-full font-medium leading-1.2 lg:leading-1.2 text-sm lg:text-base text-white">{{ item }}</div>
             </div>
