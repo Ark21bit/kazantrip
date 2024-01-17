@@ -44,7 +44,12 @@
                                     <NuxtLink :to="phoneLinkReplace(firstPhone)" class="text-white hover:text-primary transition-colors duration-500 ease-linear">{{ firstPhone }}</NuxtLink>
                                 </p>
                                 <ul class="mt-3 flex flex-col gap-3 text-3.25 font-medium leading-1.4">
-                                    <li v-for="item in generalConfig?.static_info?.contact?.office_info" class="flex gap-3 before:(bg-#39919A w-2.5 h-2.5 content-empty rounded-full mt-.7em -translate-y-1/2)">{{ `${item?.address} \n${item?.telephone} ` }}</li>
+                                    <li v-for="item in generalConfig?.static_info?.contact?.office_info" class="flex gap-3 before:(bg-#39919A w-2.5 h-2.5 content-empty rounded-full mt-.7em -translate-y-1/2)">
+                                        <span>
+                                            {{ `${item?.address}` }}
+                                            <NuxtLink :to="phoneLinkReplace(item?.telephone)" class="hover:text-primary transition-colors duration-500 ease-linear">{{ `\n${item?.telephone}` }}</NuxtLink>
+                                        </span>
+                                    </li>
                                 </ul>
                             </div>
                             <div class="text-white max-lg:(pb-5 border-b border-#303030)">
