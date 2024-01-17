@@ -5,7 +5,7 @@
         <NuxtLink class="hover:text-primary duration-500 transition-colors ease-linear" to="#gids">{{ generalConfig?.static_info?.global_words?.our_gids }}</NuxtLink>
         <CustomLink class="hover:text-primary duration-500 transition-colors ease-linear" to="/contact">{{ generalConfig?.static_info?.global_words?.contact }}</CustomLink>
     </div>
-    <p class="mt-5 lg:mt-7.5 font-semibold leading-1.4 text-base lg:text-xl text-fblack [&>span]:text-primary" v-html="pageInfo?.content?.text_1"></p>
+    <p class="mt-5 lg:mt-7.5 leading-1.4 text-base lg:text-xl text-fblack" v-html="pageInfo?.content?.text_1"></p>
     <AboutHistory id="history" :data="pageInfo?.history_year" />
     <div class="flex flex-col gap-20 mt-20 lg:mt-37.5">
         <div id="employee">

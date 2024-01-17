@@ -51,6 +51,7 @@ export default defineConfig({
     blocklist: [
         'container'
     ],
+    safelist:['font-semibold'],
     transformers: [
         transformerDirectives(),
         transformerVariantGroup()
