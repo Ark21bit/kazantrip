@@ -8,16 +8,25 @@
                         <span class="i-custom:close"></span>
                     </slot>
                 </button>
-                <div v-bind="$attrs" :class="modalClass">
-                    <slot name="image"></slot>
-                </div>
+                <Swiper v-bind="$attrs" :modules="[Navigation, Mousewheel]" :navigation="{ nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }" :class="modalClass" :mousewheel="{ forceToAxis: true }" :initialSlide="initialSlide">
+                    <SwiperSlide v-for="image in images">
+                        <slot name="image" :image="image">
+                            <img :src="image" alt="">                            
+                        </slot>
+                    </SwiperSlide>
+                    <div class="absolute top-1/2 -translate-y-1/2 w-full h-fit z-1 pointer-events-none">
+                        <SliderController size="text-5xl" color="transparent-light" class="pointer-events-auto" />
+                    </div>
+                </Swiper>
             </div>
         </Transition>
     </Teleport>
-    <slot :openModal="openModal"></slot>
+    <slot :openModal="openModal"></slot>    
 </template>
 
 <script lang="ts" setup>
+import { Swiper, SwiperSlide } from 'swiper/vue';
+import { Navigation, Mousewheel } from 'swiper/modules';
 defineOptions({
     inheritAttrs: false,
 })
@@ -30,6 +39,8 @@ const props = defineProps({
     overlayClass: String,
     wrapperClass: String,
     closeClass: { type: String },
+    images: Array as PropType<any[]>,
+    initialSlide: Number
 })
 
 const modalOverlayClass = computed(() => {

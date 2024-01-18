@@ -1,5 +1,5 @@
 <template>
-    <ImageFull>
+    <ImageFullSlider :images="imgs" :initialSlide="initialSlide">
         <template #default="{ openModal }">
             <Swiper class="w-full flex overflow-hidden relative" v-bind="options, $attrs">
                 <SwiperSlide class="w-full h-full shrink-0" v-for="(img, i) in imgs">
@@ -11,17 +11,10 @@
                 </div>
             </Swiper>
         </template>
-        <template #image>
-            <Swiper :modules="[Navigation, Mousewheel]" :navigation="{ nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }" :mousewheel="{ forceToAxis: true }" :initialSlide="initialSlide" class="w-full h-full">
-                <SwiperSlide v-for="img in imgs">
-                    <div v-html="img?.html" class="w-full h-full [&>img]:(w-full h-full object-contain)"></div>
-                </SwiperSlide>
-                <div class="absolute top-1/2 -translate-y-1/2 w-full h-fit z-1 pointer-events-none">
-                    <SliderController size="text-5xl" color="transparent-light" class="pointer-events-auto" />
-                </div>
-            </Swiper>
+        <template #image="{ image }">
+            <div v-html="image?.html" class="w-full h-full [&>img]:(w-full h-full object-contain)"></div>
         </template>
-    </ImageFull>
+    </ImageFullSlider>
 </template>
 
 <script setup lang="ts">
