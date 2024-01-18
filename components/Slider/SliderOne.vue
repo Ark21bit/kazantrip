@@ -1,13 +1,27 @@
 <template>
-    <Swiper class="w-full flex overflow-hidden relative" v-bind="options">
-        <SwiperSlide class="w-full h-full shrink-0" v-for="img in imgs">
-            <div v-html="img?.html" class="w-full h-full [&>img]:(w-full h-full object-cover object-center)"></div>
-        </SwiperSlide>
-        <div class="absolute bottom-7.5 lg:top-1/2 lg:-translate-y-1/2 w-full h-fit z-1">
-            <SliderController class="wrapper max-lg:hidden" />
-            <SliderPagination />
-        </div>
-    </Swiper>
+    <ImageFull>
+        <template #default="{ openModal }">
+            <Swiper class="w-full flex overflow-hidden relative" v-bind="options, $attrs">
+                <SwiperSlide class="w-full h-full shrink-0" v-for="(img, i) in imgs">
+                    <div @click="openModal(), initialSlide = i" v-html="img?.html" class="w-full h-full cursor-pointer [&>img]:(w-full h-full object-cover object-center)"></div>
+                </SwiperSlide>
+                <div class="absolute bottom-7.5 lg:top-1/2 lg:-translate-y-1/2 w-full h-fit z-1 pointer-events-none">
+                    <SliderController class="wrapper max-lg:hidden pointer-events-auto" />
+                    <SliderPagination />
+                </div>
+            </Swiper>
+        </template>
+        <template #image>
+            <Swiper :modules="[Navigation, Mousewheel]" :navigation="{ nextEl: '.swiper-button-next', prevEl: '.swiper-button-prev' }" :mousewheel="{ forceToAxis: true }" :initialSlide="initialSlide" class="w-full h-full">
+                <SwiperSlide v-for="img in imgs">
+                    <div v-html="img?.html" class="w-full h-full [&>img]:(w-full h-full object-contain)"></div>
+                </SwiperSlide>
+                <div class="absolute top-1/2 -translate-y-1/2 w-full h-fit z-1 pointer-events-none">
+                    <SliderController size="text-5xl" color="transparent-light" class="pointer-events-auto" />
+                </div>
+            </Swiper>
+        </template>
+    </ImageFull>
 </template>
 
 <script setup lang="ts">
@@ -16,6 +30,10 @@ import { Navigation, Pagination, Mousewheel } from 'swiper/modules';
 import type { MediaGalleryData } from '~/types/fetch/shared';
 defineProps({
     imgs: Array as PropType<MediaGalleryData[]>
+})
+
+defineOptions({
+    inheritAttrs: false
 })
 
 const options = {
@@ -43,4 +61,6 @@ const options = {
         }
     },
 }
+
+const initialSlide = ref(0)
 </script>

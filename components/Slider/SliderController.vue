@@ -1,7 +1,7 @@
 <template>
-    <div class="flex gap-3 justify-between pointer-events-none">        
-        <SliderButton :color="color" class="swiper-button-prev"></SliderButton>
-        <SliderButton :color="color" class="swiper-button-next rotate-180"></SliderButton>
+    <div class="flex gap-3 justify-between pointer-events-none">
+        <SliderButton :size="size" :color="color" class="swiper-button-prev"></SliderButton>
+        <SliderButton :size="size" :color="color" class="swiper-button-next rotate-180"></SliderButton>
     </div>
 </template>
 
@@ -9,6 +9,7 @@
 import type { SliderButtonColors } from './SliderButton.vue';
 
 defineProps({
-    color: String as PropType<SliderButtonColors>
+    color: String as PropType<SliderButtonColors>,
+    size: String
 })
 </script>
