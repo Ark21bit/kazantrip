@@ -93,8 +93,8 @@
             </div>
         </div>
     </div>
-    <div class="relative mt-10 lg:mt-25 col-span-full pt-23.5 lg:pt-26 pb-20 lg:pb-33.75">
-        <div class="flex justify-end absolute w-full h-full top-0 left-0 contain-paint">
+    <div class="relative mt-10 lg:mt-25 col-span-full pt-23.5 lg:pt-26 pb-20 lg:pb-33.75 overflow-hidden">
+        <div class="flex justify-end absolute w-full h-full top-0 left-0">
             <div class="shrink-0 w-full h-full animation-waves bg-[url(/imgs/trailMBg.svg)] lg:bg-[url(/imgs/trailBg.svg)] bg-[length:100%_100%]"></div>
             <div class="shrink-0 w-full h-full animation-waves bg-[url(/imgs/trailMBg.svg)] lg:bg-[url(/imgs/trailBg.svg)] bg-[length:100%_100%]"></div>
         </div>
