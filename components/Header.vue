@@ -5,7 +5,7 @@
                 <span class="w-17 lg:w-18 h-13 lg:h-14 max-lg:i-custom:logo-black?bg" :class="dark ? 'i-custom:logo-white?bg' : 'i-custom:logo-black?bg'" />
             </CustomLink>
             <Nav :dark="dark" class="grow max-lg:hidden" />
-            <DropdownHover :dark="dark" class="max-lg:hidden">
+            <DropdownHover v-if="false" :dark="dark" class="max-lg:hidden">
                 <template #title="{}">
                     <span class="uppercase">{{ generalConfig?.locales?.[locale as 'ru' | 'en'].slice(0, 2) }}</span>
                 </template>
