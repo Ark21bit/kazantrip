@@ -11,7 +11,7 @@
             <p>{{ generalConfig?.static_info?.global_words?.total }}</p>
             <p class="text-primary">{{ selectPrice ?? '-' }}₽</p>
         </div>
-        <FormKit :disabled="paymentTypes?.length == 0" name="payment_type_id" validation="required" type="selectC" :options="paymentTypes" :validation-label="generalConfig?.static_info?.global_words?.type_payment" :placeholder="generalConfig?.static_info?.global_words?.type_payment" />
+        <FormKit name="payment_type_id" validation="required" type="selectC" :options="paymentTypes" :validation-label="generalConfig?.static_info?.global_words?.type_payment" :placeholder="generalConfig?.static_info?.global_words?.type_payment" />
         <div class="flex flex-col gap-4">
             <FormKit :validation-messages="{ accepted: String(generalConfig?.static_info?.global_words?.confirm_excursion_info) }" validation="accepted" type="checkbox" label-class="[&_a]:text-primary [&_a]:hover:text-#21747C">
                 <template #label="{ classes }">
@@ -60,7 +60,7 @@ watchEffect(() => {
 const selectPrice = computed(() => (prices.value?.[String(forms.value?.product_in_certificate_id)] ?? 0) * 2)
 
 const paymentTypes = computed(() =>
-    props.product?.info_recommendations?.data?.find(a => a.data?.id == forms.value?.product_in_certificate_id)?.data?.payment_types?.map(paymentType => { return { label: getTitlePaymentTypes(paymentType), value: paymentType } }) ?? []
+    props.product?.payment_types?.map(paymentType => { return { label: getTitlePaymentTypes(paymentType), value: paymentType } }) ?? []
 )
 const selectSertificateTitle = computed(() => props.product?.info_recommendations?.data?.find(a => a.data?.id == forms.value?.product_in_certificate_id)?.data?.lang_info?.title)
 
