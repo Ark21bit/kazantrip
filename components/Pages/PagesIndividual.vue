@@ -17,7 +17,7 @@
                 <TableTh>{{ generalConfig?.static_info?.global_words?.cost_per_group }}</TableTh>
             </TableTr>
         </template>
-        <TableTr v-for="infoPrice in pageInfo?.info_prices.data">
+        <TableTr v-for="infoPrice in pricesSort">
             <TableTd before :data-label="generalConfig?.static_info?.global_words?.members_in_the_group">{{ getTitleInfoPrices(infoPrice?.type_price_id) }}</TableTd>
             <TableTd before :data-label="generalConfig?.static_info?.global_words?.cost_per_group">{{ infoPrice?.price }} ₽</TableTd>
         </TableTr>
@@ -46,6 +46,12 @@ const props = defineProps({
     pageInfo: Object as PropType<IndividualEData>,
     type: String as PropType<PageType>
 })
-const { closeModal, isModalShow, openModal } = useModal()
+
 const { generalConfig } = storeToRefs(useGeneralConfigStore())
+
+const pricesSort = computed(() => {
+    const array = [...props.pageInfo?.info_prices?.data ?? []]
+    return array?.sort((a, b) => Number(generalConfig.value?.static_info?.price_type_sort?.indexOf(a?.type_price_id)) - Number(generalConfig.value?.static_info?.price_type_sort?.indexOf(b?.type_price_id)))
+})
+
 </script>

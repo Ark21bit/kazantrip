@@ -53,7 +53,8 @@ export interface StaticInfo {
         title: string;
         url: string;
     },
-    ticket_sort: number[]
+    ticket_sort: number[],
+    price_type_sort: number[],
 }
 
 export interface BottomFooter {
