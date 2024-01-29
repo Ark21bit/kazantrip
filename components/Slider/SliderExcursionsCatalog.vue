@@ -1,7 +1,7 @@
 <template>
     <div class="flex flex-col gap-5 lg:flex-row relative contain-layout">
-        <Swiper slides-per-view="auto" class="w-full max-lg:([&>.swiper-wrapper]:(flex-wrap gap-3 overflow-hidden h-auto !transform-none))" :class="{ '[&>.swiper-wrapper]:max-lg:max-h-44': isShort }" v-bind="options">
-            <SwiperSlide v-for="item in generalConfig?.structure" class="w-fit">
+        <Swiper :initial-slide="initialSlide" slides-per-view="auto" class="w-full max-lg:([&>.swiper-wrapper]:(flex-wrap gap-3 overflow-hidden h-auto !transform-none))" :class="{ '[&>.swiper-wrapper]:max-lg:max-h-44': isShort }" v-bind="options">
+            <SwiperSlide v-for="(item, index) in generalConfig?.structure" @click="initialSlide = index" class="w-fit">
                 <Bage class="[&.router-link-active]:(bg-primary text-white)" :tag="CustomLink" :to="item?.slug" link>{{ item?.title }}</Bage>
             </SwiperSlide>
             <Button class="w-fit lg:hidden mt-5" size="lg" @click="toggle" padded variant="link">{{ isShort ? generalConfig?.static_info?.global_words?.more : generalConfig?.static_info?.global_words?.hide }}</Button>
@@ -48,5 +48,6 @@ const isShort = useState('sliderExcursionsCatalogIsShort', () => true)
 const toggle = () => {
     isShort.value = !isShort.value
 }
+const initialSlide = useState('SliderExcursionsCatalogInitialSlide', () => 0) 
 </script>
 
