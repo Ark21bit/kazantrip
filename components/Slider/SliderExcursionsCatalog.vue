@@ -1,8 +1,8 @@
 <template>
     <div class="flex flex-col gap-5 lg:flex-row relative contain-layout">
         <Swiper :initial-slide="initialSlide" slides-per-view="auto" class="w-full max-lg:([&>.swiper-wrapper]:(flex-wrap gap-3 overflow-hidden h-auto !transform-none))" :class="{ '[&>.swiper-wrapper]:max-lg:max-h-44': isShort }" v-bind="options">
-            <SwiperSlide v-for="(item, index) in generalConfig?.structure" @click="initialSlide = index" class="w-fit">
-                <Bage class="[&.router-link-active]:(bg-primary text-white)" :tag="CustomLink" :to="item?.slug" link>{{ item?.title }}</Bage>
+            <SwiperSlide v-for="item in links" class="w-fit">
+                <Bage class="[&.router-link-active]:(bg-primary text-white)" :tag="CustomLink" :to="item?.slug" link>{{ item.title }} {{ initialSlide }}</Bage>
             </SwiperSlide>
             <Button class="w-fit lg:hidden mt-5" size="lg" @click="toggle" padded variant="link">{{ isShort ? generalConfig?.static_info?.global_words?.more : generalConfig?.static_info?.global_words?.hide }}</Button>
         </Swiper>
@@ -19,6 +19,9 @@
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Navigation, Mousewheel } from 'swiper/modules';
 import { CustomLink } from '#components';
+import { isEqual } from 'ufo'
+const { locale } = useI18n()
+const route = useRoute()
 const options = {
     modules: [Mousewheel, Navigation],
     mousewheel: {
@@ -48,6 +51,63 @@ const isShort = useState('sliderExcursionsCatalogIsShort', () => true)
 const toggle = () => {
     isShort.value = !isShort.value
 }
-const initialSlide = useState('SliderExcursionsCatalogInitialSlide', () => 0) 
-</script>
 
+const getUrl = (url: string) => url.substring(0, 1) == '/' ? url : `/${url}`
+const localePath = useLocalePath()
+const initialSlide = computed(() => generalConfig.value?.structure.findIndex(a => {
+    if (route.path == localePath('/excursions/individual')) return -1
+    return isEqual(localePath(getUrl(a.slug)), route.path, { trailingSlash: true })
+}))
+
+const linksForIndividualPage = {
+    "ru": [
+        {
+            slug: 'individual-avto-3897',
+            title: 'Автобусные'
+        },
+        {
+            slug: 'individual-walk-3897',
+            title: 'Пешеходные'
+        },
+        {
+            slug: 'individual-obzor-3897',
+            title: 'Обзорные'
+        },
+        {
+            slug: 'individual-outdoor-3897',
+            title: 'Выездные'
+        },
+        {
+            slug: 'individual-gastro-3897',
+            title: 'Гастрономические'
+        }
+    ],
+    "en": [
+        {
+            slug: 'individual-avto-3897',
+            title: 'Автобусные'
+        },
+        {
+            slug: 'individual-walk-3897',
+            title: 'Пешеходные'
+        },
+        {
+            slug: 'individual-obzor-3897',
+            title: 'Обзорные'
+        },
+        {
+            slug: 'individual-outdoor-3897',
+            title: 'Выездные'
+        },
+        {
+            slug: 'individual-gastro-3897',
+            title: 'Гастрономические'
+        }
+    ],
+}
+
+const links = computed(() => {
+    if (route.path == localePath('/excursions/individual')) return linksForIndividualPage[locale.value as 'ru' | 'en']
+    return generalConfig.value?.structure
+})
+</script>
