@@ -2,7 +2,7 @@
     <div class="flex flex-col gap-5 lg:flex-row relative contain-layout">
         <Swiper :initial-slide="initialSlide" slides-per-view="auto" class="w-full max-lg:([&>.swiper-wrapper]:(flex-wrap gap-3 overflow-hidden h-auto !transform-none))" :class="{ '[&>.swiper-wrapper]:max-lg:max-h-44': isShort }" v-bind="options">
             <SwiperSlide v-for="item in links" class="w-fit">
-                <Bage class="[&.router-link-active]:(bg-primary text-white)" :tag="CustomLink" :to="item?.slug" link>{{ item.title }} {{ initialSlide }}</Bage>
+                <Bage class="[&.router-link-active]:(bg-primary text-white)" :tag="CustomLink" :to="item?.slug" link>{{ item.title }}</Bage>
             </SwiperSlide>
             <Button class="w-fit lg:hidden mt-5" size="lg" @click="toggle" padded variant="link">{{ isShort ? generalConfig?.static_info?.global_words?.more : generalConfig?.static_info?.global_words?.hide }}</Button>
         </Swiper>
